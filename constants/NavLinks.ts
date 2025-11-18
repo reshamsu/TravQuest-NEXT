@@ -1,0 +1,16 @@
+export const Nav_Links = [
+  { href: "/", key: "home", label: "Home" },
+  { href: "/travel-uae", key: "travel-uae", label: "Travel UAE" },
+  {
+    key: "destinations",
+    label: "Destinations",
+    submenu: [
+      { href: "/destinations/sri-lanka", label: "Sri Lanka" },
+      { href: "/destinations/maldives", label: "Maldives" },
+      { href: "/destinations/singapore", label: "Singapore" },
+      { href: "/destinations/thailand", label: "Thailand" },
+    ],
+  },
+  { href: "/about", key: "about", label: "About" },
+  { href: "/contact", key: "contact", label: "Contact" },
+];
