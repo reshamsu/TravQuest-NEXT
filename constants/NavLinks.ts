@@ -1,6 +1,6 @@
 export const Nav_Links = [
   { href: "/", key: "home", label: "Home" },
-  { href: "/travel-uae", key: "travel-uae", label: "Travel UAE" },
+  { href: "/explore-uae", key: "explore-uae", label: "Explore UAE" },
   {
     key: "destinations",
     label: "Destinations",

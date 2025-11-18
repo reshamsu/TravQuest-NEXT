@@ -10,14 +10,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <HideNavbar />
-      <body className="relative overflow-hidden">{children}</body>
-      <HideFooter />
+      <body>
+        <HideNavbar />
+        <main className="relative overflow-hidden">{children}</main>
+        <HideFooter />
+      </body>
     </html>
   );
 }

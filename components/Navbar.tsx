@@ -3,9 +3,16 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Kaushan_Script } from "next/font/google";
 import { usePathname } from "next/navigation";
 import { Nav_Links } from "@/constants/NavLinks";
-import { TbMenu, TbWorld, TbX, TbChevronDown, TbPhone } from "react-icons/tb";
+import { TbMenu, TbX, TbChevronDown, TbPhone } from "react-icons/tb";
+
+// Load the font OUTSIDE the component (required)
+const kaushan = Kaushan_Script({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -22,29 +29,34 @@ const Navbar = () => {
   return (
     <header className="fixed z-40 w-full bg-white backdrop-blur-3xl shadow-md text-black">
       <nav className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6 2xl:px-0">
-        <div className="flex items-center gap-4">
+
+        {/* Logo + Mobile Button */}
+        <div className="flex items-center gap-2 lg:gap-4">
           <button
             aria-label="Open menu"
             className="lg:hidden"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (
-              <TbX className="w-8 h-8 cursor-pointer" />
+              <TbX className="w-8 h-8 cursor-pointer text-[#05B0AA]" />
             ) : (
-              <TbMenu className="w-8 h-8 cursor-pointer" />
+              <TbMenu className="w-8 h-8 cursor-pointer text-[#f2836f]" />
             )}
           </button>
 
           <Link href="/" className="flex items-center gap-1">
             <Image
               src="/favicon.ico"
-              alt="TA"
+              alt="TQ"
               width={60}
               height={60}
               className="object-contain"
             />
-            <h1 className="hidden lg:flex text-lg 2xl:text-xl font-extrabold">
-              TravQuest
+
+            <h1
+              className={`${kaushan.className} hidden lg:flex text-lg 2xl:text-2xl font-extrabold text-teal-500`}
+            >
+              Trav<span className="text-[#f2836f]">Quest</span>
             </h1>
           </Link>
         </div>
@@ -52,18 +64,22 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <ul className="hidden h-full gap-3 lg:flex text-[15px]">
           {Nav_Links.map((link) => {
-            const isActive = pathname.startsWith(link.href || "");
+            const isActive =
+              link.href === "/"
+                ? pathname === "/"
+                : pathname === link.href ||
+                  pathname.startsWith(link.href + "/");
 
             return (
               <li key={link.key} className="relative group">
                 {link.submenu ? (
                   <button
                     className={`flex items-center cursor-pointer transition-all duration-500 rounded-full py-2.5 px-4
-                        ${
-                          isActive
-                            ? "bg-transparent font-bold text-black"
-                            : "hover:font-bold text-[#f2836f]"
-                        }`}
+                      ${
+                        isActive
+                          ? "bg-[#f2836f]/10 font-bold text-[#f2836f]"
+                          : "hover:font-bold text-black"
+                      }`}
                   >
                     {link.label}
                     <TbChevronDown size={16} className="ml-1" />
@@ -72,11 +88,11 @@ const Navbar = () => {
                   <Link
                     href={link.href}
                     className={`flex items-center cursor-pointer transition-all duration-500 rounded-full py-2.5 px-4
-                        ${
-                          isActive
-                            ? "bg-transparent font-bold text-black"
-                            : "hover:font-bold text-black]"
-                        }`}
+                      ${
+                        isActive
+                          ? "bg-[#f2836f]/10 font-bold text-[#f2836f]"
+                          : "hover:font-bold text-black"
+                      }`}
                   >
                     {link.label}
                   </Link>
@@ -88,7 +104,7 @@ const Navbar = () => {
                     {link.submenu.map((sublink) => (
                       <li
                         key={sublink.href}
-                        className="py-2.5 px-4 rounded-xl text-black hover:text-black hover:bg-black/5 transition"
+                        className="py-2.5 px-4 rounded-xl text-black hover:text-[#f2836f] hover:bg-[#f2836f]/10 transition"
                       >
                         <Link href={sublink.href} className="block w-full">
                           {sublink.label}
@@ -104,7 +120,7 @@ const Navbar = () => {
 
         {/* Desktop Right Side */}
         <div className="flex items-center gap-4 text-sm">
-          <Link href="/" className="select-none btn-dark-sm btn-dynamic">
+          <Link  href="https://wa.me/971529991223" className="select-none btn-dark-sm btn-dynamic">
             <TbPhone size={22} /> Inquire Now
           </Link>
         </div>
@@ -122,8 +138,7 @@ const Navbar = () => {
               {link.submenu ? (
                 <details className="group">
                   <summary
-                    className={`flex items-center justify-between cursor-pointer rounded-full w-full py-3 px-6 transition-all duration-500
-                      hover:bg-white/5 text-black/80`}
+                    className="flex items-center justify-between cursor-pointer rounded-full w-full py-3 px-6 transition-all duration-500 hover:bg-white/5 text-black/80"
                   >
                     {link.label}
                     <TbChevronDown className="ml-1" />
@@ -135,7 +150,7 @@ const Navbar = () => {
                         <Link
                           href={sublink.href}
                           onClick={() => setIsOpen(false)}
-                          className="block hover:text-[#dd9e5e]"
+                          className="block hover:text-[#f2836f]"
                         >
                           {sublink.label}
                         </Link>
@@ -147,7 +162,7 @@ const Navbar = () => {
                 <Link
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center justify-between transition-all duration-500 rounded-full w-full py-3 px-6 hover:bg-white/5 text-black`}
+                  className="flex items-center justify-between transition-all duration-500 rounded-full w-full py-3 px-6 hover:bg-white/5 text-black"
                 >
                   {link.label}
                 </Link>
