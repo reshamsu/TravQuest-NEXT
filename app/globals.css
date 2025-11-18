@@ -44,7 +44,7 @@ body {
     @apply inline-flex items-center justify-center gap-2 hover:gap-3 font-bold rounded-full border-2 border-white/15 bg-[#f2836f] hover:bg-teal-700/90 px-6 py-2.5 text-[15px] text-white cursor-pointer transition-all hover:scale-105 w-fit duration-700;
   }
   .btn-green-sm {
-    @apply inline-flex items-center justify-center gap-2 hover:gap-3 font-bold rounded-full border-2 hover:border-teal-500 bg-teal-600 hover:bg-teal-500 hover:shadow-lg px-6 py-2.5 text-[15px] text-white cursor-pointer transition-all hover:scale-105 w-full duration-700;
+    @apply inline-flex items-center justify-center gap-2 hover:gap-3 font-bold rounded-full border-2 hover:border-teal-500 bg-teal-600 hover:bg-teal-500 hover:shadow-lg px-6 py-3 text-[15px] text-white cursor-pointer transition-all hover:scale-105 w-full duration-700;
   }
   .btn-orange-base {
     @apply inline-flex items-center justify-center gap-2 hover:gap-3 font-bold rounded-full border-2 hover:border-[#f2836f]/20 bg-[#f2836f] hover:bg-[#f2836f]/90 hover:shadow-lg px-8 py-3.5 text-[15px] text-white cursor-pointer transition-all hover:scale-105 w-fit duration-700;

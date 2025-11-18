@@ -14,7 +14,7 @@ const Discovery = () => {
     <div className="bg-gradient-to-b from-teal-200/10 via-[#ffffff] to-[#ffffff]">
       <div className="max-w-7xl mx-auto flex flex-col gap-10 py-20 px-6 md:px-10 2xl:px-0">
         <div className="flex flex-col justify-center gap-2">
-          <label htmlFor="" className="text-sm md:text-base font-extrabold text-gray-600">
+          <label htmlFor="" className="text-sm md:text-base font-extrabold text-[#f2836f]">
             WHERE TIME-HONORED TRADITIONS EMBRACE THE FUTURE!
           </label>
           <h2 className="text-2xl md:text-3xl font-extrabold text-teal-600">

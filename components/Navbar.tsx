@@ -48,8 +48,8 @@ const Navbar = () => {
             <Image
               src="/favicon.ico"
               alt="TQ"
-              width={60}
-              height={60}
+              width={64}
+              height={64}
               className="object-contain"
             />
 
@@ -78,7 +78,7 @@ const Navbar = () => {
                       ${
                         isActive
                           ? "bg-[#f2836f]/10 font-bold text-[#f2836f]"
-                          : "hover:font-bold text-black"
+                          : "hover:font-bold text-black hover:text-[#f2836f]/80"
                       }`}
                   >
                     {link.label}
@@ -91,7 +91,7 @@ const Navbar = () => {
                       ${
                         isActive
                           ? "bg-[#f2836f]/10 font-bold text-[#f2836f]"
-                          : "hover:font-bold text-black"
+                          : "hover:font-bold text-black hover:text-[#f2836f]/80"
                       }`}
                   >
                     {link.label}
