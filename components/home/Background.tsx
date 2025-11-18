@@ -5,7 +5,7 @@ import Link from "next/link";
 const Background = () => {
   return (
     <div className="bg-gradient-to-b from-[#f2836f]/10 via-[#ffffff] to-[#ffffff]">
-      <div className="max-w-7xl mx-auto py-16 px-6 md:px-10 2xl:px-0">
+      <div className="max-w-7xl mx-auto py-20 px-6 md:px-10 2xl:px-0">
         <div className="relative h-[60vh] rounded-3xl w-full duration-1000 bg-gray-100">
           <Image
             src="/assets/hero/bg-burj-khalifa.jpg"
