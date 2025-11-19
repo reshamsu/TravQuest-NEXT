@@ -36,7 +36,7 @@ const travelOptions = [
 const Discovery = () => {
   return (
     <div className="bg-linear-to-b from-[#f2836f]/10 via-[#ffffff] to-[#ffffff]">
-      <div className="max-w-7xl mx-auto flex flex-col gap-10 py-20 px-8 md:px-10 2xl:px-0">
+      <div className="max-w-6xl mx-auto flex flex-col gap-10 py-20 px-8 md:px-10 2xl:px-0">
         <div className="flex flex-col items-center text-center md:items-start md:text-start justify-center gap-2">
           <label
             htmlFor=""

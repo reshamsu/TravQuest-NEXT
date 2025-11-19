@@ -36,13 +36,13 @@ const travelOptions = [
 const Shortcut = () => {
   return (
     <div className="bg-linear-to-b from-[#f2836f]/10 via-[#ffffff] to-teal-700/20">
-      <div className="max-w-7xl mx-auto flex flex-col gap-10 py-20 px-8 md:px-10 2xl:px-0">
+      <div className="max-w-6xl mx-auto flex flex-col gap-10 py-20 px-8 md:px-10 2xl:px-0">
         <div className="flex flex-col gap-4">
           <label
             htmlFor=""
             className="text-base md:text-lg font-extrabold text-[#f2836f]"
           >
-            A DESTINATION THAT LEAVES A MARK ON YOUR SOUL
+            WHERE DREAM TAKE FLIGHT
           </label>
           <h2 className="text-2xl md:text-3xl 2xl:text-3xl font-extrabold text-gray-700">
             Let’s Travel Around the Globe…
@@ -57,7 +57,7 @@ const Shortcut = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {travelOptions.map((option, index) => (
             <div
               key={index}

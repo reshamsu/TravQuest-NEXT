@@ -21,15 +21,22 @@ const Navbar = () => {
 
   return (
     <header className="fixed z-40 w-full bg-white backdrop-blur-3xl shadow-md text-black border-2 border-gray-100">
-      <nav className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6 2xl:px-0">
+      <nav className="max-w-6xl mx-auto flex items-center justify-between py-4 px-6 2xl:px-0">
         {/* Logo + Mobile Button */}
         <div className="flex items-center gap-2 lg:gap-4">
-          <Link href="/" className="flex items-center gap-1">
+          <Link href="/" className="flex items-center gap-6">
+            <Image
+              src="/favicon.ico"
+              alt="TQ"
+              width={70}
+              height={70}
+              className="absolute left-6 object-contain"
+            />
             <Image
               src="/tq-logo.png"
               alt="TQ"
-              width={200}
-              height={200}
+              width={180}
+              height={180}
               className="object-contain"
             />
           </Link>
