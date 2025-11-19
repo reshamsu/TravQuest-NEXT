@@ -10,8 +10,8 @@ import {
 const images = [
   "/assets/hero/sheikh_zayed_grand_mosque.jpg",
   "/assets/hero/burj-al-arab.jpg",
+    "/assets/hero/burj-khalifa1.jpg",
   "/assets/hero/burj-al-arab1.jpg",
-  "/assets/hero/sheikh-zayed-road.jpeg",
   "/assets/hero/burj-khalifa1.jpg",
 ];
 

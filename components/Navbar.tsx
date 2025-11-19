@@ -28,9 +28,9 @@ const Navbar = () => {
             <Image
               src="/favicon.ico"
               alt="TQ"
-              width={70}
-              height={70}
-              className="absolute left-6 object-contain"
+              width={64}
+              height={64}
+              className="relative md:absolute md:left-6 object-contain"
             />
             <Image
               src="/tq-logo.png"
