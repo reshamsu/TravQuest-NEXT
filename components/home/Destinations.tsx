@@ -45,7 +45,7 @@ const destinations = [
 const Destinations = () => {
   return (
     <div className="bg-gray-100 text-gray-800 relative">
-      <div className="max-w-7xl mx-auto py-20 px-6 2xl:px-0 flex flex-col gap-14">
+      <div className="max-w-7xl mx-auto py-20 px-8 2xl:px-0 flex flex-col gap-14">
         <div className="flex flex-col items-center text-center justify-center gap-4">
           <label
             htmlFor=""

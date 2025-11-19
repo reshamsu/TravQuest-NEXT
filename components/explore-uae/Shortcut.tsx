@@ -4,32 +4,32 @@ import Image from "next/image";
 
 const travelOptions = [
   {
-    title: "SRI LANKA",
+    title: "ABU DHABI",
     description:
       "An island nation in South Asia, is renowned for its stunning landscapes, rich cultural heritage, and diverse wildlife.",
-    img: "/assets/destinations/sri-lanka-ella.jpg",
-    link: "/discover/sri-lanka",
+    img: "/assets/destinations/abu-dhabi-city.jpg",
+    link: "/discover/abu-dhabi",
   },
   {
-    title: "MALDIVES",
+    title: "DUBAI",
     description:
       "Tropical paradise in the Indian Ocean, is renowned for its overwater bungalows, crystal-clear waters, and vibrant coral reefs.",
-    img: "/assets/destinations/maldives.jpg",
-    link: "/discover/maldives",
+    img: "/assets/destinations/burj-khalifa.webp",
+    link: "/discover/dubai",
   },
   {
-    title: "SINGAPORE",
+    title: "FUJAIRAH",
     description:
       "A dynamic city-state in Southeast Asia, is celebrated for its modernity, diverse culture, and iconic skyline",
-    img: "/assets/destinations/singapore.jpg",
-    link: "/discover/singapore",
+    img: "/assets/destinations/fujairah-castle.jpg",
+    link: "/discover/fujairah",
   },
   {
-    title: "THAILAND",
+    title: "RAS AL KHAIMAH",
     description:
       "A captivating blend of vibrant street life, serene temples, and stunning natural beauty.",
-    img: "/assets/destinations/thailand.jpg",
-    link: "/discover/thailand",
+    img: "/assets/destinations/ras-al-khaimah.jpg",
+    link: "/discover/ras-al-khaimah",
   },
 ];
 
@@ -42,11 +42,13 @@ const Shortcut = () => {
             htmlFor=""
             className="text-base md:text-lg font-extrabold text-[#f2836f]"
           >
-            A DESTINATION THAT LEAVES A MARK ON YOUR SOUL
+            DISCOVER THE ATTRACTION OF TRAVEL UAE
           </label>
           <h2 className="text-2xl md:text-3xl 2xl:text-3xl font-extrabold text-gray-700">
-            Let’s Travel Around the Globe…
-            <span className="text-teal-600">One Destination at a Time</span>
+            Discover the Essence of{" "}
+            <span className="text-teal-600">
+              Luxury and Tradition in the Travel UAE
+            </span>
           </h2>
           <p className="text-sm md:text-base text-gray-500">
             From bustling metropolises to serene landscapes, our global

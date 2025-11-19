@@ -3,16 +3,9 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Kaushan_Script } from "next/font/google";
 import { usePathname } from "next/navigation";
 import { Nav_Links } from "@/constants/NavLinks";
 import { TbMenu, TbX, TbChevronDown, TbPhone } from "react-icons/tb";
-
-// Load the font OUTSIDE the component (required)
-const kaushan = Kaushan_Script({
-  subsets: ["latin"],
-  weight: "400",
-});
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -27,42 +20,23 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <header className="fixed z-40 w-full bg-white backdrop-blur-3xl shadow-md text-black">
+    <header className="fixed z-40 w-full bg-white backdrop-blur-3xl shadow-md text-black border-2 border-gray-100">
       <nav className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6 2xl:px-0">
-
         {/* Logo + Mobile Button */}
         <div className="flex items-center gap-2 lg:gap-4">
-          <button
-            aria-label="Open menu"
-            className="lg:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? (
-              <TbX className="w-8 h-8 cursor-pointer text-[#05B0AA]" />
-            ) : (
-              <TbMenu className="w-8 h-8 cursor-pointer text-[#f2836f]" />
-            )}
-          </button>
-
           <Link href="/" className="flex items-center gap-1">
             <Image
-              src="/favicon.ico"
+              src="/tq-logo.png"
               alt="TQ"
-              width={64}
-              height={64}
+              width={200}
+              height={200}
               className="object-contain"
             />
-
-            <h1
-              className={`${kaushan.className} hidden lg:flex text-lg 2xl:text-2xl font-extrabold text-teal-500`}
-            >
-              Trav<span className="text-[#f2836f]">Quest</span>
-            </h1>
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden h-full gap-3 lg:flex text-[15px]">
+        <ul className="hidden h-full gap-3 lg:flex text-[14px]">
           {Nav_Links.map((link) => {
             const isActive =
               link.href === "/"
@@ -78,7 +52,7 @@ const Navbar = () => {
                       ${
                         isActive
                           ? "bg-[#f2836f]/10 font-bold text-[#f2836f]"
-                          : "hover:font-bold text-black hover:text-[#f2836f]/80"
+                          : "hover:font-bold text-black hover:text-[#f2836f]/70"
                       }`}
                   >
                     {link.label}
@@ -119,11 +93,25 @@ const Navbar = () => {
         </ul>
 
         {/* Desktop Right Side */}
-        <div className="flex items-center gap-4 text-sm">
-          <Link  href="https://wa.me/971529991223" className="select-none btn-dark-sm btn-dynamic">
+        <div className="hidden lg:flex items-center gap-4 text-sm">
+          <Link
+            href="https://wa.me/971529991223"
+            className="select-none btn-dark-sm btn-dynamic"
+          >
             <TbPhone size={22} /> Inquire Now
           </Link>
         </div>
+        <button
+          aria-label="Open menu"
+          className="lg:hidden"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? (
+            <TbX className="w-8 h-8 cursor-pointer text-[#f2836f]" />
+          ) : (
+            <TbMenu className="w-8 h-8 cursor-pointer text-[#05B0AA] " />
+          )}
+        </button>
       </nav>
 
       {/* Mobile Dropdown */}
@@ -137,9 +125,7 @@ const Navbar = () => {
             <li key={link.key}>
               {link.submenu ? (
                 <details className="group">
-                  <summary
-                    className="flex items-center justify-between cursor-pointer rounded-full w-full py-3 px-6 transition-all duration-500 hover:bg-white/5 text-black/80"
-                  >
+                  <summary className="flex items-center justify-between cursor-pointer rounded-full w-full py-3 px-6 transition-all duration-500 hover:bg-white/5 text-black/80">
                     {link.label}
                     <TbChevronDown className="ml-1" />
                   </summary>
@@ -169,6 +155,14 @@ const Navbar = () => {
               )}
             </li>
           ))}
+          <div className="p-4">
+            <Link
+              href="https://wa.me/971529991223"
+              className="select-none btn-orange-base btn-dynamic"
+            >
+              <TbPhone size={22} /> Inquire Now
+            </Link>
+          </div>
         </ul>
       </div>
     </header>

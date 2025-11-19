@@ -8,16 +8,9 @@ import {
   FaInstagram,
   FaLinkedin,
 } from "react-icons/fa";
-import { Kaushan_Script } from "next/font/google";
 import { TbMail } from "react-icons/tb";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
-// Load the font OUTSIDE the component (required)
-const kaushan = Kaushan_Script({
-  subsets: ["latin"],
-  weight: "400",
-});
 
 const Footer = () => {
   const router = useRouter();
@@ -31,8 +24,8 @@ const Footer = () => {
     <footer className="bg-gray-900 text-gray-500 border-t border-white/10">
       <div className="max-w-7xl mx-auto py-14 2xl:pt-20 pb-10 px-8 2xl:px-0 flex flex-col items-center gap-10">
         <div className="flex flex-col lg:flex-row gap-10 w-full pb-10 border-b border-gray-800">
-          <div className="flex flex-col items-center text-center md:items-start md:text-start gap-8 w-full md:w-xs">
-            <Link href="/" className="flex items-center gap-1">
+          <div className="flex flex-col items-center text-center gap-6 w-full md:w-xs">
+            {/* <Link href="/" className="flex items-center gap-1">
               <Image
                 src="/favicon.ico"
                 alt="TQ"
@@ -42,7 +35,18 @@ const Footer = () => {
               <h1 className={`${kaushan.className} flex text-2xl 2xl:text-3xl font-extrabold text-teal-500`}>
                 Trav<span className="text-[#f2836f]">Quest</span>
               </h1>
+            </Link> */}
+            <Link href="/" className="flex items-center gap-1">
+              <Image
+                src="/tq-logo.png"
+                alt="TQ"
+                width={220}
+                height={220}
+                className="object-contain"
+              />
             </Link>
+
+            <p className="text-sm">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
 
             <ul className="flex gap-2 text-xl 2xl:text-2xl">
               <li>
