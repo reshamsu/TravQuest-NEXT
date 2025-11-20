@@ -58,10 +58,10 @@ const Discovery = () => {
                 src={option.img}
                 alt={option.title}
                 fill
-                className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+                className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-125"
               />
 
-              <div className="absolute inset-0 bg-[#f2836f]/15 group-hover:bg-black/60 transition-all duration-1000"></div>
+              <div className="absolute inset-0 bg-black/64 lg:bg-[#f2836f]/15 group-hover:bg-black/64 transition-all duration-1000"></div>
 
               <div className="relative z-10 h-full flex flex-col items-start text-start justify-end gap-4 p-8 md:p-10 text-white">
                 <div className="flex flex-col gap-1">

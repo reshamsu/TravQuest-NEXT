@@ -75,7 +75,7 @@ const Destinations = () => {
                   src={dest.img}
                   alt={dest.title}
                   fill
-                  className="object-cover transform transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover transform transition-transform duration-1000 group-hover:scale-125"
                 />
                 <div className="absolute inset-0 group-hover:bg-black/10 transition"></div>
               </div>

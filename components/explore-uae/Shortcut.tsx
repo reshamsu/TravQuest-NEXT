@@ -69,7 +69,7 @@ const Shortcut = () => {
                 src={option.img}
                 alt={option.title}
                 fill
-                className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+                className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110"
               />
 
               <div className="absolute inset-0 bg-black/64 lg:bg-[#f2836f]/15 group-hover:bg-black/64 transition-all duration-1000"></div>
@@ -78,7 +78,7 @@ const Shortcut = () => {
                 <div className="flex flex-col gap-1">
                   <label
                     htmlFor=""
-                    className="text-xs md:text-sm font-extrabold text-[#f2836f] duration-700"
+                    className="text-xs md:text-sm font-extrabold text-[#f2836f] duration-1000"
                   >
                     TEXT HERE
                   </label>

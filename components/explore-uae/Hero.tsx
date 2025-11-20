@@ -5,11 +5,14 @@ import Image from "next/image";
 import { TbChevronLeft, TbChevronRight } from "react-icons/tb";
 
 const images = [
+  "/assets/hero/dubai-4k.avif",
   "/assets/hero/sheikh_zayed_grand_mosque.jpg",
   "/assets/hero/burj-al-arab.jpg",
+  "/assets/hero/dubai-city.jpg",
+  "/assets/hero/burj-khalifa2.jpg",
   "/assets/hero/burj-al-arab1.jpg",
-  "/assets/hero/sheikh-zayed-road.jpeg",
   "/assets/hero/burj-khalifa1.jpg",
+  "/assets/hero/bg-burj-khalifa1.jpg",
 ];
 
 const Hero = () => {
@@ -66,7 +69,7 @@ const Hero = () => {
         </div>
 
         <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-4 text-white/70 z-10 px-8 md:px-10 2xl:px-0">
-          <h1 className="text-2xl lg:text-3xl 2xl:text-4xl font-extrabold">
+          <h1 className="text-2xl lg:text-4xl 2xl:text-5xl font-extrabold">
             WHERE LUXURY MEETS INNOVATION
           </h1>
           <p className="text-sm md:text-lg font-semibold text-gray-100 max-w-3xl">

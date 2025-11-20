@@ -6,14 +6,14 @@ const Background = () => {
   return (
     <div className="bg-linear-to-b from-teal-700/20 via-[#ffffff] to-[#f2836f]/10">
       <div className="max-w-6xl mx-auto py-4 md:py-8 px-6 md:px-10 2xl:px-0">
-        <div className="relative h-[60vh] rounded-3xl w-full duration-1000 bg-gray-100">
+        <div className="relative h-[60vh] rounded-3xl w-full transition-all duration-1000 bg-gray-100">
           <Image
             src="/assets/hero/bg-burj-khalifa.jpg"
             alt=""
             fill
             className="object-cover rounded-3xl"
           />
-          <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-3xl duration-500" />
+          <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-3xl transition-all duration-700" />
         </div>
 
         <div className="max-w-4xl mx-4 md:ml-20 -mt-20 bg-white p-6.5 md:p-10 hover:scale-105 duration-1000 shadow-xl border-2 border-gray-100 rounded-3xl flex flex-col items-center text-center md:items-start md:text-start justify-center gap-4 md:gap-6 relative z-[5]">

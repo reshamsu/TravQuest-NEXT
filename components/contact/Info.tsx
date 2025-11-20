@@ -38,7 +38,7 @@ const Info = () => {
                 Call Us
                 <Link
                   href="https://wa.me/971529991223"
-                  className="text-base md:text-base font-semibold hover:underline"
+                  className="text-sm md:text-base font-semibold hover:underline"
                 >
                   +971 52 999 1223
                 </Link>
