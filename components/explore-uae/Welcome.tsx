@@ -49,7 +49,7 @@ const Welcome = () => {
         </p>
       </div>
       <div className="flex flex-col gap-4">
-        <div className="relative h-full w-full">
+        <div className="relative h-80 md:h-full w-full">
           <Image
             src="/assets/hero/TheUAE.jpg"
             alt="UAE"
@@ -63,7 +63,7 @@ const Welcome = () => {
           {images.map((src, i) => (
             <div
               key={i}
-              className="relative h-[250px] rounded-3xl w-full duration-1000 bg-gray-100"
+              className="relative h-[120px] rounded-3xl w-full duration-1000 bg-gray-100"
             >
               <Image
                 src={src}
