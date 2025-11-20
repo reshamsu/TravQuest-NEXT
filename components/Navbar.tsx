@@ -20,7 +20,7 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <header className="fixed z-40 w-full bg-white backdrop-blur-3xl shadow-md text-black border-2 border-gray-100">
+    <header className="fixed z-40 w-full bg-white/90 backdrop-blur-md shadow-md text-black border-2 border-gray-100/80">
       <nav className="max-w-6xl mx-auto flex items-center justify-between py-4 px-6 2xl:px-0">
         {/* Logo + Mobile Button */}
         <div className="flex items-center gap-2 lg:gap-4">

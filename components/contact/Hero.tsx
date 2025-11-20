@@ -8,7 +8,7 @@ const Hero = () => {
     <>
       <div className="bg-linear-to-b from-[#f2836f]/10 via-[#ffffff] to-teal-700/20 relative">
         {/* Carousel */}
-        <div className="relative h-[70vh] w-full overflow-hidden flex items-center justify-center text-center">
+        <div className="relative h-[60vh] md:h-[70vh] w-full overflow-hidden flex items-center justify-center text-center">
           <div className="absolute inset-0 w-full transition-opacity duration-1000 bg-gray-100">
             <Image
               src="/assets/hero/burj-al-arab.jpg"

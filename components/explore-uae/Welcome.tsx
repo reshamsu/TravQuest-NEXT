@@ -11,7 +11,7 @@ const images = [
 
 const Welcome = () => {
   return (
-    <div className="max-w-6xl mx-auto py-24 grid grid-cols-1 md:grid-cols-2 gap-14 lg:gap-24 px-6 md:px-10 2xl:px-0">
+    <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-14 lg:gap-24 px-8 md:px-10 2xl:px-0">
       <div className="flex flex-col items-center text-center justify-center gap-4 md:gap-6">
         <div className="flex flex-col gap-2">
           <label
@@ -63,7 +63,7 @@ const Welcome = () => {
           {images.map((src, i) => (
             <div
               key={i}
-              className="relative h-[100px] rounded-2xl w-full duration-1000 bg-gray-100"
+              className="relative h-[250px] rounded-3xl w-full duration-1000 bg-gray-100"
             >
               <Image
                 src={src}

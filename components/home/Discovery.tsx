@@ -63,19 +63,25 @@ const Discovery = () => {
 
               <div className="absolute inset-0 bg-[#f2836f]/15 group-hover:bg-black/60 transition-all duration-1000"></div>
 
-              <div className="relative z-10 h-full flex flex-col items-start text-start justify-end gap-6 p-8 md:p-12 text-white">
-                <div className="flex flex-col gap-2">
+              <div className="relative z-10 h-full flex flex-col items-start text-start justify-end gap-4 p-8 md:p-10 text-white">
+                <div className="flex flex-col gap-1">
+                  <label
+                    htmlFor=""
+                    className="text-xs md:text-sm font-extrabold text-[#f2836f] duration-700"
+                  >
+                    TEXT HERE
+                  </label>
                   <h2 className="text-xl 2xl:text-3xl font-extrabold">
                     {option.title}
                   </h2>
-                  <p className="text-xs 2xl:text-base font-semibold text-gray-100 line-clamp-3">
-                    {option.description}
-                  </p>
                 </div>
+                <p className="text-xs 2xl:text-sm font-semibold text-gray-100 line-clamp-3">
+                  {option.description}
+                </p>
                 <div className="flex items-center gap-4 text-sm">
                   <Link
                     href="/"
-                    className="select-none btn-orange-sm btn-dynamic"
+                    className="select-none btn-outline-sm btn-dynamic"
                   >
                     See More
                   </Link>

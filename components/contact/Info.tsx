@@ -26,18 +26,18 @@ const Info = () => {
           {/* Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-[15px] text-white">
             {/* PHONE */}
-            <div className="flex flex-col justify-center gap-6 rounded-3xl p-8 bg-teal-600 border border-[#f2836f]/30 hover:bg-[#f2836f] transition-all hover:scale-105 duration-700">
+            <div className="flex flex-col justify-around gap-4 rounded-3xl p-7 bg-teal-600 border hover:border-[#f2836f] hover:bg-[#f2836f]/90 transition-all hover:scale-105 duration-700">
               <div className="bg-white/25 w-fit p-3 rounded-full">
                 <TbPhone size={30} />
               </div>
               <label
                 htmlFor="
               "
-                className="flex flex-col gap-1.5 text-xl font-extrabold"
+                className="flex flex-col gap-0.5 text-lg font-extrabold"
               >
                 Call Us
                 <Link
-                  href="tel:+971529991223"
+                  href="https://wa.me/971529991223"
                   className="text-base md:text-base font-semibold hover:underline"
                 >
                   +971 52 999 1223
@@ -46,19 +46,19 @@ const Info = () => {
             </div>
 
             {/* EMAIL */}
-            <div className="flex flex-col justify-center gap-6 rounded-3xl p-8 bg-teal-600 border border-[#f2836f]/30 hover:bg-[#f2836f] transition-all hover:scale-105 duration-700">
+            <div className="flex flex-col justify-around gap-4 rounded-3xl p-7 bg-teal-600 border hover:border-[#f2836f] hover:bg-[#f2836f]/90 transition-all hover:scale-105 duration-700">
               <div className="bg-white/25 w-fit p-3 rounded-full">
                 <TbMail size={30} />
               </div>
               <label
                 htmlFor="
               "
-                className="flex flex-col gap-1.5 text-xl font-extrabold"
+                className="flex flex-col gap-0.5 text-lg font-extrabold"
               >
                 Email Us
                 <Link
                   href="mailto:shihan.suhood@thetravquest.com"
-                  className="text-base md:text-base font-semibold hover:underline break-all"
+                  className="text-sm md:text-base font-semibold hover:underline break-all"
                 >
                   shihan.suhood@thetravquest.com
                 </Link>
@@ -66,11 +66,11 @@ const Info = () => {
             </div>
 
             {/* ADDRESS */}
-            <div className="flex flex-col justify-center gap-3 rounded-3xl p-8 bg-teal-600 border border-[#f2836f]/30 hover:bg-[#f2836f] transition-all hover:scale-105 duration-700">
+            <div className="flex flex-col justify-around gap-3 rounded-3xl p-7 bg-teal-600 border hover:border-[#f2836f] hover:bg-[#f2836f]/90 transition-all hover:scale-105 duration-700">
               <div className="bg-white/25 w-fit p-3 rounded-full">
                 <TbMapPin size={30} />
               </div>
-              <h3 className="text-base md:text-lg font-bold">
+              <h3 className="text-sm md:text-base font-bold">
                 PO Box 35195, Meydan Business Center,
                 <br />
                 Meydan Hotel, Dubai, U.A.E

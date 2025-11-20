@@ -74,19 +74,25 @@ const Shortcut = () => {
 
               <div className="absolute inset-0 bg-black/64 lg:bg-[#f2836f]/15 group-hover:bg-black/64 transition-all duration-1000"></div>
 
-              <div className="relative z-10 h-full flex flex-col items-start text-start justify-end gap-10 p-8 text-white">
-                <div className="flex flex-col gap-3">
-                  <h3 className="text-xl 2xl:text23xl font-extrabold">
+              <div className="relative z-10 h-full flex flex-col items-start text-start justify-end gap-4 p-8 text-white">
+                <div className="flex flex-col gap-1">
+                  <label
+                    htmlFor=""
+                    className="text-xs md:text-sm font-extrabold text-[#f2836f] duration-700"
+                  >
+                    TEXT HERE
+                  </label>
+                  <h2 className="text-xl 2xl:text23xl font-extrabold">
                     {option.title}
-                  </h3>
-                  <p className="text-xs 2xl:text-sm font-semibold text-gray-100 line-clamp-3">
-                    {option.description}
-                  </p>
+                  </h2>
                 </div>
+                <p className="text-xs 2xl:text-xs font-semibold text-gray-100 line-clamp-3">
+                  {option.description}
+                </p>
                 <div className="flex items-center gap-4 text-sm">
                   <Link
                     href="/"
-                    className="select-none btn-orange-sm btn-dynamic"
+                    className="select-none btn-outline-sm btn-dynamic"
                   >
                     See More
                   </Link>

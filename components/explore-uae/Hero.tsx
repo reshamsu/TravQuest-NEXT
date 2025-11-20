@@ -2,10 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import {
-  TbChevronLeft,
-  TbChevronRight,
-} from "react-icons/tb";
+import { TbChevronLeft, TbChevronRight } from "react-icons/tb";
 
 const images = [
   "/assets/hero/sheikh_zayed_grand_mosque.jpg",
@@ -34,7 +31,7 @@ const Hero = () => {
   return (
     <div className="bg-white text-gray-900 relative">
       {/* Carousel */}
-      <div className="relative h-[70vh] w-full overflow-hidden flex items-center justify-center text-center">
+      <div className="relative h-[60vh] md:h-[70vh] w-full overflow-hidden flex items-center justify-center text-center">
         {images.map((banner, index) => (
           <div
             key={index}
@@ -69,8 +66,10 @@ const Hero = () => {
         </div>
 
         <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-4 text-white/70 z-10 px-8 md:px-10 2xl:px-0">
-          <h1 className="text-2xl lg:text-3xl 2xl:text-4xl font-extrabold">WHERE LUXURY MEETS INNOVATION</h1>
-          <p className="text-xs md:text-lg font-semibold text-gray-100 max-w-3xl">
+          <h1 className="text-2xl lg:text-3xl 2xl:text-4xl font-extrabold">
+            WHERE LUXURY MEETS INNOVATION
+          </h1>
+          <p className="text-sm md:text-lg font-semibold text-gray-100 max-w-3xl">
             Discover a New World of Travel and New destinations
           </p>
         </div>
