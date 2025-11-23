@@ -70,7 +70,7 @@ const Shortcut = () => {
                 className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
               />
 
-              <div className="absolute inset-0 bg-black/64 lg:bg-[#f2836f]/15 group-hover:bg-black/64 transition-all duration-1000"></div>
+              <div className="absolute inset-0 bg-black/64 lg:bg-[#f2836f]/10 group-hover:bg-black/64 transition-all duration-1000"></div>
 
               <div className="relative z-10 h-full flex flex-col items-start text-start justify-end gap-4 p-8 text-white">
                 <div className="flex flex-col gap-1">
@@ -90,7 +90,7 @@ const Shortcut = () => {
                 <div className="flex items-center gap-4 text-sm">
                   <Link
                     href="/"
-                    className="select-none btn-outline-sm btn-dynamic"
+                    className="select-none btn-dual-sm btn-dynamic"
                   >
                     See More
                   </Link>

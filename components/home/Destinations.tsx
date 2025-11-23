@@ -93,7 +93,7 @@ const Destinations = () => {
                 <div className="flex items-center gap-4 text-sm">
                   <Link
                     href="/"
-                    className="select-none btn-orange-sm btn-dynamic"
+                    className="select-none btn-orange-outline btn-dynamic"
                   >
                     Explore
                   </Link>

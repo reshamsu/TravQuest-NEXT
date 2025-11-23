@@ -23,14 +23,14 @@ const Navbar = () => {
     <header className="fixed z-40 w-full bg-white/90 backdrop-blur-md shadow-md text-black border-2 border-gray-100/80">
       <nav className="max-w-6xl mx-auto flex items-center justify-between py-4 px-6 2xl:px-0">
         {/* Logo + Mobile Button */}
-        <div className="flex items-center gap-2 lg:gap-4">
-          <Link href="/" className="flex items-center gap-6">
+        <div className="flex items-center justify-between gap-2 lg:gap-4">
+          <Link href="/" className="flex items-center gap-6 w-full">
             <Image
               src="/favicon.ico"
               alt="TQ"
               width={64}
               height={64}
-              className="relative md:absolute md:left-6 object-contain"
+              className="relative xl:absolute xl:left-6 object-contain"
             />
             <Image
               src="/tq-logo.png"

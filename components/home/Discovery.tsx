@@ -35,7 +35,7 @@ const travelOptions = [
 
 const Discovery = () => {
   return (
-    <div className="bg-linear-to-b from-[#f2836f]/10 via-[#ffffff] to-[#ffffff]">
+    <div className="bg-linear-to-b from-[#f2836f]/10 via-[#ffffff] to-[#ffffff] text-gray-700">
       <div className="max-w-6xl mx-auto flex flex-col gap-10 py-20 px-8 md:px-10 2xl:px-0">
         <div className="flex flex-col items-center text-center md:items-start md:text-start justify-center gap-2">
           <label
@@ -44,8 +44,8 @@ const Discovery = () => {
           >
             WHERE TIME-HONORED TRADITIONS EMBRACE THE FUTURE!
           </label>
-          <h2 className="text-2xl md:text-4xl font-extrabold text-teal-600">
-            DISCOVER THE UAE
+          <h2 className="text-2xl md:text-3xl font-extrabold">
+            DISCOVER <span className="text-teal-600">THE UAE</span>
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -81,7 +81,7 @@ const Discovery = () => {
                 <div className="flex items-center gap-4 text-sm">
                   <Link
                     href="/"
-                    className="select-none btn-outline-sm btn-dynamic"
+                    className="select-none btn-dual-sm btn-dynamic"
                   >
                     See More
                   </Link>

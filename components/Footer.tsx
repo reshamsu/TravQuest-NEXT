@@ -36,17 +36,26 @@ const Footer = () => {
                 Trav<span className="text-[#f2836f]">Quest</span>
               </h1>
             </Link> */}
-            <Link href="/" className="flex items-center gap-1">
+            <Link href="/" className="flex flex-col items-center gap-4">
+              <Image
+                src="/favicon.ico"
+                alt="TQ"
+                width={64}
+                height={64}
+                className="object-contain"
+              />
               <Image
                 src="/tq-logo.png"
                 alt="TQ"
-                width={220}
-                height={220}
+                width={180}
+                height={180}
                 className="object-contain"
               />
             </Link>
 
-            <p className="text-sm">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <p className="text-sm">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </p>
 
             <ul className="flex gap-2 text-xl 2xl:text-2xl">
               <li>
@@ -101,9 +110,9 @@ const Footer = () => {
           </div>
 
           {/* Footer Links */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full text-xs 2xl:text-sm">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 w-full text-xs 2xl:text-sm">
             {/* Explore */}
-            <div className="ml-0 xl:ml-10">
+            <div className="ml-0 xl:ml-20">
               <h6 className="text-sm 2xl:text-base font-semibold mb-3 text-white">
                 Explore
               </h6>
@@ -127,33 +136,8 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Support */}
-            <div className="ml-0 xl:ml-4">
-              <h6 className="text-sm 2xl:text-base font-semibold mb-3 text-white">
-                Support
-              </h6>
-              <ul className="flex flex-col gap-3">
-                {[
-                  "Help Center",
-                  "Safety Regulations",
-                  "Disability Support",
-                  "Help with Booking",
-                  "Emergency Contacts",
-                ].map((item, i) => (
-                  <li key={i}>
-                    <Link
-                      href="/blogs"
-                      className="hover:text-[#f2836f] hover:underline"
-                    >
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             {/* Products */}
-            <div className="ml-0 xl:ml-4">
+            <div className="ml-0 xl:ml-14">
               <h6 className="text-sm 2xl:text-base font-semibold mb-3 text-white">
                 Services
               </h6>
@@ -178,7 +162,7 @@ const Footer = () => {
             </div>
 
             {/* Company */}
-            <div>
+            <div className="ml-0 xl:ml-4">
               <h6 className="text-sm 2xl:text-base font-semibold mb-3 text-white">
                 TravQuest
               </h6>

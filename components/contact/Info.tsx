@@ -1,16 +1,10 @@
 import React from "react";
 import Link from "next/link";
-import {
-  FaWhatsapp,
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-} from "react-icons/fa";
 import { TbPhone, TbMail, TbMapPin } from "react-icons/tb";
 
 const Info = () => {
   return (
-    <div className="bg-linear-to-b from-[@ffffff] via-[#ffffff] to-teal-700/20">
+    <div className="bg-linear-to-b from-[#ffffff] via-[#ffffff] to-teal-700/20 text-gray-700">
       <div className="max-w-6xl mx-auto py-14 md:py-20 px-8 md:px-10 2xl:px-0">
         <div className="flex flex-col justify-center gap-8">
           {/* Heading */}
@@ -18,17 +12,17 @@ const Info = () => {
             <label className="text-base md:text-lg font-extrabold text-[#f2836f]">
               CONTACT
             </label>
-            <h2 className="text-2xl 2xl:text-3xl font-extrabold text-gray-700">
+            <h2 className="text-2xl 2xl:text-3xl font-extrabold">
               REACH OUT TO US
             </h2>
           </div>
 
           {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-[15px] text-white">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-[15px]">
             {/* PHONE */}
-            <div className="flex flex-col justify-around gap-4 rounded-3xl p-7 bg-teal-600 border hover:border-[#f2836f] hover:bg-[#f2836f]/90 transition-all hover:scale-105 duration-700">
-              <div className="bg-white/25 w-fit p-3 rounded-full">
-                <TbPhone size={30} />
+            <div className="flex flex-col justify-around gap-4 rounded-3xl p-7 bg-gray-200/40 hover:bg-gray-100 transition-all shadow-lg hover:scale-105 duration-700">
+              <div className="bg-white/80 w-fit p-3 rounded-full">
+                <TbPhone size={30} className="text-teal-600" />
               </div>
               <label
                 htmlFor="
@@ -46,9 +40,9 @@ const Info = () => {
             </div>
 
             {/* EMAIL */}
-            <div className="flex flex-col justify-around gap-4 rounded-3xl p-7 bg-teal-600 border hover:border-[#f2836f] hover:bg-[#f2836f]/90 transition-all hover:scale-105 duration-700">
-              <div className="bg-white/25 w-fit p-3 rounded-full">
-                <TbMail size={30} />
+            <div className="flex flex-col justify-around gap-4 rounded-3xl p-7 bg-gray-200/40 hover:bg-gray-100 transition-all shadow-lg hover:scale-105 duration-700">
+              <div className="bg-white/80 w-fit p-3 rounded-full">
+                <TbMail size={30} className="text-teal-600" />
               </div>
               <label
                 htmlFor="
@@ -66,9 +60,9 @@ const Info = () => {
             </div>
 
             {/* ADDRESS */}
-            <div className="flex flex-col justify-around gap-3 rounded-3xl p-7 bg-teal-600 border hover:border-[#f2836f] hover:bg-[#f2836f]/90 transition-all hover:scale-105 duration-700">
-              <div className="bg-white/25 w-fit p-3 rounded-full">
-                <TbMapPin size={30} />
+            <div className="flex flex-col justify-around gap-4 rounded-3xl p-7 bg-gray-200/40 hover:bg-gray-100 transition-all shadow-lg hover:scale-105 duration-700">
+              <div className="bg-white/80 w-fit p-3 rounded-full">
+                <TbMapPin size={30} className="text-teal-600" />
               </div>
               <h3 className="text-sm md:text-base font-bold">
                 PO Box 35195, Meydan Business Center,

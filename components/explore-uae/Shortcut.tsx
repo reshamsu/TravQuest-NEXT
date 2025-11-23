@@ -92,7 +92,7 @@ const Shortcut = () => {
                 <div className="flex items-center gap-4 text-sm">
                   <Link
                     href="/"
-                    className="select-none btn-outline-sm btn-dynamic"
+                    className="select-none btn-dual-sm btn-dynamic"
                   >
                     See More
                   </Link>
