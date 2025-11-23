@@ -8,28 +8,28 @@ const travelOptions = [
     description:
       "An island nation in South Asia, is renowned for its stunning landscapes, rich cultural heritage, and diverse wildlife.",
     img: "/assets/destinations/abu-dhabi-city.jpg",
-    link: "/discover/abu-dhabi",
+    link: "/destinations/abu-dhabi",
   },
   {
     title: "DUBAI",
     description:
       "Tropical paradise in the Indian Ocean, is renowned for its overwater bungalows, crystal-clear waters, and vibrant coral reefs.",
     img: "/assets/destinations/burj-khalifa.webp",
-    link: "/discover/dubai",
+    link: "/destinations/dubai",
   },
   {
     title: "FUJAIRAH",
     description:
       "A dynamic city-state in Southeast Asia, is celebrated for its modernity, diverse culture, and iconic skyline",
     img: "/assets/destinations/fujairah-castle.jpg",
-    link: "/discover/fujairah",
+    link: "/destinations/fujairah",
   },
   {
     title: "RAS AL KHAIMAH",
     description:
       "A captivating blend of vibrant street life, serene temples, and stunning natural beauty.",
     img: "/assets/destinations/ras-al-khaimah.jpg",
-    link: "/discover/ras-al-khaimah",
+    link: "/destinations/ras-al-khaimah",
   },
 ];
 
@@ -91,7 +91,7 @@ const Shortcut = () => {
                 </p>
                 <div className="flex items-center gap-4 text-sm">
                   <Link
-                    href="/"
+                    href={option.link}
                     className="select-none btn-dual-sm btn-dynamic"
                   >
                     See More

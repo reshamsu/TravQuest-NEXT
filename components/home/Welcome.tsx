@@ -60,7 +60,7 @@ const Welcome = () => {
               Live your story…Discover Another Destination!
             </h4>
 
-            <Link href="/" className="select-none btn-green-base btn-dynamic">
+            <Link href="/about" className="select-none btn-green-base btn-dynamic">
               Learn More
             </Link>
           </div>

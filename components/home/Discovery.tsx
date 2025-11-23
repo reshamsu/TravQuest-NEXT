@@ -8,28 +8,28 @@ const travelOptions = [
     description:
       "Capital of the UAE, known for opulent architecture and rich culture.",
     img: "/assets/destinations/abu-dhabi-city.jpg",
-    link: "/discover/abu-dhabi",
+    link: "/destinations/abu-dhabi",
   },
   {
     title: "DUBAI",
     description:
       "Glamorous city in the UAE, famous for its futuristic skyline and vibrant lifestyle.",
     img: "/assets/poster/event-burj-khalifa1.jpg",
-    link: "/discover/dubai",
+    link: "/destinations/dubai",
   },
   {
     title: "FUJAIRAH",
     description:
       "UAE's eastern emirate, known for its stunning coastline and historical sites.",
     img: "/assets/destinations/fujairah-castle.jpg",
-    link: "/discover/fujairah",
+    link: "/destinations/fujairah",
   },
   {
     title: "RAS AL KHAIMAH",
     description:
       "UAE's northern emirate, known for its natural beauty and historical landmarks.",
     img: "/assets/destinations/ras-al-khaimah.jpg",
-    link: "/discover/ras-al-khaimah",
+    link: "/destinations/ras-al-khaimah",
   },
 ];
 
@@ -80,7 +80,7 @@ const Discovery = () => {
                 </p>
                 <div className="flex items-center gap-4 text-sm">
                   <Link
-                    href="/"
+                    href={option.link}
                     className="select-none btn-dual-sm btn-dynamic"
                   >
                     See More
