@@ -20,8 +20,8 @@ const Info = () => {
           {/* Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-[15px]">
             {/* PHONE */}
-            <div className="flex flex-col justify-around gap-4 rounded-3xl p-7 bg-gray-200/40 hover:bg-gray-100 transition-all shadow-lg hover:scale-105 duration-700">
-              <div className="bg-white/80 w-fit p-3 rounded-full">
+            <div className="bg-white border-4 border-teal-600/80 p-7 flex flex-col items-start justify-center gap-6 rounded-3xl hover:scale-105 duration-1000 group shadow-lg">
+              <div className="bg-teal-600/20 w-fit p-3 rounded-2xl">
                 <TbPhone size={30} className="text-teal-600" />
               </div>
               <label
@@ -40,8 +40,8 @@ const Info = () => {
             </div>
 
             {/* EMAIL */}
-            <div className="flex flex-col justify-around gap-4 rounded-3xl p-7 bg-gray-200/40 hover:bg-gray-100 transition-all shadow-lg hover:scale-105 duration-700">
-              <div className="bg-white/80 w-fit p-3 rounded-full">
+            <div className="bg-white border-4 border-teal-600/80 p-7 flex flex-col items-start justify-center gap-6 rounded-3xl hover:scale-105 duration-1000 group shadow-lg">
+              <div className="bg-teal-600/20 w-fit p-3 rounded-2xl">
                 <TbMail size={30} className="text-teal-600" />
               </div>
               <label
@@ -60,8 +60,8 @@ const Info = () => {
             </div>
 
             {/* ADDRESS */}
-            <div className="flex flex-col justify-around gap-4 rounded-3xl p-7 bg-gray-200/40 hover:bg-gray-100 transition-all shadow-lg hover:scale-105 duration-700">
-              <div className="bg-white/80 w-fit p-3 rounded-full">
+            <div className="bg-white border-4 border-teal-600/80 p-7 flex flex-col items-start justify-center gap-6 rounded-3xl hover:scale-105 duration-1000 group shadow-lg">
+              <div className="bg-teal-600/20 w-fit p-3 rounded-2xl">
                 <TbMapPin size={30} className="text-teal-600" />
               </div>
               <h3 className="text-sm md:text-base font-bold">

@@ -1,65 +1,107 @@
 import React from "react";
 import {
-  TbKey,
-  TbShieldCheck,
-  TbCompass,
-  TbPlaneDeparture,
-} from "react-icons/tb";
+  FaHandshake,
+  FaStar,
+  FaFire,
+  FaLightbulb,
+  FaUserTie,
+  FaLeaf,
+  FaGlobeAsia,
+  FaSuitcaseRolling,
+  FaBuilding,
+} from "react-icons/fa";
 
 const Values = () => {
-  const valueData = [
+  const items = [
     {
-      title: "Seamless Unlock",
-      description:
-        "Unlock travel opportunities effortlessly with tools designed to simplify every step of your journey.",
-      icon: <TbKey size={32} className="text-teal-600" />,
+      icon: <FaHandshake className="text-3xl text-[#f2836f]" />,
+      title: "Integrity",
+      description: "Authenticity and transparency in every journey.",
     },
     {
-      title: "Transparent Trust",
-      description:
-        "Your trust matters most — clear pricing, secure bookings, and no hidden surprises, ever.",
-      icon: <TbShieldCheck size={32} className="text-teal-600" />,
+      icon: <FaStar className="text-3xl text-[#f2836f]" />,
+      title: "Service Excellence",
+      description: "Going beyond expectations with precision and care.",
     },
     {
-      title: "Smart Travel",
-      description:
-        "Plan smarter with personalized insights, curated itineraries, and guidance tailored to your style.",
-      icon: <TbCompass size={32} className="text-teal-600" />,
+      icon: <FaFire className="text-3xl text-[#f2836f]" />,
+      title: "Passion",
+      description: "Driven by a genuine love for travel and expertise.",
     },
     {
-      title: "Adventure Ready",
+      icon: <FaLightbulb className="text-3xl text-[#f2836f]" />,
+      title: "Innovation",
+      description: "Tech-driven solutions keeping you ahead.",
+    },
+    {
+      icon: <FaUserTie className="text-3xl text-[#f2836f]" />,
+      title: "Professionalism",
+      description: "Guided by experts with 25+ years of industry experience.",
+    },
+    {
+      icon: <FaLeaf className="text-3xl text-[#f2836f]" />,
+      title: "Sustainability",
+      description: "Committed to responsible travel and community impact.",
+    },
+    {
+      icon: <FaGlobeAsia className="text-3xl text-[#f2836f]" />,
+      title: "Personalized Travel",
+      description: "Handpicked destinations and tailored itineraries.",
+    },
+    {
+      icon: <FaSuitcaseRolling className="text-3xl text-[#f2836f]" />,
+      title: "Seamless Services",
       description:
-        "From weekend getaways to bucket-list escapes, we equip you to explore the world with confidence.",
-      icon: <TbPlaneDeparture size={32} className="text-teal-600" />,
+        "Meet & greet, transfers, hotels, tours, attractions, visas.",
+    },
+    {
+      icon: <FaBuilding className="text-3xl text-[#f2836f]" />,
+      title: "Corporate Events",
+      description: "Professional handling of launches, events, and functions.",
     },
   ];
 
   return (
     <div className="bg-gray-50 text-gray-700 relative">
       <div className="max-w-6xl mx-auto py-20 px-8 2xl:px-0 flex flex-col gap-10">
-        <div className="flex flex-col items-start text-start gap-3">
-          <h1 className="text-2xl 2xl:text-3xl font-extrabold">
+        <div className="flex flex-col items-center text-center lg:items-start lg:text-start gap-4">
+          <label
+            htmlFor=""
+            className="text-base md:text-lg font-extrabold text-teal-600"
+          >
+            OUR VALUES
+          </label>
+          <h1 className="text-2xl 2xl:text-4xl font-extrabold">
             WHAT <span className="text-[#f2836f]">WE DO</span>
           </h1>
-          <p className="text-sm 2xl:text-base max-w-3xl">
-            The principles that guide how we make travel simple, safe, and
-            extraordinary for you.
-          </p>
+          <div className="flex flex-col gap-2">
+            <p className="text-sm 2xl:text-base text-gray-600">
+              At <strong>The TravQuest Travel & Tourism</strong>, we specialize
+              in curating unforgettable journeys. Our mission is to turn your
+              travel dreams into reality.
+            </p>
+            <p className="text-sm 2xl:text-base text-gray-600">
+              Explore our handpicked destinations, expertly crafted itineraries,
+              and personalized experiences. Whether you seek adventure,
+              relaxation, or cultural immersion, we're here to create your
+              perfect getaway.
+            </p>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {valueData.map((val) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {items.map((item, index) => (
             <div
-              key={val.title}
-              className="bg-white p-7 flex flex-col items-start gap-6 rounded-3xl hover:scale-105 duration-1000 group shadow-lg"
+              key={index}
+              className="bg-white p-8 flex flex-col items-start gap-6 rounded-3xl hover:scale-105 duration-1000 group shadow-lg"
             >
-              <div className="p-3 bg-gray-100 rounded-2xl shadow-sm w-fit">
-                {val.icon}
+              <div className="p-3 bg-[#f2836f]/10 rounded-2xl shadow-sm w-fit">
+                {item.icon}
               </div>
-              <div className="flex flex-col gap-2.5">
-                <h3 className="text-lg font-extrabold">{val.title}</h3>
-                <p className="text-sm md:text-xs text-gray-500">
-                  {val.description}
-                </p>
+              <div className="flex flex-col gap-2">
+                <h3 className="text-lg font-extrabold capitalize text-teal-600">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-500">{item.description}</p>
               </div>
             </div>
           ))}
