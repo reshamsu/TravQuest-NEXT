@@ -8,48 +8,48 @@ const travelOptions = [
     description:
       "An island nation in South Asia, is renowned for its stunning landscapes, rich cultural heritage, and diverse wildlife.",
     img: "/assets/poster/stay.avif",
-    link: "/destinations/abu-dhabi",
+    link: "/destinations/dubai",
   },
   {
     title: "PLAY",
     description:
       "A dynamic city-state in Southeast Asia, is celebrated for its modernity, diverse culture, and iconic skyline",
     img: "/assets/poster/play.jpg",
-    link: "/destinations/fujairah",
+    link: "/destinations/dubai",
   },
   {
     title: "ICONIC MARVELS",
     description:
       "A captivating blend of vibrant street life, serene temples, and stunning natural beauty.",
     img: "/assets/poster/iconic.avif",
-    link: "/destinations/ras-al-khaimah",
+    link: "/destinations/dubai",
   },
     {
     title: "SHOP",
     description:
       "A dynamic city-state in Southeast Asia, is celebrated for its modernity, diverse culture, and iconic skyline",
     img: "/assets/poster/shop.avif",
-    link: "/destinations/fujairah",
+    link: "/destinations/dubai",
   },
   {
     title: "MEET",
     description:
       "A captivating blend of vibrant street life, serene temples, and stunning natural beauty.",
     img: "/assets/poster/meet.jpg",
-    link: "/destinations/ras-al-khaimah",
+    link: "/destinations/dubai",
   },
 ];
 
 const Shortcut = () => {
   return (
     <div className="bg-linear-to-b from-[#f2836f]/10 via-[#ffffff] to-[#ffffff]">
-      <div className="max-w-6xl mx-auto flex flex-col gap-10 py-20 px-8 md:px-10 2xl:px-0">
+      <div className="max-w-6xl mx-auto flex flex-col items-center text-center gap-10 py-20 px-8 md:px-10 2xl:px-0">
         <div className="flex flex-col gap-2">
           <label
             htmlFor=""
             className="text-base md:text-lg font-extrabold text-[#f2836f]"
           >
-            DISCOVER THE REAL ATTRACTION OF DUBAI
+            EXPLORE THE REAL ATTRACTION OF DUBAI
           </label>
           <h2 className="text-2xl md:text-3xl 2xl:text-3xl font-extrabold text-gray-700">
              Discover the Essence of{" "}

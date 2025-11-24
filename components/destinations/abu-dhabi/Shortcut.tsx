@@ -28,19 +28,19 @@ const travelOptions = [
 
 const Shortcut = () => {
   return (
-    <div className="bg-linear-to-b from-[#f2836f]/10 via-[#ffffff] to-teal-700/20">
+    <div className="bg-linear-to-b from-gray-100 via-[#ffffff] to-teal-700/20">
       <div className="max-w-6xl mx-auto flex flex-col gap-10 py-20 px-8 md:px-10 2xl:px-0">
         <div className="flex flex-col gap-4">
-          <label
+          {/* <label
             htmlFor=""
             className="text-base md:text-lg font-extrabold text-[#f2836f]"
           >
             DISCOVER THE ATTRACTION OF TRAVEL UAE
-          </label>
-          <h2 className="text-2xl md:text-3xl 2xl:text-3xl font-extrabold text-gray-700">
+          </label> */}
+          <h2 className="text-2xl md:text-3xl 2xl:text-3xl font-extrabold text-[#f2836f]">
             You may also check out{" "}
             <span className="text-teal-600">
-             other parts of UAE
+             Other parts of UAE
             </span>
           </h2>
           <p className="text-sm md:text-base text-gray-500">
@@ -85,7 +85,7 @@ const Shortcut = () => {
                 <div className="flex items-center gap-4 text-sm">
                   <Link
                     href={option.link}
-                    className="select-none btn-dual-sm btn-dynamic"
+                    className="select-none btn-godual-sm btn-dynamic"
                   >
                     See More
                   </Link>

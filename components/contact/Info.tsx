@@ -20,7 +20,7 @@ const Info = () => {
           {/* Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-[15px]">
             {/* PHONE */}
-            <div className="bg-white border-4 border-teal-800/60 p-7 flex flex-col items-start justify-center gap-6 rounded-3xl hover:scale-105 duration-1000 group shadow-lg">
+            <div className="bg-white border-4 border-teal-600/40 p-7 flex flex-col items-start justify-center gap-6 rounded-3xl hover:scale-105 duration-1000 group shadow-lg">
               <div className="bg-teal-600/20 w-fit p-3 rounded-2xl">
                 <TbPhone size={30} className="text-teal-600" />
               </div>
@@ -40,7 +40,7 @@ const Info = () => {
             </div>
 
             {/* EMAIL */}
-            <div className="bg-white border-4 border-teal-800/60 p-7 flex flex-col items-start justify-center gap-6 rounded-3xl hover:scale-105 duration-1000 group shadow-lg">
+            <div className="bg-white border-4 border-teal-600/40 p-7 flex flex-col items-start justify-center gap-6 rounded-3xl hover:scale-105 duration-1000 group shadow-lg">
               <div className="bg-teal-600/20 w-fit p-3 rounded-2xl">
                 <TbMail size={30} className="text-teal-600" />
               </div>
@@ -60,7 +60,7 @@ const Info = () => {
             </div>
 
             {/* ADDRESS */}
-            <div className="bg-white border-4 border-teal-800/60 p-7 flex flex-col items-start justify-center gap-6 rounded-3xl hover:scale-105 duration-1000 group shadow-lg">
+            <div className="bg-white border-4 border-teal-600/40 p-7 flex flex-col items-start justify-center gap-6 rounded-3xl hover:scale-105 duration-1000 group shadow-lg">
               <div className="bg-teal-600/20 w-fit p-3 rounded-2xl">
                 <TbMapPin size={30} className="text-teal-600" />
               </div>

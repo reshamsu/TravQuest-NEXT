@@ -8,28 +8,28 @@ const travelOptions = [
     description:
       "An island nation in South Asia, is renowned for its stunning landscapes, rich cultural heritage, and diverse wildlife.",
     img: "/assets/destinations/sri-lanka-ella.jpg",
-    link: "/explore/sri-lanka",
+    link: "/destinations/sri-lanka",
   },
   {
     title: "MALDIVES",
     description:
       "Tropical paradise in the Indian Ocean, is renowned for its overwater bungalows, crystal-clear waters, and vibrant coral reefs.",
     img: "/assets/destinations/maldives.jpg",
-    link: "/explore/maldives",
+    link: "/destinations/maldives",
   },
   {
     title: "SINGAPORE",
     description:
       "A dynamic city-state in Southeast Asia, is celebrated for its modernity, diverse culture, and iconic skyline",
     img: "/assets/destinations/singapore.jpg",
-    link: "/explore/singapore",
+    link: "/destinations/singapore",
   },
   {
     title: "THAILAND",
     description:
       "A captivating blend of vibrant street life, serene temples, and stunning natural beauty.",
     img: "/assets/destinations/thailand.jpg",
-    link: "/explore/thailand",
+    link: "/destinations/thailand",
   },
 ];
 
