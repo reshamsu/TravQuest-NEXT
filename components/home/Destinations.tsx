@@ -90,7 +90,7 @@ const Destinations = () => {
                   {dest.description}
                 </p>
 
-                <div className="flex items-center gap-4 text-sm">
+                <div className="flex items-center gap-4 text-sm my-4 mx-2">
                   <Link
                     href="/"
                     className="select-none btn-orange-outline btn-dynamic"

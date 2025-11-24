@@ -1,5 +1,5 @@
-import Link from "next/link";
-import Sidebar from "@/components/Sidebar"
+import Sidebar from "@/components/Sidebar";
+import Reserved from "@/components/Reserved";
 
 export default function DashboardLayout({
   children,
@@ -7,16 +7,12 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex h-screen">
-      
-      {/* SIDEBAR */}
-     <Sidebar />
-
-      {/* CONTENT */}
-      <main className="flex-1 p-6 bg-gray-50">
-        {children}
-      </main>
-
-    </div>
+    <html lang="en">
+      <body>
+        <Sidebar />
+        <main className="relative overflow-hidden">{children}</main>
+        <Reserved />
+      </body>
+    </html>
   );
 }
