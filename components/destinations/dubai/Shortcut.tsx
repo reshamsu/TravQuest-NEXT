@@ -28,8 +28,8 @@ const travelOptions = [
 
 const Shortcut = () => {
   return (
-    <div className="bg-linear-to-b from-[#f2836f]/10 via-[#ffffff] to-teal-700/20">
-      <div className="max-w-6xl mx-auto flex flex-col gap-10 py-20 px-8 md:px-10 2xl:px-0">
+    <div className="bg-linear-to-b from-[#ffffff] via-[#ffffff] to-teal-700/20">
+      <div className="max-w-6xl mx-auto flex flex-col gap-10  pt-10 py-20 px-8 md:px-10 2xl:px-0">
         <div className="flex flex-col gap-4">
           <label
             htmlFor=""
@@ -83,7 +83,7 @@ const Shortcut = () => {
                 <div className="flex items-center gap-4 text-sm">
                   <Link
                     href={option.link}
-                    className="select-none btn-dual-sm btn-dynamic"
+                    className="select-none btn-godual-sm btn-dynamic"
                   >
                     See More
                   </Link>

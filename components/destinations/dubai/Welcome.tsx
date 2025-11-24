@@ -3,55 +3,53 @@ import Image from "next/image";
 import Link from "next/link";
 
 const images = [
-  "/assets/poster/event-desert-safari1.webp",
+  "/assets/hero/burj-al-arab1.jpg",
   "/assets/poster/event-burj-khalifa1.jpg",
-  "/assets/poster/event-ferrari-world.jpg",
-  "/assets/hero/sheikh_zayed_grand_mosque.jpg",
+  "/assets/hero/burj-al-arab.jpg",
+  "/assets/hero/dubai-city.jpg",
 ];
 
 const Welcome = () => {
   return (
     <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-14 lg:gap-24 px-8 md:px-10 2xl:px-0">
-      <div className="flex flex-col items-center text-center justify-center gap-4 md:gap-6">
+      <div className="flex flex-col justify-center gap-4 md:gap-6">
         <div className="flex flex-col gap-2">
           <label
             htmlFor=""
-            className="text-base md:text-lg font-extrabold text-[#f2836f]"
+            className="text-base md:text-lg font-extrabold text-teal-600"
           >
-            A MELTING POT OF CULTURES & TRADITIONS
+            A EPITOME OF MODERNITY
           </label>
-          <h2 className="text-2xl 2xl:text-3xl font-extrabold text-teal-600">
-            A WONDEROUS UAE
+          <h2 className="text-2xl 2xl:text-3xl font-extrabold text-[#f2836f]">
+            THE FUTURE IS NOW IN DUBAI
           </h2>
         </div>
-
-        <p className="text-sm md:text-base text-gray-600">
-          The <strong>United Arab Emirates (UAE)</strong> is a melting pot of
-          cultures and traditions, with a rich history and heritage while it is
-          the home to a variety of landscapes,{" "}
-          <i>including beaches, deserts, mountains, and cityscapes.</i>
-        </p>
-        <p className="text-sm md:text-base text-gray-600">
-          The <strong>UAE</strong> is a vibrant nation nestled in the{" "}
-          <u>Arabian Peninsula</u> and is a federation of seven emirates,
-          consisting of <strong>Abu Dhabi (the capital city) </strong>, Ajman,
-          Dubai, Fujairah, Ras Al Khaimah, Sharjah and Umm Al Quwain.
-        </p>
-        <p className="text-sm md:text-base text-gray-600">
-          The <strong>Emirates</strong> comprise a mixed environment of rocky
-          desert, coastal plains and wetlands, and waterless mountains. The
-          seashore is a haven for migratory waterfowl and draws birdwatchers
-          from all over the world; the country’s unspoiled beaches and opulent
-          resorts also have drawn international travelers. Standing at a
-          historic and geographic crossroads and made up of diverse cultures,
-          the <strong>United Arab Emirates</strong> presents a striking blend of
-          traditions and modernity.
-        </p>
+        <div className="flex flex-col gap-3">
+          <p className="text-sm md:text-base text-gray-600">
+            With an unparalleled coastline, beautiful desert, and magnificent
+            cityscapes, memories are just waiting to be made here.
+          </p>{" "}
+          <p className="text-sm md:text-base text-gray-600">
+            From traditional souks to luxurious entertainment centers, golf
+            stadiums, recreational facilities, and sports activities,{" "}
+            <strong>Dubai</strong> offers a little bit of everything.
+          </p>
+          <p className="text-sm md:text-base text-gray-600">
+            <strong>Dubai</strong> is the epitome of modernity, reflected in its
+            state-of-the-art architecture,{" "}
+            <i>record-breaking attractions, and world-class.</i>
+          </p>
+          <p className="text-sm md:text-base text-gray-600">
+            Today, <strong>Dubai</strong> is among the most modern cities in the
+            world bustling with international trade, industry, and commerce.
+          </p>
+        </div>
       </div>
+
       <div className="flex flex-col gap-4">
-        <div className="relative h-80 md:h-full w-full">
+        <div className="relative h-90 w-full">
           <Image
-            src="/assets/hero/TheUAE.jpg"
+            src="/assets/hero/burj-khalifa.jpg"
             alt="UAE"
             fill
             className="object-cover rounded-3xl"

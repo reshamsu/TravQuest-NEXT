@@ -81,7 +81,7 @@ const Discovery = () => {
                 <div className="flex items-center gap-4 text-sm">
                   <Link
                     href={option.link}
-                    className="select-none btn-dual-sm btn-dynamic"
+                    className="select-none btn-godual-sm btn-dynamic"
                   >
                     See More
                   </Link>

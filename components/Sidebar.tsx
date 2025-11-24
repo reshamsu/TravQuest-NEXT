@@ -18,10 +18,10 @@ export default function Sidebar() {
     <>
       {/* Mobile Toggle */}
       <button
-        className="md:hidden fixed top-4 left-4 z-50 bg-white p-2 rounded-md shadow"
+        className="md:hidden fixed top-6 left-6 z-50 bg-white p-3 rounded-xl shadow"
         onClick={() => setOpen(true)}
       >
-        <TbMenu size={24} />
+        <TbMenu size={26} />
       </button>
 
       {/* Backdrop */}
@@ -34,39 +34,38 @@ export default function Sidebar() {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full w-70 bg-gray-900 text-white text-sm z-50 transform
+        className={`fixed top-0 left-0 h-screen w-70 bg-gray-900 text-white text-sm z-50 transform
           transition-transform duration-300 md:translate-x-0
           ${open ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
         `}
       >
         {/* Mobile Header */}
-        <div className="flex items-center justify-between p-8 md:hidden">
-          <h2 className="text-base font-bold">Dashboard</h2>
-          <button onClick={() => setOpen(false)}>
-            <TbX size={24} />
-          </button>
-        </div>
-
-        <nav className="flex flex-col gap-8 px-4 py-6">
+        <div className="flex items-center justify-between p-8">
           <div className="flex items-center justify-center gap-2 lg:gap-4">
-            <Link href="/" className="flex flex-col items-center gap-4">
+            <Link href="/" className="flex flex-row items-center gap-4">
               <Image
                 src="/favicon.ico"
                 alt="TQ"
-                width={64}
-                height={64}
+                width={40}
+                height={40}
                 className="object-contain"
               />
               <Image
                 src="/tq-logo.png"
                 alt="TQ"
-                width={180}
-                height={180}
+                width={120}
+                height={120}
                 className="object-contain"
               />
             </Link>
           </div>
 
+          <button onClick={() => setOpen(false)} className="block md:hidden">
+            <TbX size={24} />
+          </button>
+        </div>
+
+        <nav className="flex flex-col gap-8 px-4 py-6">
           <div className="flex flex-col gap-3">
             {Side_Links.map((link) => (
               <div key={link.key}>
