@@ -46,7 +46,7 @@ const Hero = () => {
               className="object-cover"
               priority={index === 0}
             />
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-black/25" />
           </div>
         ))}
 
