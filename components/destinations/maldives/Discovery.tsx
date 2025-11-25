@@ -59,7 +59,7 @@ const Shortcut = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full">
           {travelOptions.map((option, index) => (
             <div
               key={index}

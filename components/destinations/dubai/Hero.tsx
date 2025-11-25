@@ -5,7 +5,7 @@ import Image from "next/image";
 import { TbChevronLeft, TbChevronRight } from "react-icons/tb";
 
 const images = [
-  "/assets/hero/dubai-frame.webp",
+  "/assets/hero/dubai-museum.jpg",
     "/assets/hero/burj-khalifa2.jpg",
   "/assets/hero/burj-al-arab1.jpg",
   "/assets/hero/burj-khalifa1.jpg",

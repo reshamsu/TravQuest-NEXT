@@ -49,7 +49,7 @@ const Welcome = () => {
       <div className="flex flex-col gap-4">
         <div className="relative h-90 w-full">
           <Image
-            src="/assets/hero/burj-khalifa.jpg"
+            src="/assets/hero/maldives-view.jpg"
             alt="UAE"
             fill
             className="object-cover rounded-3xl"
