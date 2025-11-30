@@ -5,7 +5,13 @@ import Footer from "./Footer";
 
 const HideFooter = () => {
   const pathname = usePathname();
-  const noNavRoutes = ["/login", "/signup", "/dashboard"];
+  const noNavRoutes = [
+    "/login",
+    "/signup",
+    "/dashboard",
+    "/dashboard/destinations",
+    "/dashboard/destinations/add",
+  ];
 
   if (noNavRoutes.includes(pathname)) return null;
 

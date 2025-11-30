@@ -7,7 +7,7 @@ import Shortcut from "@/components/home/Shortcut";
 
 export default function Home() {
   return (
-    <div className="relative z-30 pt-20">
+    <div className="relative z-30">
       <Hero />
       <Welcome />
       <Background />

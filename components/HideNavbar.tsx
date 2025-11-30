@@ -5,7 +5,13 @@ import Navbar from "./Navbar";
 
 const HideNavbar = () => {
   const pathname = usePathname();
-  const noNavRoutes = ["/login", "/signup", "/dashboard"];
+  const noNavRoutes = [
+    "/login",
+    "/signup",
+    "/dashboard",
+    "/dashboard/destinations",
+    "/dashboard/destinations/add",
+  ];
 
   if (noNavRoutes.includes(pathname)) return null;
 

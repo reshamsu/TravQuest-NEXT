@@ -3,7 +3,7 @@ import Info from "@/components/contact/Info";
 
 export default function Contact() {
   return (
-    <div className="relative z-30 pt-20">
+    <div className="relative z-30">
       <Hero />
       <Info />
     </div>

@@ -29,7 +29,7 @@ const Hero = () => {
   return (
     <div className="bg-white text-gray-900 relative">
       {/* Carousel */}
-      <div className="relative h-[60vh] md:h-[70vh] w-full overflow-hidden flex items-center justify-center text-center">
+      <div className="relative h-[74vh] w-full overflow-hidden flex items-center justify-center text-center">
         {images.map((banner, index) => (
           <div
             key={index}
@@ -63,7 +63,7 @@ const Hero = () => {
           </button>
         </div>
 
-        <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-4 text-white/70 z-10 px-8 md:px-10 2xl:px-0">
+        <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-4 text-white/70 pt-24 z-10 px-8 md:px-10 2xl:px-0">
           <h1 className="text-4xl md:text-5xl 2xl:text-6xl font-extrabold">
             THAILAND
           </h1>

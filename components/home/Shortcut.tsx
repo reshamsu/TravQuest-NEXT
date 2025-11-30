@@ -35,7 +35,7 @@ const travelOptions = [
 
 const Shortcut = () => {
   return (
-    <div className="bg-linear-to-b from-[#f2836f]/10 via-[#ffffff] to-teal-700/20">
+    <div className="bg-linear-to-b from-[#ffffff] via-[#ffffff] to-teal-700/20">
       <div className="max-w-6xl mx-auto flex flex-col gap-10 py-20 px-8 md:px-10 2xl:px-0">
         <div className="flex flex-col gap-4">
           <label

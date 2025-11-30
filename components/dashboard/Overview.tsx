@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { TbPencil, TbSend2 } from "react-icons/tb";
+import { TbPencil } from "react-icons/tb";
 
 const images = [
   "/assets/poster/event-desert-safari1.webp",
@@ -10,7 +10,7 @@ const images = [
   "/assets/hero/sheikh_zayed_grand_mosque.jpg",
 ];
 
-const TQ_Homepage = () => {
+const Overview = () => {
   return (
     <div className="max-w-6xl mx-auto h-full lg:h-screen py-24 md:py-20 px-8 2xl:px-0 ml-0 md:ml-80 2xl:ml-96 ">
       <div className="flex flex-col gap-1 text-gray-700">
@@ -61,7 +61,7 @@ const TQ_Homepage = () => {
 
         <div className="flex flex-col justify-center gap-6 md:p-4 text-gray-700">
           <div>
-            <h3 className="text-lg font-bold">Update <span className="text-[#f2836f]">Homepage Information</span></h3>
+            <h3 className="text-xl font-bold">Update <span className="text-[#f2836f]">Homepage Information</span></h3>
           </div>
 
           <form method="post" className="flex flex-col items-end gap-8">
@@ -104,4 +104,4 @@ const TQ_Homepage = () => {
   );
 };
 
-export default TQ_Homepage;
+export default Overview;

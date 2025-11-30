@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { TbChevronLeft, TbChevronRight } from "react-icons/tb";
+import Link from "next/link";
 
 const images = [
   "/assets/hero/sheikh_zayed_grand_mosque.jpg",
@@ -32,9 +33,9 @@ const Hero = () => {
   const nextSlide = () => setCurrent((prev) => (prev + 1) % images.length);
 
   return (
-    <div className="bg-white text-gray-900 relative">
+    <div className="bg-gray-100 text-gray-900 relative">
       {/* Carousel */}
-      <div className="relative h-[60vh] md:h-[70vh] w-full overflow-hidden flex items-center justify-center text-center">
+      <div className="relative h-[74vh] w-full overflow-hidden flex justify-center">
         {images.map((banner, index) => (
           <div
             key={index}
@@ -49,7 +50,7 @@ const Hero = () => {
               className="object-cover"
               priority={index === 0}
             />
-            <div className="absolute inset-0 bg-black/20" />
+            <div className="absolute inset-0 bg-black/40" />
           </div>
         ))}
 
@@ -68,13 +69,19 @@ const Hero = () => {
           </button>
         </div>
 
-        <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-4 text-white/70 z-10 px-8 md:px-10 2xl:px-0">
-          <h1 className="text-2xl lg:text-4xl 2xl:text-5xl font-extrabold">
-            LET US UNFOLD YOUR EXTRAORDINARY TRAVEL STORY
-          </h1>
-          <p className="text-sm md:text-lg font-semibold text-gray-100 max-w-3xl">
-            Discover a New World of Travel and New destinations
-          </p>
+        <div className="max-w-6xl mx-auto absolute inset-0 grid grid-cols-1 lg:grid-cols-2 items-center text-white/70 z-10 pt-24 px-8 md:px-10 2xl:px-0">
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-start gap-6">
+            <h1 className="text-2xl md:text-4xl 2xl:text-5xl font-extrabold">
+              LET US UNFOLD YOUR EXTRAORDINARY TRAVEL STORY
+            </h1>
+            <p className="text-sm lg:text-base font-semibold text-gray-100 max-w-3xl">
+              Discover thousands of beautiful places around the world with
+              wonderful experiences you can imagine.
+            </p>
+            <Link href="/explore" className="btn-dark-glass">
+              Explore Now
+            </Link>
+          </div>
         </div>
       </div>
     </div>

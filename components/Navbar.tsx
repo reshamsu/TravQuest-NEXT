@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Nav_Links } from "@/constants/NavLinks";
-import { TbMenu, TbX, TbChevronDown, TbPhone } from "react-icons/tb";
+import { TbMenu, TbX, TbChevronDown, TbPhone, TbUser } from "react-icons/tb";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -20,17 +20,17 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <header className="fixed z-40 w-full bg-white/90 backdrop-blur-md shadow-md text-black border-2 border-gray-100/80">
-      <nav className="max-w-6xl mx-auto flex items-center justify-between py-4 px-6 2xl:px-0">
+    <header className="fixed z-40 w-full">
+      <nav className="max-w-7xl lg:mt-4 mx-auto bg-black/50 backdrop-blur-3xl shadow-xl lg:rounded-full flex items-center justify-between py-4 px-6">
         {/* Logo + Mobile Button */}
         <div className="flex items-center justify-between gap-2 lg:gap-4">
-          <Link href="/" className="flex items-center gap-6 w-full">
+          <Link href="/" className="flex items-center gap-8 lg:gap-4 w-full">
             <Image
               src="/favicon.ico"
               alt="TQ"
               width={64}
               height={64}
-              className="relative xl:absolute xl:left-6 object-contain"
+              className="relative object-contain"
             />
             <Image
               src="/tq-logo.png"
@@ -59,7 +59,7 @@ const Navbar = () => {
                       ${
                         isActive
                           ? "bg-[#f2836f]/10 font-bold text-[#f2836f]"
-                          : "hover:font-bold text-black hover:text-[#f2836f]/70"
+                          : "hover:font-bold text-white hover:text-[#f2836f]/70"
                       }`}
                   >
                     {link.label}
@@ -72,7 +72,7 @@ const Navbar = () => {
                       ${
                         isActive
                           ? "bg-[#f2836f]/10 font-bold text-[#f2836f]"
-                          : "hover:font-bold text-black hover:text-[#f2836f]/80"
+                          : "hover:font-bold text-white hover:text-[#f2836f]/80"
                       }`}
                   >
                     {link.label}
@@ -101,9 +101,12 @@ const Navbar = () => {
 
         {/* Desktop Right Side */}
         <div className="hidden lg:flex items-center gap-4 text-sm">
+          <Link href="/dashboard" className="select-none btn-dark btn-dynamic">
+            <TbUser size={24} className="text-white"/>
+          </Link>
           <Link
             href="https://wa.me/971529991223"
-            className="select-none btn-dark-sm btn-dynamic"
+            className="select-none btn-orange-sm btn-dynamic"
           >
             <TbPhone size={22} /> Inquire Now
           </Link>

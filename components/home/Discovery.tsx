@@ -37,15 +37,15 @@ const Discovery = () => {
   return (
     <div className="bg-linear-to-b from-[#f2836f]/10 via-[#ffffff] to-[#ffffff] text-gray-700">
       <div className="max-w-6xl mx-auto flex flex-col gap-10 py-20 px-8 md:px-10 2xl:px-0">
-        <div className="flex flex-col items-center text-center md:items-start md:text-start justify-center gap-2">
+        <div className="flex flex-col justify-center gap-2">
           <label
             htmlFor=""
-            className="text-sm md:text-base font-extrabold text-[#f2836f]"
+            className="text-sm md:text-base font-extrabold"
           >
             WHERE TIME-HONORED TRADITIONS EMBRACE THE FUTURE!
           </label>
-          <h2 className="text-2xl md:text-3xl font-extrabold">
-            DISCOVER <span className="text-teal-600">THE UAE</span>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-teal-600">
+            DISCOVER THE UAE
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

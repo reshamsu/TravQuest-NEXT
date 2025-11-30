@@ -4,7 +4,7 @@ import Shortcut from "@/components/explore-uae/Shortcut";
 
 export default function UAE() {
   return (
-    <div className="relative z-30 pt-20">
+    <div className="relative z-30">
       <Hero />
       <Welcome />
       <Shortcut />

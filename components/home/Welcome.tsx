@@ -30,7 +30,7 @@ const Welcome = () => {
           ))}
         </div>
 
-        <div className="flex flex-col justify-center gap-4 md:gap-6">
+        <div className="flex flex-col text-center lg:text-start justify-center gap-4 md:gap-6">
           <div className="flex flex-col gap-2">
             <label
               htmlFor=""
@@ -43,25 +43,25 @@ const Welcome = () => {
             </h2>
           </div>
 
-          <p className="text-sm md:text-base text-gray-600">
+          <p className="text-xs md:text-base text-gray-600">
             Travel is a beautiful journey that enriches our lives and broadens
             our perspectives. Let’s delve into the enchanting world of travel,
             where every journey unfolds a tapestry of delightful and memorable
             moments.
           </p>
-          <p className="text-sm md:text-base text-gray-600">
+          <p className="text-xs md:text-base text-gray-600">
             Whether you’re a seasoned globetrotter or embarking on your first
             adventure, travel has a way of leaving an indelible mark on our
             hearts.
           </p>
 
-          <div className="flex flex-col gap-4">
-            <h4 className="text-base md:text-lg font-extrabold text-gray-600">
+          <div className="flex flex-col items-center lg:items-start gap-4">
+            <h4 className="text-sm md:text-lg font-extrabold text-gray-600">
               Live your story…Discover Another Destination!
             </h4>
 
             <Link href="/about" className="select-none btn-green-base btn-dynamic">
-              Learn More
+              Start Planning
             </Link>
           </div>
         </div>
