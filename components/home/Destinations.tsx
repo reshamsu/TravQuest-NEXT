@@ -105,11 +105,11 @@ const Destinations = () => {
         <div className="flex justify-center items-center bg-white shadow-lg rounded-full p-2 gap-2 border border-gray-100">
           <button
             onClick={() => setActiveCity("dubai")}
-            className={`w-30 py-2 rounded-full text-sm font-bold cursor-pointer transition-all
+            className={`w-30 py-2.5 rounded-full text-sm font-bold cursor-pointer transition-all
       ${
         activeCity === "dubai"
           ? "bg-[#f2836f] text-white"
-          : "bg-gray-50/10 text-gray-500"
+          : "hover:bg-[#f2836f]/20 text-gray-600"
       }`}
           >
             Dubai
@@ -117,11 +117,11 @@ const Destinations = () => {
 
           <button
             onClick={() => setActiveCity("abu-dhabi")}
-            className={`w-30 py-2 rounded-full text-sm font-bold cursor-pointer transition-all
+            className={`w-30 py-2.5 rounded-full text-sm font-bold cursor-pointer transition-all
       ${
         activeCity === "abu-dhabi"
           ? "bg-teal-600 text-white"
-          : "bg-gray-50/10 text-gray-500"
+          : "hover:bg-teal-600/20 text-gray-600"
       }`}
           >
             Abu Dhabi

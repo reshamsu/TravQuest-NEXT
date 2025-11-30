@@ -30,7 +30,7 @@ const Welcome = () => {
           ))}
         </div>
 
-        <div className="flex flex-col text-center lg:text-start justify-center gap-4 md:gap-6">
+        <div className="flex flex-col justify-center gap-4 md:gap-6">
           <div className="flex flex-col gap-2">
             <label
               htmlFor=""

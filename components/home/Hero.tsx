@@ -78,7 +78,7 @@ const Hero = () => {
               Discover thousands of beautiful places around the world with
               wonderful experiences you can imagine.
             </p>
-            <Link href="/explore" className="btn-dark-glass">
+            <Link href="/explore" className="btn-light-glass">
               Explore Now
             </Link>
           </div>

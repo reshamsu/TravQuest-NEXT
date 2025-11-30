@@ -101,14 +101,14 @@ const Navbar = () => {
 
         {/* Desktop Right Side */}
         <div className="hidden lg:flex items-center gap-4 text-sm">
-          <Link href="/dashboard" className="select-none btn-dark btn-dynamic">
+          <Link href="/dashboard" className="select-none btn-dark-glass btn-dynamic">
             <TbUser size={24} className="text-white"/>
           </Link>
           <Link
             href="https://wa.me/971529991223"
             className="select-none btn-orange-sm btn-dynamic"
           >
-            <TbPhone size={22} /> Inquire Now
+            <TbPhone size={24} /> Inquire Now
           </Link>
         </div>
         <button
