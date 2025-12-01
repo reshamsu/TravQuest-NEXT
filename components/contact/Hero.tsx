@@ -16,7 +16,7 @@ const Hero = () => {
               fill
               className="object-cover"
             />
-           <div className="absolute inset-0 bg-black/40" />
+           <div className="absolute inset-0 bg-black/25" />
           </div>
 
           <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-4 text-white/70 pt-24 z-10 px-8 md:px-10 2xl:px-0">

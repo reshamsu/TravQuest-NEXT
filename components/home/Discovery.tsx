@@ -63,7 +63,7 @@ const Discovery = () => {
 
               <div className="absolute inset-0 bg-black/64 lg:bg-[#f2836f]/15 group-hover:bg-black/64 transition-all duration-1000"></div>
 
-              <div className="relative z-10 h-full flex flex-col items-start text-start justify-end gap-4 p-8 md:p-10 text-white">
+              <div className="relative z-10 h-full flex flex-col items-start text-start justify-end gap-3 p-8 md:p-10 text-white">
                 <div className="flex flex-col gap-1">
                   <label
                     htmlFor=""
@@ -75,7 +75,7 @@ const Discovery = () => {
                     {option.title}
                   </h2>
                 </div>
-                <p className="text-xs 2xl:text-sm font-semibold text-gray-100 line-clamp-3">
+                <p className="text-xs 2xl:text-sm font-normal text-gray-200 line-clamp-3">
                   {option.description}
                 </p>
                 <div className="flex items-center gap-4 text-sm">

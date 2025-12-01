@@ -50,7 +50,7 @@ const Hero = () => {
               className="object-cover"
               priority={index === 0}
             />
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-black/25" />
           </div>
         ))}
 
@@ -69,12 +69,12 @@ const Hero = () => {
           </button>
         </div>
 
-        <div className="max-w-6xl mx-auto absolute inset-0 grid grid-cols-1 lg:grid-cols-2 items-center text-white/70 z-10 pt-24 px-8 md:px-10 2xl:px-0">
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-start gap-6">
-            <h1 className="text-2xl md:text-4xl 2xl:text-5xl font-extrabold">
+        <div className="max-w-6xl mx-auto absolute inset-0 flex items-center text-white/70 z-10 pt-24 px-8 md:px-10 2xl:px-0">
+          <div className="flex flex-col gap-4 lg:gap-6">
+            <h1 className="text-2xl md:text-4xl 2xl:text-5xl font-semibold">
               LET US UNFOLD YOUR EXTRAORDINARY TRAVEL STORY
             </h1>
-            <p className="text-sm lg:text-base font-semibold text-gray-100 max-w-3xl">
+            <p className="text-xs lg:text-base font-normal text-gray-300 max-w-3xl">
               Discover thousands of beautiful places around the world with
               wonderful experiences you can imagine.
             </p>

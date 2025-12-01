@@ -18,16 +18,16 @@ const Background = () => {
 
         <div className="max-w-4xl mx-4 md:ml-20 -mt-20 bg-white p-6.5 md:p-10 hover:scale-105 duration-1000 shadow-xl border-2 border-gray-100 rounded-3xl flex flex-col items-center text-center md:items-start md:text-start justify-center gap-4 md:gap-6 relative z-[5]">
           <div className="flex flex-col gap-2">
-            <label className="text-sm md:text-lg font-extrabold text-teal-600">
+            <label className="text-xs md:text-lg font-extrabold text-teal-600">
               A MELTING POT OF CULTURES & TRADITIONS
             </label>
 
-            <h2 className="text-2xl md:text-3xl font-extrabold text-[#f2836f]">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#f2836f]">
               A Wonderous UAE
             </h2>
           </div>
 
-          <p className="text-xs md:text-base text-gray-600">
+          <p className="text-xs md:text-base font-normal text-gray-500">
             The United Arab Emirates (UAE) is a melting pot of cultures and
             traditions, with a rich history and heritage while it is the home to
             a variety of landscapes, including beaches, deserts, mountains, and

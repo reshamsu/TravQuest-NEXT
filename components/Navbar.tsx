@@ -55,10 +55,10 @@ const Navbar = () => {
               <li key={link.key} className="relative group">
                 {link.submenu ? (
                   <button
-                    className={`flex items-center cursor-pointer transition-all duration-500 rounded-full py-2.5 px-4
+                    className={`flex items-center cursor-pointer font-normal transition-all duration-500 rounded-full py-2.5 px-4
                       ${
                         isActive
-                          ? "bg-[#f2836f]/10 font-bold text-[#f2836f]"
+                          ? "bg-[#f2836f]/10 font-medium text-[#f2836f]"
                           : "hover:font-bold text-white hover:text-[#f2836f]/70"
                       }`}
                   >
@@ -68,10 +68,10 @@ const Navbar = () => {
                 ) : (
                   <Link
                     href={link.href}
-                    className={`flex items-center cursor-pointer transition-all duration-500 rounded-full py-2.5 px-4
+                    className={`flex items-center cursor-pointer font-normal transition-all duration-500 rounded-full py-2.5 px-4
                       ${
                         isActive
-                          ? "bg-[#f2836f]/10 font-bold text-[#f2836f]"
+                          ? "bg-[#f2836f]/10 font-medium text-[#f2836f]"
                           : "hover:font-bold text-white hover:text-[#f2836f]/80"
                       }`}
                   >
@@ -81,7 +81,7 @@ const Navbar = () => {
 
                 {/* Desktop Dropdown */}
                 {link.submenu && (
-                  <ul className="absolute top-full left-0 mt-2 w-44 p-2.5 bg-white backdrop-blur-3xl font-semibold rounded-xl shadow-lg invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <ul className="absolute top-full left-0 mt-2 w-44 p-2.5 bg-white backdrop-blur-3xl font-medium rounded-xl shadow-lg invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300">
                     {link.submenu.map((sublink) => (
                       <li
                         key={sublink.href}

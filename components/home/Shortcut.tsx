@@ -44,11 +44,11 @@ const Shortcut = () => {
           >
             WHERE DREAM TAKE FLIGHT
           </label>
-          <h2 className="text-2xl md:text-3xl 2xl:text-3xl font-extrabold text-gray-700">
+          <h2 className="text-2xl md:text-3xl 2xl:text-3xl font-bold text-gray-700">
             Let’s Travel Around the Globe…
             <span className="text-teal-600">One Destination at a Time</span>
           </h2>
-          <p className="text-sm md:text-base text-gray-500">
+          <p className="text-sm md:text-base font-normal text-gray-500">
             From bustling metropolises to serene landscapes, our global
             adventure awaits. Pack your bags, follow the compass of wanderlust,
             and let the thrill of discovery guide your path. Together, we’ll
@@ -80,11 +80,11 @@ const Shortcut = () => {
                   >
                     TEXT HERE
                   </label>
-                  <h2 className="text-xl 2xl:text23xl font-extrabold">
+                  <h2 className="text-xl 2xl:text-2xl font-semibold">
                     {option.title}
                   </h2>
                 </div>
-                <p className="text-xs 2xl:text-xs font-semibold text-gray-100 line-clamp-3">
+                <p className="text-xs 2xl:text-xs font-normal text-gray-200 line-clamp-3">
                   {option.description}
                 </p>
                 <div className="flex items-center gap-4 text-sm">

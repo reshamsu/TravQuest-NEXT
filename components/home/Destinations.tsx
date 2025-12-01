@@ -86,16 +86,16 @@ const Destinations = () => {
       <div className="max-w-6xl mx-auto pb-10 py-20 px-8 2xl:px-0 flex flex-col items-center justify-center gap-10">
         {/* Header */}
         <div className="flex flex-col items-center text-center justify-center gap-4">
-          <label className="text-sm md:text-base font-extrabold text-gray-600">
+          <label className="text-sm md:text-base font-bold text-gray-600">
             A DESTINATION THAT LEAVES A MARK ON YOUR SOUL
           </label>
 
-          <h2 className="text-3xl 2xl:text-4xl font-extrabold text-teal-600">
+          <h2 className="text-3xl 2xl:text-4xl text-teal-600">
             Unleash Your{" "}
             <span className="text-[#f2836f]">Adventurous Spirit</span>
           </h2>
 
-          <p className="text-sm md:text-base text-gray-500 max-w-4xl">
+          <p className="text-sm md:text-base text-gray-500 font-normal max-w-4xl">
             Whether you're interested in history, culture, luxury experiences,
             or outdoor adventures, the UAE has something for everyone.
           </p>
@@ -151,11 +151,11 @@ const Destinations = () => {
                   {dest.location}
                 </label>
 
-                <h4 className="text-sm font-bold hover:text-black">
+                <h4 className="text-[14px] font-bold text-gray-700">
                   {dest.title}
                 </h4>
 
-                <p className="text-xs text-gray-400 line-clamp-2">
+                <p className="text-xs text-gray-400 font-normal line-clamp-2">
                   {dest.description}
                 </p>
 

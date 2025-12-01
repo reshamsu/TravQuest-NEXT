@@ -12,11 +12,11 @@ const images = [
 const Welcome = () => {
   return (
     <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-14 lg:gap-24 px-8 md:px-10 2xl:px-0">
-      <div className="flex flex-col items-center text-center justify-center gap-4 md:gap-6">
+      <div className="flex flex-col justify-center gap-4 md:gap-6">
         <div className="flex flex-col gap-2">
           <label
             htmlFor=""
-            className="text-base md:text-lg font-extrabold text-[#f2836f]"
+            className="text-sm md:text-lg font-extrabold text-[#f2836f]"
           >
             A MELTING POT OF CULTURES & TRADITIONS
           </label>
@@ -25,19 +25,19 @@ const Welcome = () => {
           </h2>
         </div>
 
-        <p className="text-sm md:text-base text-gray-600">
+        <p className="text-xs md:text-base text-justify text-gray-600">
           The <strong>United Arab Emirates (UAE)</strong> is a melting pot of
           cultures and traditions, with a rich history and heritage while it is
           the home to a variety of landscapes,{" "}
           <i>including beaches, deserts, mountains, and cityscapes.</i>
         </p>
-        <p className="text-sm md:text-base text-gray-600">
+        <p className="text-xs md:text-base text-justify text-gray-600">
           The <strong>UAE</strong> is a vibrant nation nestled in the{" "}
           <u>Arabian Peninsula</u> and is a federation of seven emirates,
           consisting of <strong>Abu Dhabi (the capital city) </strong>, Ajman,
           Dubai, Fujairah, Ras Al Khaimah, Sharjah and Umm Al Quwain.
         </p>
-        <p className="text-sm md:text-base text-gray-600">
+        <p className="text-xs md:text-base text-justify text-gray-600">
           The <strong>Emirates</strong> comprise a mixed environment of rocky
           desert, coastal plains and wetlands, and waterless mountains. The
           seashore is a haven for migratory waterfowl and draws birdwatchers
