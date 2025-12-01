@@ -4,28 +4,28 @@ import Image from "next/image";
 
 const travelOptions = [
   {
-    title: "SRI LANKA",
+    title: "Sri Lanka",
     description:
       "An island nation in South Asia, is renowned for its stunning landscapes, rich cultural heritage, and diverse wildlife.",
     img: "/assets/destinations/sri-lanka-ella.jpg",
     link: "/destinations/sri-lanka",
   },
   {
-    title: "MALDIVES",
+    title: "Maldives",
     description:
       "Tropical paradise in the Indian Ocean, is renowned for its overwater bungalows, crystal-clear waters, and vibrant coral reefs.",
     img: "/assets/destinations/maldives.jpg",
     link: "/destinations/maldives",
   },
   {
-    title: "SINGAPORE",
+    title: "Singapore",
     description:
       "A dynamic city-state in Southeast Asia, is celebrated for its modernity, diverse culture, and iconic skyline",
     img: "/assets/destinations/singapore.jpg",
     link: "/destinations/singapore",
   },
   {
-    title: "THAILAND",
+    title: "Thailand",
     description:
       "A captivating blend of vibrant street life, serene temples, and stunning natural beauty.",
     img: "/assets/destinations/thailand.jpg",
@@ -40,7 +40,7 @@ const Shortcut = () => {
         <div className="flex flex-col gap-4">
           <label
             htmlFor=""
-            className="text-base md:text-lg font-extrabold text-[#f2836f]"
+            className="text-base md:text-lg font-semibold text-[#f2836f]"
           >
             WHERE DREAM TAKE FLIGHT
           </label>
@@ -48,7 +48,7 @@ const Shortcut = () => {
             Let’s Travel Around the Globe…
             <span className="text-teal-600">One Destination at a Time</span>
           </h2>
-          <p className="text-sm md:text-base font-normal text-gray-500">
+          <p className="text-sm md:text-base font-normal text-justify text-gray-500">
             From bustling metropolises to serene landscapes, our global
             adventure awaits. Pack your bags, follow the compass of wanderlust,
             and let the thrill of discovery guide your path. Together, we’ll
@@ -57,7 +57,7 @@ const Shortcut = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 duration-700">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {travelOptions.map((option, index) => (
             <div
               key={index}
@@ -72,15 +72,15 @@ const Shortcut = () => {
 
               <div className="absolute inset-0 bg-black/64 lg:bg-[#f2836f]/10 group-hover:bg-black/64 transition-all duration-1000"></div>
 
-              <div className="relative z-10 h-full flex flex-col items-start text-start justify-end gap-4 p-8 text-white">
+              <div className="relative z-10 h-full flex flex-col items-start text-start justify-end gap-3.5 p-8 text-white">
                 <div className="flex flex-col gap-1">
                   <label
                     htmlFor=""
-                    className="text-xs md:text-sm font-extrabold text-[#f2836f] duration-700"
+                    className="text-xs md:text-sm font-semibold text-[#f2836f]"
                   >
                     TEXT HERE
                   </label>
-                  <h2 className="text-xl 2xl:text-2xl font-semibold">
+                  <h2 className="text-xl font-bold">
                     {option.title}
                   </h2>
                 </div>

@@ -19,11 +19,11 @@ const Hero = () => {
             <div className="absolute inset-0 bg-black/25" />
           </div>
 
-          <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-4 text-white/70 pt-24 z-10 px-8 md:px-10 2xl:px-0">
-            <h1 className="text-3xl 2xl:text-5xl font-extrabold">
-              WE STRIVE TO OFFER YOU A MEMORABLE EXPERIENCE
+          <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-4 lg:gap-6 text-white/70 pt-24 z-10 px-8 md:px-10 2xl:px-0">
+            <h1 className="text-3xl 2xl:text-5xl font-semibold">
+              We Strive To Offer You A Memorable Experience
             </h1>
-            <p className="text-sm md:text-base font-semibold text-gray-100 max-w-3xl">
+            <p className="text-xs md:text-base text-gray-100 max-w-3xl">
               Discover thousands of beautiful places around the world with
               wonderful experiences you can imagine.
             </p>

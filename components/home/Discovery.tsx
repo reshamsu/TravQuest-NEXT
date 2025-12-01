@@ -4,28 +4,28 @@ import Image from "next/image";
 
 const travelOptions = [
   {
-    title: "ABU DHABI",
+    title: "Abu Dhabi",
     description:
       "Capital of the UAE, known for opulent architecture and rich culture.",
     img: "/assets/destinations/abu-dhabi-city.jpg",
     link: "/destinations/abu-dhabi",
   },
   {
-    title: "DUBAI",
+    title: "Dubai",
     description:
       "Glamorous city in the UAE, famous for its futuristic skyline and vibrant lifestyle.",
     img: "/assets/poster/event-burj-khalifa1.jpg",
     link: "/destinations/dubai",
   },
   {
-    title: "FUJAIRAH",
+    title: "Fujairah",
     description:
       "UAE's eastern emirate, known for its stunning coastline and historical sites.",
     img: "/assets/destinations/fujairah-castle.jpg",
     link: "/destinations/fujairah",
   },
   {
-    title: "RAS AL KHAIMAH",
+    title: "Ras Al Khaimah",
     description:
       "UAE's northern emirate, known for its natural beauty and historical landmarks.",
     img: "/assets/destinations/ras-al-khaimah.jpg",
@@ -40,12 +40,12 @@ const Discovery = () => {
         <div className="flex flex-col justify-center gap-2">
           <label
             htmlFor=""
-            className="text-sm md:text-base font-extrabold"
+            className="text-sm md:text-base font-semibold"
           >
             WHERE TIME-HONORED TRADITIONS EMBRACE THE FUTURE!
           </label>
-          <h2 className="text-2xl md:text-3xl font-extrabold text-teal-600">
-            DISCOVER THE UAE
+          <h2 className="text-2xl md:text-3xl font-bold text-teal-600">
+            Discover the UAE
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -67,15 +67,15 @@ const Discovery = () => {
                 <div className="flex flex-col gap-1">
                   <label
                     htmlFor=""
-                    className="text-xs md:text-sm font-extrabold text-[#f2836f] duration-700"
+                    className="text-xs md:text-sm font-semibold text-[#f2836f] duration-700"
                   >
                     TEXT HERE
                   </label>
-                  <h2 className="text-xl 2xl:text-3xl font-extrabold">
+                  <h2 className="text-xl 2xl:text-3xl font-bold">
                     {option.title}
                   </h2>
                 </div>
-                <p className="text-xs 2xl:text-sm font-normal text-gray-200 line-clamp-3">
+                <p className="text-xs 2xl:text-sm font-semibold text-gray-200 line-clamp-3">
                   {option.description}
                 </p>
                 <div className="flex items-center gap-4 text-sm">

@@ -16,28 +16,28 @@ const Welcome = () => {
         <div className="flex flex-col gap-2">
           <label
             htmlFor=""
-            className="text-sm md:text-lg font-extrabold text-[#f2836f]"
+            className="text-sm md:text-lg font-semibold text-[#f2836f]"
           >
             A MELTING POT OF CULTURES & TRADITIONS
           </label>
-          <h2 className="text-2xl 2xl:text-3xl font-extrabold text-teal-600">
-            A WONDEROUS UAE
+          <h2 className="text-2xl 2xl:text-3xl font-bold text-teal-600">
+            A Wonderous UAE
           </h2>
         </div>
 
-        <p className="text-xs md:text-base text-justify text-gray-600">
+        <p className="text-xs md:text-base font-normal text-justify text-gray-600">
           The <strong>United Arab Emirates (UAE)</strong> is a melting pot of
           cultures and traditions, with a rich history and heritage while it is
           the home to a variety of landscapes,{" "}
           <i>including beaches, deserts, mountains, and cityscapes.</i>
         </p>
-        <p className="text-xs md:text-base text-justify text-gray-600">
+        <p className="text-xs md:text-base font-normal text-justify text-gray-600">
           The <strong>UAE</strong> is a vibrant nation nestled in the{" "}
           <u>Arabian Peninsula</u> and is a federation of seven emirates,
           consisting of <strong>Abu Dhabi (the capital city) </strong>, Ajman,
           Dubai, Fujairah, Ras Al Khaimah, Sharjah and Umm Al Quwain.
         </p>
-        <p className="text-xs md:text-base text-justify text-gray-600">
+        <p className="text-xs md:text-base font-normal text-justify text-gray-600">
           The <strong>Emirates</strong> comprise a mixed environment of rocky
           desert, coastal plains and wetlands, and waterless mountains. The
           seashore is a haven for migratory waterfowl and draws birdwatchers

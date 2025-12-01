@@ -4,28 +4,28 @@ import Image from "next/image";
 
 const travelOptions = [
   {
-    title: "ABU DHABI",
+    title: "Abu Dhabi",
     description:
       "An island nation in South Asia, is renowned for its stunning landscapes, rich cultural heritage, and diverse wildlife.",
     img: "/assets/destinations/abu-dhabi-city.jpg",
     link: "/destinations/abu-dhabi",
   },
   {
-    title: "DUBAI",
+    title: "Dubai",
     description:
       "Tropical paradise in the Indian Ocean, is renowned for its overwater bungalows, crystal-clear waters, and vibrant coral reefs.",
     img: "/assets/destinations/burj-khalifa.webp",
     link: "/destinations/dubai",
   },
   {
-    title: "FUJAIRAH",
+    title: "Fujairah",
     description:
       "A dynamic city-state in Southeast Asia, is celebrated for its modernity, diverse culture, and iconic skyline",
     img: "/assets/destinations/fujairah-castle.jpg",
     link: "/destinations/fujairah",
   },
   {
-    title: "RAS AL KHAIMAH",
+    title: "Ras Al Khaimah",
     description:
       "A captivating blend of vibrant street life, serene temples, and stunning natural beauty.",
     img: "/assets/destinations/ras-al-khaimah.jpg",
@@ -40,17 +40,17 @@ const Shortcut = () => {
         <div className="flex flex-col gap-4">
           <label
             htmlFor=""
-            className="text-base md:text-lg font-extrabold text-[#f2836f]"
+            className="text-base md:text-lg font-semibold text-[#f2836f]"
           >
             DISCOVER THE ATTRACTION OF TRAVEL UAE
           </label>
-          <h2 className="text-2xl md:text-3xl 2xl:text-3xl font-extrabold text-gray-700">
+          <h2 className="text-2xl md:text-3xl 2xl:text-3xl font-bold text-gray-700">
             Discover the Essence of{" "}
             <span className="text-teal-600">
               Luxury and Tradition in the Travel UAE
             </span>
           </h2>
-          <p className="text-sm md:text-base text-gray-500">
+          <p className="text-sm md:text-base text-normal text-gray-500">
             From bustling metropolises to serene landscapes, our global
             adventure awaits. Pack your bags, follow the compass of wanderlust,
             and let the thrill of discovery guide your path. Together, we’ll
@@ -74,19 +74,19 @@ const Shortcut = () => {
 
               <div className="absolute inset-0 bg-black/64 lg:bg-[#f2836f]/15 group-hover:bg-black/64 transition-all duration-1000"></div>
 
-              <div className="relative z-10 h-full flex flex-col items-start text-start justify-end gap-4 p-8 text-white">
+              <div className="relative z-10 h-full flex flex-col items-start text-start justify-end gap-3.5 p-8 text-white">
                 <div className="flex flex-col gap-1">
                   <label
                     htmlFor=""
-                    className="text-xs md:text-sm font-extrabold text-[#f2836f] duration-1000"
+                    className="text-xs md:text-sm font-semibold text-[#f2836f]"
                   >
                     TEXT HERE
                   </label>
-                  <h2 className="text-xl 2xl:text23xl font-extrabold">
+                  <h2 className="text-xl font-bold">
                     {option.title}
                   </h2>
                 </div>
-                <p className="text-xs 2xl:text-xs font-semibold text-gray-100 line-clamp-3">
+                <p className="text-xs 2xl:text-xs font-normal text-gray-200 line-clamp-3">
                   {option.description}
                 </p>
                 <div className="flex items-center gap-4 text-sm">

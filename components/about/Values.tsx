@@ -64,23 +64,26 @@ const Values = () => {
   return (
     <div className="bg-gray-100 text-gray-700 relative">
       <div className="max-w-6xl mx-auto py-20 px-8 2xl:px-0 flex flex-col gap-10">
-        <div className="flex flex-col items-center text-center lg:items-start lg:text-start gap-4">
-          <label
-            htmlFor=""
-            className="text-base md:text-lg font-extrabold text-teal-600"
-          >
-            OUR VALUES
-          </label>
-          <h1 className="text-3xl 2xl:text-4xl font-extrabold">
-            WHAT <span className="text-[#f2836f]">WE DO</span>
-          </h1>
+        <div className="flex flex-col items-center text-center lg:items-start lg:text-start gap-6">
           <div className="flex flex-col gap-2">
-            <p className="text-sm 2xl:text-base text-gray-600">
+            <label
+              htmlFor=""
+              className="text-base md:text-lg font-bold text-teal-600"
+            >
+              OUR VALUES
+            </label>
+            <h1 className="text-3xl 2xl:text-4xl font-bold">
+              What <span className="text-[#f2836f]">We Do</span>
+            </h1>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <p className="text-sm 2xl:text-base font-normal text-gray-600">
               At <strong>The TravQuest Travel & Tourism</strong>, we specialize
               in curating unforgettable journeys. Our mission is to turn your
               travel dreams into reality.
             </p>
-            <p className="text-sm 2xl:text-base text-gray-600">
+            <p className="text-sm 2xl:text-base font-normal text-gray-600">
               Explore our handpicked destinations, expertly crafted itineraries,
               and personalized experiences. Whether you seek adventure,
               relaxation, or cultural immersion, we're here to create your
@@ -98,10 +101,10 @@ const Values = () => {
                 {item.icon}
               </div>
               <div className="flex flex-col gap-2">
-                <h3 className="text-lg font-extrabold capitalize text-teal-600">
+                <h3 className="text-lg font-bold capitalize text-teal-600">
                   {item.title}
                 </h3>
-                <p className="text-sm text-gray-500">{item.description}</p>
+                <p className="text-sm font-normal text-gray-500">{item.description}</p>
               </div>
             </div>
           ))}

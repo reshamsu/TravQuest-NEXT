@@ -69,19 +69,14 @@ const Hero = () => {
           </button>
         </div>
 
-        <div className="max-w-6xl mx-auto absolute inset-0 flex items-center text-white/70 z-10 pt-24 px-8 md:px-10 2xl:px-0">
-          <div className="flex flex-col gap-4 lg:gap-6">
-            <h1 className="text-2xl md:text-4xl 2xl:text-5xl font-semibold">
-              LET US UNFOLD YOUR EXTRAORDINARY TRAVEL STORY
-            </h1>
-            <p className="text-xs lg:text-base font-normal text-gray-300 max-w-3xl">
-              Discover thousands of beautiful places around the world with
-              wonderful experiences you can imagine.
-            </p>
-            <Link href="/explore" className="btn-light-glass">
-              Explore Now
-            </Link>
-          </div>
+        <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-4 lg:gap-6 text-white/70 pt-24 z-10 px-8 md:px-10 2xl:px-0">
+          <h1 className="text-3xl md:text-4xl 2xl:text-5xl font-semibold">
+            Let Us Unfold Your Extraordinary Travel Story
+          </h1>
+          <p className="text-xs lg:text-base text-gray-300 max-w-3xl">
+            Discover thousands of beautiful places around the world with
+            wonderful experiences you can imagine.
+          </p>
         </div>
       </div>
     </div>

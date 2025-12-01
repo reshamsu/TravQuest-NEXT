@@ -86,11 +86,11 @@ const Destinations = () => {
       <div className="max-w-6xl mx-auto pb-10 py-20 px-8 2xl:px-0 flex flex-col items-center justify-center gap-10">
         {/* Header */}
         <div className="flex flex-col items-center text-center justify-center gap-4">
-          <label className="text-sm md:text-base font-bold text-gray-600">
+          <label className="text-sm md:text-base font-semibold text-gray-800">
             A DESTINATION THAT LEAVES A MARK ON YOUR SOUL
           </label>
 
-          <h2 className="text-3xl 2xl:text-4xl text-teal-600">
+          <h2 className="text-3xl 2xl:text-4xl font-semibold text-teal-600">
             Unleash Your{" "}
             <span className="text-[#f2836f]">Adventurous Spirit</span>
           </h2>
@@ -105,7 +105,7 @@ const Destinations = () => {
         <div className="flex justify-center items-center bg-white shadow-lg rounded-full p-2 gap-2 border border-gray-100">
           <button
             onClick={() => setActiveCity("dubai")}
-            className={`w-30 py-2.5 rounded-full text-sm font-bold cursor-pointer transition-all
+            className={`w-30 py-2.5 rounded-full text-sm font-semibold cursor-pointer transition-all
       ${
         activeCity === "dubai"
           ? "bg-[#f2836f] text-white"
@@ -117,7 +117,7 @@ const Destinations = () => {
 
           <button
             onClick={() => setActiveCity("abu-dhabi")}
-            className={`w-30 py-2.5 rounded-full text-sm font-bold cursor-pointer transition-all
+            className={`w-30 py-2.5 rounded-full text-sm font-semibold cursor-pointer transition-all
       ${
         activeCity === "abu-dhabi"
           ? "bg-teal-600 text-white"
@@ -155,7 +155,7 @@ const Destinations = () => {
                   {dest.title}
                 </h4>
 
-                <p className="text-xs text-gray-400 font-normal line-clamp-2">
+                <p className="text-xs text-gray-500 font-normal line-clamp-2">
                   {dest.description}
                 </p>
 

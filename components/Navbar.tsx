@@ -55,7 +55,7 @@ const Navbar = () => {
               <li key={link.key} className="relative group">
                 {link.submenu ? (
                   <button
-                    className={`flex items-center cursor-pointer font-normal transition-all duration-500 rounded-full py-2.5 px-4
+                    className={`flex items-center cursor-pointer font-medium transition-all duration-500 rounded-full py-2.5 px-4
                       ${
                         isActive
                           ? "bg-[#f2836f]/10 font-medium text-[#f2836f]"
@@ -68,7 +68,7 @@ const Navbar = () => {
                 ) : (
                   <Link
                     href={link.href}
-                    className={`flex items-center cursor-pointer font-normal transition-all duration-500 rounded-full py-2.5 px-4
+                    className={`flex items-center cursor-pointer font-medium transition-all duration-500 rounded-full py-2.5 px-4
                       ${
                         isActive
                           ? "bg-[#f2836f]/10 font-medium text-[#f2836f]"

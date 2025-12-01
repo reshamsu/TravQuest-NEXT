@@ -9,11 +9,11 @@ const Info = () => {
         <div className="flex flex-col justify-center gap-8">
           {/* Heading */}
           <div className="flex flex-col gap-2">
-            <label className="text-base md:text-lg font-extrabold text-[#f2836f]">
+            <label className="text-base md:text-lg font-semibold text-[#f2836f]">
               CONTACT
             </label>
-            <h2 className="text-2xl 2xl:text-3xl font-extrabold">
-              REACH OUT TO US
+            <h2 className="text-2xl 2xl:text-3xl font-bold">
+              Reach Out To Us
             </h2>
           </div>
 
@@ -27,12 +27,12 @@ const Info = () => {
               <label
                 htmlFor="
               "
-                className="flex flex-col gap-0.5 text-lg font-extrabold"
+                className="flex flex-col gap-0.5 text-lg font-bold"
               >
                 Call Us
                 <Link
                   href="https://wa.me/971529991223"
-                  className="text-sm md:text-base font-semibold hover:underline"
+                  className="text-sm md:text-base font-medium hover:underline"
                 >
                   +971 52 999 1223
                 </Link>
@@ -47,12 +47,12 @@ const Info = () => {
               <label
                 htmlFor="
               "
-                className="flex flex-col gap-0.5 text-lg font-extrabold"
+                className="flex flex-col gap-0.5 text-lg font-bold"
               >
                 Email Us
                 <Link
                   href="mailto:shihan.suhood@thetravquest.com"
-                  className="text-sm md:text-base font-semibold hover:underline break-all"
+                  className="text-sm md:text-base font-medium hover:underline break-all"
                 >
                   shihan.suhood@thetravquest.com
                 </Link>
@@ -64,7 +64,7 @@ const Info = () => {
               <div className="bg-teal-600/20 w-fit p-3 rounded-2xl">
                 <TbMapPin size={30} className="text-teal-600" />
               </div>
-              <h3 className="text-sm md:text-base font-bold">
+              <h3 className="text-sm md:text-base font-medium">
                 PO Box 35195, Meydan Business Center,
                 <br />
                 Meydan Hotel, Dubai, U.A.E

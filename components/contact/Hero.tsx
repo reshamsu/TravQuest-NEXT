@@ -19,11 +19,11 @@ const Hero = () => {
            <div className="absolute inset-0 bg-black/25" />
           </div>
 
-          <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-4 text-white/70 pt-24 z-10 px-8 md:px-10 2xl:px-0">
-            <h1 className="text-4xl 2xl:text-6xl font-extrabold">
-              GET IN TOUCH
+          <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-4 text-white/70 z-10 px-8 md:px-10 2xl:px-0">
+            <h1 className="text-4xl 2xl:text-6xl font-bold">
+              Get In Touch
             </h1>
-            <p className="text-sm md:text-base font-semibold text-gray-100 max-w-3xl">
+            <p className="text-sm md:text-base font-normal text-gray-100 max-w-3xl">
               We're here to assist you with any inquires about our solutions
             </p>
           </div>
@@ -32,16 +32,16 @@ const Hero = () => {
       <div className="max-w-4xl mx-auto -mt-20 lg:-mt-30 bg-white px-8 p-12 lg:hover:scale-105 duration-1000 lg:shadow-xl border-2 border-gray-100 flex flex-col gap-12 rounded-3xl relative z-5">
         <div className="flex flex-col items-center text-center justify-center gap-4 md:gap-6">
           <div className="flex flex-col gap-2">
-            <label className="text-sm md:text-lg font-extrabold text-teal-600">
+            <label className="text-sm md:text-lg font-semibold text-teal-600">
               CONNECT
             </label>
 
-            <h2 className="text-xl md:text-2xl font-extrabold text-[#f2836f]">
-              WE ARE HERE TO SUPPORT YOUR JOURNEY
+            <h2 className="text-xl md:text-3xl font-bold text-[#f2836f]">
+              We Are Here To Support Your Journey.
             </h2>
           </div>
 
-          <p className="text-xs md:text-sm text-gray-600">
+          <p className="text-xs md:text-sm font-normal text-center text-gray-600">
             Let’s continue to weave the tapestry of travel experiences with,
             more inspiring examples from The TravQuest Travel & Tourism Team. We
             can guide you through, your worldwide Hotel Bookings, Flight ticket
