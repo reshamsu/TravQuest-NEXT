@@ -50,7 +50,7 @@ body {
     @apply inline-flex items-center justify-center gap-3 hover:gap-4 font-medium hover:font-extrabold rounded-xs border-b-4 border-black/80 pr-3 py-2 hover:px-3 text-[15px] 2xl:text-base text-black/90 cursor-pointer transition-all hover:scale-105 w-fit duration-700;
   }
   .btn-dark-glass {
-    @apply inline-flex items-center justify-center gap-3 hover:gap-4 font-medium rounded-full border-2 border-black/0 bg-black/10 hover:bg-white/10 px-3 py-3 text-sm lg:text-[15px] text-white hover:text-white cursor-pointer transition-all hover:scale-105 w-fit duration-700;
+    @apply inline-flex items-center justify-center gap-3 hover:gap-4 font-medium rounded-full border-2 border-black/0 bg-[#f2836f]/10 hover:bg-[#f2836f]/20 px-3 py-3 text-sm lg:text-[15px] text-gray-800 lg:text-white hover:text-[#f2836f] cursor-pointer transition-all hover:scale-105 w-fit duration-700;
   }
   .btn-dark-outline {
     @apply inline-flex items-center justify-center gap-3 hover:gap-4 font-medium rounded-full border-2 border-black/0 bg-black/5 hover:bg-black/10 px-6 py-2 text-black text-[14px] cursor-pointer transition-all hover:scale-105 w-full md:w-fit duration-700;

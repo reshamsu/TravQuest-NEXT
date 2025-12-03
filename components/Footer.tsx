@@ -125,7 +125,7 @@ const Footer = () => {
                 ].map((item, i) => (
                   <li key={i}>
                     <Link
-                      href="/explore"
+                      href="/explore-uae"
                       className="hover:text-[#f2836f] hover:underline"
                     >
                       {item}
@@ -149,7 +149,7 @@ const Footer = () => {
                 ].map((item, i) => (
                   <li key={i}>
                     <Link
-                      href="/services"
+                      href="/destinations/sri-lanka"
                       className="hover:text-[#f2836f] hover:underline text-left"
                     >
                       {item}
@@ -174,7 +174,7 @@ const Footer = () => {
                 ].map((item, i) => (
                   <li key={i}>
                     <Link
-                      href="/contact"
+                      href="/about"
                       className="hover:text-[#f2836f] hover:underline"
                     >
                       {item}

@@ -101,8 +101,11 @@ const Navbar = () => {
 
         {/* Desktop Right Side */}
         <div className="hidden lg:flex items-center gap-4 text-sm">
-          <Link href="/dashboard" className="select-none btn-dark-glass btn-dynamic">
-            <TbUser size={24} className="text-white"/>
+          <Link
+            href="/dashboard"
+            className="select-none btn-dark-glass btn-dynamic"
+          >
+            <TbUser size={24} className="text-white" />
           </Link>
           <Link
             href="https://wa.me/971529991223"
@@ -165,7 +168,13 @@ const Navbar = () => {
               )}
             </li>
           ))}
-          <div className="p-4">
+          <div className="p-4 flex items-center gap-4 text-sm">
+            <Link
+              href="/dashboard"
+              className="select-none btn-dark-glass btn-dynamic"
+            >
+              <TbUser size={24} />
+            </Link>
             <Link
               href="https://wa.me/971529991223"
               className="select-none btn-orange-base btn-dynamic"
