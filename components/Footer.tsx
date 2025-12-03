@@ -36,7 +36,7 @@ const Footer = () => {
                 Trav<span className="text-[#f2836f]">Quest</span>
               </h1>
             </Link> */}
-            <Link href="/" className="flex flex-col items-center gap-4">
+            <Link href="/" className="flex flex-col items-center gap-2">
               <Image
                 src="/favicon.ico"
                 alt="TQ"
@@ -53,8 +53,8 @@ const Footer = () => {
               />
             </Link>
 
-            <p className="text-sm">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            <p className="text-base">
+              Discover another Destination.
             </p>
 
             <ul className="flex gap-2 text-xl 2xl:text-2xl">
@@ -112,17 +112,16 @@ const Footer = () => {
           {/* Footer Links */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 w-full text-xs 2xl:text-sm">
             {/* Explore */}
-            <div className="ml-0 xl:ml-20">
-              <h6 className="text-sm 2xl:text-base font-semibold mb-3 text-white">
-                Explore
+            <div className="ml-0 xl:ml-24">
+              <h6 className="text-sm 2xl:text-base font-semibold mb-4 text-white">
+                Explore UAE
               </h6>
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-col gap-2.5">
                 {[
-                  "Write a Review",
-                  "Community Forum",
-                  "Travel Guides",
-                  "Travelers' Choice",
-                  "Blogs",
+                  "Abu Dhabi",
+                  "Dubai",
+                  "Fujairah",
+                  "Ras Al Khaimah",
                 ].map((item, i) => (
                   <li key={i}>
                     <Link
@@ -137,17 +136,16 @@ const Footer = () => {
             </div>
 
             {/* Products */}
-            <div className="ml-0 xl:ml-14">
+            <div className="ml-0 xl:ml-16">
               <h6 className="text-sm 2xl:text-base font-semibold mb-3 text-white">
-                Services
+                Destinations
               </h6>
               <ul className="flex flex-col gap-3">
                 {[
-                  "Flights",
-                  "Hotels",
-                  "Rides",
-                  "Cruise Tours",
-                  "Holiday Packages",
+                  "Sri Lanka",
+                  "Maldives",
+                  "Singapore",
+                  "Thailand",
                 ].map((item, i) => (
                   <li key={i}>
                     <Link
@@ -162,7 +160,7 @@ const Footer = () => {
             </div>
 
             {/* Company */}
-            <div className="ml-0 xl:ml-4">
+            <div className="ml-0 xl:ml-10">
               <h6 className="text-sm 2xl:text-base font-semibold mb-3 text-white">
                 TravQuest
               </h6>
@@ -176,7 +174,7 @@ const Footer = () => {
                 ].map((item, i) => (
                   <li key={i}>
                     <Link
-                      href="/about"
+                      href="/contact"
                       className="hover:text-[#f2836f] hover:underline"
                     >
                       {item}
@@ -210,7 +208,7 @@ const Footer = () => {
         {/* Bottom Line */}
         <div className="w-full flex flex-col items-center gap-3">
           <p className="text-sm flex items-center text-center gap-1">
-            <FaRegCopyright /> 2025 TravQuest. All Rights Reserved.
+            <FaRegCopyright /> 2025 TravQuest Travel & Tourism. All Rights Reserved.
           </p>
         </div>
       </div>

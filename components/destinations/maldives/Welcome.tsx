@@ -16,31 +16,31 @@ const Welcome = () => {
         <div className="flex flex-col gap-2">
           <label
             htmlFor=""
-            className="text-base md:text-lg font-extrabold text-teal-600"
+            className="text-base md:text-lg font-semibold text-teal-600"
           >
             A EPITOME OF MODERNITY
           </label>
-          <h2 className="text-2xl 2xl:text-3xl font-extrabold text-[#f2836f]">
+          <h2 className="text-2xl 2xl:text-3xl font-bold text-[#f2836f]">
             THE FUTURE IS NOW IN MALDIVES
           </h2>
         </div>
         <div className="flex flex-col gap-3">
-          <p className="text-sm md:text-base text-gray-600">
+          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
             With an unparalleled coastline, beautiful desert, and magnificent
             cityscapes, memories are just waiting to be made here.
           </p>{" "}
-          <p className="text-sm md:text-base text-gray-600">
+          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
             From traditional souks to luxurious entertainment centers, golf
             stadiums, recreational facilities, and sports activities,{" "}
-            <strong>Dubai</strong> offers a little bit of everything.
+            <strong>Maldives</strong> offers a little bit of everything.
           </p>
-          <p className="text-sm md:text-base text-gray-600">
-            <strong>Dubai</strong> is the epitome of modernity, reflected in its
+          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
+            <strong>Maldives</strong> is the epitome of modernity, reflected in its
             state-of-the-art architecture,{" "}
             <i>record-breaking attractions, and world-class.</i>
           </p>
-          <p className="text-sm md:text-base text-gray-600">
-            Today, <strong>Dubai</strong> is among the most modern cities in the
+          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
+            Today, <strong>Maldives</strong> is among the most modern cities in the
             world bustling with international trade, industry, and commerce.
           </p>
         </div>

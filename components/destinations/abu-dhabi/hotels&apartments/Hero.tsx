@@ -5,9 +5,9 @@ import Image from "next/image";
 import { TbChevronLeft, TbChevronRight } from "react-icons/tb";
 
 const images = [
-  "/assets/hero/sri-lanka-ella.jpg",
-  "/assets/hero/sri-lanka-ella3.jpg",
-  "/assets/hero/sri-lanka-sigiriya.jpg",
+  "/assets/poster/abu-dhabi-mosque.jpg",
+   "/assets/hero/abu-dhabi-city.jpg",
+  "/assets/hero/yas-island1.jpg",
 ];
 
 const Hero = () => {
@@ -64,11 +64,11 @@ const Hero = () => {
         </div>
 
         <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-3 text-white/70 pt-24 z-10 px-8 md:px-10 2xl:px-0">
-          <h1 className="text-4xl md:text-5xl 2xl:text-6xl font-bold">
-            SRI LANKA
+          <h1 className="text-3xl md:text-4xl 2xl:text-5xl font-bold">
+            Hotels & Apartment Stays in Abu Dhabi
           </h1>
           <p className="text-sm md:text-lg font-semibold text-gray-100 max-w-3xl">
-            Explore the wonders of Sri Lanka
+            Explore the wonders of Abu Dhabi
           </p>
         </div>
       </div>

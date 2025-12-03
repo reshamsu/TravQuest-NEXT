@@ -4,6 +4,13 @@ import Image from "next/image";
 
 const travelOptions = [
   {
+    title: "ABU DHABI",
+    description:
+      "An island nation in South Asia, is renowned for its stunning landscapes, rich cultural heritage, and diverse wildlife.",
+    img: "/assets/hero/abu-dhabi-city.jpg",
+    link: "/destinations/abu-dhabi",
+  },
+  {
     title: "DUBAI",
     description:
       "Tropical paradise in the Indian Ocean, is renowned for its overwater bungalows, crystal-clear waters, and vibrant coral reefs.",
@@ -39,9 +46,7 @@ const Shortcut = () => {
           </label> */}
           <h2 className="text-2xl md:text-3xl 2xl:text-3xl font-bold text-[#f2836f]">
             You may also check out{" "}
-            <span className="text-teal-600">
-             Other parts of UAE
-            </span>
+            <span className="text-teal-600">Other parts of UAE</span>
           </h2>
           <p className="text-sm md:text-base font-normal text-justify text-gray-600">
             From bustling metropolises to serene landscapes, our global
@@ -75,9 +80,7 @@ const Shortcut = () => {
                   >
                     TEXT HERE
                   </label>
-                  <h2 className="text-xl font-semibold">
-                    {option.title}
-                  </h2>
+                  <h2 className="text-xl font-semibold">{option.title}</h2>
                 </div>
                 <p className="text-xs 2xl:text-xs font-normal text-gray-100 line-clamp-3">
                   {option.description}

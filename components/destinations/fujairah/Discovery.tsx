@@ -47,11 +47,11 @@ const Shortcut = () => {
         <div className="flex flex-col gap-2">
           <label
             htmlFor=""
-            className="text-base md:text-lg font-extrabold text-[#f2836f]"
+            className="text-base md:text-lg font-bold text-[#f2836f]"
           >
             EXPLORE THE REAL ATTRACTION OF FUJAIRAH
           </label>
-          <h2 className="text-2xl md:text-3xl 2xl:text-3xl font-extrabold text-gray-700">
+          <h2 className="text-2xl md:text-3xl 2xl:text-3xl font-bold text-gray-700">
              Discover the Essence of{" "}
             <span className="text-teal-600">Luxury and Tradition in the Fujairah</span>
           </h2>
@@ -76,11 +76,11 @@ const Shortcut = () => {
                 <div className="flex flex-col gap-1">
                   <label
                     htmlFor=""
-                    className="text-xs md:text-sm font-extrabold text-[#f2836f] duration-1000"
+                    className="text-xs md:text-sm font-bold text-[#f2836f] duration-1000"
                   >
                     TEXT HERE
                   </label>
-                  <h2 className="text-2xl 2xl:text23xl font-extrabold">
+                  <h2 className="text-2xl 2xl:text23xl font-bold">
                     {option.title}
                   </h2>
                 </div>

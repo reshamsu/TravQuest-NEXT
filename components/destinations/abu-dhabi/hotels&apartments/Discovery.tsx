@@ -4,31 +4,32 @@ import Image from "next/image";
 
 const travelOptions = [
   {
-    title: "Hotels & Apartment Stays",
+    title: "Emirates Palace",
     description:
-      "A vast array of hotel accommodation options with comfortable and luxurious experiences…",
-    img: "/assets/poster/abu-dhabi-hotels.webp",
+      "A prestigious hotel with stunning views of the Arabian Gulf, known for its impeccable service and elegant accommodations.",
+    img: "/assets/poster/abu-dhabi-emirates_palace.jpg",
     link: "/destinations/abu-dhabi/hotels&apartments",
   },
   {
-    title: "Tours, Attractions & Experience",
+    title: "The St. Regis Abu Dhabi",
     description:
-      "Visit the adventurous Yas Island to conquer the record-breaking rides and slides…",
-    img: "/assets/poster/abu-dhabi-mosque.jpg",
-    link: "/destinations/abu-dhabi",
+      "A prestigious hotel with stunning views of the Arabian Gulf, known for its impeccable service and elegant accommodations.",
+    img: "/assets/poster/abu-dhabi-st-regis.avif",
+    link: "/destinations/abu-dhabi/hotels&apartments",
   },
   {
-    title: "Meetings & Conference Venues",
-    description: "A blend of Souks and Shopping malls for everyone…",
-    img: "/assets/poster/abu-dhabi-meets.jpg",
-    link: "/destinations/abu-dhabi",
+    title: "Jumeirah at Etihad Towers",
+    description:
+      "A prestigious hotel with stunning views of the Arabian Gulf, known for its impeccable service and elegant accommodations.",
+    img: "/assets/poster/abu-dhabi-jumeirah.jpg",
+    link: "/destinations/abu-dhabi/hotels&apartments",
   },
   {
-    title: "Packages & Customized Tours",
+    title: "The Ritz-Carlton Abu Dhabi - Grand Canal",
     description:
-      "A comprehensive range of exceptional business and meeting facilities to host your corporate events in Abu Dhabi …",
-    img: "/assets/poster/abu-dhabi-tour.webp",
-    link: "/destinations/abu-dhabi",
+      "A prestigious hotel with stunning views of the Arabian Gulf, known for its impeccable service and elegant accommodations.",
+    img: "/assets/poster/abu-dhabi-ritz-carlton.jpg",
+    link: "/destinations/abu-dhabi/hotels&apartments",
   },
 ];
 

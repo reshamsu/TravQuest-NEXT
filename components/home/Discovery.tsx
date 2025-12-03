@@ -7,7 +7,7 @@ const travelOptions = [
     title: "Abu Dhabi",
     description:
       "Capital of the UAE, known for opulent architecture and rich culture.",
-    img: "/assets/destinations/abu-dhabi-city.jpg",
+    img: "/assets/hero/abu-dhabi-city.jpg",
     link: "/destinations/abu-dhabi",
   },
   {

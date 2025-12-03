@@ -7,7 +7,7 @@ const travelOptions = [
     title: "ABU DHABI",
     description:
       "An island nation in South Asia, is renowned for its stunning landscapes, rich cultural heritage, and diverse wildlife.",
-    img: "/assets/destinations/abu-dhabi-city.jpg",
+    img: "/assets/hero/abu-dhabi-city.jpg",
     link: "/destinations/abu-dhabi",
   },
   {
@@ -37,11 +37,11 @@ const Shortcut = () => {
           >
             DISCOVER THE ATTRACTION OF TRAVEL UAE
           </label> */}
-          <h2 className="text-2xl md:text-3xl 2xl:text-3xl font-extrabold text-[#f2836f]">
+          <h2 className="text-2xl md:text-3xl 2xl:text-3xl font-bold text-[#f2836f]">
             You may also check out{" "}
             <span className="text-teal-600">Other parts of UAE</span>
           </h2>
-          <p className="text-sm md:text-base text-gray-500">
+          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
             From bustling metropolises to serene landscapes, our global
             adventure awaits. Pack your bags, follow the compass of wanderlust,
             and let the thrill of discovery guide your path. Together, we’ll
@@ -69,11 +69,11 @@ const Shortcut = () => {
                 <div className="flex flex-col gap-1">
                   <label
                     htmlFor=""
-                    className="text-xs md:text-sm font-extrabold text-[#f2836f] duration-1000"
+                    className="text-xs md:text-sm font-bold text-[#f2836f] duration-1000"
                   >
                     TEXT HERE
                   </label>
-                  <h2 className="text-xl 2xl:text23xl font-extrabold">
+                  <h2 className="text-xl 2xl:text23xl font-bold">
                     {option.title}
                   </h2>
                 </div>
