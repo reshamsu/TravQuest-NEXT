@@ -1,12 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 const images = [
-  "/assets/hero/burj-al-arab1.jpg",
-  "/assets/poster/event-burj-khalifa1.jpg",
-  "/assets/hero/burj-al-arab.jpg",
-  "/assets/hero/dubai-city.jpg",
+  "/assets/poster/sri-lanka-hills.jpg",
+  "/assets/poster/sri-lanka-train_ride.jpg",
+  "/assets/poster/sri-lanka-elephant_tour.jpg",
 ];
 
 const Welcome = () => {
@@ -21,7 +19,7 @@ const Welcome = () => {
             A EPITOME OF MODERNITY
           </label>
           <h2 className="text-2xl 2xl:text-3xl font-bold text-[#f2836f]">
-            THE FUTURE IS NOW IN SRI LANKA
+            The Future is now in Sri Lanka
           </h2>
         </div>
         <div className="flex flex-col gap-3">
@@ -49,15 +47,15 @@ const Welcome = () => {
       <div className="flex flex-col gap-4">
         <div className="relative h-90 w-full">
           <Image
-            src="/assets/hero/burj-khalifa.jpg"
+            src="/assets/poster/sri-lanka-lotus_tower2.jpg"
             alt="UAE"
             fill
             className="object-cover rounded-3xl"
           />
-          <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-2xl duration-500" />
+          <div className="absolute inset-0 bg-white/10 hover:bg-black/15 rounded-2xl duration-500" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {images.map((src, i) => (
             <div
               key={i}

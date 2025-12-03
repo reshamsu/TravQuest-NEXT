@@ -6,7 +6,6 @@ const images = [
   "/assets/poster/event-desert-safari1.webp",
   "/assets/poster/event-burj-khalifa1.jpg",
   "/assets/poster/event-ferrari-world.jpg",
-  "/assets/hero/sheikh_zayed_grand_mosque.jpg",
 ];
 
 const Welcome = () => {
@@ -25,19 +24,19 @@ const Welcome = () => {
           </h2>
         </div>
 
-        <p className="text-xs md:text-base font-normal text-justify text-gray-600">
+        <p className="text-sm md:text-base font-normal text-justify text-gray-600">
           The <strong>United Arab Emirates (UAE)</strong> is a melting pot of
           cultures and traditions, with a rich history and heritage while it is
           the home to a variety of landscapes,{" "}
           <i>including beaches, deserts, mountains, and cityscapes.</i>
         </p>
-        <p className="text-xs md:text-base font-normal text-justify text-gray-600">
+        <p className="text-sm md:text-base font-normal text-justify text-gray-600">
           The <strong>UAE</strong> is a vibrant nation nestled in the{" "}
           <u>Arabian Peninsula</u> and is a federation of seven emirates,
           consisting of <strong>Abu Dhabi (the capital city) </strong>, Ajman,
           Dubai, Fujairah, Ras Al Khaimah, Sharjah and Umm Al Quwain.
         </p>
-        <p className="text-xs md:text-base font-normal text-justify text-gray-600">
+        <p className="text-sm md:text-base font-normal text-justify text-gray-600">
           The <strong>Emirates</strong> comprise a mixed environment of rocky
           desert, coastal plains and wetlands, and waterless mountains. The
           seashore is a haven for migratory waterfowl and draws birdwatchers
@@ -59,7 +58,7 @@ const Welcome = () => {
           <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-2xl duration-500" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {images.map((src, i) => (
             <div
               key={i}

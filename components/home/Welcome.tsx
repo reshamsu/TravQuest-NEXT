@@ -43,13 +43,13 @@ const Welcome = () => {
             </h2>
           </div>
 
-          <p className="text-xs md:text-base font-normal text-justify text-gray-600">
+          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
             Travel is a beautiful journey that enriches our lives and broadens
             our perspectives. Let’s delve into the enchanting world of travel,
             where every journey unfolds a tapestry of delightful and memorable
             moments.
           </p>
-          <p className="text-xs md:text-base font-normal text-justify text-gray-600">
+          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
             Whether you’re a seasoned globetrotter or embarking on your first
             adventure, travel has a way of leaving an indelible mark on our
             hearts.
@@ -60,7 +60,7 @@ const Welcome = () => {
               Live your story…Discover Another Destination!
             </h4>
 
-            <Link href="/about" className="select-none btn-green-base btn-dynamic">
+            <Link href="#discover" className="select-none btn-green-base btn-dynamic">
               Start Planning
             </Link>
           </div>

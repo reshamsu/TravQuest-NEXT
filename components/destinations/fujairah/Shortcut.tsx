@@ -7,7 +7,7 @@ const travelOptions = [
     title: "ABU DHABI",
     description:
       "An island nation in South Asia, is renowned for its stunning landscapes, rich cultural heritage, and diverse wildlife.",
-    img: "/assets/destinations/abu-dhabi-city.jpg",
+    img: "/assets/hero/abu-dhabi-city.jpg",
     link: "/destinations/abu-dhabi",
   },
   {

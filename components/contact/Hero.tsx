@@ -21,7 +21,7 @@ const Hero = () => {
 
           <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-4 text-white/70 z-10 px-8 md:px-10 2xl:px-0">
             <h1 className="text-4xl 2xl:text-6xl font-bold">
-              Get In Touch
+              Get in touch
             </h1>
             <p className="text-sm md:text-base font-normal text-gray-100 max-w-3xl">
               We're here to assist you with any inquires about our solutions

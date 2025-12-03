@@ -6,7 +6,6 @@ const images = [
   "/assets/poster/event-desert-safari1.webp",
   "/assets/poster/event-burj-khalifa1.jpg",
   "/assets/poster/event-ferrari-world.jpg",
-  "/assets/hero/sheikh_zayed_grand_mosque.jpg",
 ];
 
 const Welcome = () => {
@@ -70,7 +69,7 @@ const Welcome = () => {
           <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-2xl duration-500" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {images.map((src, i) => (
             <div
               key={i}

@@ -73,7 +73,7 @@ const Hero = () => {
           <h1 className="text-3xl md:text-4xl 2xl:text-5xl font-semibold">
             Let Us Unfold Your Extraordinary Travel Story
           </h1>
-          <p className="text-xs lg:text-base text-gray-300 max-w-3xl">
+          <p className="text-sm lg:text-base text-gray-300 max-w-3xl">
             Discover thousands of beautiful places around the world with
             wonderful experiences you can imagine.
           </p>

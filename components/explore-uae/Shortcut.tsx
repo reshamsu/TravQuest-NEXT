@@ -37,10 +37,10 @@ const Shortcut = () => {
   return (
     <div className="bg-linear-to-b from-[#f2836f]/10 via-[#ffffff] to-teal-700/20">
       <div className="max-w-6xl mx-auto flex flex-col gap-10 py-20 px-8 md:px-10 2xl:px-0">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-3">
           <label
             htmlFor=""
-            className="text-base md:text-lg font-semibold text-[#f2836f]"
+            className="text-sm md:text-lg font-semibold text-[#f2836f]"
           >
             DISCOVER THE ATTRACTION OF TRAVEL UAE
           </label>
@@ -50,7 +50,7 @@ const Shortcut = () => {
               Luxury and Tradition in the Travel UAE
             </span>
           </h2>
-          <p className="text-sm md:text-base text-normal text-gray-500">
+          <p className="text-sm md:text-base text-normal text-gray-600">
             From bustling metropolises to serene landscapes, our global
             adventure awaits. Pack your bags, follow the compass of wanderlust,
             and let the thrill of discovery guide your path. Together, we’ll

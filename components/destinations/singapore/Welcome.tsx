@@ -1,12 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 const images = [
-  "/assets/hero/burj-al-arab1.jpg",
-  "/assets/poster/event-burj-khalifa1.jpg",
-  "/assets/hero/burj-al-arab.jpg",
-  "/assets/hero/dubai-city.jpg",
+  "/assets/poster/singapore-city1.jpg",
+  "/assets/poster/singapore-universal.jpg",
+  "/assets/poster/singapore-airport.webp",
 ];
 
 const Welcome = () => {
@@ -21,7 +19,7 @@ const Welcome = () => {
             A EPITOME OF MODERNITY
           </label>
           <h2 className="text-2xl 2xl:text-3xl font-bold text-[#f2836f]">
-            THE FUTURE IS NOW IN SINGAPORE
+            The Future is now in Singapore
           </h2>
         </div>
         <div className="flex flex-col gap-3">
@@ -57,7 +55,7 @@ const Welcome = () => {
           <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-2xl duration-500" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {images.map((src, i) => (
             <div
               key={i}

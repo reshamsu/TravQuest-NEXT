@@ -48,7 +48,7 @@ const Shortcut = () => {
             Let’s Travel Around the Globe…
             <span className="text-teal-600">One Destination at a Time</span>
           </h2>
-          <p className="text-sm md:text-base font-normal text-justify text-gray-500">
+          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
             From bustling metropolises to serene landscapes, our global
             adventure awaits. Pack your bags, follow the compass of wanderlust,
             and let the thrill of discovery guide your path. Together, we’ll

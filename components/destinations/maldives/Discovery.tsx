@@ -44,14 +44,14 @@ const Shortcut = () => {
   return (
     <div className="bg-linear-to-b from-[#f2836f]/10 via-[#ffffff] to-[#ffffff]">
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center gap-10 py-20 px-8 md:px-10 2xl:px-0">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-3">
           <label
             htmlFor=""
-            className="text-base md:text-lg font-semibold text-[#f2836f]"
+            className="text-sm md:text-lg font-semibold text-[#f2836f]"
           >
             EXPLORE THE REAL ATTRACTION OF MALDIVES
           </label>
-          <h2 className="text-2xl md:text-3xl 2xl:text-3xl font-bold text-gray-700">
+          <h2 className="text-2xl 2xl:text-3xl font-bold text-gray-700">
             Discover the Essence of{" "}
             <span className="text-teal-600">
               Luxury and Tradition in the Maldives
