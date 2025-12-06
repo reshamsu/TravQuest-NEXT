@@ -18,7 +18,7 @@ const Info = () => {
           </div>
 
           {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-[15px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-[15px]">
             {/* PHONE */}
             <div className="bg-white border-4 border-teal-600/40 p-7 flex flex-col items-start justify-center gap-6 rounded-4xl hover:scale-105 duration-1000 group shadow-lg">
               <div className="bg-teal-600/20 w-fit p-3 rounded-2xl">

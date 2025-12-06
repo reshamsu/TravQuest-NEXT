@@ -65,14 +65,14 @@ const Values = () => {
     <div className="bg-gray-100 text-gray-700 relative">
       <div className="max-w-6xl mx-auto py-20 px-8 2xl:px-0 flex flex-col gap-10">
         <div className="flex flex-col items-center text-center lg:items-start lg:text-start gap-8">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <label
               htmlFor=""
               className="text-base md:text-lg font-semibold text-teal-600"
             >
               OUR VALUES
             </label>
-            <h1 className="text-3xl 2xl:text-4xl font-bold">
+            <h1 className="text-4xl 2xl:text-5xl font-bold">
               What <span className="text-[#f2836f]">We Do</span>
             </h1>
           </div>

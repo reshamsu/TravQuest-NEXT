@@ -44,7 +44,7 @@ const Discovery = () => {
           >
             WHERE TIME-HONORED TRADITIONS EMBRACE THE FUTURE!
           </label>
-          <h2 className="text-2xl md:text-3xl font-bold text-teal-600">
+          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold text-teal-600">
             Discover the UAE
           </h2>
         </div>
@@ -52,7 +52,7 @@ const Discovery = () => {
           {travelOptions.map((option, index) => (
             <div
               key={index}
-              className="relative rounded-3xl overflow-hidden h-70 2xl:h-90 group shadow-lg"
+              className="relative rounded-4xl overflow-hidden h-90 group shadow-lg"
             >
               <Image
                 src={option.img}
@@ -71,7 +71,7 @@ const Discovery = () => {
                   >
                     TEXT HERE
                   </label>
-                  <h2 className="text-xl 2xl:text-3xl font-bold">
+                  <h2 className="playfair text-2xl md:text-xl 2xl:text-2xl font-bold">
                     {option.title}
                   </h2>
                 </div>

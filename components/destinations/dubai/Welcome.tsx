@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 const images = [
   "/assets/hero/dubai-museum2.webp",
@@ -12,14 +11,14 @@ const Welcome = () => {
   return (
     <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-14 lg:gap-24 px-8 md:px-10 2xl:px-0">
       <div className="flex flex-col justify-center gap-4 md:gap-6">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2.5">
           <label
             htmlFor=""
             className="text-base md:text-lg font-semibold text-[#f2836f]"
           >
             A EPITOME OF MODERNITY
           </label>
-          <h2 className="text-2xl 2xl:text-3xl font-bold text-teal-600">
+          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold text-teal-600">
             The Future is now in Dubai
           </h2>
         </div>
@@ -56,7 +55,7 @@ const Welcome = () => {
           <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-2xl duration-500" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-4">
           {images.map((src, i) => (
             <div
               key={i}

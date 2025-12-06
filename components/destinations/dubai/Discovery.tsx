@@ -44,24 +44,24 @@ const Shortcut = () => {
   return (
     <div className="bg-linear-to-b from-[#f2836f]/10 via-[#ffffff] to-[#ffffff]">
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center gap-10 py-20 px-8 md:px-10 2xl:px-0">
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2.5">
           <label
             htmlFor=""
             className="text-sm md:text-lg font-bold text-[#f2836f]"
           >
             EXPLORE THE REAL ATTRACTION OF DUBAI
           </label>
-          <h2 className="text-2xl 2xl:text-3xl font-bold text-gray-700">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-700">
              Discover the Essence of{" "}
             <span className="text-teal-600">Luxury and Tradition in the Dubai</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
           {travelOptions.map((option, index) => (
             <div
               key={index}
-              className="relative rounded-3xl overflow-hidden h-[55vh] hover:scale-105 duration-1000 group shadow-lg"
+              className="relative rounded-4xl overflow-hidden h-[55vh] hover:scale-105 duration-1000 group shadow-lg"
             >
               <Image
                 src={option.img}
@@ -80,7 +80,7 @@ const Shortcut = () => {
                   >
                     TEXT HERE
                   </label>
-                  <h2 className="text-2xl 2xl:text23xl font-bold">
+                  <h2 className="playfair text-2xl md:text-xl 2xl:text-2xl font-bold">
                     {option.title}
                   </h2>
                 </div>

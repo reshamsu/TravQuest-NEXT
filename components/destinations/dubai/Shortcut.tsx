@@ -4,21 +4,21 @@ import Image from "next/image";
 
 const travelOptions = [
   {
-    title: "ABU DHABI",
+    title: "Abu Dhabi",
     description:
       "An island nation in South Asia, is renowned for its stunning landscapes, rich cultural heritage, and diverse wildlife.",
     img: "/assets/hero/abu-dhabi-city.jpg",
     link: "/destinations/abu-dhabi",
   },
   {
-    title: "FUJAIRAH",
+    title: "Furjairah",
     description:
       "A dynamic city-state in Southeast Asia, is celebrated for its modernity, diverse culture, and iconic skyline",
     img: "/assets/destinations/fujairah-castle.jpg",
     link: "/destinations/fujairah",
   },
   {
-    title: "RAS AL KHAIMAH",
+    title: "Ras Al Khaimah",
     description:
       "A captivating blend of vibrant street life, serene temples, and stunning natural beauty.",
     img: "/assets/destinations/ras-al-khaimah.jpg",
@@ -31,13 +31,7 @@ const Shortcut = () => {
     <div className="bg-linear-to-b from-gray-100 via-[#ffffff] to-teal-700/20">
       <div className="max-w-6xl mx-auto flex flex-col gap-10 py-20 px-8 md:px-10 2xl:px-0">
         <div className="flex flex-col gap-4">
-          {/* <label
-            htmlFor=""
-            className="text-base md:text-lg font-extrabold text-[#f2836f]"
-          >
-            DISCOVER THE ATTRACTION OF TRAVEL UAE
-          </label> */}
-          <h2 className="text-2xl md:text-3xl 2xl:text-3xl font-bold text-[#f2836f]">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#f2836f]">
             You may also check out{" "}
             <span className="text-teal-600">Other parts of UAE</span>
           </h2>
@@ -50,11 +44,11 @@ const Shortcut = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {travelOptions.map((option, index) => (
             <div
               key={index}
-              className="relative rounded-3xl overflow-hidden h-[55vh] hover:scale-105 duration-1000 group shadow-lg"
+              className="relative rounded-4xl overflow-hidden h-[55vh] hover:scale-105 duration-1000 group shadow-lg"
             >
               <Image
                 src={option.img}
@@ -73,7 +67,7 @@ const Shortcut = () => {
                   >
                     TEXT HERE
                   </label>
-                  <h2 className="text-xl 2xl:text23xl font-bold">
+                  <h2 className="playfair text-2xl md:text-xl 2xl:text-2xl font-bold">
                     {option.title}
                   </h2>
                 </div>

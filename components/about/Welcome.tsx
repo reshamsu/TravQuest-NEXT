@@ -38,7 +38,7 @@ const Welcome = () => {
             >
               EVERY MILE CURATED, EVERY MOMENT ELEVATED.
             </label>
-            <h2 className="text-2xl 2xl:text-3xl font-bold text-teal-600">
+            <h2 className="text-3xl 2xl:text-4xl font-bold text-teal-600">
               Let Us Inspire You To Expand Your Travel Horizons
             </h2>
           </div>

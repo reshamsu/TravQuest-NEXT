@@ -17,7 +17,7 @@ const Welcome = () => {
           {images.map((src, i) => (
             <div
               key={i}
-              className="relative h-[250px] rounded-3xl w-full duration-1000 bg-gray-100"
+              className="relative h-[180px] lg:h-[250px] rounded-3xl w-full duration-1000 bg-gray-100"
             >
               <Image
                 src={src}
@@ -38,7 +38,7 @@ const Welcome = () => {
             >
               MEET THE WORLD
             </label>
-            <h2 className="text-2xl 2xl:text-3xl font-bold text-teal-600">
+            <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold text-teal-600">
               Great Faces, Great Places
             </h2>
           </div>
@@ -55,13 +55,13 @@ const Welcome = () => {
             hearts.
           </p>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-6">
             <h4 className="text-sm md:text-lg font-bold text-gray-600">
               Live your story…Discover Another Destination!
             </h4>
 
-            <Link href="#discover" className="select-none btn-green-base btn-dynamic">
-              Start Planning
+            <Link href="/about" className="select-none btn-green-base btn-dynamic">
+              Learn More
             </Link>
           </div>
         </div>

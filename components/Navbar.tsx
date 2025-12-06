@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <header className="fixed z-40 w-full">
-      <nav className="max-w-7xl lg:mt-4 mx-auto bg-black/50 backdrop-blur-3xl shadow-xl lg:rounded-full flex items-center justify-between py-4 px-6">
+      <nav className="max-w-6xl 2xl:max-w-7xl lg:mt-4 mx-auto bg-black/50 backdrop-blur-3xl shadow-xl lg:rounded-full flex items-center justify-between py-4 px-6">
         {/* Logo + Mobile Button */}
         <div className="flex items-center justify-between gap-2 lg:gap-4">
           <Link href="/" className="flex items-center gap-8 lg:gap-4 w-full">
@@ -100,31 +100,33 @@ const Navbar = () => {
         </ul>
 
         {/* Desktop Right Side */}
-        <div className="hidden lg:flex items-center gap-4 text-sm">
-          <Link
-            href="/dashboard"
-            className="select-none btn-dark-glass btn-dynamic"
+        <div className="flex items-center gap-4 text-sm">
+          <div className="hidden md:flex gap-4">
+            <Link
+              href="/dashboard"
+              className="select-none btn-dark-glass btn-dynamic"
+            >
+              <TbUser size={24} className="text-white" />
+            </Link>
+            <Link
+              href="https://wa.me/971529991223"
+              className="select-none btn-orange-sm btn-dynamic"
+            >
+              <TbPhone size={24} /> Inquire Now
+            </Link>
+          </div>
+          <button
+            aria-label="Open menu"
+            className="lg:hidden"
+            onClick={() => setIsOpen(!isOpen)}
           >
-            <TbUser size={24} className="text-white" />
-          </Link>
-          <Link
-            href="https://wa.me/971529991223"
-            className="select-none btn-orange-sm btn-dynamic"
-          >
-            <TbPhone size={24} /> Inquire Now
-          </Link>
+            {isOpen ? (
+              <TbX className="w-8 h-8 cursor-pointer text-[#f2836f]" />
+            ) : (
+              <TbMenu className="w-8 h-8 cursor-pointer text-[#05B0AA] " />
+            )}
+          </button>
         </div>
-        <button
-          aria-label="Open menu"
-          className="lg:hidden"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? (
-            <TbX className="w-8 h-8 cursor-pointer text-[#f2836f]" />
-          ) : (
-            <TbMenu className="w-8 h-8 cursor-pointer text-[#05B0AA] " />
-          )}
-        </button>
       </nav>
 
       {/* Mobile Dropdown */}
@@ -168,7 +170,7 @@ const Navbar = () => {
               )}
             </li>
           ))}
-          <div className="p-4 flex items-center gap-4 text-sm">
+          <div className="p-4 flex md:hidden items-center gap-4 text-sm">
             <Link
               href="/dashboard"
               className="select-none btn-dark-glass btn-dynamic"

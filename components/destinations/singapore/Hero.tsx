@@ -64,7 +64,7 @@ const Hero = () => {
         </div>
 
         <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-3 text-white/70 pt-24 z-10 px-8 md:px-10 2xl:px-0">
-          <h1 className="text-4xl md:text-5xl 2xl:text-6xl font-bold">
+          <h1 className="playfair text-5xl md:text-6xl 2xl:text-7xl font-bold">
             SINGAPORE
           </h1>
           <p className="text-sm md:text-lg font-semibold text-gray-100 max-w-3xl">

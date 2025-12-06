@@ -44,7 +44,7 @@ const Shortcut = () => {
           >
             WHERE DREAM TAKE FLIGHT
           </label>
-          <h2 className="text-2xl md:text-3xl 2xl:text-3xl font-bold text-gray-700">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-700">
             Let’s Travel Around the Globe…
             <span className="text-teal-600">One Destination at a Time</span>
           </h2>
@@ -57,11 +57,11 @@ const Shortcut = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {travelOptions.map((option, index) => (
             <div
               key={index}
-              className="relative rounded-3xl overflow-hidden h-[55vh] hover:scale-105 duration-1000 group shadow-lg"
+              className="relative rounded-4xl overflow-hidden h-[55vh] hover:scale-105 duration-1000 group shadow-lg"
             >
               <Image
                 src={option.img}
@@ -80,7 +80,7 @@ const Shortcut = () => {
                   >
                     TEXT HERE
                   </label>
-                  <h2 className="text-xl font-bold">
+                  <h2 className="playfair text-2xl md:text-xl 2xl:text-2xl font-bold">
                     {option.title}
                   </h2>
                 </div>

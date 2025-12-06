@@ -4,28 +4,28 @@ import Image from "next/image";
 
 const travelOptions = [
   {
-    title: "ABU DHABI",
+    title: "Abu Dhabi",
     description:
       "An island nation in South Asia, is renowned for its stunning landscapes, rich cultural heritage, and diverse wildlife.",
     img: "/assets/hero/abu-dhabi-city.jpg",
     link: "/destinations/abu-dhabi",
   },
   {
-    title: "DUBAI",
+    title: "Dubai",
     description:
       "Tropical paradise in the Indian Ocean, is renowned for its overwater bungalows, crystal-clear waters, and vibrant coral reefs.",
     img: "/assets/destinations/burj-khalifa.webp",
     link: "/destinations/dubai",
   },
   {
-    title: "FUJAIRAH",
+    title: "Furjairah",
     description:
       "A dynamic city-state in Southeast Asia, is celebrated for its modernity, diverse culture, and iconic skyline",
     img: "/assets/destinations/fujairah-castle.jpg",
     link: "/destinations/fujairah",
   },
   {
-    title: "RAS AL KHAIMAH",
+    title: "Ras Al Khaimah",
     description:
       "A captivating blend of vibrant street life, serene temples, and stunning natural beauty.",
     img: "/assets/destinations/ras-al-khaimah.jpg",
@@ -44,7 +44,7 @@ const Shortcut = () => {
           >
             DISCOVER THE ATTRACTION OF TRAVEL UAE
           </label> */}
-          <h2 className="text-2xl md:text-3xl 2xl:text-3xl font-bold text-[#f2836f]">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#f2836f]">
             You may also check out{" "}
             <span className="text-teal-600">Other parts of UAE</span>
           </h2>
@@ -57,11 +57,11 @@ const Shortcut = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {travelOptions.map((option, index) => (
             <div
               key={index}
-              className="relative rounded-3xl overflow-hidden h-[55vh] hover:scale-105 duration-1000 group shadow-lg"
+              className="relative rounded-4xl overflow-hidden h-[55vh] hover:scale-105 duration-1000 group shadow-lg"
             >
               <Image
                 src={option.img}
@@ -80,7 +80,7 @@ const Shortcut = () => {
                   >
                     TEXT HERE
                   </label>
-                  <h2 className="text-xl font-semibold">{option.title}</h2>
+                  <h2 className="playfair text-2xl md:text-xl 2xl:text-2xl font-bold">{option.title}</h2>
                 </div>
                 <p className="text-xs 2xl:text-xs font-normal text-gray-100 line-clamp-3">
                   {option.description}

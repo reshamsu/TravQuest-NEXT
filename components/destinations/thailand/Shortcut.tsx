@@ -4,21 +4,21 @@ import Image from "next/image";
 
 const travelOptions = [
   {
-    title: "SRI LANKA",
+    title: "Sri Lanka",
     description:
       "An island nation in South Asia, is renowned for its stunning landscapes, rich cultural heritage, and diverse wildlife.",
     img: "/assets/destinations/sri-lanka-ella.jpg",
     link: "/destinations/sri-lanka",
   },
   {
-    title: "MALDIVES",
+    title: "Maldives",
     description:
       "Tropical paradise in the Indian Ocean, is renowned for its overwater bungalows, crystal-clear waters, and vibrant coral reefs.",
     img: "/assets/destinations/maldives.jpg",
     link: "/destinations/maldives",
   },
   {
-    title: "SINGAPORE",
+    title: "Singapore",
     description:
       "A dynamic city-state in Southeast Asia, is celebrated for its modernity, diverse culture, and iconic skyline",
     img: "/assets/destinations/singapore.jpg",
@@ -50,11 +50,11 @@ const Shortcut = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 duration-700">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 duration-700">
           {travelOptions.map((option, index) => (
             <div
               key={index}
-              className="relative rounded-3xl overflow-hidden h-[55vh] hover:scale-105 duration-1000 group shadow-lg"
+              className="relative rounded-4xl overflow-hidden h-[55vh] hover:scale-105 duration-1000 group shadow-lg"
             >
               <Image
                 src={option.img}
@@ -73,7 +73,7 @@ const Shortcut = () => {
                   >
                     TEXT HERE
                   </label>
-                  <h2 className="text-xl 2xl:text23xl font-bold">
+                  <h2 className="playfair text-2xl md:text-xl 2xl:text-2xl font-bold">
                     {option.title}
                   </h2>
                 </div>

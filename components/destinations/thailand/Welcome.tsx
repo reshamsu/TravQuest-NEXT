@@ -18,7 +18,7 @@ const Welcome = () => {
           >
             A EPITOME OF MODERNITY
           </label>
-          <h2 className="text-2xl 2xl:text-3xl font-bold text-[#f2836f]">
+          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold text-[#f2836f]">
             The Future is now in Thailand
           </h2>
         </div>
@@ -55,7 +55,7 @@ const Welcome = () => {
           <div className="absolute inset-0 bg-white/10 hover:bg-black/15 rounded-2xl duration-500" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-4">
           {images.map((src, i) => (
             <div
               key={i}

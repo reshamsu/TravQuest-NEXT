@@ -90,7 +90,7 @@ const Destinations = () => {
             A DESTINATION THAT LEAVES A MARK ON YOUR SOUL
           </label>
 
-          <h2 className="text-3xl 2xl:text-4xl font-semibold text-teal-600">
+          <h2 className="playfair text-4xl 2xl:text-5xl font-bold text-teal-600">
             Unleash Your{" "}
             <span className="text-[#f2836f]">Adventurous Spirit</span>
           </h2>
