@@ -4,6 +4,7 @@ import Background from "@/components/home/Background";
 import Discovery from "@/components/home/Discovery";
 import Destinations from "@/components/home/Destinations";
 import Shortcut from "@/components/home/Shortcut";
+import Corporate from "@/components/home/Corperate";
 
 export default function Home() {
   return (
@@ -11,9 +12,10 @@ export default function Home() {
       <Hero />
       <Welcome />
       <Background />
-      <Discovery />
-      <Destinations />
       <Shortcut />
+      {/* <Discovery /> */}
+      <Destinations />
+         <Corporate />
     </div>
   );
 }

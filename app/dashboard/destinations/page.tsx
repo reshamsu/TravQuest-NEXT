@@ -1,4 +1,4 @@
-import Overview from "@/components/dashboard/Overview";
+import Overview from "@/components/dashboard/hompage/HPSection1";
 
 export default function Destinations() {
   return (

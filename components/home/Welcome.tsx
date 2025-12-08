@@ -17,7 +17,7 @@ const Welcome = () => {
           {images.map((src, i) => (
             <div
               key={i}
-              className="relative h-[180px] lg:h-[250px] rounded-3xl w-full duration-1000 bg-gray-100"
+              className="relative h-[180px] lg:h-[200px] rounded-3xl w-full duration-1000 bg-gray-100"
             >
               <Image
                 src={src}
@@ -30,26 +30,26 @@ const Welcome = () => {
           ))}
         </div>
 
-        <div className="flex flex-col justify-center gap-4 md:gap-6">
-          <div className="flex flex-col gap-2">
+        <div className="flex flex-col justify-center gap-4">
+          <div className="flex flex-col gap-1">
             <label
               htmlFor=""
-              className="text-base lg:text-lg font-semibold text-[#f2836f]"
+              className="text-2xl lg:text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]"
             >
-              MEET THE WORLD
+              Meet the World
             </label>
-            <h2 className="text-2xl lg:text-3xl 2xl:text-4xl font-bold text-teal-600">
+            <h2 className="text-base lg:text-lg font-bold text-teal-600">
               Great Faces, Great Places
             </h2>
           </div>
 
-          <p className="text-xs md:text-sm lg:text-base font-normal text-justify text-gray-600">
+          <p className="text-xs lg:text-sm font-normal text-justify text-gray-600">
             Travel is a beautiful journey that enriches our lives and broadens
             our perspectives. Let’s delve into the enchanting world of travel,
             where every journey unfolds a tapestry of delightful and memorable
             moments.
           </p>
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
+          <p className="text-xs lg:text-sm font-normal text-justify text-gray-600">
             Whether you’re a seasoned globetrotter or embarking on your first
             adventure, travel has a way of leaving an indelible mark on our
             hearts.
@@ -60,7 +60,10 @@ const Welcome = () => {
               Live your story…Discover Another Destination!
             </h4>
 
-            <Link href="/about" className="select-none btn-green-base btn-dynamic">
+            <Link
+              href="/about"
+              className="select-none btn-green-base btn-dynamic"
+            >
               Learn More
             </Link>
           </div>

@@ -11,6 +11,15 @@ export const Nav_Links = [
       { href: "/destinations/thailand", label: "Thailand" },
     ],
   },
+
   { href: "/about", key: "about", label: "About" },
   { href: "/contact", key: "contact", label: "Contact" },
+  {
+    key: "more",
+    label: "More",
+    submenu: [
+      { href: "/more/corporate-travel", label: "Corporate Travel" },
+      { href: "/more/monthly-long-stay", label: "Monthly/Long Stay" },
+    ],
+  },
 ];

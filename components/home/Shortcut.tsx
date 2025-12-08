@@ -69,7 +69,6 @@ const Shortcut = () => {
                 fill
                 className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
               />
-
               <div className="absolute inset-0 bg-black/64 lg:bg-[#f2836f]/10 group-hover:bg-black/64 transition-all duration-1000"></div>
 
               <div className="relative z-10 h-full flex flex-col items-start text-start justify-end gap-3.5 p-8 text-white">
