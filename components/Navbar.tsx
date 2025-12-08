@@ -43,7 +43,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden h-full gap-3 lg:flex text-[14px]">
+        <ul className="hidden h-full gap-3 lg:flex text-[13px]">
           {Nav_Links.map((link) => {
             const isActive =
               link.href === "/"

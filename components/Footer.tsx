@@ -24,7 +24,7 @@ const Footer = () => {
     <footer className="bg-gray-900 text-gray-500 border-t border-white/10">
       <div className="max-w-6xl mx-auto py-14 2xl:pt-20 pb-10 px-8 2xl:px-0 flex flex-col items-center gap-10">
         <div className="flex flex-col lg:flex-row gap-10 w-full pb-10 border-b border-gray-800">
-          <div className="flex flex-col items-center text-center gap-6 w-full md:w-xs">
+          <div className="flex flex-col items-center text-center gap-4 lg:gap-6 w-full md:w-xs">
             {/* <Link href="/" className="flex items-center gap-1">
               <Image
                 src="/favicon.ico"
@@ -53,7 +53,7 @@ const Footer = () => {
               />
             </Link>
 
-            <p className="text-base">
+            <p className="text-sm">
               Discover another Destination.
             </p>
 

@@ -50,7 +50,7 @@ const Shortcut = () => {
               Luxury and Tradition in the Travel UAE
             </span>
           </h2>
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
+          <p className="text-xs md:text-sm lg:text-base font-normal text-justify text-gray-600">
             From bustling metropolises to serene landscapes, our global
             adventure awaits. Pack your bags, follow the compass of wanderlust,
             and let the thrill of discovery guide your path. Together, we’ll

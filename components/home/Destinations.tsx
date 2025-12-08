@@ -95,7 +95,7 @@ const Destinations = () => {
             <span className="text-[#f2836f]">Adventurous Spirit</span>
           </h2>
 
-          <p className="text-sm lg:text-base text-gray-600 font-normal max-w-4xl">
+          <p className="text-xs md:text-sm lg:text-base text-gray-600 font-normal max-w-4xl">
             Whether you're interested in history, culture, luxury experiences,
             or outdoor adventures, the UAE has something for everyone.
           </p>

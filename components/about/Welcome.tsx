@@ -43,14 +43,14 @@ const Welcome = () => {
             </h2>
           </div>
 
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
+          <p className="text-xs md:text-sm lg:text-base font-normal text-justify text-gray-600">
             The inception of <strong>The TravQuest Travel & Tourism</strong> was inspired to
             curate experiences to delight your passion for travel. We endeavor
             to go beyond your travel needs. We specialize in curating
             unforgettable journeys. Our mission is to turn your travel dreams
             into reality.
           </p>
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
+          <p className="text-xs md:text-sm lg:text-base font-normal text-justify text-gray-600">
             Explore our handpicked destinations, expertly crafted itineraries,
             and personalized experiences. Whether you seek adventure,
             relaxation, or cultural immersion, we're here to create your perfect

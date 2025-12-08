@@ -43,7 +43,7 @@ const Welcome = () => {
             </h2>
           </div>
 
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
+          <p className="text-xs md:text-sm lg:text-base font-normal text-justify text-gray-600">
             Travel is a beautiful journey that enriches our lives and broadens
             our perspectives. Let’s delve into the enchanting world of travel,
             where every journey unfolds a tapestry of delightful and memorable

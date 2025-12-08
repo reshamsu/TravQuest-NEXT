@@ -27,7 +27,7 @@ const Background = () => {
             </h2>
           </div>
 
-          <p className="text-sm lg:text-base font-normal text-gray-600">
+          <p className="text-xs md:text-sm lg:text-base font-normal text-gray-600">
             The United Arab Emirates (UAE) is a melting pot of cultures and
             traditions, with a rich history and heritage while it is the home to
             a variety of landscapes, including beaches, deserts, mountains, and
