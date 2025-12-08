@@ -1,6 +1,16 @@
 export const Nav_Links = [
   { href: "/", key: "home", label: "Home" },
-  { href: "/explore-uae", key: "explore-uae", label: "Explore UAE" },
+  // { href: "/explore-uae", key: "explore-uae", label: "Explore UAE" },
+  {
+    key: "explore_uae",
+    label: "Explore UAE",
+    submenu: [
+      { href: "/destinations/abu-dhabi", label: "Abu Dhabi" },
+      { href: "/destinations/dubai", label: "Dubai" },
+      { href: "/destinations/fujairah", label: "Fujairah" },
+      { href: "/destinations/ras-al-khaimah", label: "Ras Al Khaimah" },
+    ],
+  },
   {
     key: "destinations",
     label: "Destinations",
@@ -11,9 +21,6 @@ export const Nav_Links = [
       { href: "/destinations/thailand", label: "Thailand" },
     ],
   },
-
-  { href: "/about", key: "about", label: "About" },
-  { href: "/contact", key: "contact", label: "Contact" },
   {
     key: "more",
     label: "More",
@@ -22,4 +29,6 @@ export const Nav_Links = [
       { href: "/more/monthly-long-stay", label: "Monthly/Long Stay" },
     ],
   },
+  { href: "/about", key: "about", label: "About" },
+  { href: "/contact", key: "contact", label: "Contact" },
 ];

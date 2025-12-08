@@ -94,7 +94,7 @@ const Shortcut = () => {
                     href={option.link}
                     className="select-none btn-ogdual-sm btn-dynamic"
                   >
-                    See More
+                    Discover More
                   </Link>
                 </div>
               </div>

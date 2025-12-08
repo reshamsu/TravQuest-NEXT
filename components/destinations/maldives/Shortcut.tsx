@@ -79,7 +79,7 @@ const Shortcut = () => {
                     href={option.link}
                     className="select-none btn-godual-sm btn-dynamic"
                   >
-                    See More
+                    Discover More
                   </Link>
                 </div>
               </div>

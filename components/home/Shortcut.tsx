@@ -31,24 +31,52 @@ const travelOptions = [
     img: "/assets/destinations/thailand.jpg",
     link: "/destinations/thailand",
   },
+  //  {
+  //   title: "Sri Lanka",
+  //   description:
+  //     "An island nation in South Asia, is renowned for its stunning landscapes, rich cultural heritage, and diverse wildlife.",
+  //   img: "/assets/destinations/sri-lanka-ella.jpg",
+  //   link: "/destinations/sri-lanka",
+  // },
+  // {
+  //   title: "Maldives",
+  //   description:
+  //     "Tropical paradise in the Indian Ocean, is renowned for its overwater bungalows, crystal-clear waters, and vibrant coral reefs.",
+  //   img: "/assets/destinations/maldives.jpg",
+  //   link: "/destinations/maldives",
+  // },
+  // {
+  //   title: "Singapore",
+  //   description:
+  //     "A dynamic city-state in Southeast Asia, is celebrated for its modernity, diverse culture, and iconic skyline",
+  //   img: "/assets/destinations/singapore.jpg",
+  //   link: "/destinations/singapore",
+  // },
+  // {
+  //   title: "Thailand",
+  //   description:
+  //     "A captivating blend of vibrant street life, serene temples, and stunning natural beauty.",
+  //   img: "/assets/destinations/thailand.jpg",
+  //   link: "/destinations/thailand",
+  // },
 ];
 
 const Shortcut = () => {
   return (
     <div className="bg-linear-to-b from-[#ffffff] via-[#ffffff] to-teal-700/20">
       <div className="max-w-6xl mx-auto flex flex-col gap-10 py-20 px-8 md:px-10 2xl:px-0">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
           <label
             htmlFor=""
             className="text-base lg:text-lg font-semibold text-[#f2836f]"
           >
             WHERE DREAM TAKE FLIGHT
           </label>
-          <h2 className="text-2xl lg:text-3xl font-bold text-gray-700">
+          <h2 className="text-xl lg:text-2xl font-bold text-gray-700">
             Let’s Travel Around the Globe…
             <span className="text-teal-600">One Destination at a Time</span>
           </h2>
-          <p className="text-xs md:text-sm lg:text-base font-normal text-justify text-gray-600">
+          <p className="text-xs lg:text-sm font-normal text-justify text-gray-600">
             From bustling metropolises to serene landscapes, our global
             adventure awaits. Pack your bags, follow the compass of wanderlust,
             and let the thrill of discovery guide your path. Together, we’ll
@@ -91,13 +119,14 @@ const Shortcut = () => {
                     href={option.link}
                     className="select-none btn-godual-sm btn-dynamic"
                   >
-                    See More
+                    Discover More
                   </Link>
                 </div>
               </div>
             </div>
           ))}
         </div>
+        <span className="text-center hover:underline cursor-pointer duration-700 btn-dark-base">Discover more Destinations</span>
       </div>
     </div>
   );
