@@ -48,7 +48,7 @@ body {
     @apply inline-flex items-center justify-center gap-2 hover:gap-2.5 relative font-semibold rounded-full border-2 border-transparent bg-gray-900 hover:bg-[#f2836f] px-6 py-2 text-[14px] text-white z-10 w-full md:w-fit cursor-pointer transition-all duration-700 hover:scale-105;
   }
   .btn-dark-base {
-    @apply inline-flex items-center justify-center gap-3 hover:gap-4 font-semibold rounded-full border-2 border-white/15 bg-gray-900 hover:bg-black/90 px-8 py-4 text-base text-white/90 hover:text-white cursor-pointer transition-all hover:scale-105 w-full md:w-fit duration-700;
+    @apply inline-flex items-center justify-center gap-3 hover:gap-4 font-semibold rounded-full border-2 border-white/15 bg-gray-900 hover:bg-black/90 px-8 py-3 text-[15px] text-white hover:text-white cursor-pointer transition-all hover:scale-105 w-full duration-700;
   }
   .btn-dark-underline {
     @apply inline-flex items-center justify-center gap-3 hover:gap-4 font-semibold hover:font-extrabold rounded-xs border-b-4 border-black/80 pr-3 py-2 hover:px-3 text-[15px] 2xl:text-base text-black/90 cursor-pointer transition-all hover:scale-105 w-fit duration-700;

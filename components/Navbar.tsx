@@ -103,7 +103,7 @@ const Navbar = () => {
         <div className="flex items-center gap-4 text-sm">
           <div className="hidden md:flex gap-4">
             <Link
-              href="/dashboard"
+              href="/login"
               className="select-none btn-dark-glass btn-dynamic"
             >
               <TbUser size={24} className="text-white" />
@@ -172,7 +172,7 @@ const Navbar = () => {
           ))}
           <div className="p-4 flex md:hidden items-center gap-4 text-sm">
             <Link
-              href="/dashboard"
+              href="/login"
               className="select-none btn-dark-glass btn-dynamic"
             >
               <TbUser size={24} />
