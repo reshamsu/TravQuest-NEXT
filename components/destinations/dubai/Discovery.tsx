@@ -47,11 +47,11 @@ const Shortcut = () => {
         <div className="flex flex-col gap-2.5">
           <label
             htmlFor=""
-            className="text-sm md:text-lg font-bold text-[#f2836f]"
+            className="text-base lg:text-lg font-bold text-[#f2836f]"
           >
             EXPLORE THE REAL ATTRACTION OF DUBAI
           </label>
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-700">
+          <h2 className="text-2xl lg:text-3xl font-bold text-gray-700">
              Discover the Essence of{" "}
             <span className="text-teal-600">Luxury and Tradition in the Dubai</span>
           </h2>

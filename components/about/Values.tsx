@@ -68,22 +68,22 @@ const Values = () => {
           <div className="flex flex-col gap-3">
             <label
               htmlFor=""
-              className="text-base md:text-lg font-semibold text-teal-600"
+              className="text-base lg:text-lg font-semibold text-teal-600"
             >
               OUR VALUES
             </label>
-            <h1 className="text-4xl 2xl:text-5xl font-bold">
+            <h1 className="text-4xl lg:text-5xl font-bold">
               What <span className="text-[#f2836f]">We Do</span>
             </h1>
           </div>
 
           <div className="flex flex-col gap-2">
-            <p className="text-sm 2xl:text-base font-normal text-gray-600">
+            <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
               At <strong>The TravQuest Travel & Tourism</strong>, we specialize
               in curating unforgettable journeys. Our mission is to turn your
               travel dreams into reality.
             </p>
-            <p className="text-sm 2xl:text-base font-normal text-gray-600">
+            <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
               Explore our handpicked destinations, expertly crafted itineraries,
               and personalized experiences. Whether you seek adventure,
               relaxation, or cultural immersion, we're here to create your
@@ -95,7 +95,7 @@ const Values = () => {
           {items.map((item, index) => (
             <div
               key={index}
-              className="bg-white p-8 flex flex-col items-start gap-6 rounded-3xl hover:scale-105 duration-1000 group shadow-lg"
+              className="bg-white p-8 flex flex-col items-start justify-center gap-6 rounded-3xl hover:scale-105 duration-1000 group shadow-lg"
             >
               <div className="p-3 bg-[#f2836f]/10 rounded-2xl shadow-sm w-fit">
                 {item.icon}

@@ -15,21 +15,21 @@ const Welcome = () => {
         <div className="flex flex-col gap-2">
           <label
             htmlFor=""
-            className="text-base md:text-lg font-semibold text-[#f2836f]"
+            className="text-base lg:text-lg font-semibold text-[#f2836f]"
           >
             MODERN OASIS WITH A RICH HISTORY AND CULTURE
           </label>
-          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold text-teal-600">
+          <h2 className="text-2xl lg:text-3xl 2xl:text-4xl font-bold text-teal-600">
             Abu Dhabi Capital of UAE
           </h2>
         </div>
 
         <div className="flex flex-col gap-3">
-          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
+          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
             <strong>Abu Dhabi</strong> is the largest of the Emirates and is the
             <i>capital of the UAE.</i>
           </p>
-          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
+          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
             <strong>Abu Dhabi</strong> has been recognized as a destination of
             distinction due to its unique blend of the modern with a rich
             history and cultural identity. Home to more than 200 natural
@@ -38,14 +38,14 @@ const Welcome = () => {
             only position itself as <i>a top-notch leisure destination</i> but
             also a globally renowned <strong>MICE destination.</strong>
           </p>
-          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
+          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
             <strong>Abu Dhabi</strong>, a{" "}
             <i>city of contrasts and aspirations</i>, stands as a beacon of
             progress on the <u>Arabian Peninsula</u>. Here, more than 200
             nationalities converge, weaving a rich tapestry of cultures,
             languages, and dreams. Let’s explore this remarkable city.
           </p>
-          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
+          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
             <strong>Global Financial Hub and Innovation Center:</strong> Beyond
             its glittering skyline, Abu Dhabi pulses with economic vitality. It
             is a global financial center, attracting investors, entrepreneurs,

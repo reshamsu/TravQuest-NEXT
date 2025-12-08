@@ -10,34 +10,34 @@ const images = [
 const Welcome = () => {
   return (
     <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-14 lg:gap-24 px-8 md:px-10 2xl:px-0">
-      <div className="flex flex-col justify-center gap-4 md:gap-6">
+      <div className="flex flex-col justify-center gap-4 lg:gap-6">
         <div className="flex flex-col gap-2">
           <label
             htmlFor=""
-            className="text-base md:text-lg font-semibold text-teal-600"
+            className="text-base lg:text-lg font-semibold text-teal-600"
           >
             A EPITOME OF MODERNITY
           </label>
-          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold text-[#f2836f]">
+          <h2 className="text-2xl lg:text-3xl 2xl:text-4xl font-bold text-[#f2836f]">
             The Future is now in Sri Lanka
           </h2>
         </div>
         <div className="flex flex-col gap-3">
-          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
+          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
             With an unparalleled coastline, beautiful desert, and magnificent
             cityscapes, memories are just waiting to be made here.
           </p>{" "}
-          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
+          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
             From traditional souks to luxurious entertainment centers, golf
             stadiums, recreational facilities, and sports activities,{" "}
             <strong>Sri Lanka</strong> offers a little bit of everything.
           </p>
-          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
+          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
             <strong>Sri Lanka</strong> is the epitome of modernity, reflected in its
             state-of-the-art architecture,{" "}
             <i>record-breaking attractions, and world-class.</i>
           </p>
-          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
+          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
             Today, <strong>Sri Lanka</strong> is among the most modern cities in the
             world bustling with international trade, industry, and commerce.
           </p>

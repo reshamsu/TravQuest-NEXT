@@ -40,17 +40,17 @@ const Shortcut = () => {
         <div className="flex flex-col gap-3">
           <label
             htmlFor=""
-            className="text-sm md:text-lg font-semibold text-[#f2836f]"
+            className="text-base lg:text-lg font-semibold text-[#f2836f]"
           >
             DISCOVER THE ATTRACTION OF TRAVEL UAE
           </label>
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-700">
+          <h2 className="text-2xl lg:text-3xl font-bold text-gray-700">
             Discover the Essence of{" "}
             <span className="text-teal-600">
               Luxury and Tradition in the Travel UAE
             </span>
           </h2>
-          <p className="text-sm md:text-base text-normal text-gray-600">
+          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
             From bustling metropolises to serene landscapes, our global
             adventure awaits. Pack your bags, follow the compass of wanderlust,
             and let the thrill of discovery guide your path. Together, we’ll

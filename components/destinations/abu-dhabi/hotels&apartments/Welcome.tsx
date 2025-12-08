@@ -11,21 +11,21 @@ const images = [
 const Welcome = () => {
   return (
     <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-14 lg:gap-24 px-8 md:px-10 2xl:px-0">
-      <div className="flex flex-col gap-6 md:gap-8">
+      <div className="flex flex-col gap-6 lg:gap-8">
         <div className="flex flex-col gap-3">
           <label
             htmlFor=""
-            className="text-sm md:text-base font-semibold text-[#f2836f]"
+            className="text-sm lg:text-base font-semibold text-[#f2836f]"
           >
             WHETHER YOU SEEK HERITAGE, LUXURY, OR CONTEMPORARY FLAIR
           </label>
-          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold text-teal-600">
+          <h2 className="text-2xl lg:text-3xl 2xl:text-4xl font-bold text-teal-600">
             Abu Dhabi’s Hotels Promise An Unforgettable Stay
           </h2>
         </div>
 
         <div className="flex flex-col gap-3">
-          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
+          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
             <strong>Abu Dhabi</strong>, the vibrant capital of the{" "}
             <i>United Arab Emirates</i>, offers a range of luxurious hotels and
             unique accommodations. Whether you’re seeking a desert retreat, a
@@ -35,18 +35,18 @@ const Welcome = () => {
             <u>blend of luxury, comfort, and convenience</u>, making your stay
             in <strong>Abu Dhabi</strong> truly memorable!
           </p>
-          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
+          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
             <strong>Qasr Al Sarab Hotel:</strong> Nestled amid rolling dunes in
             the world’s largest uninterrupted sand desert, Qasr Al Sarab is the
             most Instagrammed hotel on the planet. Its remote setting provides a
             sense of tranquility and awe-inspiring views.
           </p>
-          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
+          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
             <strong>Emirates Palace:</strong> This palatial beachfront hotel
             exudes grandeur and elegance. Its interiors balance marble and gold
             flourishes with more muted tones.
           </p>
-          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
+          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
             <strong>Telal Resort Al Ain:</strong> Scattered across the silky
             summits and valleys of Al Ain’s deep caramel dunes, Telal Resort
             offers breathtaking views of mountains of sand sculpted anew each

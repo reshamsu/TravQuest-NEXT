@@ -40,15 +40,15 @@ const Shortcut = () => {
         <div className="flex flex-col gap-4">
           <label
             htmlFor=""
-            className="text-base md:text-lg font-semibold text-[#f2836f]"
+            className="text-base lg:text-lg font-semibold text-[#f2836f]"
           >
             WHERE DREAM TAKE FLIGHT
           </label>
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-700">
+          <h2 className="text-2xl lg:text-3xl font-bold text-gray-700">
             Let’s Travel Around the Globe…
             <span className="text-teal-600">One Destination at a Time</span>
           </h2>
-          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
+          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
             From bustling metropolises to serene landscapes, our global
             adventure awaits. Pack your bags, follow the compass of wanderlust,
             and let the thrill of discovery guide your path. Together, we’ll

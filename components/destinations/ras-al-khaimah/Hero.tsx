@@ -63,7 +63,7 @@ const Hero = () => {
           <h1 className="playfair text-4xl md:text-5xl 2xl:text-6xl font-bold">
             RAS AL KHAIMAH
           </h1>
-          <p className="text-sm md:text-lg font-semibold text-gray-100 max-w-3xl">
+          <p className="text-sm lg:text-base text-gray-300 max-w-3xl">
             Explore the wonders of Ras Al Khaimah
           </p>
         </div>

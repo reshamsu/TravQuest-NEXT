@@ -39,11 +39,11 @@ const Shortcut = () => {
         <div className="flex flex-col gap-2.5">
           <label
             htmlFor=""
-            className="text-base md:text-lg font-semibold text-[#f2836f]"
+            className="text-base lg:text-lg font-semibold text-[#f2836f]"
           >
             DISCOVER THE ATTRACTION OF ABU DHABI
           </label>
-          <h2 className="text-2xl 2xl:text-3xl font-bold text-gray-700">
+          <h2 className="text-2xl lg:text-3xl font-bold text-gray-700">
             Discover the Essence of{" "}
             <span className="text-teal-600">
               Luxury and Tradition in Abu Dhabi

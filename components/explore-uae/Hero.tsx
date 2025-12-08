@@ -72,7 +72,7 @@ const Hero = () => {
           <h1 className="playfair text-4xl md:text-5xl 2xl:text-6xl font-bold">
             Where Luxury Meets Innovation
           </h1>
-          <p className="text-xs lg:text-base text-gray-300 max-w-3xl">
+          <p className="text-sm lg:text-base text-gray-300 max-w-3xl">
             Discover thousands of beautiful places around the world with
             wonderful experiences you can imagine.
           </p>

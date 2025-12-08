@@ -31,19 +31,13 @@ const Shortcut = () => {
     <div className="bg-linear-to-b from-gray-100 via-[#ffffff] to-teal-700/20">
       <div className="max-w-6xl mx-auto flex flex-col gap-10 py-20 px-8 md:px-10 2xl:px-0">
         <div className="flex flex-col gap-4">
-          {/* <label
-            htmlFor=""
-            className="text-base md:text-lg font-extrabold text-[#f2836f]"
-          >
-            DISCOVER THE ATTRACTION OF TRAVEL UAE
-          </label> */}
-          <h2 className="text-2xl md:text-3xl font-bold text-[#f2836f]">
+          <h2 className="text-2xl lg:text-3xl font-bold text-[#f2836f]">
             You may also check out{" "}
             <span className="text-teal-600">
              Other parts of UAE
             </span>
           </h2>
-          <p className="text-sm md:text-base font-normal text-justify text-gray-600">
+          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
             From bustling metropolises to serene landscapes, our global
             adventure awaits. Pack your bags, follow the compass of wanderlust,
             and let the thrill of discovery guide your path. Together, we’ll

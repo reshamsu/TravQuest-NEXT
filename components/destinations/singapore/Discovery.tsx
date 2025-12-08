@@ -47,11 +47,11 @@ const Shortcut = () => {
         <div className="flex flex-col gap-2.5">
           <label
             htmlFor=""
-            className="text-sm md:text-lg font-semibold text-[#f2836f]"
+            className="text-base lg:text-lg font-semibold text-[#f2836f]"
           >
             EXPLORE THE REAL ATTRACTION OF SINGAPORE
           </label>
-          <h2 className="text-2xl 2xl:text-3xl font-bold text-gray-700">
+          <h2 className="text-2xl lg:text-3xl font-bold text-gray-700">
             Discover the Essence of{" "}
             <span className="text-teal-600">
               Luxury and Tradition in the Singapore
@@ -63,7 +63,7 @@ const Shortcut = () => {
           {travelOptions.map((option, index) => (
             <div
               key={index}
-              className="relative rounded-4xl overflow-hidden h-[55vh] md:h-[44vh] lg:h-[55vh] hover:scale-105 duration-1000 group shadow-lg"
+              className="relative rounded-4xl overflow-hidden h-[55vh] hover:scale-105 duration-1000 group shadow-lg"
             >
               <Image
                 src={option.img}
@@ -86,9 +86,6 @@ const Shortcut = () => {
                     {option.title}
                   </h2>
                 </div>
-                {/* <p className="text-xs 2xl:text-xs font-semibold text-gray-100 line-clamp-3">
-                  {option.description}
-                </p> */}
                 <div className="flex items-center gap-4 text-sm">
                   <Link
                     href={option.link}

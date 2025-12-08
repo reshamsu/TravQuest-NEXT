@@ -9,7 +9,7 @@ const Info = () => {
         <div className="flex flex-col justify-center gap-8">
           {/* Heading */}
           <div className="flex flex-col gap-2">
-            <label className="text-base md:text-lg font-semibold text-[#f2836f]">
+            <label className="text-base lg:text-lg font-semibold text-[#f2836f]">
               CONTACT
             </label>
             <h2 className="text-2xl 2xl:text-3xl font-bold">

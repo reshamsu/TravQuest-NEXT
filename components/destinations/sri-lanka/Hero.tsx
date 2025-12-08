@@ -67,7 +67,7 @@ const Hero = () => {
           <h1 className="playfair text-5xl md:text-6xl 2xl:text-7xl font-bold">
             SRI LANKA
           </h1>
-          <p className="text-sm md:text-lg font-semibold text-gray-100 max-w-3xl">
+          <p className="text-sm lg:text-base text-gray-300 max-w-3xl">
             Explore the wonders of Sri Lanka
           </p>
         </div>

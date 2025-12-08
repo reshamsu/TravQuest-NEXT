@@ -40,11 +40,11 @@ const Discovery = () => {
         <div className="flex flex-col justify-center gap-2">
           <label
             htmlFor=""
-            className="text-sm md:text-base font-semibold"
+            className="text-sm lg:text-base font-semibold"
           >
             WHERE TIME-HONORED TRADITIONS EMBRACE THE FUTURE!
           </label>
-          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold text-teal-600">
+          <h2 className="text-2xl lg:text-3xl 2xl:text-4xl font-bold text-teal-600">
             Discover the UAE
           </h2>
         </div>
