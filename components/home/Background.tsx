@@ -5,7 +5,7 @@ import Link from "next/link";
 const Background = () => {
   return (
     <div className="bg-linear-to-b from-[#ffffff] via-[#ffffff] to-[#f2836f]/10">
-      <div className="max-w-6xl mx-auto py-4 md:py-8 px-6 md:px-10 2xl:px-0">
+      <div className="max-w-6xl mx-auto py-4 md:pt-8 pb-20 px-6 md:px-10 2xl:px-0">
         <div className="relative h-[44vh] lg:h-[60vh] rounded-4xl w-full transition-all duration-1000 bg-gray-100">
           <Image
             src="/assets/hero/bg-burj-khalifa.jpg"
@@ -26,14 +26,14 @@ const Background = () => {
             </label>
           </div>
 
-          <p className="text-xs lg:text-sm font-normal text-gray-600">
+          <p className="text-xs lg:text-sm font-normal text-justify text-gray-600">
             The United Arab Emirates (UAE) is a melting pot of cultures and
             traditions, with a rich history and heritage while it is the home to
             a variety of landscapes, including beaches, deserts, mountains, and
             cityscapes.
           </p>
 
-          <div className="flex items-center gap-4 mt-2">
+          <div className="flex items-center mt-2">
             <Link
               href="/explore-uae"
               className="select-none btn-orange-base btn-dynamic"

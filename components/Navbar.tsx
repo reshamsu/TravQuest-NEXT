@@ -43,7 +43,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden h-full gap-3 lg:flex text-[13px]">
+        <ul className="hidden h-full gap-3 xl:flex text-[13px]">
           {Nav_Links.map((link) => {
             const isActive =
               link.href === "/"
@@ -117,7 +117,7 @@ const Navbar = () => {
           </div>
           <button
             aria-label="Open menu"
-            className="lg:hidden"
+            className="xl:hidden"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (
@@ -131,7 +131,7 @@ const Navbar = () => {
 
       {/* Mobile Dropdown */}
       <div
-        className={`absolute top-full left-0 w-full bg-white backdrop-blur-3xl text-black overflow-hidden lg:hidden shadow-xl transition-transform duration-300 ease-in-out origin-top ${
+        className={`absolute top-full left-0 w-full bg-white/90 backdrop-blur-3xl rounded-b-4xl text-black overflow-hidden xl:hidden shadow-xl transition-transform duration-300 ease-in-out origin-top ${
           isOpen ? "scale-y-100" : "scale-y-0"
         }`}
       >
