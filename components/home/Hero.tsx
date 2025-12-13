@@ -54,7 +54,7 @@ const Hero = () => {
           </div>
         ))}
 
-        <div className="hidden 2xl:block">
+        <div className="hidden xl:block">
           <button
             onClick={prevSlide}
             className="absolute top-1/2 left-6 -translate-y-1/2 hover:bg-white/5 rounded-lg px-2 py-4 text-white z-20 transition"

@@ -26,7 +26,7 @@ export default function Sidebar() {
 
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 bg-black/40 z-40 md:hidden transition ${
+        className={`fixed inset-0 bg-black/40 z-40 sm:hidden transition ${
           open ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setOpen(false)}

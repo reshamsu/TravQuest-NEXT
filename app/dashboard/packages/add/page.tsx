@@ -1,5 +1,4 @@
 "use client";
-
 export const dynamic = "force-dynamic";
 
 import React, { useState } from "react";
@@ -7,25 +6,25 @@ import Link from "next/link";
 import { supabase } from "@/lib/supabaseClient";
 import { TbSend2 } from "react-icons/tb";
 
-interface Destination {
+interface Packages {
   name: string;
   tagline: string;
   description: string;
-  destination_area: string[];
+  package_location: string[];
   image_urls: string[];
 }
 
 export default function Page() {
-  const [, setDestination] = useState<Destination[]>([]);
+  const [, setPackage] = useState<Packages[]>([]);
   const [uploading, setUploading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  const [newDestination, setNewDestination] = useState<Destination>({
+  const [newPackage, setNewPackage] = useState<Packages>({
     name: "",
     tagline: "",
     description: "",
-    destination_area: [],
+    package_location: [],
     image_urls: [],
   });
 
@@ -38,7 +37,7 @@ export default function Page() {
   ) => {
     const { name, value } = e.target;
 
-    setNewDestination((prev) => ({
+    setNewPackage((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -48,8 +47,6 @@ export default function Page() {
   //  IMAGE UPLOAD
   // -----------------------------
   const handleImageUpload = async (): Promise<string[]> => {
-    if (!supabase) return [];
-    
     if (!images || images.length === 0) return [];
 
     try {
@@ -67,7 +64,7 @@ export default function Page() {
         const filePath = `images/${Date.now()}_${file.name}`;
 
         const { error: uploadError } = await supabase.storage
-          .from("destinations") // your bucket name
+          .from("packages") // your bucket name
           .upload(filePath, file, { cacheControl: "3600", upsert: false });
 
         if (uploadError) {
@@ -76,7 +73,7 @@ export default function Page() {
         }
 
         const { data: publicUrlData } = supabase.storage
-          .from("destinations")
+          .from("packages")
           .getPublicUrl(filePath);
 
         uploadedUrls.push(publicUrlData.publicUrl);
@@ -104,35 +101,35 @@ export default function Page() {
     const uploadedUrls = images ? await handleImageUpload() : [];
 
     const payload = {
-      name: newDestination.name,
-      tagline: newDestination.tagline,
-      description: newDestination.description,
-      destination_area: newDestination.destination_area,
+      name: newPackage.name,
+      tagline: newPackage.tagline,
+      description: newPackage.description,
+      package_location: newPackage.package_location,
       image_urls: uploadedUrls.length
         ? uploadedUrls
-        : newDestination.image_urls,
+        : newPackage.image_urls,
     };
 
     const { data, error } = await supabase
-      .from("destinations")
+      .from("packages")
       .insert([payload])
       .select()
       .single();
 
     if (error) {
-      console.error("Error inserting destination:", error.message);
-      alert("Failed to add destination.");
+      console.error("Error inserting package:", error.message);
+      alert("Failed to add package.");
     } else {
-      setDestination((prev) => [...prev, data]);
-      setNewDestination({
+      setPackage((prev) => [...prev, data]);
+      setNewPackage({
         name: "",
         tagline: "",
         description: "",
-        destination_area: [],
+        package_location: [],
         image_urls: [],
       });
       setImages(null);
-      setMessage("Destination added successfully!");
+      setMessage("Package added successfully!");
     }
 
     setLoading(false);
@@ -145,11 +142,11 @@ export default function Page() {
           {/* Header */}
           <div className="flex flex-col gap-1 border-b-2 border-gray-100 p-8 pb-6">
             <h2 className="text-lg font-bold">
-              Add a New Destination to{" "}
+              Add a New Packages to{" "}
               <span className="text-teal-600">TravQuest</span>
             </h2>
             <p className="text-sm text-gray-400">
-              Add your destination listing to{" "}
+              Add your package listing to{" "}
               <Link href="/" className="underline">
                 TravQuest Marketplace
               </Link>
@@ -163,12 +160,12 @@ export default function Page() {
           >
             {/* NAME */}
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-bold">Destination Name*</label>
+              <label className="text-sm font-bold">Package Name*</label>
               <input
                 name="name"
-                value={newDestination.name}
+                value={newPackage.name}
                 onChange={handleChange}
-                placeholder="Enter destination name"
+                placeholder="Enter package name"
                 className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 capitalize"
                 required
               />
@@ -179,7 +176,7 @@ export default function Page() {
               <label className="text-sm font-bold">Tagline*</label>
               <input
                 name="tagline"
-                value={newDestination.tagline}
+                value={newPackage.tagline}
                 onChange={handleChange}
                 placeholder="Short tagline"
                 className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 capitalize"
@@ -192,7 +189,7 @@ export default function Page() {
               <label className="text-sm font-bold">Description*</label>
               <textarea
                 name="description"
-                value={newDestination.description}
+                value={newPackage.description}
                 onChange={handleChange}
                 placeholder="Write a description"
                 className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 h-28 capitalize"
@@ -200,16 +197,16 @@ export default function Page() {
               />
             </div>
 
-            {/* DESTINATION AREA */}
+            {/* PACKAGE LOCATION */}
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-bold">Destination Area*</label>
+              <label className="text-sm font-bold">Package from*</label>
               <select
-                name="destination_area"
-                value={newDestination.destination_area[0] || ""}
+                name="package_location"
+                value={newPackage.package_location[0] || ""}
                 onChange={(e) =>
-                  setNewDestination((prev) => ({
+                  setNewPackage((prev) => ({
                     ...prev,
-                    destination_area: [e.target.value],
+                    package_location: [e.target.value],
                   }))
                 }
                 className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3"
@@ -218,9 +215,14 @@ export default function Page() {
                 <option value="" disabled>
                   Select Area
                 </option>
-                <option value="Asia">Asia</option>
-                <option value="UAE">UAE</option>
-                <option value="Europe">Europe</option>
+                <option value="Dubai">Dubai</option>
+                <option value="Abu Dhabi">Abu Dhabi</option>
+                <option value="Furjairah">Furjairah</option>
+                <option value="Ras Al Khaimah">Ras Al Khaimah</option>
+                <option value="Sri Lanka">Sri Lanka</option>
+                <option value="Maldives">Maldives</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Thailand">Thailand</option>
               </select>
             </div>
 
@@ -249,7 +251,7 @@ export default function Page() {
                 disabled={loading || uploading}
                 className="select-none btn-orange-base btn-dynamic flex items-center gap-2"
               >
-                {loading || uploading ? "Uploading..." : "Save Destination"}
+                {loading || uploading ? "Uploading..." : "Save Package"}
                 <TbSend2 size={20} />
               </button>
             </div>
