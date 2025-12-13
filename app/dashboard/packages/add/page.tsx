@@ -6,7 +6,7 @@ import Link from "next/link";
 import { supabase } from "@/lib/supabaseClient";
 import { TbSend2 } from "react-icons/tb";
 
-interface Packages {
+interface Package {
   name: string;
   tagline: string;
   description: string;
@@ -15,12 +15,23 @@ interface Packages {
 }
 
 export default function Page() {
-  const [, setPackage] = useState<Packages[]>([]);
+  // ✅ HARD GUARD (prevents build crash)
+  if (!supabase) {
+    return (
+      <div className="p-10 text-center text-red-600">
+        Supabase is not configured. Check environment variables.
+      </div>
+    );
+  }
+
+  // ✅ Narrow once for TS
+  const sb = supabase;
+
   const [uploading, setUploading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  const [newPackage, setNewPackage] = useState<Packages>({
+  const [newPackage, setNewPackage] = useState<Package>({
     name: "",
     tagline: "",
     description: "",
@@ -44,7 +55,7 @@ export default function Page() {
   };
 
   // -----------------------------
-  //  IMAGE UPLOAD
+  // IMAGE UPLOAD
   // -----------------------------
   const handleImageUpload = async (): Promise<string[]> => {
     if (!images || images.length === 0) return [];
@@ -56,37 +67,34 @@ export default function Page() {
       for (let i = 0; i < images.length; i++) {
         const file = images[i];
 
-        if (file.size > 5 * 2048 * 2048) {
+        if (file.size > 5 * 1024 * 1024) {
           alert(`${file.name} is too large! Max 5MB.`);
           continue;
         }
 
         const filePath = `images/${Date.now()}_${file.name}`;
 
-        const { error: uploadError } = await supabase.storage
-          .from("packages") // your bucket name
-          .upload(filePath, file, { cacheControl: "3600", upsert: false });
+        const { error: uploadError } = await sb.storage
+          .from("packages")
+          .upload(filePath, file, {
+            cacheControl: "3600",
+            upsert: false,
+          });
 
         if (uploadError) {
           console.error("Upload error:", uploadError.message);
           continue;
         }
 
-        const { data: publicUrlData } = supabase.storage
-          .from("packages")
-          .getPublicUrl(filePath);
+        const { data } = sb.storage.from("packages").getPublicUrl(filePath);
 
-        uploadedUrls.push(publicUrlData.publicUrl);
+        uploadedUrls.push(data.publicUrl);
       }
 
       setMessage(`${uploadedUrls.length} image(s) uploaded successfully`);
       return uploadedUrls;
-    } catch (error: unknown) {
-      if (error instanceof Error) {
-        console.error("Error uploading images:", error.message);
-      } else {
-        console.error("Unknown upload error:", error);
-      }
+    } catch (err) {
+      console.error("Error uploading images:", err);
       setMessage("Error uploading images");
       return [];
     } finally {
@@ -94,6 +102,9 @@ export default function Page() {
     }
   };
 
+  // -----------------------------
+  // SUBMIT
+  // -----------------------------
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -105,12 +116,10 @@ export default function Page() {
       tagline: newPackage.tagline,
       description: newPackage.description,
       package_location: newPackage.package_location,
-      image_urls: uploadedUrls.length
-        ? uploadedUrls
-        : newPackage.image_urls,
+      image_urls: uploadedUrls.length ? uploadedUrls : newPackage.image_urls,
     };
 
-    const { data, error } = await supabase
+    const { error } = await sb
       .from("packages")
       .insert([payload])
       .select()
@@ -120,7 +129,6 @@ export default function Page() {
       console.error("Error inserting package:", error.message);
       alert("Failed to add package.");
     } else {
-      setPackage((prev) => [...prev, data]);
       setNewPackage({
         name: "",
         tagline: "",

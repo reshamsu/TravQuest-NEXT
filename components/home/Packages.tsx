@@ -28,6 +28,18 @@ const rowVariants: Variants = {
 };
 
 const Packages: React.FC = () => {
+  // ✅ HARD GUARD — prevents build crash
+  if (!supabase) {
+    return (
+      <div className="p-10 text-center text-red-600">
+        Supabase not configured. Check environment variables.
+      </div>
+    );
+  }
+
+  // ✅ Narrow once
+  const sb = supabase;
+
   const [packages, setPackages] = useState<Package[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -35,19 +47,19 @@ const Packages: React.FC = () => {
     const fetchPackages = async () => {
       setLoading(true);
 
-      const { data, error } = await supabase
+      const { data, error } = await sb
         .from("packages")
         .select("*")
         .order("created_at", { ascending: true });
 
       if (error) {
-        console.error("Error fetching packages:", error);
+        console.error("Error fetching packages:", error.message);
         setPackages([]);
         setLoading(false);
         return;
       }
 
-      const formatted = data.map((row) => {
+      const formatted: Package[] = data.map((row: any) => {
         let images: string[] = [];
 
         if (Array.isArray(row.image_urls)) images = row.image_urls;
@@ -67,28 +79,25 @@ const Packages: React.FC = () => {
           package_location: row.package_location ?? [],
           image_urls: images,
           created_at: row.created_at,
-        } as Package;
+        };
       });
 
-      const asiaOnly = formatted.filter((item) =>
-        item.package_location?.includes("Dubai")
+      const dubaiOnly = formatted.filter((item) =>
+        item.package_location.includes("Dubai")
       );
 
-      setPackages(asiaOnly);
+      setPackages(dubaiOnly);
       setLoading(false);
     };
 
     fetchPackages();
-  }, []);
-
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [sb]);
 
   const slugify = (text: string) =>
     text
       .toLowerCase()
       .replace(/\s+/g, "-")
       .replace(/[^a-z0-9\-]/g, "");
-
   // const dubaiDestinations = [
   //   {
   //     img: "/assets/destinations/destinations-desert-safari.jpg",
@@ -250,7 +259,7 @@ const Packages: React.FC = () => {
 
                 <div className="flex items-center gap-4 text-sm my-4 mx-2">
                   <Link
-                  href="/"
+                    href="/"
                     // href={`/packages/${slugify(pack.name)}`}
                     className="select-none btn-orange-outline btn-dynamic"
                   >

@@ -28,6 +28,18 @@ const rowVariants: Variants = {
 };
 
 const Destinations: React.FC = () => {
+  // ✅ HARD GUARD — prevents build crash
+  if (!supabase) {
+    return (
+      <div className="p-10 text-center text-red-600">
+        Supabase not configured. Check environment variables.
+      </div>
+    );
+  }
+
+  // ✅ Narrow once for TS + runtime safety
+  const sb = supabase;
+
   const [destinations, setDestinations] = useState<Destination[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -35,19 +47,19 @@ const Destinations: React.FC = () => {
     const fetchDestinations = async () => {
       setLoading(true);
 
-      const { data, error } = await supabase
+      const { data, error } = await sb
         .from("destinations")
         .select("*")
         .order("created_at", { ascending: true });
 
       if (error) {
-        console.error("Error fetching destinations:", error);
+        console.error("Error fetching destinations:", error.message);
         setDestinations([]);
         setLoading(false);
         return;
       }
 
-      const formatted = data.map((row) => {
+      const formatted: Destination[] = data.map((row: any) => {
         let images: string[] = [];
 
         if (Array.isArray(row.image_urls)) images = row.image_urls;
@@ -67,21 +79,19 @@ const Destinations: React.FC = () => {
           destination_area: row.destination_area ?? [],
           image_urls: images,
           created_at: row.created_at,
-        } as Destination;
+        };
       });
 
-      const asiaOnly = formatted.filter((item) =>
-        item.destination_area?.includes("UAE")
+      const uaeOnly = formatted.filter((item) =>
+        item.destination_area.includes("UAE")
       );
 
-      setDestinations(asiaOnly);
+      setDestinations(uaeOnly);
       setLoading(false);
     };
 
     fetchDestinations();
-  }, []);
-
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [sb]);
 
   const slugify = (text: string) =>
     text
@@ -159,7 +169,7 @@ const Destinations: React.FC = () => {
         </div>
 
         <span
-          onClick={scrollToTop}
+          // onClick={scrollToTop}
           className="select-none btn-light-glass btn-dynamic mt-2"
         >
           Show more Destinations

@@ -28,6 +28,18 @@ const rowVariants: Variants = {
 };
 
 const Destinations: React.FC = () => {
+  // ✅ HARD GUARD — prevents build crash
+  if (!supabase) {
+    return (
+      <div className="p-10 text-center text-red-600">
+        Supabase not configured. Check environment variables.
+      </div>
+    );
+  }
+
+  // ✅ Narrow once (TypeScript + runtime safe)
+  const sb = supabase;
+
   const [destinations, setDestinations] = useState<Destination[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -35,19 +47,19 @@ const Destinations: React.FC = () => {
     const fetchDestinations = async () => {
       setLoading(true);
 
-      const { data, error } = await supabase
+      const { data, error } = await sb
         .from("destinations")
         .select("*")
         .order("created_at", { ascending: true });
 
       if (error) {
-        console.error("Error fetching destinations:", error);
+        console.error("Error fetching destinations:", error.message);
         setDestinations([]);
         setLoading(false);
         return;
       }
 
-      const formatted = data.map((row) => {
+      const formatted: Destination[] = data.map((row: any) => {
         let images: string[] = [];
 
         if (Array.isArray(row.image_urls)) images = row.image_urls;
@@ -67,11 +79,11 @@ const Destinations: React.FC = () => {
           destination_area: row.destination_area ?? [],
           image_urls: images,
           created_at: row.created_at,
-        } as Destination;
+        };
       });
 
       const asiaOnly = formatted.filter((item) =>
-        item.destination_area?.includes("Asia")
+        item.destination_area.includes("Asia")
       );
 
       setDestinations(asiaOnly);
@@ -79,7 +91,7 @@ const Destinations: React.FC = () => {
     };
 
     fetchDestinations();
-  }, []);
+  }, [sb]);
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
@@ -88,7 +100,6 @@ const Destinations: React.FC = () => {
       .toLowerCase()
       .replace(/\s+/g, "-")
       .replace(/[^a-z0-9\-]/g, "");
-
   return (
     <div className="bg-linear-to-b from-gray-100 via-[#ffffff] to-teal-700/20">
       <div className="max-w-6xl mx-auto flex flex-col gap-4 py-20 px-8 md:px-10 2xl:px-0">

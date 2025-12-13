@@ -16,7 +16,18 @@ interface Destination {
 }
 
 export default function Page() {
-  const [, setDestination] = useState<Destination[]>([]);
+  // ✅ HARD GUARD — REQUIRED
+  if (!supabase) {
+    return (
+      <div className="p-10 text-center text-red-600">
+        Supabase is not configured. Check environment variables.
+      </div>
+    );
+  }
+
+  // ✅ NARROW TYPE ONCE
+  const sb = supabase;
+
   const [uploading, setUploading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -44,12 +55,7 @@ export default function Page() {
     }));
   };
 
-  // -----------------------------
-  //  IMAGE UPLOAD
-  // -----------------------------
   const handleImageUpload = async (): Promise<string[]> => {
-    if (!supabase) return [];
-    
     if (!images || images.length === 0) return [];
 
     try {
@@ -59,37 +65,34 @@ export default function Page() {
       for (let i = 0; i < images.length; i++) {
         const file = images[i];
 
-        if (file.size > 5 * 2048 * 2048) {
+        if (file.size > 5 * 1024 * 1024) {
           alert(`${file.name} is too large! Max 5MB.`);
           continue;
         }
 
         const filePath = `images/${Date.now()}_${file.name}`;
 
-        const { error: uploadError } = await supabase.storage
-          .from("destinations") // your bucket name
-          .upload(filePath, file, { cacheControl: "3600", upsert: false });
+        const { error: uploadError } = await sb.storage
+          .from("destinations")
+          .upload(filePath, file, {
+            cacheControl: "3600",
+            upsert: false,
+          });
 
         if (uploadError) {
           console.error("Upload error:", uploadError.message);
           continue;
         }
 
-        const { data: publicUrlData } = supabase.storage
-          .from("destinations")
-          .getPublicUrl(filePath);
+        const { data } = sb.storage.from("destinations").getPublicUrl(filePath);
 
-        uploadedUrls.push(publicUrlData.publicUrl);
+        uploadedUrls.push(data.publicUrl);
       }
 
       setMessage(`${uploadedUrls.length} image(s) uploaded successfully`);
       return uploadedUrls;
-    } catch (error: unknown) {
-      if (error instanceof Error) {
-        console.error("Error uploading images:", error.message);
-      } else {
-        console.error("Unknown upload error:", error);
-      }
+    } catch (err) {
+      console.error("Error uploading images:", err);
       setMessage("Error uploading images");
       return [];
     } finally {
@@ -97,6 +100,9 @@ export default function Page() {
     }
   };
 
+  // -----------------------------
+  // SUBMIT
+  // -----------------------------
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -113,7 +119,7 @@ export default function Page() {
         : newDestination.image_urls,
     };
 
-    const { data, error } = await supabase
+    const { error } = await sb
       .from("destinations")
       .insert([payload])
       .select()
@@ -123,7 +129,6 @@ export default function Page() {
       console.error("Error inserting destination:", error.message);
       alert("Failed to add destination.");
     } else {
-      setDestination((prev) => [...prev, data]);
       setNewDestination({
         name: "",
         tagline: "",

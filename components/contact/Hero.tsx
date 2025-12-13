@@ -15,6 +15,18 @@ interface Contacts {
 }
 
 export default function Contacts() {
+  // ✅ HARD GUARD — prevents build crash
+  if (!supabase) {
+    return (
+      <div className="p-10 text-center text-red-600">
+        Supabase is not configured. Check environment variables.
+      </div>
+    );
+  }
+
+  // ✅ Narrow once for TypeScript
+  const sb = supabase;
+
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -37,7 +49,6 @@ export default function Contacts() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     setLoading(true);
     setMessage("");
 
@@ -50,7 +61,7 @@ export default function Contacts() {
       inquiry_message: form.inquiry_message,
     };
 
-    const { data, error } = await supabase
+    const { error } = await sb
       .from("contact")
       .insert([payload])
       .select()
