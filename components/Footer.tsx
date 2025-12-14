@@ -24,31 +24,20 @@ const Footer = () => {
     <footer className="bg-gray-900 text-gray-500 border-t border-white/10">
       <div className="max-w-6xl mx-auto py-14 2xl:pt-20 pb-10 px-8 2xl:px-0 flex flex-col items-center gap-10">
         <div className="flex flex-col lg:flex-row gap-10 w-full pb-10 border-b border-gray-800">
-          <div className="flex flex-col items-center text-center gap-4 lg:gap-6 w-full md:w-xs">
-            {/* <Link href="/" className="flex items-center gap-1">
-              <Image
-                src="/favicon.ico"
-                alt="TQ"
-                width={70}
-                height={70}
-                className="object-contain"/>
-              <h1 className={`${kaushan.className} flex text-2xl 2xl:text-3xl font-extrabold text-teal-500`}>
-                Trav<span className="text-[#f2836f]">Quest</span>
-              </h1>
-            </Link> */}
+          <div className="flex flex-col items-center text-center gap-4 w-full md:w-xs">
             <Link href="/" className="flex flex-col items-center gap-2">
               <Image
                 src="/favicon.ico"
                 alt="TQ"
-                width={64}
-                height={64}
+                width={55}
+                height={55}
                 className="object-contain"
               />
               <Image
                 src="/tq-logo.png"
                 alt="TQ"
-                width={180}
-                height={180}
+                width={150}
+                height={150}
                 className="object-contain"
               />
             </Link>
@@ -57,7 +46,7 @@ const Footer = () => {
               Discover another Destination.
             </p>
 
-            <ul className="flex gap-2 text-xl 2xl:text-2xl">
+            <ul className="flex gap-2 text-lg 2xl:text-xl">
               <li>
                 <Link
                   href="https://wa.me/971529991223"
@@ -113,10 +102,10 @@ const Footer = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 w-full text-xs 2xl:text-sm">
             {/* Explore */}
             <div className="ml-0 xl:ml-24">
-              <h6 className="text-sm 2xl:text-base font-semibold mb-4 text-white">
+              <h6 className="text-sm font-semibold mb-4 text-white">
                 Explore UAE
               </h6>
-              <ul className="flex flex-col gap-2.5">
+              <ul className="flex flex-col gap-2.5 text-xs">
                 {[
                   "Abu Dhabi",
                   "Dubai",
@@ -137,10 +126,10 @@ const Footer = () => {
 
             {/* Products */}
             <div className="ml-0 xl:ml-16">
-              <h6 className="text-sm 2xl:text-base font-semibold mb-3 text-white">
+              <h6 className="text-sm font-semibold mb-3 text-white">
                 Destinations
               </h6>
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-col gap-3 text-xs">
                 {[
                   "Sri Lanka",
                   "Maldives",
@@ -161,10 +150,10 @@ const Footer = () => {
 
             {/* Company */}
             <div className="ml-0 xl:ml-10">
-              <h6 className="text-sm 2xl:text-base font-semibold mb-3 text-white">
+              <h6 className="text-sm font-semibold mb-3 text-white">
                 TravQuest
               </h6>
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-col gap-3 text-xs">
                 {[
                   "About Us",
                   "Resource and Policy",
@@ -186,28 +175,29 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-6 pb-10 border-b border-gray-800">
-          <div className="flex flex-col gap-3 text-center md:text-left">
-            <h6 className="text-white text-sm 2xl:text-base font-semibold">
+        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 pb-10 border-b border-gray-800">
+          <div className="flex flex-col gap-2 text-center md:text-left">
+            <h6 className="text-white text-sm font-semibold">
               Stay in the loop
             </h6>
             <p className="text-xs text-gray-400">
               Subscribe for travel deals, updates, and exclusive offers.
             </p>
-            <div className="flex gap-2.5 mt-2">
+            
+          </div>
+          <div className="flex gap-2.5 mt-2">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="px-6 py-3 rounded-3xl text-sm bg-white/20 text-white"
+                className="px-6 py-3 rounded-3xl text-sm bg-white/10 text-white"
               />
               <button className="btn-orange-sm">Subscribe</button>
             </div>
-          </div>
         </div>
 
         {/* Bottom Line */}
         <div className="w-full flex flex-col items-center gap-3">
-          <p className="text-sm flex items-center text-center gap-1">
+          <p className="text-xs flex items-center text-center gap-1">
             <FaRegCopyright /> 2025 TravQuest Travel & Tourism. All Rights Reserved.
           </p>
         </div>

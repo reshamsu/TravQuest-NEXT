@@ -10,45 +10,41 @@ const images = [
 const Welcome = () => {
   return (
     <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-14 lg:gap-24 px-8 md:px-10 2xl:px-0">
+      {/* CONTENT */}
       <div className="flex flex-col justify-center gap-4 lg:gap-6">
-        <div className="flex flex-col gap-2">
-          <label
-            htmlFor=""
-            className="text-base lg:text-lg font-semibold text-teal-600"
-          >
-            A EPITOME OF MODERNITY
-          </label>
-          <h2 className="text-2xl lg:text-3xl 2xl:text-4xl font-bold text-[#f2836f]">
-            The Future is now in Maldives
+        <div className="flex flex-col gap-1">
+          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]">
+            Escape to the Maldives
           </h2>
+          <label className="text-base lg:text-lg font-bold text-teal-600">
+            Pure Luxury. Absolute Tranquility.
+          </label>
         </div>
+
         <div className="flex flex-col gap-3">
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            With an unparalleled coastline, beautiful desert, and magnificent
-            cityscapes, memories are just waiting to be made here.
-          </p>{" "}
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            From traditional souks to luxurious entertainment centers, golf
-            stadiums, recreational facilities, and sports activities,{" "}
-            <strong>Maldives</strong> offers a little bit of everything.
+          <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
+            Scattered across the Indian Ocean, the <strong>Maldives</strong> is a
+            sanctuary of crystal-clear waters, powder-soft white beaches, and
+            vibrant coral reefs. Each island offers a sense of privacy and calm,
+            making it one of the world’s most sought-after luxury destinations.
           </p>
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            <strong>Maldives</strong> is the epitome of modernity, reflected in its
-            state-of-the-art architecture,{" "}
-            <i>record-breaking attractions, and world-class.</i>
-          </p>
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            Today, <strong>Maldives</strong> is among the most modern cities in the
-            world bustling with international trade, industry, and commerce.
+
+          <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
+            Renowned for its overwater villas, underwater experiences, and
+            world-class resorts, the <strong>Maldives</strong> is designed for
+            romance, relaxation, and rejuvenation. Whether you seek a honeymoon
+            escape, wellness retreat, or a private island experience, every
+            moment here is shaped by nature, serenity, and understated elegance.
           </p>
         </div>
       </div>
 
+      {/* IMAGES */}
       <div className="flex flex-col gap-4">
         <div className="relative h-90 w-full">
           <Image
             src="/assets/hero/maldives-view.jpg"
-            alt="UAE"
+            alt="Maldives luxury island view"
             fill
             className="object-cover rounded-3xl"
           />
@@ -63,7 +59,7 @@ const Welcome = () => {
             >
               <Image
                 src={src}
-                alt={`Media ${i + 1}`}
+                alt={`Maldives experience ${i + 1}`}
                 fill
                 className="object-cover rounded-2xl"
               />

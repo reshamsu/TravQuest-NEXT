@@ -10,45 +10,42 @@ const images = [
 const Welcome = () => {
   return (
     <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-14 lg:gap-24 px-8 md:px-10 2xl:px-0">
+      {/* CONTENT */}
       <div className="flex flex-col justify-center gap-4 lg:gap-6">
-        <div className="flex flex-col gap-2">
-          <label
-            htmlFor=""
-            className="text-base lg:text-lg font-semibold text-teal-600"
-          >
-            A EPITOME OF MODERNITY
-          </label>
-          <h2 className="text-2xl lg:text-3xl 2xl:text-4xl font-bold text-[#f2836f]">
-            The Future is now in Sri Lanka
+        <div className="flex flex-col gap-1">
+          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]">
+            Discover the Soul of Sri Lanka
           </h2>
+          <label className="text-base lg:text-lg font-bold text-teal-600">
+            Nature, Heritage & Timeless Beauty
+          </label>
         </div>
+
         <div className="flex flex-col gap-3">
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            With an unparalleled coastline, beautiful desert, and magnificent
-            cityscapes, memories are just waiting to be made here.
-          </p>{" "}
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            From traditional souks to luxurious entertainment centers, golf
-            stadiums, recreational facilities, and sports activities,{" "}
-            <strong>Sri Lanka</strong> offers a little bit of everything.
+          <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
+            Blessed with golden beaches, misty hill country, lush tea
+            plantations, and abundant wildlife, <strong>Sri Lanka</strong> is a
+            destination rich in natural beauty and cultural depth. From serene
+            coastal towns to vibrant local markets and ancient cities, every
+            journey here feels authentic and unforgettable.
           </p>
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            <strong>Sri Lanka</strong> is the epitome of modernity, reflected in its
-            state-of-the-art architecture,{" "}
-            <i>record-breaking attractions, and world-class.</i>
-          </p>
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            Today, <strong>Sri Lanka</strong> is among the most modern cities in the
-            world bustling with international trade, industry, and commerce.
+
+          <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
+            Known as the <i>Pearl of the Indian Ocean</i>,{" "}
+            <strong>Sri Lanka</strong> offers a rare blend of history, spirituality,
+            and adventure. Explore centuries-old temples, scenic train journeys,
+            wildlife safaris, and warm local hospitality — all within a compact,
+            easily accessible island.
           </p>
         </div>
       </div>
 
+      {/* IMAGES */}
       <div className="flex flex-col gap-4">
         <div className="relative h-90 w-full">
           <Image
             src="/assets/poster/sri-lanka-lotus_tower2.jpg"
-            alt="UAE"
+            alt="Sri Lanka cityscape"
             fill
             className="object-cover rounded-3xl"
           />
@@ -63,7 +60,7 @@ const Welcome = () => {
             >
               <Image
                 src={src}
-                alt={`Media ${i + 1}`}
+                alt={`Sri Lanka experience ${i + 1}`}
                 fill
                 className="object-cover rounded-2xl"
               />

@@ -16,13 +16,13 @@ const Background = () => {
           <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-4xl transition-all duration-700" />
         </div>
 
-        <div className="max-w-4xl mx-4 lg:ml-20 -mt-20 bg-white p-6.5 md:p-10 hover:scale-105 duration-1000 shadow-xl border-2 border-gray-100 rounded-3xl flex flex-col items-center text-center md:items-start md:text-start justify-center gap-4 relative">
+        <div className="max-w-4xl mx-4 lg:ml-20 -mt-20 bg-white p-6.5 md:p-14 hover:scale-105 duration-1000 shadow-xl border-2 border-gray-100 rounded-4xl flex flex-col items-center text-center md:items-start md:text-start justify-center gap-4 relative">
           <div className="flex flex-col gap-1">
-            <h2 className="text-2xl lg:text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]">
+            <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]">
               A Wonderous UAE
             </h2>
             <label className="text-base lg:text-lg font-bold text-teal-600">
-              A melting pot of cultures & traditions
+              A Melting pot of cultures & traditions
             </label>
           </div>
 

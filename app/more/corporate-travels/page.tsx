@@ -1,11 +1,17 @@
-import Hero from "@/components/more/corporate-travels/Hero";
-import Info from "@/components/more/corporate-travels/Info";
+import Hero from "@/components/corporate/Hero";
+// import Welcome from "@/components/home/Welcome";
+import Corporate from "@/components/home/Corperate";
+// import MonthlyStays from "@/components/home/MonthlyStays";
+// import Transfers from "@/components/home/Transfers";
 
-export default function Contact() {
+export default function Home() {
   return (
     <div className="relative z-30">
       <Hero />
-      <Info />
+      {/* <Welcome /> */}
+      <Corporate />
+      {/* <MonthlyStays /> */}
+      {/* <Transfers /> */}
     </div>
   );
 }

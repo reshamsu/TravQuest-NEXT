@@ -3,8 +3,10 @@ import Welcome from "@/components/home/Welcome";
 import Background from "@/components/home/Background";
 import Discovery from "@/components/home/Discovery";
 import Packages from "@/components/home/Packages";
-import Shortcut from "@/components/home/Shortcut";
+import ShortcutASIA from "@/components/ShortcutASIA";
 import Corporate from "@/components/home/Corperate";
+import MonthlyStays from "@/components/home/MonthlyStays";
+import Transfers from "@/components/home/Transfers";
 
 export default function Home() {
   return (
@@ -12,10 +14,12 @@ export default function Home() {
       <Hero />
       <Welcome />
       <Background />
-      <Shortcut />
+      <ShortcutASIA />
       {/* <Discovery /> */}
       <Packages />
       <Corporate />
+      <MonthlyStays />
+      <Transfers />
     </div>
   );
 }

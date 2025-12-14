@@ -2,55 +2,56 @@ import React from "react";
 import Image from "next/image";
 
 const images = [
-  "/assets/hero/dubai-museum2.webp",
+  "/assets/poster/event-desert-safari1.webp",
   "/assets/destinations/dubai-frame.webp",
-  "/assets/hero/dubai-city.jpg",
+  "/assets/poster/dubai-marina-night.jpg",
 ];
 
 const Welcome = () => {
   return (
     <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-14 lg:gap-24 px-8 md:px-10 2xl:px-0">
-      <div className="flex flex-col justify-center gap-4 lg:gap-6">
-        <div className="flex flex-col gap-2.5">
-          <label
-            htmlFor=""
-            className="text-base lg:text-lg font-semibold text-[#f2836f]"
-          >
-            A EPITOME OF MODERNITY
-          </label>
-          <h2 className="text-2xl lg:text-3xl 2xl:text-4xl font-bold text-teal-600">
-            The Future is now in Dubai
+      {/* CONTENT */}
+      <div className="flex flex-col justify-center gap-4 md:gap-6">
+        <div className="flex flex-col gap-1">
+          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]">
+            Experience Dubai
           </h2>
+          <label className="text-base lg:text-lg font-bold text-teal-600">
+            Where Innovation Meets Luxury
+          </label>
         </div>
-        <div className="flex flex-col gap-3">
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            With an unparalleled coastline, beautiful desert, and magnificent
-            cityscapes, memories are just waiting to be made here.
-          </p>{" "}
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            From traditional souks to luxurious entertainment centers, golf
-            stadiums, recreational facilities, and sports activities,{" "}
-            <strong>Dubai</strong> offers a little bit of everything.
-          </p>
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            <strong>Dubai</strong> is the epitome of modernity, reflected in its
-            state-of-the-art architecture,{" "}
-            <i>record-breaking attractions, and world-class.</i>
-          </p>
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            Today, <strong>Dubai</strong> is among the most modern cities in the
-            world bustling with international trade, industry, and commerce.
-          </p>
-        </div>
+
+        <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
+          <strong>Dubai</strong> is a global city built on ambition, innovation,
+          and unmatched vision. Rising from the desert into one of the world’s
+          most futuristic destinations, Dubai blends cutting-edge architecture,
+          luxury living, and world-class experiences like no other city.
+        </p>
+
+        <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
+          Home to icons such as the <strong>Burj Khalifa</strong>, Palm Jumeirah,
+          and Dubai Marina, the city offers everything from desert safaris and
+          yacht cruises to luxury shopping, fine dining, and immersive cultural
+          districts like Al Fahidi.
+        </p>
+
+        <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
+          With its seamless connectivity, year-round sunshine, and reputation
+          for excellence, <strong>Dubai</strong> stands as a premier destination
+          for leisure travelers, business professionals, and luxury seekers
+          alike — delivering experiences that redefine modern travel.
+        </p>
       </div>
 
+      {/* IMAGES */}
       <div className="flex flex-col gap-4">
-        <div className="relative h-90 w-full">
+        <div className="relative h-80 w-full">
           <Image
-            src="/assets/hero/burj-khalifa.jpg"
-            alt="UAE"
+            src="/assets/poster/museum-future.webp"
+            alt="Dubai skyline and Burj Khalifa"
             fill
             className="object-cover rounded-3xl"
+            priority
           />
           <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-2xl duration-500" />
         </div>
@@ -63,7 +64,7 @@ const Welcome = () => {
             >
               <Image
                 src={src}
-                alt={`Media ${i + 1}`}
+                alt={`Dubai highlight ${i + 1}`}
                 fill
                 className="object-cover rounded-2xl"
               />

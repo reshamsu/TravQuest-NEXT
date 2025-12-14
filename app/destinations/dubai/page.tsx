@@ -1,15 +1,15 @@
 import Hero from "@/components/destinations/dubai/Hero";
 import Welcome from "@/components/destinations/dubai/Welcome";
-import Discovery from "@/components/destinations/dubai/Discovery";
-import Shortcut from "@/components/destinations/dubai/Shortcut";
+import DiscoverUAE from "@/components/DiscoverUAE";
+import ShortcutUAE from "@/components/ShortcutUAE";
 
 export default function Destinations() {
   return (
     <div className="relative z-30">
       <Hero />
       <Welcome />
-      <Discovery />
-      <Shortcut />
+      <DiscoverUAE />
+      <ShortcutUAE />
     </div>
   );
 }

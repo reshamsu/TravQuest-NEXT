@@ -10,45 +10,42 @@ const images = [
 const Welcome = () => {
   return (
     <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-14 lg:gap-24 px-8 md:px-10 2xl:px-0">
+      {/* CONTENT */}
       <div className="flex flex-col justify-center gap-4 lg:gap-6">
-        <div className="flex flex-col gap-2">
-          <label
-            htmlFor=""
-            className="text-base lg:text-lg font-semibold text-teal-600"
-          >
-            A EPITOME OF MODERNITY
-          </label>
-          <h2 className="text-2xl lg:text-3xl 2xl:text-4xl font-bold text-[#f2836f]">
-            The Future is now in Thailand
+        <div className="flex flex-col gap-1">
+          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]">
+            Experience the Spirit of Thailand
           </h2>
+          <label className="text-base lg:text-lg font-bold text-teal-600">
+            Culture, Adventure & Tropical Escape
+          </label>
         </div>
+
         <div className="flex flex-col gap-3">
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            With an unparalleled coastline, beautiful desert, and magnificent
-            cityscapes, memories are just waiting to be made here.
-          </p>{" "}
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            From traditional souks to luxurious entertainment centers, golf
-            stadiums, recreational facilities, and sports activities,{" "}
-            <strong>Thailand</strong> offers a little bit of everything.
+          <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
+            From pristine beaches and emerald islands to vibrant cities and
+            ancient temples, <strong>Thailand</strong> offers an unforgettable
+            blend of natural beauty and rich cultural heritage. Whether you’re
+            exploring bustling street markets, serene mountain regions, or
+            tropical coastlines, every moment is filled with discovery.
           </p>
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            <strong>Thailand</strong> is the epitome of modernity, reflected in its
-            state-of-the-art architecture,{" "}
-            <i>record-breaking attractions, and world-class.</i>
-          </p>
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            Today, <strong>Thailand</strong> is among the most modern cities in the
-            world bustling with international trade, industry, and commerce.
+
+          <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
+            Known as the <i>Land of Smiles</i>, <strong>Thailand</strong> is a
+            world-class destination for leisure, wellness, nightlife, and
+            adventure. From iconic temples and floating markets to island
+            hopping, culinary experiences, and modern city life, Thailand
+            balances tradition and contemporary charm with ease.
           </p>
         </div>
       </div>
 
+      {/* IMAGES */}
       <div className="flex flex-col gap-4">
         <div className="relative h-90 w-full">
           <Image
             src="/assets/hero/thailand-post.avif"
-            alt="UAE"
+            alt="Thailand cityscape"
             fill
             className="object-cover rounded-3xl"
           />
@@ -63,7 +60,7 @@ const Welcome = () => {
             >
               <Image
                 src={src}
-                alt={`Media ${i + 1}`}
+                alt={`Thailand experience ${i + 1}`}
                 fill
                 className="object-cover rounded-2xl"
               />

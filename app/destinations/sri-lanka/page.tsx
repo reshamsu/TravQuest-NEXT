@@ -1,15 +1,15 @@
 import Hero from "@/components/destinations/sri-lanka/Hero";
 import Welcome from "@/components/destinations/sri-lanka/Welcome";
-import Discovery from "@/components/destinations/sri-lanka/Discovery";
-import Shortcut from "@/components/destinations/sri-lanka/Shortcut";
+import DiscoverASIA from "@/components/DiscoverASIA";
+import ShortcutASIA from "@/components/ShortcutASIA";
 
 export default function Destinations() {
   return (
     <div className="relative z-30">
       <Hero />
       <Welcome />
-      <Discovery />
-      <Shortcut />
+      <DiscoverASIA />
+      <ShortcutASIA />
     </div>
   );
 }

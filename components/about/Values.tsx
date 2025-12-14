@@ -68,22 +68,22 @@ const Values = () => {
           <div className="flex flex-col gap-2.5">
             <label
               htmlFor=""
-              className="text-base lg:text-lg font-semibold text-teal-600"
+              className="text-base lg:text-lg font-bold text-teal-600"
             >
-              OUR VALUES
+              Our Values
             </label>
-            <h1 className="text-3xl md:text-4xl xl:text-5xl font-bold">
+            <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold uppercase">
               What <span className="text-[#f2836f]">We Do</span>
-            </h1>
+            </h2>
           </div>
 
           <div className="flex flex-col gap-2">
-            <p className="text-xs md:text-sm lg:text-base font-normal text-justify text-gray-600">
+            <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
               At <strong>The TravQuest Travel & Tourism</strong>, we specialize
               in curating unforgettable journeys. Our mission is to turn your
               travel dreams into reality.
             </p>
-            <p className="text-xs md:text-sm lg:text-base font-normal text-justify text-gray-600">
+            <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
               Explore our handpicked destinations, expertly crafted itineraries,
               and personalized experiences. Whether you seek adventure,
               relaxation, or cultural immersion, we're here to create your
@@ -101,10 +101,12 @@ const Values = () => {
                 {item.icon}
               </div>
               <div className="flex flex-col gap-2">
-                <h3 className="text-lg font-bold capitalize text-teal-600">
+                <h3 className="text-base lg:text-lg font-bold capitalize text-teal-600">
                   {item.title}
                 </h3>
-                <p className="text-xs md:text-sm font-normal text-gray-500">{item.description}</p>
+                <p className="text-xs md:text-sm font-normal text-gray-600">
+                  {item.description}
+                </p>
               </div>
             </div>
           ))}

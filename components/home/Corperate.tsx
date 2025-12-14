@@ -5,40 +5,52 @@ import Link from "next/link";
 const Corporate = () => {
   return (
     <div className="bg-linear-to-b from-[#ffffff] via-[#ffffff] to-[#f2836f]/10">
-      <div className="max-w-6xl mx-auto py-4 md:py-20 px-6 md:px-10 2xl:px-0">
-        <div className="relative h-[44vh] lg:h-[60vh] rounded-4xl w-full transition-all duration-1000 bg-gray-100">
+      <div className="max-w-6xl mx-auto py-4 md:py-20 px-6 md:px-10 2xl:px-0 grid lg:grid-cols-2">
+        {/* IMAGE */}
+        <div className="relative h-[44vh] lg:h-[64vh] rounded-l-full w-full transition-all duration-1000 bg-gray-100">
           <Image
-            src="/assets/hero/bg-burj-khalifa.jpg"
-            alt=""
+            src="/assets/poster/corporate_travels1.webp"
+            alt="Corporate Travel Services in UAE"
             fill
-            className="object-cover rounded-3xl"
+            className="object-cover rounded-l-full"
+            priority
           />
-          <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-4xl transition-all duration-700" />
+          <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-l-full transition-all duration-700" />
         </div>
 
-        <div className="max-w-4xl mx-4 lg:ml-20 -mt-20 bg-white p-6.5 md:p-10 hover:scale-105 duration-1000 shadow-xl border-2 border-gray-100 rounded-3xl flex flex-col items-center text-center md:items-start md:text-start justify-center gap-4 lg:gap-6 relative">
+        {/* CONTENT */}
+        <div className="max-w-4xl my-8 lg:-ml-30 bg-white p-6.5 md:px-14 shadow-xl border-2 border-gray-100 rounded-4xl flex flex-col justify-center gap-4 relative">
           <div className="flex flex-col gap-1">
-            <h2 className="text-2xl lg:text-3xl font-bold text-[#f2836f]">
-              Corperate Travels
+            <h2 className="text-xl lg:text-2xl 2xl:text-3xl font-bold uppercase text-[#f2836f]">
+              Corporate Travel Solutions
             </h2>
-            <label className="text-base lg:text-lg font-semibold text-teal-600">
-              A MELTING POT OF CULTURES & TRADITIONS
+            <label className="text-base lg:text-lg font-bold text-teal-600">
+              Seamless Business Travel. Executed with Precision.
             </label>
           </div>
 
-          <p className="text-xs md:text-sm lg:text-base font-normal text-gray-600">
-            The United Arab Emirates (UAE) is a melting pot of cultures and
-            traditions, with a rich history and heritage while it is the home to
-            a variety of landscapes, including beaches, deserts, mountains, and
-            cityscapes.
+          <p className="text-xs lg:text-sm font-normal text-justify text-gray-600">
+            We specialize in end-to-end corporate travel management across the UAE,
+            delivering reliable, time-efficient, and cost-controlled solutions
+            for executives, teams, and business delegations. From flight and hotel
+            coordination to visa assistance, airport transfers, and MICE travel,
+            we ensure every journey aligns with your business objectives —
+            without friction or delays.
           </p>
 
-          <div className="flex items-center gap-4 mt-2">
+          <ul className="text-xs lg:text-sm text-gray-600 list-disc pl-4 space-y-1">
+            <li>Executive & team travel planning</li>
+            <li>Meetings, Incentives, Conferences & Exhibitions (MICE)</li>
+            <li>Priority hotel, transport & visa coordination</li>
+            <li>Dedicated corporate support & itinerary control</li>
+          </ul>
+
+          <div className="flex items-center mt-3">
             <Link
-              href="/explore-uae"
+              href="/more/corporate-travels"
               className="select-none btn-green-base btn-dynamic"
             >
-              Explore More
+              Explore Corporate Services
             </Link>
           </div>
         </div>

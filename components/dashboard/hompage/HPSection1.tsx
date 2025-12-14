@@ -15,9 +15,9 @@ const images = [
 
 const Section1 = () => {
   return (
-    <div className="max-w-6xl mx-auto h-full pt-24 md:pt-20 px-8 2xl:px-0 ml-0 md:ml-80 2xl:ml-96 ">
+    <div className="max-w-5xl mx-auto h-full px-8 2xl:px-0 ml-0 md:ml-80 2xl:ml-90">
       <div className="flex flex-col gap-1 text-gray-700">
-        <h1 className="text-2xl font-extrabold mb-10">DASHBOARD</h1>
+        <h1 className="text-xl font-extrabold mb-10">DASHBOARD</h1>
         <h2 className="text-xl font-extrabold">Section 1</h2>
         <p className="text-gray-600 text-sm lg:text-base">
           Add or Update your homepage content here!

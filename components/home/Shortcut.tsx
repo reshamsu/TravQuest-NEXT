@@ -102,10 +102,10 @@ const Destinations: React.FC = () => {
       .replace(/[^a-z0-9\-]/g, "");
 
   return (
-    <div className="bg-linear-to-b from-[#ffffff] via-[#ffffff] to-teal-700/20">
+    <div className="">
       <div className="max-w-6xl mx-auto flex flex-col gap-4 py-20 px-8 md:px-10 2xl:px-0">
         <div className="flex flex-col gap-1">
-          <h2 className="text-xl lg:text-2xl 2xl:text-3xl font-bold uppercase text-gray-700">
+          <h2 className="text-xl lg:text-2xl 2xl:text-3xl font-bold uppercase text-gray-600">
             Let’s Travel Around the Globe…{" "}
             <span className="text-teal-600">One Destination at a Time</span>
           </h2>

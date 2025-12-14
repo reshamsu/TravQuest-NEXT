@@ -34,7 +34,7 @@ export default function Sidebar() {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-screen w-70 bg-gray-900 text-white text-sm z-50 transform
+        className={`fixed top-0 left-0 h-screen w-64 bg-gray-900 text-white text-xs z-50 transform
           transition-transform duration-300 md:translate-x-0
           ${open ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
         `}
@@ -89,7 +89,7 @@ export default function Sidebar() {
                           <Link
                             href={sublink.href}
                             onClick={() => setOpen(false)}
-                            className={`block px-6 py-3 rounded-md text-sm ${
+                            className={`block px-6 py-3 rounded-md text-xs ${
                               isActive(sublink.href)
                                 ? "bg-gray-800 font-bold"
                                 : "hover:font-bold"

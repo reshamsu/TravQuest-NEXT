@@ -100,14 +100,14 @@ export default function Contacts() {
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-black/25" />
+            <div className="absolute inset-0 bg-black/30 lg:bg-[#f2836f]/10 group-hover:bg-black/64 transition-all duration-1000" />
           </div>
 
-          <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-4 text-white/70 z-10 px-8 md:px-10 2xl:px-0">
-            <h1 className="playfair text-5xl md:text-6xl font-bold">
+          <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-4 text-white/80 z-10 px-8 md:px-10 2xl:px-0">
+            <h1 className="playfair text-4xl md:text-6xl font-bold">
               Get in Touch
             </h1>
-            <p className="text-sm lg:text-base text-gray-300 max-w-3xl">
+            <p className="text-xs md:text-sm text-gray-300 max-w-3xl">
               We're here to assist you with any inquiries about our solutions.
             </p>
           </div>
@@ -115,17 +115,18 @@ export default function Contacts() {
       </div>
 
       {/* FORM CARD */}
-      <div className="max-w-4xl mx-auto -mt-20 bg-white px-8 p-12 lg:shadow-xl border-2 border-gray-100 flex flex-col gap-12 rounded-3xl relative z-5">
-        <div className="flex flex-col items-center text-center justify-center gap-4">
-          <label className="text-base lg:text-lg font-semibold text-teal-600">
-            CONNECT
-          </label>
+      <div className="max-w-4xl mx-auto -mt-20 bg-white px-8 md:px-12 py-12 lg:shadow-xl border-2 border-gray-100 flex flex-col gap-12 rounded-4xl relative z-5">
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-1">
+            <label className="text-base lg:text-lg font-bold text-teal-600">
+              CONNECT
+            </label>
+            <h2 className="text-2xl lg:text-3xl font-bold text-[#f2836f]">
+              We are here to support your journey.
+            </h2>
+          </div>
 
-          <h2 className="text-2xl lg:text-3xl font-bold text-[#f2836f]">
-            We Are Here To Support Your Journey.
-          </h2>
-
-          <p className="text-xs md:text-sm text-gray-600 max-w-3xl">
+          <p className="text-xs md:text-sm font-normal text-justify text-gray-600 max-w-3xl">
             Reach out to us for bookings, tours, flights, visa support, or
             anything else.
           </p>
@@ -134,7 +135,7 @@ export default function Contacts() {
         {/* FORM */}
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col items-end gap-8 px-2"
+          className="flex flex-col items-end gap-8"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-800 w-full">
             {/* Full Name */}

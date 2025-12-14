@@ -4,9 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { TbChevronLeft, TbChevronRight } from "react-icons/tb";
 
-const images = [
-  "/assets/destinations/fujairah.jpg",
-];
+const images = ["/assets/destinations/fujairah.jpg"];
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
@@ -42,7 +40,7 @@ const Hero = () => {
               className="object-cover"
               priority={index === 0}
             />
-            <div className="absolute inset-0 bg-black/25" />
+            <div className="absolute inset-0 bg-black/30 lg:bg-[#f2836f]/10 group-hover:bg-black/64 transition-all duration-1000" />
           </div>
         ))}
 
@@ -62,10 +60,8 @@ const Hero = () => {
         </div>
 
         <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-4 text-white/70 pt-24 z-10 px-8 md:px-10 2xl:px-0">
-          <h1 className="playfair text-5xl lg:text-6xl font-bold">
-            FUJAIRAH
-          </h1>
-          <p className="text-sm lg:text-base text-gray-300 max-w-3xl">
+          <h1 className="playfair text-4xl md:text-6xl font-bold">FUJAIRAH</h1>
+          <p className="text-xs md:text-sm text-gray-300 max-w-3xl">
             Explore the wonders of Furjairah
           </p>
         </div>

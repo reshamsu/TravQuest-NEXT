@@ -32,25 +32,25 @@ const Welcome = () => {
 
         <div className="flex flex-col justify-center gap-4 md:gap-6">
           <div className="flex flex-col gap-2.5">
-            <label
-              htmlFor=""
-              className="text-base lg:text-lg font-semibold text-[#f2836f]"
-            >
-              EVERY MILE CURATED, EVERY MOMENT ELEVATED.
-            </label>
-            <h2 className="text-2xl lg:text-3xl font-bold text-teal-600">
+            <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]">
               Let Us Inspire You To Expand Your Travel Horizons
             </h2>
+            <label
+              htmlFor=""
+              className="text-base lg:text-lg font-bold text-teal-600"
+            >
+              Every mile curated, Every moment elevated.
+            </label>
           </div>
 
-          <p className="text-xs md:text-sm lg:text-base font-normal text-justify text-gray-600">
-            The inception of <strong>The TravQuest Travel & Tourism</strong> was inspired to
-            curate experiences to delight your passion for travel. We endeavor
-            to go beyond your travel needs. We specialize in curating
-            unforgettable journeys. Our mission is to turn your travel dreams
-            into reality.
+          <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
+            The inception of <strong>The TravQuest Travel & Tourism</strong> was
+            inspired to curate experiences to delight your passion for travel.
+            We endeavor to go beyond your travel needs. We specialize in
+            curating unforgettable journeys. Our mission is to turn your travel
+            dreams into reality.
           </p>
-          <p className="text-xs md:text-sm lg:text-base font-normal text-justify text-gray-600">
+          <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
             Explore our handpicked destinations, expertly crafted itineraries,
             and personalized experiences. Whether you seek adventure,
             relaxation, or cultural immersion, we're here to create your perfect

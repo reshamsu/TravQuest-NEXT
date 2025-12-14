@@ -2,6 +2,16 @@ export const Side_Links = [
   { key: "overview", label: "Overview", href: "/dashboard" },
 
   {
+    key: "hero-sections",
+    label: "Hero Sections",
+    href: "/dashboard/hero",
+    submenu: [
+      { label: "All Hero", href: "/dashboard/hero" },
+      { label: "Add Hero", href: "/dashboard/hero/add" },
+    ],
+  },
+
+  {
     key: "destinations",
     label: "Destinations",
     href: "/dashboard/destinations",
@@ -49,5 +59,5 @@ export const Side_Links = [
     key: "logout",
     label: "Logout",
     href: "/logout",
-  }
+  },
 ];

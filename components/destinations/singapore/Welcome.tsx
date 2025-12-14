@@ -10,45 +10,42 @@ const images = [
 const Welcome = () => {
   return (
     <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-14 lg:gap-20 px-8 md:px-10 2xl:px-0">
+      {/* CONTENT */}
       <div className="flex flex-col justify-center gap-4 lg:gap-6">
-        <div className="flex flex-col gap-2.5">
-          <label
-            htmlFor=""
-            className="text-base lg:text-lg font-semibold text-teal-600"
-          >
-            A EPITOME OF MODERNITY
-          </label>
-          <h2 className="text-2xl lg:text-3xl 2xl:text-4xl font-bold text-[#f2836f]">
-            The Future is now in Singapore
+        <div className="flex flex-col gap-1">
+          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]">
+            Discover the Pulse of Singapore
           </h2>
+          <label className="text-base lg:text-lg font-bold text-teal-600">
+            Innovation, Culture & Urban Perfection
+          </label>
         </div>
+
         <div className="flex flex-col gap-3">
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            With an unparalleled coastline, beautiful desert, and magnificent
-            cityscapes, memories are just waiting to be made here.
-          </p>{" "}
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            From traditional souks to luxurious entertainment centers, golf
-            stadiums, recreational facilities, and sports activities,{" "}
-            <strong>Singapore</strong> offers a little bit of everything.
+          <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
+            A global city built on precision and progress, <strong>Singapore</strong>{" "}
+            blends cutting-edge innovation with deep cultural heritage. From
+            iconic skylines and lush urban gardens to vibrant neighborhoods and
+            waterfront attractions, the city offers an experience that is both
+            dynamic and refined.
           </p>
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            <strong>Singapore</strong> is the epitome of modernity, reflected in its
-            state-of-the-art architecture,{" "}
-            <i>record-breaking attractions, and world-class.</i>
-          </p>
-          <p className="text-sm lg:text-base font-normal text-justify text-gray-600">
-            Today, <strong>Singapore</strong> is among the most modern cities in the
-            world bustling with international trade, industry, and commerce.
+
+          <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
+            Renowned for its world-class infrastructure, culinary excellence,
+            and seamless connectivity, <strong>Singapore</strong> is a hub for
+            business, leisure, and lifestyle travel. Explore landmark attractions,
+            theme parks, shopping districts, and cultural enclaves — all within
+            one of the safest and most efficient cities in the world.
           </p>
         </div>
       </div>
 
+      {/* IMAGES */}
       <div className="flex flex-col gap-4">
         <div className="relative h-90 w-full">
           <Image
             src="/assets/hero/singapore-lion3.jpg"
-            alt="UAE"
+            alt="Singapore city skyline"
             fill
             className="object-cover rounded-3xl"
           />
@@ -63,7 +60,7 @@ const Welcome = () => {
             >
               <Image
                 src={src}
-                alt={`Media ${i + 1}`}
+                alt={`Singapore experience ${i + 1}`}
                 fill
                 className="object-cover rounded-2xl"
               />

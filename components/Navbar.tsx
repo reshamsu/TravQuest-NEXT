@@ -21,29 +21,29 @@ const Navbar = () => {
 
   return (
     <header className="fixed z-40 w-full select-none">
-      <nav className="max-w-6xl 2xl:max-w-7xl lg:mt-4 mx-auto bg-black/60 backdrop-blur-3xl shadow-xl lg:rounded-full flex items-center justify-between py-4 px-6">
+      <nav className="max-w-6xl 2xl:max-w-6xl lg:mt-4 mx-auto bg-black/60 backdrop-blur-3xl shadow-xl lg:rounded-full flex items-center justify-between py-4 px-6">
         {/* Logo + Mobile Button */}
         <div className="flex items-center justify-between gap-2 lg:gap-4">
-          <Link href="/" className="flex items-center gap-8 lg:gap-4 w-full">
+          <Link href="/" className="flex items-center gap-14 lg:gap-2 w-full">
             <Image
               src="/favicon.ico"
               alt="TQ"
-              width={64}
-              height={64}
+              width={50}
+              height={50}
               className="relative object-contain"
             />
             <Image
               src="/tq-logo.png"
               alt="TQ"
-              width={180}
-              height={180}
+              width={140}
+              height={140}
               className="object-contain"
             />
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden h-full gap-3 xl:flex text-[13px]">
+        <ul className="hidden h-full gap-2 xl:flex text-[12px]">
           {Nav_Links.map((link) => {
             const isActive =
               link.href === "/"
@@ -101,18 +101,18 @@ const Navbar = () => {
 
         {/* Desktop Right Side */}
         <div className="flex items-center gap-4 text-sm">
-          <div className="hidden md:flex gap-4">
+          <div className="hidden md:flex gap-2">
             <Link
               href="/login"
               className="select-none btn-dark-glass btn-dynamic"
             >
-              <TbUser size={24} className="text-white" />
+              <TbUser size={22} className="text-white" />
             </Link>
             <Link
               href="https://wa.me/971529991223"
               className="select-none btn-orange-sm btn-dynamic"
             >
-              <TbPhone size={24} /> Inquire Now
+              <TbPhone size={22} /> Inquire Now
             </Link>
           </div>
           <button
@@ -175,7 +175,7 @@ const Navbar = () => {
               href="/login"
               className="select-none btn-dark-glass btn-dynamic"
             >
-              <TbUser size={24} />
+              <TbUser size={22} />
             </Link>
             <Link
               href="https://wa.me/971529991223"
