@@ -13,7 +13,7 @@ const Welcome = () => {
       {/* CONTENT */}
       <div className="flex flex-col justify-center gap-4 md:gap-6">
         <div className="flex flex-col gap-1">
-          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]">
+          <h2 className="text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]">
             Discover Ras Al Khaimah
           </h2>
           <label className="text-base lg:text-lg font-bold text-teal-600">
