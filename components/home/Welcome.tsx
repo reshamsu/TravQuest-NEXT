@@ -12,7 +12,7 @@ const images = [
 const Welcome = () => {
   return (
     <div className="bg-linear-to-b from-[#ffffff] via-[#ffffff] to-[#ffffff]">
-      <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-24 px-6 md:px-10 2xl:px-0">
+      <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 px-6 md:px-10 2xl:px-0">
         <div className="grid grid-cols-2 gap-4">
           {images.map((src, i) => (
             <div
@@ -30,9 +30,9 @@ const Welcome = () => {
           ))}
         </div>
 
-        <div className="flex flex-col justify-center gap-6">
+        <div className="flex flex-col justify-center gap-4 xl:gap-6">
           <div className="flex flex-col gap-1">
-            <label className="text-2xl md:text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]">
+            <label className="text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]">
               Meet the World
             </label>
             <h2 className="text-base lg:text-lg font-bold text-teal-600">
@@ -53,7 +53,7 @@ const Welcome = () => {
           </p>
 
           <div className="flex flex-col gap-6">
-            <h4 className="text-sm md:text-base font-bold text-gray-600">
+            <h4 className="text-sm lg:text-base font-bold text-gray-600">
               Live your story…Discover Another Destination!
             </h4>
 

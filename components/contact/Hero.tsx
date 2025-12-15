@@ -116,7 +116,7 @@ export default function Contacts() {
 
       {/* FORM CARD */}
       <div className="max-w-4xl mx-auto -mt-20 bg-white px-8 md:px-12 py-12 lg:shadow-xl border-2 border-gray-100 flex flex-col gap-12 rounded-4xl relative z-5">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col items-center text-center gap-4">
           <div className="flex flex-col gap-1">
             <label className="text-base lg:text-lg font-bold text-teal-600">
               CONNECT
@@ -126,17 +126,18 @@ export default function Contacts() {
             </h2>
           </div>
 
-          <p className="text-xs md:text-sm font-normal text-justify text-gray-600 max-w-3xl">
-            Reach out to us for bookings, tours, flights, visa support, or
-            anything else.
+          <p className="text-xs md:text-sm font-normal text-center text-gray-600 max-w-3xl">
+            Let’s continue to weave the tapestry of travel experiences with,
+            more inspiring examples from The TravQuest Travel & Tourism Team. We
+            can guide you through, your worldwide Hotel Bookings, Flight ticket
+            arrangements, Visa Requirements, Arrival & Departure Transfer
+            arrangements, Tours & Excursion Bookings, Corporate Events, and
+            Meeting venue recommendations.
           </p>
         </div>
 
         {/* FORM */}
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col items-end gap-8"
-        >
+        <form onSubmit={handleSubmit} className="flex flex-col items-end gap-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-800 w-full">
             {/* Full Name */}
             <div className="flex flex-col gap-3 w-full">

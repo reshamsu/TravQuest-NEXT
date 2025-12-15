@@ -12,7 +12,7 @@ const Welcome = () => {
     <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-14 lg:gap-24 px-8 md:px-10 2xl:px-0">
       <div className="flex flex-col justify-center gap-4 md:gap-6">
         <div className="flex flex-col gap-1">
-          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]">
+          <h2 className="text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]">
             A Wonderous UAE
           </h2>
           <label className="text-base lg:text-lg font-bold text-teal-600">

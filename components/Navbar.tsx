@@ -21,22 +21,50 @@ const Navbar = () => {
 
   return (
     <header className="fixed z-40 w-full select-none">
-      <nav className="max-w-6xl 2xl:max-w-6xl lg:mt-4 mx-auto bg-black/60 backdrop-blur-3xl shadow-xl lg:rounded-full flex items-center justify-between py-4 px-6">
+      <nav className="max-w-6xl 2xl:max-w-6xl lg:mt-4 mx-auto bg-black/60 backdrop-blur-3xl  select-none shadow-xl lg:rounded-full flex items-center justify-between py-4 px-6">
         {/* Logo + Mobile Button */}
-        <div className="flex items-center justify-between gap-2 lg:gap-4">
-          <Link href="/" className="flex items-center gap-14 lg:gap-2 w-full">
+
+        <div className="hidden lg:flex items-center gap-2">
+          <Link href="/" className="flex items-center">
             <Image
               src="/favicon.ico"
               alt="TQ"
-              width={50}
-              height={50}
-              className="relative object-contain"
+              width={60}
+              height={60}
+              className="object-contain"
             />
+          </Link>
+
+          <Link href="/" className="flex items-center">
             <Image
               src="/tq-logo.png"
               alt="TQ"
-              width={140}
-              height={140}
+              width={160}
+              height={160}
+              className="object-contain"
+            />
+          </Link>
+        </div>
+
+        <div className="block lg:hidden">
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/favicon.ico"
+              alt="TQ"
+              width={60}
+              height={60}
+              className="object-contain"
+            />
+          </Link>
+        </div>
+
+        <div className="block lg:hidden">
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/tq-logo.png"
+              alt="TQ"
+              width={160}
+              height={160}
               className="object-contain"
             />
           </Link>
@@ -100,7 +128,7 @@ const Navbar = () => {
         </ul>
 
         {/* Desktop Right Side */}
-        <div className="flex items-center gap-4 text-sm">
+        <div className="flex items-center gap-4 text-sm  select-none">
           <div className="hidden md:flex gap-2">
             <Link
               href="/login"
@@ -131,21 +159,21 @@ const Navbar = () => {
 
       {/* Mobile Dropdown */}
       <div
-        className={`absolute top-full left-0 w-full bg-white/90 backdrop-blur-3xl rounded-b-4xl text-black overflow-hidden xl:hidden shadow-xl transition-transform duration-300 ease-in-out origin-top ${
+        className={`absolute top-full left-0 w-full bg-white/90 backdrop-blur-3xl rounded-b-4xl text-black overflow-hidden xl:hidden select-none shadow-xl transition-transform duration-300 ease-in-out origin-top ${
           isOpen ? "scale-y-100" : "scale-y-0"
         }`}
       >
-        <ul className="flex flex-col gap-2 p-6 text-[15px]">
+        <ul className="flex flex-col gap-2 p-6 text-sm">
           {Nav_Links.map((link) => (
             <li key={link.key}>
               {link.submenu ? (
                 <details className="group">
-                  <summary className="flex items-center justify-between cursor-pointer rounded-full w-full py-3 px-6 transition-all duration-500 hover:bg-white/5 text-black/80">
+                  <summary className="flex items-center justify-between cursor-pointer rounded-full w-full py-3 px-6 transition-all duration-500 hover:bg-white/5">
                     {link.label}
                     <TbChevronDown className="ml-1" />
                   </summary>
 
-                  <ul className="flex flex-col my-2 px-10">
+                  <ul className="flex flex-col my-2 px-10 text-black/90">
                     {link.submenu.map((sublink) => (
                       <li key={sublink.href} className="py-3">
                         <Link

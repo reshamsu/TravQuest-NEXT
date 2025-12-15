@@ -72,18 +72,18 @@ const Values = () => {
             >
               Our Values
             </label>
-            <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold uppercase">
+            <h2 className="text-3xl 2xl:text-4xl font-bold uppercase">
               What <span className="text-[#f2836f]">We Do</span>
             </h2>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
+          <div className="flex flex-col gap-3">
+            <p className="text-xs md:text-sm font-normal text-center lg:text-justify text-gray-600">
               At <strong>The TravQuest Travel & Tourism</strong>, we specialize
               in curating unforgettable journeys. Our mission is to turn your
               travel dreams into reality.
             </p>
-            <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
+            <p className="text-xs md:text-sm font-normal text-center lg:text-justify text-gray-600">
               Explore our handpicked destinations, expertly crafted itineraries,
               and personalized experiences. Whether you seek adventure,
               relaxation, or cultural immersion, we're here to create your

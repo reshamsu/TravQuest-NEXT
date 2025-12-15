@@ -17,7 +17,7 @@ const Welcome = () => {
           {images.map((src, i) => (
             <div
               key={i}
-              className="relative h-[250px] rounded-3xl w-full duration-1000 bg-gray-100"
+              className="relative h-[180px] lg:h-[200px] rounded-3xl w-full duration-1000 bg-gray-100"
             >
               <Image
                 src={src}
