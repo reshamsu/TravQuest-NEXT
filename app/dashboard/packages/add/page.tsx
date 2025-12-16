@@ -207,7 +207,7 @@ export default function Page() {
 
             {/* PACKAGE LOCATION */}
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-bold">Package from*</label>
+              <label className="text-sm font-bold">Package City*</label>
               <select
                 name="package_location"
                 value={newPackage.package_location[0] || ""}
@@ -221,12 +221,13 @@ export default function Page() {
                 required
               >
                 <option value="" disabled>
-                  Select Area
+                  Select City
                 </option>
                 <option value="Dubai">Dubai</option>
                 <option value="Abu Dhabi">Abu Dhabi</option>
                 <option value="Furjairah">Furjairah</option>
                 <option value="Ras Al Khaimah">Ras Al Khaimah</option>
+                <option value="Jordan">Jordan</option>
                 <option value="Sri Lanka">Sri Lanka</option>
                 <option value="Maldives">Maldives</option>
                 <option value="Singapore">Singapore</option>

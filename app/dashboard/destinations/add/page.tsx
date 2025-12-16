@@ -224,8 +224,11 @@ export default function Page() {
                   Select Area
                 </option>
                 <option value="Asia">Asia</option>
-                <option value="UAE">UAE</option>
+                <option value="Africa">Africa</option>
                 <option value="Europe">Europe</option>
+                <option value="Middle East">Middle East</option>
+                <option value="North America">North America</option>
+                <option value="UAE">UAE</option>
               </select>
             </div>
 

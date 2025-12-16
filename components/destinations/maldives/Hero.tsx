@@ -5,9 +5,9 @@ import Image from "next/image";
 import { TbChevronLeft, TbChevronRight } from "react-icons/tb";
 
 const images = [
+  "/assets/hero/maldives-night.jpg",
   "/assets/hero/maldives-villas.jpg",
   "/assets/hero/maldives-lifestyle2.webp",
-  "/assets/hero/maldives-night.jpg",
 ];
 
 const Hero = () => {

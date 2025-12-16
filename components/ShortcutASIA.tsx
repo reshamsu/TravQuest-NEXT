@@ -27,8 +27,10 @@ const rowVariants: Variants = {
   }),
 };
 
+const INITIAL_VISIBLE = 4;
+
 const Destinations: React.FC = () => {
-  // ✅ HARD GUARD — prevents build crash
+  // HARD GUARD
   if (!supabase) {
     return (
       <div className="p-10 text-center text-red-600">
@@ -37,10 +39,10 @@ const Destinations: React.FC = () => {
     );
   }
 
-  // ✅ Narrow once (TypeScript + runtime safe)
   const sb = supabase;
 
   const [destinations, setDestinations] = useState<Destination[]>([]);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -76,12 +78,15 @@ const Destinations: React.FC = () => {
           name: row.name,
           tagline: row.tagline,
           description: row.description,
-          destination_area: row.destination_area ?? [],
+          destination_area: Array.isArray(row.destination_area)
+            ? row.destination_area
+            : [],
           image_urls: images,
           created_at: row.created_at,
         };
       });
 
+      // Asia-only filter
       const asiaOnly = formatted.filter((item) =>
         item.destination_area.includes("Asia")
       );
@@ -93,16 +98,19 @@ const Destinations: React.FC = () => {
     fetchDestinations();
   }, [sb]);
 
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const visibleDestinations = destinations.slice(0, visibleCount);
+  const hasMore = destinations.length > visibleCount;
 
   const slugify = (text: string) =>
     text
       .toLowerCase()
       .replace(/\s+/g, "-")
       .replace(/[^a-z0-9\-]/g, "");
+
   return (
-    <div className="bg-linear-to-b from-gray-100 via-[#ffffff] to-teal-700/20">
+    <div className="bg-linear-to-b from-gray-100 via-white to-teal-700/20">
       <div className="max-w-6xl mx-auto flex flex-col gap-4 py-20 px-8 md:px-10 2xl:px-0">
+        {/* Header */}
         <div className="flex flex-col gap-1">
           <h2 className="text-2xl 2xl:text-3xl font-bold uppercase text-gray-700">
             Let’s Travel Around the Globe…{" "}
@@ -119,7 +127,7 @@ const Destinations: React.FC = () => {
           memories that span continents.
         </p>
 
-        {/* DESTINATION GRID */}
+        {/* GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4">
           {loading && (
             <p className="text-gray-500 col-span-full text-center">
@@ -128,30 +136,32 @@ const Destinations: React.FC = () => {
           )}
 
           {!loading &&
-            destinations.map((dest, index) => (
+            visibleDestinations.map((dest, index) => (
               <motion.div
                 key={dest.id}
                 custom={index}
                 variants={rowVariants}
                 initial="hidden"
                 animate="visible"
-                className="relative rounded-4xl overflow-hidden h-[55vh] hover:scale-105 duration-1000 group shadow-lg"
+                className="relative rounded-4xl overflow-hidden h-[55vh] group shadow-lg hover:scale-105 duration-700"
               >
                 <Image
                   src={dest.image_urls?.[0] || "/assets/banner/property1.webp"}
                   alt={dest.name}
                   fill
-                  className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
 
-                <div className="absolute inset-0 bg-black/60 lg:bg-black/10 transition-all duration-700 group-hover:bg-black/70"></div>
+                <div className="absolute inset-0 bg-black/60 lg:bg-black/10 transition-all duration-700 group-hover:bg-black/70" />
 
                 <div className="relative z-10 h-full flex flex-col justify-end gap-3.5 p-8 text-white">
                   <div>
                     <label className="text-sm font-semibold text-[#f2836f]">
-                      {dest.destination_area?.[0] ?? "Destination"}
+                      {dest.destination_area.join(" · ")}
                     </label>
-                    <h2 className="playfair text-2xl font-bold">{dest.name}</h2>
+                    <h2 className="playfair text-2xl font-bold">
+                      {dest.name}
+                    </h2>
                   </div>
 
                   <p className="text-xs text-gray-300 line-clamp-3">
@@ -169,12 +179,15 @@ const Destinations: React.FC = () => {
             ))}
         </div>
 
-        <span
-          onClick={scrollToTop}
-          className="select-none btn-light-glass btn-dynamic"
-        >
-          Show more Destinations
-        </span>
+        {/* SHOW MORE */}
+        {hasMore && (
+          <button
+            onClick={() => setVisibleCount(destinations.length)}
+            className="self-center mt-6 select-none btn-light-glass btn-dynamic"
+          >
+            Show more Destinations
+          </button>
+        )}
       </div>
     </div>
   );

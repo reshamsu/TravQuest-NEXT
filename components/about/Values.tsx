@@ -72,7 +72,7 @@ const Values = () => {
             >
               Our Values
             </label>
-            <h2 className="text-3xl 2xl:text-4xl font-bold uppercase">
+            <h2 className="playfair text-3xl 2xl:text-4xl font-bold">
               What <span className="text-[#f2836f]">We Do</span>
             </h2>
           </div>
