@@ -10,10 +10,13 @@ const HideFooter = () => {
     "/signup",
     "/dashboard",
     "/dashboard/hero/",
+    "/dashboard/hero/all",
     "/dashboard/hero/add",
     "/dashboard/destinations",
+    "/dashboard/destinations/all",
     "/dashboard/destinations/add",
     "/dashboard/packages",
+    "/dashboard/packages/all",
     "/dashboard/packages/add",
   ];
 

@@ -6,7 +6,7 @@ export const Side_Links = [
     label: "Hero Sections",
     href: "/dashboard/hero",
     submenu: [
-      { label: "All Hero", href: "/dashboard/hero" },
+      { label: "All Hero", href: "/dashboard/hero/all" },
       { label: "Add Hero", href: "/dashboard/hero/add" },
     ],
   },
@@ -16,7 +16,7 @@ export const Side_Links = [
     label: "Destinations",
     href: "/dashboard/destinations",
     submenu: [
-      { label: "All Destinations", href: "/dashboard/destinations" },
+      { label: "All Destinations", href: "/dashboard/destinations/all" },
       { label: "Add Destination", href: "/dashboard/destinations/add" },
     ],
   },
@@ -26,7 +26,7 @@ export const Side_Links = [
     label: "Packages",
     href: "/dashboard/packages",
     submenu: [
-      { label: "All Packages", href: "/dashboard/packages" },
+      { label: "All Packages", href: "/dashboard/packages/all" },
       { label: "Add Package", href: "/dashboard/packages/add" },
     ],
   },

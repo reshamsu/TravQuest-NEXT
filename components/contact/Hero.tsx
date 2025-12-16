@@ -1,11 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { supabase } from "@/lib/supabaseClient";
 import { TbSend2 } from "react-icons/tb";
 
-interface Contacts {
+const FALLBACK_IMAGES = ["/assets/hero/.jpg"];
+
+interface HeroRow {
+  title: string;
+  subtitle: string;
+  page_type: string[];
+  image_urls: string[];
+}
+interface ContactForm {
   full_name: string;
   email: string;
   phone: string;
@@ -14,30 +22,71 @@ interface Contacts {
   inquiry_message: string;
 }
 
-export default function Contacts() {
-  // ✅ HARD GUARD — prevents build crash
+const Hero = () => {
+  // HARD GUARD
   if (!supabase) {
     return (
-      <div className="p-10 text-center text-red-600">
-        Supabase is not configured. Check environment variables.
+      <div className="p-10 text-center text-teal-600">
+        Supabase not configured.
       </div>
     );
   }
 
-  // ✅ Narrow once for TypeScript
-  const sb = supabase;
+  const [current, setCurrent] = useState(0);
+  const [images, setImages] = useState<string[]>(FALLBACK_IMAGES);
+  const [title, setTitle] = useState("Get in Touch");
+  const [subtitle, setSubtitle] = useState(
+    "We're here to assist you with any inquiries."
+  );
+  const [pageType, setPageType] = useState("Contact");
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<ContactForm>({
     full_name: "",
     email: "",
     phone: "",
-    best_reason: "",
+    best_reason: [],
     inquiry_subject: "",
     inquiry_message: "",
   });
+
+  useEffect(() => {
+    if (!supabase) return;
+
+    const fetchHero = async () => {
+      const { data, error } = await supabase
+        .from("hero")
+        .select("*")
+        .contains("page_type", ["Contact"])
+        .order("created_at", { ascending: true })
+        .limit(1)
+        .single();
+
+      if (error || !data) return; 
+
+      const hero = data as HeroRow;
+
+      if (hero.image_urls?.length) {
+        setImages(hero.image_urls);
+      }
+
+      if (hero.title) setTitle(hero.title);
+      if (hero.subtitle) setSubtitle(hero.subtitle);
+      if (hero.page_type) setPageType(hero.page_type[0]);
+    };
+
+    fetchHero();
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(
+      () => setCurrent((prev) => (prev + 1) % images.length),
+      10000
+    );
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -61,7 +110,7 @@ export default function Contacts() {
       inquiry_message: form.inquiry_message,
     };
 
-    const { error } = await sb
+    const { error } = await supabase
       .from("contact")
       .insert([payload])
       .select()
@@ -80,7 +129,7 @@ export default function Contacts() {
       full_name: "",
       email: "",
       phone: "",
-      best_reason: "",
+      best_reason: [],
       inquiry_subject: "",
       inquiry_message: "",
     });
@@ -91,31 +140,38 @@ export default function Contacts() {
   return (
     <>
       {/* HERO */}
-      <div className="">
-        <div className="relative h-[74vh] w-full overflow-hidden flex items-center justify-center text-center">
-          <div className="absolute inset-0 w-full transition-opacity duration-1000 bg-gray-100">
+      <div className="relative h-[74vh] w-full overflow-hidden flex items-center justify-center text-center">
+        {images.map((img, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === current ? "opacity-100 z-10" : "opacity-0 z-0"
+            }`}
+          >
             <Image
-              src="/assets/hero/burj-al-arab.jpg"
-              alt="Contact"
+              src={img}
+              alt={pageType}
               fill
               className="object-cover"
+              priority={index === 0}
             />
-            <div className="absolute inset-0 bg-black/30 lg:bg-[#f2836f]/10 group-hover:bg-black/64 transition-all duration-1000" />
+            <div className="absolute inset-0 bg-black/30 lg:bg-[#f2836f]/10 transition-all duration-1000" />
           </div>
+        ))}
 
-          <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-4 text-white/80 z-10 px-8 md:px-10 2xl:px-0">
-            <h1 className="playfair text-4xl md:text-6xl font-bold">
-              Get in Touch
-            </h1>
-            <p className="text-xs md:text-sm text-gray-300 max-w-3xl">
-              We're here to assist you with any inquiries about our solutions.
-            </p>
-          </div>
+        {/* TEXT */}
+        <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center gap-4 text-white z-10 px-8 md:px-10 2xl:px-0">
+          <h1 className="playfair text-4xl md:text-6xl font-bold">
+            {title}
+          </h1>
+          <p className="text-xs md:text-sm text-gray-200 max-w-3xl">
+            {subtitle}
+          </p>
         </div>
       </div>
 
       {/* FORM CARD */}
-      <div className="max-w-4xl mx-auto -mt-20 bg-white px-8 md:px-12 py-12 lg:shadow-xl border-2 border-gray-100 flex flex-col gap-12 rounded-4xl relative z-5">
+      <div className="max-w-4xl mx-auto -mt-24 bg-white px-8 md:px-12 py-12 lg:shadow-xl border-2 border-gray-100 flex flex-col gap-12 rounded-4xl relative z-30">
         <div className="flex flex-col items-center text-center gap-4">
           <div className="flex flex-col gap-1">
             <label className="text-base lg:text-lg font-bold text-teal-600">
@@ -266,4 +322,6 @@ export default function Contacts() {
       </div>
     </>
   );
-}
+};
+
+export default Hero;

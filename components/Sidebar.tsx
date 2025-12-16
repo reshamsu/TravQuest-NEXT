@@ -18,7 +18,7 @@ export default function Sidebar() {
     <>
       {/* Mobile Toggle */}
       <button
-        className="md:hidden fixed top-6 left-6 z-50 bg-white p-3 rounded-xl shadow"
+        className="lg:hidden fixed top-6 left-6 z-50 bg-white p-3 rounded-xl shadow"
         onClick={() => setOpen(true)}
       >
         <TbMenu size={26} />
@@ -34,9 +34,9 @@ export default function Sidebar() {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-screen w-64 bg-gray-900 text-white text-xs z-50 transform
-          transition-transform duration-300 md:translate-x-0
-          ${open ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
+        className={`fixed top-0 left-0 h-screen w-70 bg-gray-900 text-white text-xs z-50 transform
+          transition-transform duration-300 lg:translate-x-0
+          ${open ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
         `}
       >
         {/* Mobile Header */}
@@ -60,7 +60,7 @@ export default function Sidebar() {
             </Link>
           </div>
 
-          <button onClick={() => setOpen(false)} className="block md:hidden">
+          <button onClick={() => setOpen(false)} className="block lg:hidden">
             <TbX size={24} />
           </button>
         </div>

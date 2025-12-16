@@ -1,4 +1,5 @@
 "use client";
+
 export const dynamic = "force-dynamic";
 
 import React, { useState } from "react";
@@ -7,15 +8,14 @@ import { supabase } from "@/lib/supabaseClient";
 import { TbSend2 } from "react-icons/tb";
 
 interface Hero {
-  headline: string;
-  tagline: string;
-  description: string;
-  hero_category: string[];
+  title: string;
+  subtitle: string;
+  page_type: string[];
   image_urls: string[];
 }
 
 export default function Page() {
-  // ✅ HARD GUARD (prevents build crash)
+  // ✅ HARD GUARD — REQUIRED
   if (!supabase) {
     return (
       <div className="p-10 text-center text-red-600">
@@ -24,18 +24,17 @@ export default function Page() {
     );
   }
 
-  // ✅ Narrow once for TS
+  // ✅ NARROW TYPE ONCE
   const sb = supabase;
 
   const [uploading, setUploading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  const [newPackage, setNewPackage] = useState<Hero>({
-    headline: "",
-    tagline: "",
-    description: "",
-    hero_category: [],
+  const [newHero, setNewHero] = useState<Hero>({
+    title: "",
+    subtitle: "",
+    page_type: [],
     image_urls: [],
   });
 
@@ -48,15 +47,12 @@ export default function Page() {
   ) => {
     const { name, value } = e.target;
 
-    setNewPackage((prev) => ({
+    setNewHero((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
 
-  // -----------------------------
-  // IMAGE UPLOAD
-  // -----------------------------
   const handleImageUpload = async (): Promise<string[]> => {
     if (!images || images.length === 0) return [];
 
@@ -67,8 +63,8 @@ export default function Page() {
       for (let i = 0; i < images.length; i++) {
         const file = images[i];
 
-        if (file.size > 5 * 1024 * 1024) {
-          alert(`${file.name} is too large! Max 5MB.`);
+        if (file.size > 10 * 1024 * 1024) {
+          alert(`${file.name} is too large! Max 10MB.`);
           continue;
         }
 
@@ -86,7 +82,7 @@ export default function Page() {
           continue;
         }
 
-        const { data } = sb.storage.from("packages").getPublicUrl(filePath);
+        const { data } = sb.storage.from("hero").getPublicUrl(filePath);
 
         uploadedUrls.push(data.publicUrl);
       }
@@ -112,32 +108,26 @@ export default function Page() {
     const uploadedUrls = images ? await handleImageUpload() : [];
 
     const payload = {
-      headline: newPackage.headline,
-      tagline: newPackage.tagline,
-      description: newPackage.description,
-      hero_category: newPackage.hero_category,
-      image_urls: uploadedUrls.length ? uploadedUrls : newPackage.image_urls,
+      title: newHero.title,
+      subtitle: newHero.subtitle,
+      page_type: newHero.page_type,
+      image_urls: uploadedUrls.length ? uploadedUrls : newHero.image_urls,
     };
 
-    const { error } = await sb
-      .from("hero")
-      .insert([payload])
-      .select()
-      .single();
+    const { error } = await sb.from("hero").insert([payload]).select().single();
 
     if (error) {
-      console.error("Error inserting package:", error.message);
-      alert("Failed to add package.");
+      console.error("Error inserting hero:", error.message);
+      alert("Failed to add hero.");
     } else {
-      setNewPackage({
-        headline: "",
-        tagline: "",
-        description: "",
-        hero_category: [],
+      setNewHero({
+        title: "",
+        subtitle: "",
+        page_type: [],
         image_urls: [],
       });
       setImages(null);
-      setMessage("Package added successfully!");
+      setMessage("Hero added successfully!");
     }
 
     setLoading(false);
@@ -145,16 +135,16 @@ export default function Page() {
 
   return (
     <div className="bg-gray-100 text-gray-800 relative">
-      <div className="max-w-3xl mx-auto pt-22 pb-10 md:py-16 h-full">
+      <div className="max-w-3xl mx-auto lg:ml-80 md:px-6 pt-24 lg:pt-16 pb-10 h-screen lg:h-full 2xl:h-screen">
         <div className="bg-white border md:border-2 border-gray-100 rounded-3xl shadow-md overflow-hidden flex flex-col">
           {/* Header */}
           <div className="flex flex-col gap-1 border-b-2 border-gray-100 p-8 pb-6">
             <h2 className="text-lg font-bold">
-              Add a New Hero Section to{" "}
+              Add a New Destination to{" "}
               <span className="text-teal-600">TravQuest</span>
             </h2>
             <p className="text-sm text-gray-400">
-              Add your Hero Display to{" "}
+              Add your destination listing to{" "}
               <Link href="/" className="underline">
                 TravQuest Marketplace
               </Link>
@@ -166,75 +156,54 @@ export default function Page() {
             onSubmit={handleSubmit}
             className="grid grid-cols-1 gap-8 w-full p-8 md:p-10"
           >
-            {/* NAME */}
+            {/* TITLE */}
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-bold">Hero Headline*</label>
+              <label className="text-sm font-bold">Hero Title*</label>
               <input
-                name="name"
-                value={newPackage.headline}
+                name="title"
+                value={newHero.title}
                 onChange={handleChange}
-                placeholder="Enter headline name"
+                placeholder="Enter hero title"
                 className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 capitalize"
                 required
               />
             </div>
 
-            {/* TAGLINE */}
+            {/* SUBTITLE */}
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-bold">Tagline*</label>
+              <label className="text-sm font-bold">Hero Subtitle*</label>
               <input
-                name="tagline"
-                value={newPackage.tagline}
+                name="subtitle"
+                value={newHero.subtitle}
                 onChange={handleChange}
-                placeholder="hero tagline"
+                placeholder="Short subtitle"
                 className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 capitalize"
                 required
               />
             </div>
 
-            {/* DESCRIPTION */}
+            {/* PAGE TYPE */}
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-bold">Description*</label>
-              <textarea
-                name="description"
-                value={newPackage.description}
-                onChange={handleChange}
-                placeholder="Write a description"
-                className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 h-28 capitalize"
-                required
-              />
-            </div>
-
-            {/* PACKAGE LOCATION */}
-            <div className="flex flex-col gap-2">
-              <label className="text-sm font-bold">Hero Category*</label>
+              <label className="text-sm font-bold">Page Type*</label>
               <select
-                name="hero_category"
-                value={newPackage.hero_category[0] || ""}
+                name="page_type"
+                value={newHero.page_type[0] || ""}
                 onChange={(e) =>
-                  setNewPackage((prev) => ({
+                  setNewHero((prev) => ({
                     ...prev,
-                    hero_category: [e.target.value],
+                    page_type: [e.target.value],
                   }))
                 }
                 className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3"
                 required
               >
                 <option value="" disabled>
-                  Select Category
+                  Select Type
                 </option>
                 <option value="Homepage">Homepage</option>
-                <option value="ExploreUAE">ExploreUAE</option>
+                <option value="Explore UAE">Explore UAE</option>
                 <option value="About">About</option>
                 <option value="Contact">Contact</option>
-                 <option value="Dubai">Dubai</option>
-                <option value="Abu Dhabi">Abu Dhabi</option>
-                <option value="Furjairah">Furjairah</option>
-                <option value="Ras Al Khaimah">Ras Al Khaimah</option>
-                <option value="Sri Lanka">Sri Lanka</option>
-                <option value="Maldives">Maldives</option>
-                <option value="Singapore">Singapore</option>
-                <option value="Thailand">Thailand</option>
               </select>
             </div>
 
@@ -263,7 +232,7 @@ export default function Page() {
                 disabled={loading || uploading}
                 className="select-none btn-orange-base btn-dynamic flex items-center gap-2"
               >
-                {loading || uploading ? "Uploading..." : "Save Package"}
+                {loading || uploading ? "Uploading..." : "Save Hero"}
                 <TbSend2 size={20} />
               </button>
             </div>

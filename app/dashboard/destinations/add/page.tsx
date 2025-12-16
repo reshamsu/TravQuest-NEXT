@@ -145,7 +145,7 @@ export default function Page() {
 
   return (
     <div className="bg-gray-100 text-gray-800 relative">
-      <div className="max-w-3xl mx-auto pt-22 pb-10 md:py-16 h-full">
+      <div className="max-w-3xl mx-auto lg:ml-80 md:px-6 pt-24 lg:pt-16 pb-10 h-screen lg:h-full">
         <div className="bg-white border md:border-2 border-gray-100 rounded-3xl shadow-md overflow-hidden flex flex-col">
           {/* Header */}
           <div className="flex flex-col gap-1 border-b-2 border-gray-100 p-8 pb-6">
