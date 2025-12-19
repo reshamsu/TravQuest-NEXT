@@ -158,11 +158,11 @@ export default function Page() {
           {/* Header */}
           <div className="flex flex-col gap-1 border-b-2 border-gray-100 p-8 pb-6">
             <h2 className="text-lg font-bold">
-              Add a New Destination Card to{" "}
+              Add a New Shortcut Card to{" "}
               <span className="text-teal-600">TravQuest</span>
             </h2>
             <p className="text-sm text-gray-400">
-              Add your destination listing to{" "}
+              Add your shortcut listing to{" "}
               <Link href="/" className="underline">
                 TravQuest Marketplace
               </Link>
@@ -276,11 +276,11 @@ export default function Page() {
           {/* Header */}
           <div className="flex flex-col gap-1 border-b-2 border-gray-100 p-8 pb-6">
             <h2 className="text-lg font-bold">
-              Enter Second Section for Destinations to{" "}
+              Enter Second Section for Shortcuts to{" "}
               <span className="text-teal-600">TravQuest</span>
             </h2>
             <p className="text-sm text-gray-400">
-              Add your destination listing to{" "}
+              Add your shortcut listing to{" "}
               <Link href="/" className="underline">
                 TravQuest Marketplace
               </Link>
@@ -359,6 +359,145 @@ export default function Page() {
                 className="select-none btn-orange-base btn-dynamic flex items-center gap-2"
               >
                 {loading || uploading ? "Uploading..." : "Save Section"}
+                <TbSend2 size={20} />
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div className="bg-white border md:border-2 border-gray-100 rounded-3xl shadow-md overflow-hidden flex flex-col">
+          {/* Header */}
+          <div className="flex flex-col gap-1 border-b-2 border-gray-100 p-8 pb-6">
+            <h2 className="text-lg font-bold">
+              Enter Third Section for Shortcuts to{" "}
+              <span className="text-teal-600">TravQuest</span>
+            </h2>
+            <p className="text-sm text-gray-400">
+              Add your shortcut listing to{" "}
+              <Link href="/" className="underline">
+                TravQuest Marketplace
+              </Link>
+            </p>
+          </div>
+
+          {/* FORM */}
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-8 w-full p-8 md:p-10"
+          >
+            <div className="grid grid-cols-3 gap-6">
+              <div className="relative rounded-4xl overflow-hidden h-60 group shadow-lg hover:scale-105 duration-700">
+                <Image
+                  src="/assets/poster/event-burj-khalifa.jpg"
+                  alt=""
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+
+                <div className="absolute inset-0 bg-black/60 lg:bg-black/10 transition-all duration-700 group-hover:bg-black/70" />
+
+                <div className="relative z-10 h-full flex flex-col justify-end gap-3.5 p-8 text-white">
+                  <div>
+                    <label className="text-sm font-semibold text-[#f2836f]">
+                      TEXT HERE
+                    </label>
+                    <h2 className="playfair text-2xl font-bold">STAY</h2>
+                  </div>
+                </div>
+              </div>
+              <div className="relative rounded-4xl overflow-hidden h-60 group shadow-lg hover:scale-105 duration-700">
+                <Image
+                  src="/assets/poster/event-burj-khalifa.jpg"
+                  alt=""
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+
+                <div className="absolute inset-0 bg-black/60 lg:bg-black/10 transition-all duration-700 group-hover:bg-black/70" />
+
+                <div className="relative z-10 h-full flex flex-col justify-end gap-3.5 p-8 text-white">
+                  <div>
+                    <label className="text-sm font-semibold text-[#f2836f]">
+                      TEXT HERE
+                    </label>
+                    <h2 className="playfair text-2xl font-bold">PLAY</h2>
+                  </div>
+                </div>
+              </div>
+              <div className="relative rounded-4xl overflow-hidden h-60 group shadow-lg hover:scale-105 duration-700">
+                <Image
+                  src="/assets/poster/event-burj-khalifa.jpg"
+                  alt=""
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+
+                <div className="absolute inset-0 bg-black/60 lg:bg-black/10 transition-all duration-700 group-hover:bg-black/70" />
+
+                <div className="relative z-10 h-full flex flex-col justify-end gap-3.5 p-8 text-white">
+                  <div>
+                    <label className="text-sm font-semibold text-[#f2836f]">
+                      TEXT HERE
+                    </label>
+                    <h2 className="playfair text-2xl font-bold">
+                      ICONIC MARVELS
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              <div className="relative rounded-4xl overflow-hidden h-60 group shadow-lg hover:scale-105 duration-700">
+                <Image
+                  src="/assets/poster/event-burj-khalifa.jpg"
+                  alt=""
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+
+                <div className="absolute inset-0 bg-black/60 lg:bg-black/10 transition-all duration-700 group-hover:bg-black/70" />
+
+                <div className="relative z-10 h-full flex flex-col justify-end gap-3.5 p-8 text-white">
+                  <div>
+                    <label className="text-sm font-semibold text-[#f2836f]">
+                      TEXT HERE
+                    </label>
+                    <h2 className="playfair text-2xl font-bold">SHOP</h2>
+                  </div>
+                </div>
+              </div>
+              <div className="relative rounded-4xl overflow-hidden h-60 group shadow-lg hover:scale-105 duration-700">
+                <Image
+                  src="/assets/poster/event-burj-khalifa.jpg"
+                  alt=""
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+
+                <div className="absolute inset-0 bg-black/60 lg:bg-black/10 transition-all duration-700 group-hover:bg-black/70" />
+
+                <div className="relative z-10 h-full flex flex-col justify-end gap-3.5 p-8 text-white">
+                  <div>
+                    <label className="text-sm font-semibold text-[#f2836f]">
+                      TEXT HERE
+                    </label>
+                    <h2 className="playfair text-2xl font-bold">MEET</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* MESSAGE */}
+            {message && (
+              <p className="text-center text-sm text-teal-600">{message}</p>
+            )}
+
+            {/* SUBMIT */}
+            <div className="flex justify-end">
+              <button
+                type="submit"
+                disabled={loading || uploading}
+                className="select-none btn-orange-base btn-dynamic flex items-center gap-2"
+              >
+                {loading || uploading ? "Uploading..." : "Save Shortcuts"}
                 <TbSend2 size={20} />
               </button>
             </div>

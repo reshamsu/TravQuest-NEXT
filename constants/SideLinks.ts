@@ -32,27 +32,35 @@ export const Side_Links = [
   },
 
   {
+    key: "hotels",
+    label: "Hotels",
+    href: "/dashboard/hotels",
+    submenu: [
+      { label: "All Hotels", href: "/dashboard/hotels/all" },
+      { label: "Add Hotels", href: "/dashboard/hotels/add" },
+    ],
+  },
+
+    {
+    key: "shortcut",
+    label: "Shortcuts",
+    href: "/dashboard/shortcuts",
+    submenu: [
+      { label: "All Shortcuts", href: "/dashboard/shortcuts/all" },
+      { label: "Add Shortcuts", href: "/dashboard/shortcuts/add" },
+    ],
+  },
+
+  {
     key: "bookings",
     label: "Bookings",
     href: "/dashboard/bookings",
   },
 
   {
-    key: "inquiries",
-    label: "Inquiries",
-    href: "/dashboard/inquiries",
-  },
-
-  {
     key: "users",
     label: "Users",
     href: "/dashboard/users",
-  },
-
-  {
-    key: "settings",
-    label: "Settings",
-    href: "/dashboard/settings",
   },
 
   {

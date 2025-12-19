@@ -21,10 +21,8 @@ const Navbar = () => {
 
   return (
     <header className="fixed z-40 w-full select-none">
-      <nav className="max-w-6xl 2xl:max-w-6xl lg:mt-4 mx-auto bg-black/60 backdrop-blur-3xl  select-none shadow-xl lg:rounded-full flex items-center justify-between py-4 px-6">
-        {/* Logo + Mobile Button */}
-
-        <div className="hidden lg:flex items-center gap-2">
+      <nav className="max-w-6xl lg:mt-4 mx-auto bg-black/60 backdrop-blur-3xl select-none shadow-xl lg:rounded-full flex items-center justify-between py-4 px-6">
+        <div className="hidden md:flex items-center gap-2">
           <Link href="/" className="flex items-center">
             <Image
               src="/favicon.ico"
@@ -46,7 +44,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="block lg:hidden">
+        <div className="block md:hidden">
           <Link href="/" className="flex items-center">
             <Image
               src="/favicon.ico"
@@ -58,7 +56,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="block lg:hidden">
+        <div className="block md:hidden">
           <Link href="/" className="flex items-center">
             <Image
               src="/tq-logo.png"
@@ -71,7 +69,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden h-full gap-2 xl:flex text-[12px]">
+        <ul className="hidden h-full gap-2 lg:flex text-[13px]">
           {Nav_Links.map((link) => {
             const isActive =
               link.href === "/"
@@ -128,7 +126,7 @@ const Navbar = () => {
         </ul>
 
         {/* Desktop Right Side */}
-        <div className="flex items-center gap-4 text-sm  select-none">
+        <div className="flex items-center gap-4 text-sm select-none">
           <div className="hidden md:flex gap-2">
             <Link
               href="/login"
@@ -145,7 +143,7 @@ const Navbar = () => {
           </div>
           <button
             aria-label="Open menu"
-            className="xl:hidden"
+            className="lg:hidden"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (

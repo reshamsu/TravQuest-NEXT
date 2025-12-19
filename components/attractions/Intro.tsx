@@ -29,7 +29,7 @@ interface DestinationRow {
   image_collage: string[];
 }
 
-const Welcome = () => {
+const Intro = () => {
   const [title, setTitle] = useState(FALLBACK_TITLE);
   const [subtitle, setSubtitle] = useState(FALLBACK_SUBTITLE);
   const [body, setBody] = useState(FALLBACK_BODY);
@@ -115,4 +115,4 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
+export default Intro;

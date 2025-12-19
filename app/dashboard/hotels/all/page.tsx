@@ -6,12 +6,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { supabase } from "@/lib/supabaseClient";
 
-interface Destination {
+interface Hotel {
   id: number;
   name: string;
-  tagline: string;
+  introduction: string;
+  highlights: string;
   description: string;
-  destination_area: string[];
+  city: string[];
   image_urls: string[];
   created_at?: string;
 }
@@ -23,32 +24,30 @@ const rowVariants: Variants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.4, ease: easeOut },
+    transition: { delay: i * 0.05, duration: 0.4, ease: easeOut },
   }),
 };
 
-const INITIAL_VISIBLE = 4;
-
 const Destinations: React.FC = () => {
-  // HARD GUARD
   if (!supabase) {
     return (
-      <div className="p-10 text-center text-red-600">
+      <div className="p-10 text-center text-teal-600">
         Supabase not configured. Check environment variables.
       </div>
     );
   }
 
-  const [destinations, setDestinations] = useState<Destination[]>([]);
-  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
+  const sb = supabase;
+
+  const [destinations, setDestinations] = useState<Hotel[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchDestinations = async () => {
       setLoading(true);
 
-      const { data, error } = await supabase
-        .from("destinations")
+      const { data, error } = await sb
+        .from("hotels")
         .select("*")
         .order("created_at", { ascending: true });
 
@@ -59,7 +58,7 @@ const Destinations: React.FC = () => {
         return;
       }
 
-      const formatted: Destination[] = data.map((row: any) => {
+      const formatted: Hotel[] = data.map((row: any) => {
         let images: string[] = [];
 
         if (Array.isArray(row.image_urls)) images = row.image_urls;
@@ -74,30 +73,21 @@ const Destinations: React.FC = () => {
         return {
           id: row.id,
           name: row.name,
-          tagline: row.tagline,
+          introduction: row.introduction,
+          highlights: row.highlights,
           description: row.description,
-          destination_area: Array.isArray(row.destination_area)
-            ? row.destination_area
-            : [],
+          city: row.city,
           image_urls: images,
           created_at: row.created_at,
         };
       });
 
-      // Asia-only filter
-      const asiaOnly = formatted.filter((item) =>
-        item.destination_area.includes("Asia")
-      );
-
-      setDestinations(asiaOnly);
+      setDestinations(formatted);
       setLoading(false);
     };
 
     fetchDestinations();
-  }, []);
-
-  const visibleDestinations = destinations.slice(0, visibleCount);
-  const hasMore = destinations.length > visibleCount;
+  }, [sb]);
 
   const slugify = (text: string) =>
     text
@@ -106,37 +96,35 @@ const Destinations: React.FC = () => {
       .replace(/[^a-z0-9\-]/g, "");
 
   return (
-    <div className="bg-linear-to-b from-gray-100 via-white to-teal-700/20">
-      <div className="max-w-6xl mx-auto flex flex-col gap-4 py-20 px-8 md:px-10 2xl:px-0">
+    <div className="bg-gray-100 text-gray-700">
+      <div className="max-w-6xl mx-auto lg:ml-80 pt-24 lg:pt-16 pb-10 px-6 md:px-10 lg:px-0 flex flex-col gap-6">
         {/* Header */}
         <div className="flex flex-col gap-1">
-          <h2 className="text-2xl 2xl:text-3xl font-bold uppercase text-gray-700">
-            Let’s Travel Around the Globe…{" "}
-            <span className="text-teal-600">One Destination at a Time</span>
+          <h2 className="playfair text-3xl font-bold text-teal-600">
+            All <span className="text-[#f2836f]">Hotels</span>
           </h2>
-          <label className="text-base lg:text-lg font-bold text-[#f2836f]">
-            Where dreams take flight
+          <label className="text-base lg:text-lg font-bold">
+            Find all your website hotels here.
           </label>
         </div>
 
         <p className="text-xs lg:text-sm font-normal text-justify text-gray-600">
           From bustling metropolises to serene landscapes, our global adventure
-          awaits. Explore diverse cultures, savor exotic flavors, and create
-          memories that span continents.
+          awaits.
         </p>
 
         {/* GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-6 mt-4">
           {loading && (
             <p className="text-gray-500 col-span-full text-center">
-              Loading destinations...
+              Loading hotels...
             </p>
           )}
 
           {!loading &&
-            visibleDestinations.map((dest, index) => (
+            destinations.map((hotel, index) => (
               <motion.div
-                key={dest.id}
+                key={hotel.id}
                 custom={index}
                 variants={rowVariants}
                 initial="hidden"
@@ -144,46 +132,31 @@ const Destinations: React.FC = () => {
                 className="relative rounded-4xl overflow-hidden h-[55vh] group shadow-lg hover:scale-105 duration-700"
               >
                 <Image
-                  src={dest.image_urls?.[0] || "/assets/banner/property1.webp"}
-                  alt={dest.name}
+                  src={hotel.image_urls?.[0] || "/assets/banner/property1.webp"}
+                  alt={hotel.name}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
 
                 <div className="absolute inset-0 bg-black/60 lg:bg-black/10 transition-all duration-700 group-hover:bg-black/70" />
 
-                <div className="relative z-10 h-full flex flex-col justify-end gap-3.5 p-8 text-white">
+                <div className="relative z-10 h-full flex flex-col justify-between gap-3.5 p-8 text-white">
                   <div>
-                    <label className="text-sm font-semibold text-[#f2836f]">
-                      {dest.destination_area.join(" · ")}
+                    <label className="text-sm font-semibold uppercase text-[#f2836f]">
+                      {hotel.city}
                     </label>
-                    <h2 className="playfair text-2xl font-bold">{dest.name}</h2>
+                    <h2 className="playfair text-2xl font-bold">
+                      {hotel.name}
+                    </h2>
                   </div>
 
                   <p className="text-xs text-gray-300 line-clamp-3">
-                    {dest.description}
+                    {hotel.description}
                   </p>
-
-                  <Link
-                    href={`/destinations/${slugify(dest.name)}`}
-                    className="btn-godual-sm btn-dynamic"
-                  >
-                    Discover More
-                  </Link>
                 </div>
               </motion.div>
             ))}
         </div>
-
-        {/* SHOW MORE */}
-        {hasMore && (
-          <button
-            onClick={() => setVisibleCount(destinations.length)}
-            className="select-none btn-light-glass btn-dynamic"
-          >
-            Show more Destinations
-          </button>
-        )}
       </div>
     </div>
   );

@@ -160,9 +160,7 @@ const Destinations: React.FC = () => {
                     <label className="text-sm font-semibold text-[#f2836f]">
                       {dest.destination_area.join(" · ")}
                     </label>
-                    <h2 className="playfair text-2xl font-bold">
-                      {dest.name}
-                    </h2>
+                    <h2 className="playfair text-2xl font-bold">{dest.name}</h2>
                   </div>
 
                   <p className="text-xs text-gray-300 line-clamp-3">

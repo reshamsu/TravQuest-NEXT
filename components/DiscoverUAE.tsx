@@ -8,35 +8,35 @@ const travelOptions = [
     description:
       "An island nation in South Asia, is renowned for its stunning landscapes, rich cultural heritage, and diverse wildlife.",
     img: "/assets/poster/stay.avif",
-    link: "/destinations/sri-lanka",
+    link: "/destinations/dubai",
   },
   {
     title: "PLAY",
     description:
       "A dynamic city-state in Southeast Asia, is celebrated for its modernity, diverse culture, and iconic skyline",
     img: "/assets/poster/play.jpg",
-    link: "/destinations/sri-lanka",
+    link: "/destinations/dubai",
   },
   {
     title: "ICONIC MARVELS",
     description:
       "A captivating blend of vibrant street life, serene temples, and stunning natural beauty.",
     img: "/assets/poster/iconic.avif",
-    link: "/destinations/sri-lanka",
+    link: "/destinations/dubai",
   },
   {
     title: "SHOP",
     description:
       "A dynamic city-state in Southeast Asia, is celebrated for its modernity, diverse culture, and iconic skyline",
     img: "/assets/poster/shop.avif",
-    link: "/destinations/sri-lanka",
+    link: "/destinations/dubai",
   },
   {
     title: "MEET",
     description:
       "A captivating blend of vibrant street life, serene temples, and stunning natural beauty.",
     img: "/assets/poster/meet.jpg",
-    link: "/destinations/sri-lanka",
+    link: "/destinations/dubai",
   },
 ];
 

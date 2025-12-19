@@ -30,7 +30,7 @@ const rowVariants: Variants = {
 const Destinations: React.FC = () => {
   if (!supabase) {
     return (
-      <div className="p-10 text-center text-red-600">
+      <div className="p-10 text-center text-teal-600">
         Supabase not configured. Check environment variables.
       </div>
     );
@@ -97,7 +97,7 @@ const Destinations: React.FC = () => {
 
   return (
     <div className="bg-gray-100 text-gray-700">
-      <div className="max-w-6xl mx-auto lg:ml-80 md:px-6 pt-24 lg:pt-16 pb-10 flex flex-col gap-4 h-full">
+      <div className="max-w-6xl mx-auto lg:ml-80 pt-24 lg:pt-16 pb-10 px-6 md:px-10 lg:px-0 flex flex-col gap-6">
         {/* Header */}
         <div className="flex flex-col gap-1">
          <h2 className="playfair text-3xl font-bold text-teal-600">

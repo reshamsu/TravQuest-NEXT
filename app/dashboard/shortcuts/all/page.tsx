@@ -23,31 +23,29 @@ const rowVariants: Variants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.4, ease: easeOut },
+    transition: { delay: i * 0.05, duration: 0.4, ease: easeOut },
   }),
 };
 
-const INITIAL_VISIBLE = 4;
-
 const Destinations: React.FC = () => {
-  // HARD GUARD
   if (!supabase) {
     return (
-      <div className="p-10 text-center text-red-600">
+      <div className="p-10 text-center text-teal-600">
         Supabase not configured. Check environment variables.
       </div>
     );
   }
 
+  const sb = supabase;
+
   const [destinations, setDestinations] = useState<Destination[]>([]);
-  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchDestinations = async () => {
       setLoading(true);
 
-      const { data, error } = await supabase
+      const { data, error } = await sb
         .from("destinations")
         .select("*")
         .order("created_at", { ascending: true });
@@ -84,20 +82,12 @@ const Destinations: React.FC = () => {
         };
       });
 
-      // Asia-only filter
-      const asiaOnly = formatted.filter((item) =>
-        item.destination_area.includes("Asia")
-      );
-
-      setDestinations(asiaOnly);
+      setDestinations(formatted);
       setLoading(false);
     };
 
     fetchDestinations();
-  }, []);
-
-  const visibleDestinations = destinations.slice(0, visibleCount);
-  const hasMore = destinations.length > visibleCount;
+  }, [sb]);
 
   const slugify = (text: string) =>
     text
@@ -106,35 +96,33 @@ const Destinations: React.FC = () => {
       .replace(/[^a-z0-9\-]/g, "");
 
   return (
-    <div className="bg-linear-to-b from-gray-100 via-white to-teal-700/20">
-      <div className="max-w-6xl mx-auto flex flex-col gap-4 py-20 px-8 md:px-10 2xl:px-0">
+    <div className="bg-gray-100 text-gray-700">
+      <div className="max-w-6xl mx-auto lg:ml-80 pt-24 lg:pt-16 pb-10 px-6 md:px-10 lg:px-0 flex flex-col gap-6">
         {/* Header */}
         <div className="flex flex-col gap-1">
-          <h2 className="text-2xl 2xl:text-3xl font-bold uppercase text-gray-700">
-            Let’s Travel Around the Globe…{" "}
-            <span className="text-teal-600">One Destination at a Time</span>
+          <h2 className="playfair text-3xl font-bold text-teal-600">
+            All <span className="text-[#f2836f]">Shortcuts</span>
           </h2>
-          <label className="text-base lg:text-lg font-bold text-[#f2836f]">
-            Where dreams take flight
+          <label className="text-base lg:text-lg font-bold">
+            Find all your website shortcuts here.
           </label>
         </div>
 
         <p className="text-xs lg:text-sm font-normal text-justify text-gray-600">
           From bustling metropolises to serene landscapes, our global adventure
-          awaits. Explore diverse cultures, savor exotic flavors, and create
-          memories that span continents.
+          awaits.
         </p>
 
         {/* GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-6 mt-4">
           {loading && (
             <p className="text-gray-500 col-span-full text-center">
-              Loading destinations...
+              Loading shortcuts...
             </p>
           )}
 
           {!loading &&
-            visibleDestinations.map((dest, index) => (
+            destinations.map((dest, index) => (
               <motion.div
                 key={dest.id}
                 custom={index}
@@ -163,27 +151,10 @@ const Destinations: React.FC = () => {
                   <p className="text-xs text-gray-300 line-clamp-3">
                     {dest.description}
                   </p>
-
-                  <Link
-                    href={`/destinations/${slugify(dest.name)}`}
-                    className="btn-godual-sm btn-dynamic"
-                  >
-                    Discover More
-                  </Link>
                 </div>
               </motion.div>
             ))}
         </div>
-
-        {/* SHOW MORE */}
-        {hasMore && (
-          <button
-            onClick={() => setVisibleCount(destinations.length)}
-            className="select-none btn-light-glass btn-dynamic"
-          >
-            Show more Destinations
-          </button>
-        )}
       </div>
     </div>
   );

@@ -64,7 +64,7 @@ const Hero = () => {
         .limit(1)
         .single();
 
-      if (error || !data) return; 
+      if (error || !data) return;
 
       const hero = data as HeroRow;
 
@@ -161,9 +161,7 @@ const Hero = () => {
 
         {/* TEXT */}
         <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center gap-4 text-white z-10 px-8 md:px-10 2xl:px-0">
-          <h1 className="playfair text-4xl md:text-6xl font-bold">
-            {title}
-          </h1>
+          <h1 className="playfair text-4xl md:text-6xl font-bold">{title}</h1>
           <p className="text-xs md:text-sm text-gray-200 max-w-3xl">
             {subtitle}
           </p>
@@ -246,7 +244,7 @@ const Hero = () => {
             {/* Reason */}
             <div className="flex flex-col gap-3 w-full">
               <label className="text-teal-600 font-bold text-sm">
-                Description that fits you<span className="text-red-500">*</span>
+                How can we assist you?<span className="text-red-500">*</span>
               </label>
               <select
                 name="best_reason"
