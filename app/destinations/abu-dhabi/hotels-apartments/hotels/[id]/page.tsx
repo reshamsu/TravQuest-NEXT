@@ -5,13 +5,7 @@ import { useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { supabase } from "@/lib/supabaseClient";
-import {
-  TbMapPin,
-  TbCircleCheck,
-  TbBuildingSkyscraper,
-  TbStar,
-  TbBed,
-} from "react-icons/tb";
+import { TbMapPin, TbCircleCheck, TbStar, TbBed } from "react-icons/tb";
 
 interface Hotel {
   id: number;
@@ -25,7 +19,7 @@ interface Hotel {
 
   attractions: string[];
   facilities: string[];
-  room_rates: string[];
+  room_rates: string;
 
   image_urls: string[];
 }
@@ -40,59 +34,94 @@ export default function Page() {
   const touchEndX = useRef(0);
 
   useEffect(() => {
+    if (!id) return;
+
     const fetchHotel = async () => {
       setLoading(true);
+
+      const hotelId = Number(id);
+      if (Number.isNaN(hotelId)) {
+        console.error("Invalid hotel id:", id);
+        setLoading(false);
+        return;
+      }
 
       const { data, error } = await supabase
         .from("hotels")
         .select("*")
-        .eq("id", id)
+        .eq("id", hotelId)
         .single();
 
-      if (!error) setHotel(data as Hotel);
-      else console.error(error);
+      if (error) {
+        console.error("Supabase error:", error);
+        setHotel(null);
+        setLoading(false);
+        return;
+      }
+
+      // 🔒 Normalize text[] fields safely
+      const normalizeArray = (value: any): string[] =>
+        Array.isArray(value)
+          ? value
+          : typeof value === "string"
+          ? (() => {
+              try {
+                return JSON.parse(value);
+              } catch {
+                return [];
+              }
+            })()
+          : [];
+
+      setHotel({
+        ...data,
+        attractions: normalizeArray(data.attractions),
+        facilities: normalizeArray(data.facilities),
+        image_urls: normalizeArray(data.image_urls),
+      });
 
       setLoading(false);
     };
 
-    if (id) fetchHotel();
+    fetchHotel();
   }, [id]);
 
-  if (loading)
+  if (loading) {
     return (
       <div className="flex justify-center items-center pt-20 h-[74vh]">
-        <div className="w-8 h-8 border-4 border-teal-600 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-8 h-8 border-4 border-teal-600 border-t-transparent rounded-full animate-spin" />
         <p className="ml-3 text-gray-500">Loading hotel details...</p>
       </div>
     );
+  }
 
-  if (!hotel)
+  if (!hotel) {
     return <p className="text-center py-20 text-gray-500">Hotel not found.</p>;
+  }
 
   const images =
-    hotel.image_urls.length > 0
-      ? hotel.image_urls
-      : ["/assets/banner/property5.jpg"];
+    hotel.image_urls.length > 0 ? hotel.image_urls : ["/assets/hero/.jpg"];
 
-  /* Swipe logic */
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
   };
+
   const handleTouchMove = (e: React.TouchEvent) => {
     touchEndX.current = e.touches[0].clientX;
   };
+
   const handleTouchEnd = () => {
-    if (touchStartX.current - touchEndX.current > 75)
+    if (touchStartX.current - touchEndX.current > 75) {
       setCurrentIndex((i) => (i + 1) % images.length);
-    if (touchEndX.current - touchStartX.current > 75)
+    } else if (touchEndX.current - touchStartX.current > 75) {
       setCurrentIndex((i) => (i - 1 + images.length) % images.length);
+    }
   };
 
   return (
-    <div className="max-w-6xl mx-auto mt-18 px-0 xl:px-6 2xl:px-0">
-      {/* HERO */}
+    <>
       <div
-        className="relative h-[60vh] w-full overflow-hidden select-none"
+        className="relative h-[74vh] w-full overflow-hidden select-none"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -102,17 +131,12 @@ export default function Page() {
           alt={hotel.name}
           fill
           priority
-          className="object-cover transition-all duration-700 xl:rounded-b-4xl"
+          className="object-cover transition-all duration-700"
         />
 
-        <div className="absolute inset-0 bg-black/45 xl:rounded-b-4xl" />
+        <div className="absolute inset-0 bg-black/45" />
 
-        <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-10 text-white z-10">
-          <p className="flex items-center gap-2 text-sm font-bold">
-            <TbMapPin size={22} className="text-orange-400" />
-            {hotel.city}
-          </p>
-
+        <div className="max-w-6xl mx-auto absolute inset-0 flex items-end justify-between py-12 px-6 text-white z-10">
           <div className="space-y-1">
             <h1 className="text-xl md:text-2xl 2xl:text-3xl font-bold">
               {hotel.name}
@@ -121,6 +145,10 @@ export default function Page() {
               {hotel.introduction}
             </p>
           </div>
+          <p className="flex items-center gap-2 text-sm font-bold">
+            <TbMapPin size={22} className="text-[#f2836f]" />
+            {hotel.city}
+          </p>
         </div>
 
         {/* DOTS */}
@@ -130,9 +158,7 @@ export default function Page() {
               key={i}
               onClick={() => setCurrentIndex(i)}
               className={`w-2 h-2 rounded-full ${
-                i === currentIndex
-                  ? "bg-white scale-110"
-                  : "bg-white/40"
+                i === currentIndex ? "bg-white scale-110" : "bg-white/40"
               }`}
             />
           ))}
@@ -140,42 +166,37 @@ export default function Page() {
       </div>
 
       {/* CONTENT */}
-      <div className="max-w-7xl mx-auto p-6 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="max-w-6xl mx-auto py-8 px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* LEFT */}
         <div className="flex flex-col gap-8">
           <div className="text-sm text-gray-500">
-            Added on{" "}
-            {new Date(hotel.created_at).toLocaleDateString("en-GB")}
+            Added on {new Date(hotel.created_at).toLocaleDateString("en-GB")}
           </div>
 
-          {/* HIGHLIGHTS */}
-          <div className="border-b pb-6">
+          <div className="border-b border-gray-200 pb-6">
             <h2 className="text-xl font-extrabold mb-2">Highlights</h2>
             <p className="text-gray-600">{hotel.highlights}</p>
           </div>
 
-          {/* DESCRIPTION */}
-          <div className="border-b pb-6">
+          <div className="border-b border-gray-200 pb-6">
             <h2 className="text-xl font-extrabold mb-2">Description</h2>
             <p className="text-sm text-gray-600 leading-relaxed">
               {hotel.description}
             </p>
           </div>
 
-          {/* FACILITIES */}
           <div>
             <h2 className="text-xl font-extrabold mb-4">Facilities</h2>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
               {hotel.facilities.map((f, i) => (
                 <li key={i} className="flex items-center gap-2">
-                  <TbCircleCheck className="text-orange-400" />
+                  <TbCircleCheck className="text-[#f2836f]" />
                   {f}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* ATTRACTIONS */}
           <div>
             <h2 className="text-xl font-extrabold mb-4">Nearby Attractions</h2>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
@@ -190,31 +211,22 @@ export default function Page() {
         </div>
 
         {/* RIGHT CARD */}
-        <div className="bg-white shadow-lg border-2 border-orange-200 rounded-3xl p-8 h-fit flex flex-col gap-6">
+        <div className="bg-white shadow-lg border-2 border-gray-200/40 rounded-3xl p-8 md:p-10 h-fit flex flex-col gap-6">
           <div>
             <h3 className="text-xl font-extrabold mb-2">Room Rates</h3>
-            <ul className="flex flex-col gap-2 text-sm text-gray-700">
-              {hotel.room_rates.map((rate, i) => (
-                <li key={i} className="flex items-center gap-2">
-                  <TbBed className="text-orange-400" />
-                  {rate}
-                </li>
-              ))}
-            </ul>
+            <p className="text-sm text-gray-700 leading-relaxed">
+              {hotel.room_rates}
+            </p>
           </div>
 
-          <div className="pt-6 border-t text-sm text-gray-600">
+          <div className="pt-6 border-t border-gray-200 text-sm text-gray-600">
             <p>
               City:{" "}
-              <span className="font-semibold text-gray-800">
-                {hotel.city}
-              </span>
+              <span className="font-semibold text-gray-800">{hotel.city}</span>
             </p>
             <p>
               Category:{" "}
-              <span className="font-semibold text-gray-800">
-                Luxury Hotel
-              </span>
+              <span className="font-semibold text-gray-800">Luxury Hotel</span>
             </p>
           </div>
 
@@ -223,17 +235,17 @@ export default function Page() {
               href="tel:+97100000000"
               className="btn-orange-sm btn-dynamic text-center"
             >
-              Contact Hotel
+              Inquire Now
             </Link>
             <Link
-              href="/destinations"
-              className="btn-light-base btn-dynamic text-center"
+              href="/destinations/abu-dhabi/hotels-apartments"
+              className="btn-light-glass btn-dynamic text-center"
             >
               Back to Hotels
             </Link>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

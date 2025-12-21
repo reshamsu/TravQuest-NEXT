@@ -8,7 +8,7 @@ const travelOptions = [
     description:
       "A vast array of hotel accommodation options with comfortable and luxurious experiences…",
     img: "/assets/poster/abu-dhabi-hotels.webp",
-    link: "/destinations/abu-dhabi/hotels&apartments",
+    link: "/destinations/abu-dhabi/hotels-apartments",
   },
   {
     title: "Tours, Attractions & Experience",
