@@ -140,7 +140,7 @@ const Hero = () => {
   return (
     <>
       {/* HERO */}
-      <div className="relative h-[74vh] w-full overflow-hidden flex items-center justify-center text-center">
+      <div className="relative h-[70vh] w-full overflow-hidden flex items-center justify-center text-center">
         {images.map((img, index) => (
           <div
             key={index}

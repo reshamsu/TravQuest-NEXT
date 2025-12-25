@@ -54,7 +54,7 @@ export default function Hero() {
   const images = data.image_urls ?? [];
 
   return (
-    <div className="relative h-[74vh] w-full overflow-hidden flex justify-center text-center">
+    <div className="relative h-[70vh] w-full overflow-hidden flex justify-center text-center">
       {images.map((img, index) => (
         <div
           key={index}
@@ -88,7 +88,7 @@ export default function Hero() {
       )}
 
       <div className="absolute inset-0 flex flex-col justify-center items-center gap-6 text-white pt-24 z-10 px-8 md:px-10 2xl:px-0">
-        <h1 className="playfair text-4xl md:text-5xl font-bold">
+        <h1 className="playfair text-4xl lg:text-6xl font-bold">
           {data.header}
         </h1>
         <p className="text-xs md:text-sm text-gray-200 max-w-3xl">

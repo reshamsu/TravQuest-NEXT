@@ -31,7 +31,7 @@ const Hero = () => {
   return (
     <div className="bg-gray-100 text-gray-900 relative">
       {/* Carousel */}
-      <div className="relative h-[74vh] w-full overflow-hidden flex justify-center">
+      <div className="relative h-[70vh] w-full overflow-hidden flex justify-center">
         {images.map((banner, index) => (
           <div
             key={index}

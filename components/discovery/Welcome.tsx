@@ -97,7 +97,7 @@ const Welcome = () => {
           </div>
         )}
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {images.slice(1, 4).map((src, i) => (
             <div key={i} className="relative h-[120px] w-full">
               <Image

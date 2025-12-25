@@ -5,17 +5,17 @@ import Link from "next/link";
 const Corporate = () => {
   return (
     <div className="bg-linear-to-b from-[#ffffff] via-[#ffffff] to-[#f2836f]/10">
-      <div className="max-w-6xl mx-auto py-10 md:py-20 px-8 md:px-10 2xl:px-0 grid lg:grid-cols-2">
+      <div className="max-w-6xl mx-auto py-10 lg:py-20 px-8 md:px-10 2xl:px-0 grid lg:grid-cols-2">
         {/* IMAGE */}
-        <div className="relative h-[44vh] lg:h-[64vh] rounded-t-full md:rounded-full md:rounded-tr-none w-full transition-all duration-1000 bg-gray-100">
+        <div className="relative h-[44vh] lg:h-[64vh] rounded-t-full lg:rounded-full lg:rounded-tr-none w-full transition-all duration-1000 bg-gray-100">
           <Image
             src="/assets/poster/corporate_travels1.webp"
             alt="Corporate Travel Services in UAE"
             fill
-            className="object-cover rounded-t-full md:rounded-full md:rounded-tr-none"
+            className="object-cover rounded-t-full lg:rounded-full lg:rounded-tr-none"
             priority
           />
-          <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-t-full md:rounded-full md:rounded-tr-none transition-all duration-700" />
+          <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-t-full lg:rounded-full lg:rounded-tr-none transition-all duration-700" />
         </div>
 
         {/* CONTENT */}

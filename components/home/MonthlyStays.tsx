@@ -5,7 +5,7 @@ import Link from "next/link";
 const Corporate = () => {
   return (
     <div className="bg-linear-to-b from-[#f2836f]/10 via-[#ffffff] to-[#ffffff]">
-      <div className="max-w-6xl mx-auto py-4 md:p-10 px-8 md:px-10 2xl:px-0 flex flex-col-reverse md:grid grid-cols-1 lg:grid-cols-2">
+      <div className="max-w-6xl mx-auto py-4 md:p-10 px-8 md:px-10 2xl:px-0 flex flex-col-reverse lg:grid grid-cols-1 lg:grid-cols-2">
         {/* CONTENT */}
         <div className="max-w-4xl lg:my-10 lg:-mr-30 bg-white p-6.5 md:px-14 shadow-xl border-2 border-gray-100 rounded-b-4xl md:rounded-4xl flex flex-col justify-center gap-4 relative z-30">
           <div className="flex flex-col gap-1">
@@ -44,15 +44,15 @@ const Corporate = () => {
         </div>
 
         {/* IMAGE */}
-        <div className="relative h-[44vh] lg:h-[64vh] rounded-t-full md:rounded-r-full w-full transition-all duration-1000 bg-gray-100">
+        <div className="relative h-[44vh] lg:h-[64vh] rounded-t-full lg:rounded-r-full w-full transition-all duration-1000 bg-gray-100">
           <Image
             src="/assets/poster/monthly-stays.avif"
             alt="Monthly and long-term stays in UAE"
             fill
-            className="object-cover rounded-t-full md:rounded-r-full"
+            className="object-cover rounded-t-full lg:rounded-r-full"
             priority
           />
-          <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-t-full md:rounded-r-full transition-all duration-700" />
+          <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-t-full lg:rounded-r-full transition-all duration-700" />
         </div>
       </div>
     </div>

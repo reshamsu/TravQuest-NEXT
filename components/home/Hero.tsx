@@ -70,7 +70,7 @@ const Hero = () => {
 
   return (
     <div className="bg-gray-200 text-gray-900 relative">
-      <div className="relative h-[74vh] w-full overflow-hidden flex justify-center text-center">
+      <div className="relative h-[70vh] w-full overflow-hidden flex justify-center text-center">
         {images.map((img, index) => (
           <div
             key={index}
