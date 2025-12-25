@@ -22,6 +22,16 @@ export const Side_Links = [
   },
 
   {
+    key: "discovery",
+    label: "Discovery",
+    href: "/dashboard/discovery",
+    submenu: [
+      { label: "All Discovery", href: "/dashboard/discovery/all" },
+      { label: "Add Discovery", href: "/dashboard/discovery/add" },
+    ],
+  },
+
+  {
     key: "packages",
     label: "Packages",
     href: "/dashboard/packages",
@@ -38,16 +48,6 @@ export const Side_Links = [
     submenu: [
       { label: "All Hotels", href: "/dashboard/hotels/all" },
       { label: "Add Hotels", href: "/dashboard/hotels/add" },
-    ],
-  },
-
-    {
-    key: "shortcut",
-    label: "Shortcuts",
-    href: "/dashboard/shortcuts",
-    submenu: [
-      { label: "All Shortcuts", href: "/dashboard/shortcuts/all" },
-      { label: "Add Shortcuts", href: "/dashboard/shortcuts/add" },
     ],
   },
 

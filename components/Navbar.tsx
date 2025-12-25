@@ -69,7 +69,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden h-full gap-2 lg:flex text-[13px]">
+        <ul className="hidden h-full gap-1 lg:flex text-[12px]">
           {Nav_Links.map((link) => {
             const isActive =
               link.href === "/"
@@ -81,7 +81,7 @@ const Navbar = () => {
               <li key={link.key} className="relative group">
                 {link.submenu ? (
                   <button
-                    className={`flex items-center cursor-pointer font-medium transition-all duration-500 rounded-full py-2.5 px-4
+                    className={`flex items-center cursor-pointer font-medium transition-all duration-500 rounded-full py-2 px-4
                       ${
                         isActive
                           ? "bg-[#f2836f]/10 font-medium text-[#f2836f]"
@@ -94,7 +94,7 @@ const Navbar = () => {
                 ) : (
                   <Link
                     href={link.href}
-                    className={`flex items-center cursor-pointer font-medium transition-all duration-500 rounded-full py-2.5 px-4
+                    className={`flex items-center cursor-pointer font-medium transition-all duration-500 rounded-full py-2 px-4
                       ${
                         isActive
                           ? "bg-[#f2836f]/10 font-medium text-[#f2836f]"

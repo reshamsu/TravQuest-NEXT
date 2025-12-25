@@ -1,6 +1,6 @@
 import Hero from "@/components/explore-uae/Hero";
 import Welcome from "@/components/explore-uae/Welcome";
-import ShortcutUAE from "@/components/ShortcutUAE";
+import ShortcutUAE from "@/components/destinations/REDUCE STUFF/ShortcutUAE";
 
 export default function UAE() {
   return (

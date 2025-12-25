@@ -103,7 +103,7 @@ const Hero = () => {
         </button>
 
         {/* TEXT */}
-        <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center gap-6 text-white pt-24 z-10 px-8 md:px-10 2xl:px-0">
+        <div className="absolute inset-0 flex flex-col justify-center items-center gap-6 text-white pt-24 z-10 px-8 md:px-10 2xl:px-0">
           <h1 className="playfair text-4xl md:text-5xl font-bold">{title}</h1>
           <p className="text-xs md:text-sm text-gray-200 max-w-3xl">
             {subtitle}

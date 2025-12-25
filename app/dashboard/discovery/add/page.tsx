@@ -9,20 +9,20 @@ import { TbSend2 } from "react-icons/tb";
 
 /* ================= TYPES ================= */
 
-interface DestinationBase {
-  country: string;
+interface DiscoverBase {
+  header: string;
   tagline: string;
   description: string;
-  continents: string[];
+  city: string[];
 }
 
-interface DestinationSection2 {
+interface DiscoverSection2 {
   title: string;
   subtitle: string;
   body: string;
 }
 
-// interface DestinationSection3 {
+// interface DiscoverSection3 {
 //   shortcut_types: string[];
 //   label: string[];
 // }
@@ -38,35 +38,65 @@ export default function Page() {
     );
   }
 
-  const [destinationId, setDestinationId] = useState<number | null>(null);
+  const [discoveryId, setDiscoveryId] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [destinations, setDestinations] = useState<string[]>([]);
+  const [loadingDestinations, setLoadingDestinations] = useState(true);
 
   /* ---------- REHYDRATE DESTINATION ID ---------- */
   useEffect(() => {
-    const storedId = localStorage.getItem("destinationId");
-    if (storedId) setDestinationId(Number(storedId));
+    const storedId = localStorage.getItem("discoveryId");
+    if (storedId) setDiscoveryId(Number(storedId));
   }, []);
 
   /* ---------- FORM STATES ---------- */
 
-  const [base, setBase] = useState<DestinationBase>({
-    country: "",
+  const [base, setBase] = useState<DiscoverBase>({
+    header: "",
     tagline: "",
     description: "",
-    continents: [],
+    city: [],
   });
 
-  const [section2, setSection2] = useState<DestinationSection2>({
+  const [section2, setSection2] = useState<DiscoverSection2>({
     title: "",
     subtitle: "",
     body: "",
   });
 
-  // const [section3, setSection3] = useState<DestinationSection3>({
+  // const [section3, setSection3] = useState<DiscoverSection3>({
   //   shortcut_types: [],
   //   label: [],
   // });
+
+  useEffect(() => {
+    if (!supabase) return;
+
+    const fetchDestinations = async () => {
+      setLoadingDestinations(true);
+
+      const { data, error } = await supabase
+        .from("destinations")
+        .select("country");
+
+      if (error) {
+        console.error("Failed to load destinations:", error);
+        setDestinations([]);
+        setLoadingDestinations(false);
+        return;
+      }
+
+      const cities = Array.from(
+        new Set(data.map((row) => row.country).filter(Boolean))
+      ).sort((a, b) => a.localeCompare(b));
+
+      setDestinations(cities);
+      setLoadingDestinations(false);
+    };
+
+    fetchDestinations();
+  }, []);
 
   /* ---------- IMAGE STATES ---------- */
 
@@ -87,7 +117,7 @@ export default function Page() {
       const path = `${folder}/${Date.now()}_${file.name}`;
 
       const { error } = await supabase.storage
-        .from("destinations")
+        .from("discovery")
         .upload(path, file, { upsert: false });
 
       if (error) {
@@ -95,7 +125,7 @@ export default function Page() {
         continue;
       }
 
-      const { data } = supabase.storage.from("destinations").getPublicUrl(path);
+      const { data } = supabase.storage.from("discovery").getPublicUrl(path);
       urls.push(data.publicUrl);
     }
 
@@ -112,12 +142,12 @@ export default function Page() {
     const image_urls = await uploadImages(mainImages, "images");
 
     const { data, error } = await supabase
-      .from("destinations")
+      .from("discovery")
       .insert({
-        country: base.country,
+        header: base.header,
         tagline: base.tagline,
         description: base.description,
-        continents: base.continents,
+        city: base.city,
         image_urls,
       })
       .select("id")
@@ -125,11 +155,11 @@ export default function Page() {
 
     if (error) {
       console.error(error);
-      setMessage("Failed to create destination");
+      setMessage("Failed to create discovery");
     } else {
-      setDestinationId(data.id);
-      localStorage.setItem("destinationId", String(data.id));
-      setMessage("Destination card created ✔");
+      setDiscoveryId(data.id);
+      localStorage.setItem("discoveryId", String(data.id));
+      setMessage("Discovery card created ✔");
     }
 
     setLoading(false);
@@ -140,8 +170,8 @@ export default function Page() {
   const handleSection2Submit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!destinationId) {
-      setMessage("Create destination first");
+    if (!discoveryId) {
+      setMessage("Create a discovery first");
       return;
     }
 
@@ -151,60 +181,24 @@ export default function Page() {
     const image_collages = await uploadImages(collageImages, "collages");
 
     const { error } = await supabase
-      .from("destinations")
+      .from("discovery")
       .update({
         title: section2.title,
         subtitle: section2.subtitle,
         body: section2.body,
         image_collages,
       })
-      .eq("id", destinationId);
+      .eq("id", discoveryId);
 
     if (error) {
       console.error(error);
       setMessage("Failed to save section 2");
     } else {
-      setMessage("Destination section 2 saved ✔");
+      setMessage("Discovery section 2 saved ✔");
     }
 
     setLoading(false);
   };
-
-  /* ================= SUBMIT 3 ================= */
-
-  // const handleSection3Submit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-
-  //   if (!destinationId) {
-  //     setMessage("Create destination first");
-  //     return;
-  //   }
-
-  //   setLoading(true);
-  //   setMessage("");
-
-  //   const image_groups = await uploadImages(groupImages, "groups");
-
-  //   const { error } = await supabase
-  //     .from("destinations")
-  //     .update({
-  //       shortcut_types: section3.shortcut_types,
-  //       label: section3.label,
-  //       image_groups,
-  //     })
-  //     .eq("id", destinationId);
-
-  //   if (error) {
-  //     console.error(error);
-  //     setMessage("Failed to save section 3");
-  //   } else {
-  //     setMessage("Destination section 3 saved ✔");
-  //     localStorage.removeItem("destinationId");
-  //     setDestinationId(null);
-  //   }
-
-  //   setLoading(false);
-  // };
 
   return (
     <div className="bg-gray-100 text-gray-800 relative">
@@ -213,11 +207,11 @@ export default function Page() {
           {/* Header */}
           <div className="flex flex-col gap-1 border-b-2 border-gray-100 p-8 pb-6">
             <h2 className="text-lg font-bold">
-              Add a New Destination Card to{" "}
+              Add a New Discovery Card to{" "}
               <span className="text-teal-600">TravQuest</span>
             </h2>
             <p className="text-sm text-gray-400">
-              Add your destination listing to{" "}
+              Add your discovery listing to{" "}
               <Link href="/" className="underline">
                 TravQuest Marketplace
               </Link>
@@ -231,12 +225,12 @@ export default function Page() {
           >
             {/* NAME */}
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-bold">Country Name*</label>
+              <label className="text-sm font-bold">Header*</label>
               <input
-                name="country"
-                value={base.country}
-                onChange={(e) => setBase({ ...base, country: e.target.value })}
-                placeholder="Enter country name"
+                name="header"
+                value={base.header}
+                onChange={(e) => setBase({ ...base, header: e.target.value })}
+                placeholder="Enter Header"
                 className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 capitalize"
                 required
               />
@@ -257,7 +251,7 @@ export default function Page() {
 
             {/* DESCRIPTION */}
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-bold">Description*</label>
+              <label className="text-sm font-bold">Description</label>
               <textarea
                 name="description"
                 value={base.description}
@@ -266,7 +260,6 @@ export default function Page() {
                 }
                 placeholder="Write a description"
                 className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 h-28 capitalize"
-                required
               />
             </div>
 
@@ -275,25 +268,25 @@ export default function Page() {
               <label className="text-sm font-bold">City*</label>
               <select
                 name="city"
-                value={base.continents[0] || ""}
-                onChange={(e) =>
-                  setBase({ ...base, continents: [e.target.value] })
-                }
+                value={base.city[0] || ""}
+                onChange={(e) => setBase({ ...base, city: [e.target.value] })}
                 className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3"
                 required
+                disabled={loadingDestinations}
               >
                 <option value="" disabled>
-                  Select City
+                  {loadingDestinations ? "Loading cities..." : "Select City"}
                 </option>
-                <option value="Asia">Asia</option>
-                <option value="Africa">Africa</option>
-                <option value="Europe">Europe</option>
-                <option value="Middle East">Middle East</option>
-                <option value="North America">North America</option>
-                <option value="UAE">UAE</option>
+
+                {destinations.map((country) => (
+                  <option key={country} value={country}>
+                    {country}
+                  </option>
+                ))}
               </select>
             </div>
 
+            {/* UPLOAD IMAGES */}
             <div className="flex flex-col gap-2 w-full">
               <label className="text-sm font-bold">Upload Images*</label>
               <input
@@ -322,11 +315,11 @@ export default function Page() {
           {/* Header */}
           <div className="flex flex-col gap-1 border-b-2 border-gray-100 p-8 pb-6">
             <h2 className="text-lg font-bold">
-              Enter Second Section for Destinations to{" "}
+              Enter Second Section for Discoveries to{" "}
               <span className="text-teal-600">TravQuest</span>
             </h2>
             <p className="text-sm text-gray-400">
-              Add your destination listing to{" "}
+              Add your discovery listing to{" "}
               <Link href="/" className="underline">
                 TravQuest Marketplace
               </Link>
@@ -412,94 +405,6 @@ export default function Page() {
             </div>
           </form>
         </div>
-
-        {/* <div className="bg-white border md:border-2 border-gray-100 rounded-3xl shadow-md overflow-hidden flex flex-col">
-         
-          <div className="flex flex-col gap-1 border-b-2 border-gray-100 p-8 pb-6">
-            <h2 className="text-lg font-bold">
-              Enter Third Section for Destinations to{" "}
-              <span className="text-teal-600">TravQuest</span>
-            </h2>
-            <p className="text-sm text-gray-400">
-              Add your destination listing to{" "}
-              <Link href="/" className="underline">
-                TravQuest Marketplace
-              </Link>
-            </p>
-          </div>
-
-          <form
-            onSubmit={handleSection3Submit}
-            className="grid grid-cols-1 gap-8 w-full p-8 md:p-10"
-          >
-      
-            <div className="flex flex-col gap-2">
-              <label className="text-sm font-bold">Shortcut Types*</label>
-              <input
-                name="shortcut_types"
-                value={section3.shortcut_types.join(", ")}
-                onChange={(e) =>
-                  setSection3({
-                    ...section3,
-                    shortcut_types: e.target.value
-                      .split(",")
-                      .map((v) => v.trim())
-                      .filter(Boolean),
-                  })
-                }
-                placeholder="Enter All Types"
-                className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 capitalize"
-                required
-              />
-            </div>
-
-   
-            <div className="flex flex-col gap-2">
-              <label className="text-sm font-bold">Label*</label>
-              <input
-                name="label"
-                value={section3.label.join(", ")}
-                onChange={(e) =>
-                  setSection3({
-                    ...section3,
-                    label: e.target.value
-                      .split(",")
-                      .map((v) => v.trim())
-                      .filter(Boolean),
-                  })
-                }
-                placeholder="Enter Label"
-                className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 capitalize"
-                required
-              />
-            </div>
-
-            <div className="flex flex-col gap-2 w-full">
-              <label className="text-sm font-bold">Upload Image Cards*</label>
-              <input
-                type="file"
-                multiple
-                accept="image/*"
-                onChange={(e) => setGroupImages(e.target.files)}
-                className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5"
-                required
-              />
-            </div>
-
-       
-            {message && (
-              <p className="text-center text-sm text-teal-600">{message}</p>
-            )}
-
-        
-            <div className="flex justify-end">
-              <button className="select-none btn-orange-base btn-dynamic flex items-center gap-2">
-                Save Section 3
-                <TbSend2 size={20} />
-              </button>
-            </div>
-          </form>
-        </div> */}
       </div>
     </div>
   );

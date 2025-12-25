@@ -86,7 +86,7 @@ const HeroAdmin = () => {
     <div className="bg-gray-100 text-gray-700">
       <div className="max-w-6xl mx-auto lg:ml-80 pt-24 lg:pt-16 pb-10 px-6 md:px-10 lg:px-0 flex flex-col gap-6">
         {/* Header */}
-         <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1">
           <h2 className="playfair text-3xl font-bold text-teal-600">
             All <span className="text-[#f2836f]">Hero Sections</span>
           </h2>
@@ -98,7 +98,7 @@ const HeroAdmin = () => {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
           {loading && (
-            <p className="col-span-full text-center text-gray-500">
+            <p className="text-gray-500 col-span-full text-center h-screen">
               Loading hero sections...
             </p>
           )}
@@ -115,7 +115,9 @@ const HeroAdmin = () => {
               >
                 <div className="relative h-64 rounded-3xl overflow-hidden bg-gray-100">
                   <Image
-                    src={hero.image_urls?.[0] || "/assets/banner/property1.webp"}
+                    src={
+                      hero.image_urls?.[0] || "/assets/banner/property1.webp"
+                    }
                     alt={hero.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"

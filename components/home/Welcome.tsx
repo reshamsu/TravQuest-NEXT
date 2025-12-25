@@ -12,7 +12,7 @@ const images = [
 const Welcome = () => {
   return (
     <div className="bg-linear-to-b from-[#ffffff] via-[#ffffff] to-[#ffffff]">
-      <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 px-6 md:px-10 2xl:px-0">
+      <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 px-6 md:px-10 2xl:px-0">
         <div className="grid grid-cols-2 gap-4">
           {images.map((src, i) => (
             <div

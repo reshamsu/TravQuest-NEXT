@@ -9,7 +9,7 @@ const images = [
 
 const Welcome = () => {
   return (
-    <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-14 lg:gap-24 px-8 md:px-10 2xl:px-0">
+    <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-16 px-8 md:px-10 2xl:px-0">
       <div className="flex flex-col justify-center gap-4 md:gap-6">
         <div className="flex flex-col gap-1">
           <h2 className="text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]">
@@ -44,29 +44,29 @@ const Welcome = () => {
         </p>
       </div>
       <div className="flex flex-col gap-4">
-        <div className="relative h-80 w-full">
+        <div className="relative h-90 w-full">
           <Image
             src="/assets/hero/TheUAE.jpg"
             alt="UAE"
             fill
-            className="object-cover rounded-3xl"
+            className="object-cover rounded-4xl"
           />
-          <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-2xl duration-500" />
+          <div className="absolute inset-0 hover:bg-black/15 rounded-4xl duration-700" />
         </div>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-4 gap-4">
           {images.map((src, i) => (
             <div
               key={i}
-              className="relative h-[120px] rounded-3xl w-full duration-1000 bg-gray-100"
+              className="relative h-[120px] w-full"
             >
               <Image
                 src={src}
                 alt={`Media ${i + 1}`}
                 fill
-                className="object-cover rounded-2xl"
+                className="object-cover rounded-3xl"
               />
-              <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-2xl duration-500" />
+              <div className="absolute inset-0 hover:bg-black/15 rounded-3xl duration-700" />
             </div>
           ))}
         </div>
