@@ -5,21 +5,21 @@ import Link from "next/link";
 const Corporate = () => {
   return (
     <div className="bg-linear-to-b from-[#ffffff] via-[#ffffff] to-[#f2836f]/10">
-      <div className="max-w-6xl mx-auto py-4 md:py-20 px-6 md:px-10 2xl:px-0 grid lg:grid-cols-2">
+      <div className="max-w-6xl mx-auto py-10 md:py-20 px-8 md:px-10 2xl:px-0 grid lg:grid-cols-2">
         {/* IMAGE */}
-        <div className="relative h-[44vh] lg:h-[64vh] rounded-l-full w-full transition-all duration-1000 bg-gray-100">
+        <div className="relative h-[44vh] lg:h-[64vh] rounded-t-full md:rounded-l-full w-full transition-all duration-1000 bg-gray-100">
           <Image
             src="/assets/poster/transfers.jpg"
             alt="Airport transfer services across UAE"
             fill
-            className="object-cover rounded-l-full"
+            className="object-cover rounded-t-full md:rounded-l-full"
             priority
           />
-          <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-l-full transition-all duration-700" />
+          <div className="absolute inset-0 bg-white/15 hover:bg-black/15 rounded-t-full md:rounded-l-full transition-all duration-700" />
         </div>
 
         {/* CONTENT */}
-        <div className="max-w-4xl my-10 lg:-ml-30 bg-white p-6.5 md:px-14 shadow-xl border-2 border-gray-100 rounded-4xl flex flex-col justify-center gap-4 relative">
+        <div className="max-w-4xl lg:my-10 lg:-ml-30 bg-white p-6.5 md:px-14 shadow-xl border-2 border-gray-100 rounded-b-4xl md:rounded-4xl flex flex-col justify-center gap-4 relative">
           <div className="flex flex-col gap-1">
             <h2 className="text-xl lg:text-2xl 2xl:text-3xl font-bold uppercase text-[#f2836f]">
               Airport Transfers

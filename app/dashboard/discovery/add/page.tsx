@@ -206,11 +206,11 @@ export default function Page() {
         <div className="bg-white border md:border-2 border-gray-100 rounded-3xl shadow-md overflow-hidden flex flex-col">
           {/* Header */}
           <div className="flex flex-col gap-1 border-b-2 border-gray-100 p-8 pb-6">
-            <h2 className="text-lg font-bold">
+            <h2 className="text-base md:text-lg font-bold">
               Add a New Discovery Card to{" "}
               <span className="text-teal-600">TravQuest</span>
             </h2>
-            <p className="text-sm text-gray-400">
+            <p className="text-xs md:text-sm text-gray-400">
               Add your discovery listing to{" "}
               <Link href="/" className="underline">
                 TravQuest Marketplace

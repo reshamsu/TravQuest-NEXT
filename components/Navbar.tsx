@@ -205,7 +205,7 @@ const Navbar = () => {
             </Link>
             <Link
               href="https://wa.me/971529991223"
-              className="select-none btn-orange-base btn-dynamic"
+              className="select-none btn-orange-sm btn-dynamic"
             >
               <TbPhone size={22} /> Inquire Now
             </Link>

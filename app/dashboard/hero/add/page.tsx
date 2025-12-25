@@ -135,15 +135,15 @@ export default function Page() {
 
   return (
     <div className="bg-gray-100 text-gray-800 relative">
-      <div className="max-w-3xl mx-auto lg:ml-80 md:px-6 pt-24 lg:pt-16 pb-10 h-screen lg:h-full 2xl:h-screen">
+      <div className="max-w-3xl mx-auto lg:ml-80 md:px-6 pt-24 lg:pt-16 pb-10 flex flex-col gap-6">
         <div className="bg-white border md:border-2 border-gray-100 rounded-3xl shadow-md overflow-hidden flex flex-col">
           {/* Header */}
           <div className="flex flex-col gap-1 border-b-2 border-gray-100 p-8 pb-6">
-            <h2 className="text-lg font-bold">
+            <h2 className="text-base md:text-lg font-bold">
               Add a New Destination to{" "}
               <span className="text-teal-600">TravQuest</span>
             </h2>
-            <p className="text-sm text-gray-400">
+            <p className="text-xs md:text-sm text-gray-400">
               Add your destination listing to{" "}
               <Link href="/" className="underline">
                 TravQuest Marketplace

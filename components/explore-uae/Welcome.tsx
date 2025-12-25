@@ -9,7 +9,7 @@ const images = [
 
 const Welcome = () => {
   return (
-    <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-16 px-8 md:px-10 2xl:px-0">
+    <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 px-8 md:px-10 2xl:px-0">
       <div className="flex flex-col justify-center gap-4 md:gap-6">
         <div className="flex flex-col gap-1">
           <h2 className="text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]">
@@ -54,7 +54,7 @@ const Welcome = () => {
           <div className="absolute inset-0 hover:bg-black/15 rounded-4xl duration-700" />
         </div>
 
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {images.map((src, i) => (
             <div
               key={i}
