@@ -7,10 +7,10 @@ import { supabase } from "@/lib/supabaseClient";
 
 const FALLBACK_IMAGES = ["/assets/hero/.jpg"];
 interface HeroRow {
-  title: string;
-  subtitle: string;
-  page_type: string[];
-  image_urls: string[];
+  hero_title: string;
+  hero_subtitle: string;
+  hero_page_type: string[];
+  hero_image_urls: string[];
 }
 
 const Hero = () => {
@@ -22,6 +22,8 @@ const Hero = () => {
   const [subtitle, setSubtitle] = useState(
     "Discover thousands of beautiful places around the world with wonderful experiences you can imagine."
   );
+   const [pageType, setPageType] = useState("About");
+
 
   useEffect(() => {
     if (!supabase) return;
@@ -30,8 +32,8 @@ const Hero = () => {
       const { data, error } = await supabase
         .from("hero")
         .select("*")
-        .contains("page_type", ["About"])
-        .order("created_at", { ascending: false })
+        .contains("hero_page_type", ["About"])
+        .order("created_at", { ascending: true })
         .limit(1)
         .single();
 
@@ -42,12 +44,13 @@ const Hero = () => {
 
       const hero = data as HeroRow;
 
-      if (hero.image_urls?.length) {
-        setImages(hero.image_urls);
+      if (hero.hero_image_urls?.length) {
+        setImages(hero.hero_image_urls);
       }
 
-      if (hero.title) setTitle(hero.title);
-      if (hero.subtitle) setSubtitle(hero.subtitle);
+      if (hero.hero_title) setTitle(hero.hero_title);
+      if (hero.hero_subtitle) setSubtitle(hero.hero_subtitle);
+      if (hero.hero_page_type) setPageType(hero.hero_page_type[0]);
     };
 
     fetchHero();

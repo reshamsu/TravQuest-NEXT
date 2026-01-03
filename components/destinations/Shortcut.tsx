@@ -16,6 +16,10 @@ interface Destination {
   created_at?: string;
 }
 
+interface DestinationsProps {
+  currentCountry?: string;
+}
+
 const easeOut: Transition["ease"] = [0.25, 0.1, 0.25, 1];
 
 const rowVariants: Variants = {
@@ -29,11 +33,13 @@ const rowVariants: Variants = {
 
 const INITIAL_VISIBLE = 4;
 
-const Destinations: React.FC = () => {
+const Destinations: React.FC<DestinationsProps> = ({
+  currentCountry = "France",
+}) => {
   if (!supabase) {
     return (
       <div className="p-10 text-center text-teal-600">
-        Database not configured. Check environment variables.
+        Database not configured.
       </div>
     );
   }
@@ -75,22 +81,33 @@ const Destinations: React.FC = () => {
           country: row.country,
           tagline: row.tagline,
           description: row.description,
-          continents: Array.isArray(row.continents)
-            ? row.continents
-            : [],
+          continents: Array.isArray(row.continents) ? row.continents : [],
           image_urls: images,
           created_at: row.created_at,
         };
       });
 
-      // UAE + Middle East filter
+      // 1. Find the selected country row
+      const selected = formatted.find(
+        (d) => d.country.toLowerCase() === currentCountry.toLowerCase()
+      );
+
+      if (!selected) {
+        setDestinations([]);
+        setLoading(false);
+        return;
+      }
+
+      // 2. Get its continents
+      const selectedContinents = selected.continents;
+
+      // 3. Filter all destinations sharing at least one continent
       const filtered = formatted.filter((item) =>
-        item.continents.some(
-          (area) => area === "Asia"
-        )
+        item.continents.some((c) => selectedContinents.includes(c))
       );
 
       setDestinations(filtered);
+
       setLoading(false);
     };
 
@@ -99,8 +116,8 @@ const Destinations: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="h-[70vh] flex items-center justify-center text-gray-500">
-        Loading shortcuts…
+      <div className="h-[40vh] flex items-center justify-center text-gray-500">
+        .
       </div>
     );
   }
@@ -136,7 +153,6 @@ const Destinations: React.FC = () => {
 
         {/* GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4">
-
           {!loading &&
             visibleDestinations.map((dest, index) => (
               <motion.div

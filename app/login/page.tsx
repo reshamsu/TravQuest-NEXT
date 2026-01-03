@@ -81,7 +81,7 @@ export default function Login() {
               </button>
 
               <p className="text-xs text-gray-400 py-2">
-                By continuing, you agree to TravelAvail's{" "}
+                By continuing, you agree to TravQuest's{" "}
                 <Link href="/login" className="underline">
                   Terms
                 </Link>{" "}

@@ -33,7 +33,7 @@ export default function Page() {
   if (!supabase) {
     return (
       <div className="p-10 text-center text-teal-600">
-        Supabase not configured
+        Supabase not configured.
       </div>
     );
   }
@@ -42,13 +42,10 @@ export default function Page() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  /* ---------- REHYDRATE DESTINATION ID ---------- */
   useEffect(() => {
     const storedId = localStorage.getItem("destinationId");
     if (storedId) setDestinationId(Number(storedId));
   }, []);
-
-  /* ---------- FORM STATES ---------- */
 
   const [base, setBase] = useState<DestinationBase>({
     country: "",
@@ -67,8 +64,6 @@ export default function Page() {
   //   shortcut_types: [],
   //   label: [],
   // });
-
-  /* ---------- IMAGE STATES ---------- */
 
   const [mainImages, setMainImages] = useState<FileList | null>(null);
   const [collageImages, setCollageImages] = useState<FileList | null>(null);

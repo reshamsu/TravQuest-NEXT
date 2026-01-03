@@ -96,8 +96,8 @@ const Destinations: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="h-[70vh] flex items-center justify-center text-gray-500">
-        Loading shortcuts…
+      <div className="h-[40vh] flex items-center justify-center text-gray-500">
+        .
       </div>
     );
   }

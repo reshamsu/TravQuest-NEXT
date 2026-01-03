@@ -80,6 +80,14 @@ const Packages: React.FC = () => {
     fetchPackages();
   }, []);
 
+   if (loading) {
+    return (
+      <div className="h-[40vh] flex items-center justify-center text-gray-500">
+        .
+      </div>
+    );
+  }
+
   // ✅ FILTERED VIEW (reactive)
   const visiblePackages = allPackages.filter((pkg) =>
     pkg.package_location.includes(activeCity)
@@ -125,12 +133,6 @@ const Packages: React.FC = () => {
 
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-          {loading && (
-            <p className="col-span-full text-center text-gray-500">
-              Loading packages...
-            </p>
-          )}
-
           {!loading &&
             visiblePackages.map((pack, index) => (
               <motion.div

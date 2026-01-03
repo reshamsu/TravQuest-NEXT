@@ -1,74 +1,104 @@
-import React from "react";
-import Image from "next/image";
+"use client";
 
-const images = [
-  "/assets/poster/event-desert-safari1.webp",
-  "/assets/poster/event-burj-khalifa1.jpg",
-  "/assets/poster/event-ferrari-world.jpg",
-];
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { supabase } from "@/lib/supabaseClient";
+
+interface Welcome {
+  section2_title: string | null;
+  section2_subtitle: string | null;
+  section2_body: string | null;
+  section2_image_collages: string[] | null;
+}
 
 const Welcome = () => {
-  return (
-    <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 px-8 md:px-10 2xl:px-0">
-      <div className="flex flex-col justify-center gap-4 md:gap-6">
-        <div className="flex flex-col gap-1">
-          <h2 className="text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]">
-            A Wonderous UAE
-          </h2>
-          <label className="text-base lg:text-lg font-bold text-teal-600">
-            A Melting pot of cultures & traditions
-          </label>
-        </div>
+  const [data, setData] = useState<Welcome | null>(null);
+  const [loading, setLoading] = useState(true);
 
-        <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
-          The <strong>United Arab Emirates (UAE)</strong> is a melting pot of
-          cultures and traditions, with a rich history and heritage while it is
-          the home to a variety of landscapes,{" "}
-          <i>including beaches, deserts, mountains, and cityscapes.</i>
-        </p>
-        <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
-          The <strong>UAE</strong> is a vibrant nation nestled in the{" "}
-          <u>Arabian Peninsula</u> and is a federation of seven emirates,
-          consisting of <strong>Abu Dhabi (the capital city) </strong>, Ajman,
-          Dubai, Fujairah, Ras Al Khaimah, Sharjah and Umm Al Quwain.
-        </p>
-        <p className="text-xs md:text-sm font-normal text-justify text-gray-600">
-          The <strong>Emirates</strong> comprise a mixed environment of rocky
-          desert, coastal plains and wetlands, and waterless mountains. The
-          seashore is a haven for migratory waterfowl and draws birdwatchers
-          from all over the world; the country’s unspoiled beaches and opulent
-          resorts also have drawn international travelers. Standing at a
-          historic and geographic crossroads and made up of diverse cultures,
-          the <strong>United Arab Emirates</strong> presents a striking blend of
-          traditions and modernity.
-        </p>
+  useEffect(() => {
+    const fetchSection2 = async () => {
+      setLoading(true);
+
+      const { data, error } = await supabase
+        .from("hero")
+        .select(
+          "section2_title, section2_subtitle, section2_body, section2_image_collages"
+        )
+        .contains("hero_page_type", ["Explore UAE"])
+        .limit(1);
+
+      if (!error && data) {
+        setData(data[0]);
+      }
+
+      setLoading(false);
+    };
+
+    fetchSection2();
+  }, []);
+
+  if (!data || loading) {
+    return (
+      <div className="h-[40vh] flex items-center justify-center text-gray-500">
+        .
       </div>
-      <div className="flex flex-col gap-4">
-        <div className="relative h-90 w-full">
-          <Image
-            src="/assets/hero/TheUAE.jpg"
-            alt="UAE"
-            fill
-            className="object-cover rounded-4xl"
-          />
-          <div className="absolute inset-0 hover:bg-black/15 rounded-4xl duration-700" />
+    );
+  }
+
+  const images = data.section2_image_collages ?? [];
+
+  return (
+    <div className="bg-linear-to-b from-white via-white to-white">
+      <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 px-8 md:px-10 2xl:px-0">
+        {/* TEXT */}
+        <div className="flex flex-col justify-center gap-4 xl:gap-6">
+          <div className="flex flex-col gap-1">
+            <h2 className="text-3xl 2xl:text-4xl font-bold uppercase text-[#f2836f]">
+              {data.section2_title}
+            </h2>
+            <label className="text-base lg:text-lg font-bold text-teal-600">
+              {data.section2_subtitle}
+            </label>
+          </div>
+
+          <p className="whitespace-pre-line text-xs lg:text-sm font-normal text-justify text-gray-600">
+            {data.section2_body}
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {images.map((src, i) => (
-            <div
-              key={i}
-              className="relative h-[120px] w-full"
-            >
+        {/* IMAGES */}
+        <div className="flex flex-col gap-4">
+          {/* MAIN IMAGE */}
+          {images[0] && (
+            <div className="relative h-[360px] w-full">
               <Image
-                src={src}
-                alt={`Media ${i + 1}`}
+                src={images[0]}
+                alt="Main image"
                 fill
-                className="object-cover rounded-3xl"
+                className="object-cover rounded-4xl"
+                priority
               />
-              <div className="absolute inset-0 hover:bg-black/15 rounded-3xl duration-700" />
+              <div className="absolute inset-0 hover:bg-black/15 rounded-4xl duration-700" />
             </div>
-          ))}
+          )}
+
+          {/* THUMBNAILS */}
+          {images.length > 1 && (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {images.slice(1).map((src, i) => (
+                <div key={i} className="relative h-[120px] w-full">
+                  <Image
+                    src={src}
+                    alt={`Media ${i + 2}`}
+                    fill
+                    className="object-cover rounded-3xl"
+                  />
+                  <div className="absolute inset-0 hover:bg-black/15 rounded-3xl duration-700" />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

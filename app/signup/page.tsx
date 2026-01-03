@@ -77,11 +77,11 @@ export default function Login() {
                 required
               />
               <button type="submit" className="select-none btn-dark-base">
-                Continue
+                Sign Up
               </button>
 
               <p className="text-xs text-gray-400 py-2">
-                By continuing, you agree to TravelAvail's{" "}
+                By continuing, you agree to TravQuest's{" "}
                 <Link href="/login" className="underline">
                   Terms
                 </Link>{" "}

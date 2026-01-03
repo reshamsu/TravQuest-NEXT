@@ -2,132 +2,197 @@
 
 export const dynamic = "force-dynamic";
 
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabaseClient";
 import { TbSend2 } from "react-icons/tb";
 
-interface Hero {
-  title: string;
-  subtitle: string;
-  page_type: string[];
-  image_urls: string[];
+interface HeroBase {
+  hero_title: string;
+  hero_subtitle: string;
+  hero_page_type: string[];
+  hero_image_urls: string[];
+}
+
+interface HeroSection2 {
+  section2_title: string;
+  section2_subtitle: string;
+  section2_body: string;
+}
+
+interface HeroSection3 {
+  section3_title: string;
+  section3_subtitle: string;
+  section3_body: string;
 }
 
 export default function Page() {
   // ✅ HARD GUARD — REQUIRED
   if (!supabase) {
     return (
-      <div className="p-10 text-center text-red-600">
-        Supabase is not configured. Check environment variables.
+      <div className="p-10 text-center text-teal-600">
+        Supabase is not configured.
       </div>
     );
   }
 
-  // ✅ NARROW TYPE ONCE
-  const sb = supabase;
-
-  const [uploading, setUploading] = useState(false);
+  const [heroId, setHeroId] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  const [newHero, setNewHero] = useState<Hero>({
-    title: "",
-    subtitle: "",
-    page_type: [],
-    image_urls: [],
+  useEffect(() => {
+    const storedId = localStorage.getItem("heroId");
+    if (storedId) setHeroId(Number(storedId));
+  }, []);
+
+  const [base, setBase] = useState<HeroBase>({
+    hero_title: "",
+    hero_subtitle: "",
+    hero_page_type: [],
+    hero_image_urls: [],
   });
 
-  const [images, setImages] = useState<FileList | null>(null);
+  const [section2, setSection2] = useState<HeroSection2>({
+    section2_title: "",
+    section2_subtitle: "",
+    section2_body: "",
+  });
 
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
-  ) => {
-    const { name, value } = e.target;
+  const [section3, setSection3] = useState<HeroSection3>({
+    section3_title: "",
+    section3_subtitle: "",
+    section3_body: "",
+  });
 
-    setNewHero((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  const [mainImages, setMainImages] = useState<FileList | null>(null);
+  const [collageImages, setCollageImages] = useState<FileList | null>(null);
+  const [backgroundImages, setBackgroundImages] = useState<FileList | null>(
+    null
+  );
 
-  const handleImageUpload = async (): Promise<string[]> => {
-    if (!images || images.length === 0) return [];
+  const uploadImages = async (
+    files: FileList | null,
+    folder: string
+  ): Promise<string[]> => {
+    if (!files || files.length === 0) return [];
 
-    try {
-      setUploading(true);
-      const uploadedUrls: string[] = [];
+    const urls: string[] = [];
 
-      for (let i = 0; i < images.length; i++) {
-        const file = images[i];
+    for (const file of Array.from(files)) {
+      const path = `${folder}/${Date.now()}_${file.name}`;
 
-        if (file.size > 10 * 1024 * 1024) {
-          alert(`${file.name} is too large! Max 10MB.`);
-          continue;
-        }
+      const { error } = await supabase.storage
+        .from("hero")
+        .upload(path, file, { upsert: false });
 
-        const filePath = `images/${Date.now()}_${file.name}`;
-
-        const { error: uploadError } = await sb.storage
-          .from("hero")
-          .upload(filePath, file, {
-            cacheControl: "3600",
-            upsert: false,
-          });
-
-        if (uploadError) {
-          console.error("Upload error:", uploadError.message);
-          continue;
-        }
-
-        const { data } = sb.storage.from("hero").getPublicUrl(filePath);
-
-        uploadedUrls.push(data.publicUrl);
+      if (error) {
+        console.error(error);
+        continue;
       }
 
-      setMessage(`${uploadedUrls.length} image(s) uploaded successfully`);
-      return uploadedUrls;
-    } catch (err) {
-      console.error("Error uploading images:", err);
-      setMessage("Error uploading images");
-      return [];
-    } finally {
-      setUploading(false);
+      const { data } = supabase.storage.from("hero").getPublicUrl(path);
+      urls.push(data.publicUrl);
     }
+
+    return urls;
   };
 
-  // -----------------------------
-  // SUBMIT
-  // -----------------------------
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleBaseSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setMessage("");
 
-    const uploadedUrls = images ? await handleImageUpload() : [];
+    const hero_image_urls = await uploadImages(mainImages, "images");
 
-    const payload = {
-      title: newHero.title,
-      subtitle: newHero.subtitle,
-      page_type: newHero.page_type,
-      image_urls: uploadedUrls.length ? uploadedUrls : newHero.image_urls,
-    };
-
-    const { error } = await sb.from("hero").insert([payload]).select().single();
+    const { data, error } = await supabase
+      .from("hero")
+      .insert({
+        hero_title: base.hero_title,
+        hero_subtitle: base.hero_subtitle,
+        hero_page_type: base.hero_page_type,
+        hero_image_urls,
+      })
+      .select("id")
+      .single();
 
     if (error) {
-      console.error("Error inserting hero:", error.message);
-      alert("Failed to add hero.");
+      console.error(error);
+      setMessage("Failed to create hero");
     } else {
-      setNewHero({
-        title: "",
-        subtitle: "",
-        page_type: [],
-        image_urls: [],
-      });
-      setImages(null);
-      setMessage("Hero added successfully!");
+      setHeroId(data.id);
+      localStorage.setItem("heroId", String(data.id));
+      setMessage("Hero section created ✔");
+    }
+
+    setLoading(false);
+  };
+
+  const handleSection2Submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!heroId) {
+      setMessage("Create hero first");
+      return;
+    }
+
+    setLoading(true);
+    setMessage("");
+
+    const section2_image_collages = await uploadImages(
+      collageImages,
+      "collages"
+    );
+
+    const { error } = await supabase
+      .from("hero")
+      .update({
+        section2_title: section2.section2_title,
+        section2_subtitle: section2.section2_subtitle,
+        section2_body: section2.section2_body,
+        section2_image_collages,
+      })
+      .eq("id", heroId);
+
+    if (error) {
+      console.error(error);
+      setMessage("Failed to save section 2");
+    } else {
+      setMessage("Hero section 2 saved ✔");
+    }
+
+    setLoading(false);
+  };
+
+  const handleSection3Submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!heroId) {
+      setMessage("Create hero first");
+      return;
+    }
+
+    setLoading(true);
+    setMessage("");
+
+    const section3_image_urls = await uploadImages(backgroundImages, "groups");
+
+    const { error } = await supabase
+      .from("hero")
+      .update({
+        section3_title: section3.section3_title,
+        section3_subtitle: section3.section3_subtitle,
+        section3_body: section3.section3_body,
+        section3_image_urls,
+      })
+      .eq("id", heroId);
+
+    if (error) {
+      console.error(error);
+      setMessage("Failed to save section 3");
+    } else {
+      setMessage("Hero section 3 saved ✔");
+      localStorage.removeItem("heroId");
+      setHeroId(null);
     }
 
     setLoading(false);
@@ -140,11 +205,10 @@ export default function Page() {
           {/* Header */}
           <div className="flex flex-col gap-1 border-b-2 border-gray-100 p-8 pb-6">
             <h2 className="text-base md:text-lg font-bold">
-              Add a New Destination to{" "}
-              <span className="text-teal-600">TravQuest</span>
+              Add a New Hero to <span className="text-teal-600">TravQuest</span>
             </h2>
             <p className="text-xs md:text-sm text-gray-400">
-              Add your destination listing to{" "}
+              Add your hero listing to{" "}
               <Link href="/" className="underline">
                 TravQuest Marketplace
               </Link>
@@ -153,7 +217,7 @@ export default function Page() {
 
           {/* FORM */}
           <form
-            onSubmit={handleSubmit}
+            onSubmit={handleBaseSubmit}
             className="grid grid-cols-1 gap-8 w-full p-8 md:p-10"
           >
             {/* TITLE */}
@@ -161,8 +225,10 @@ export default function Page() {
               <label className="text-sm font-bold">Hero Title*</label>
               <input
                 name="title"
-                value={newHero.title}
-                onChange={handleChange}
+                value={base.hero_title}
+                onChange={(e) =>
+                  setBase({ ...base, hero_title: e.target.value })
+                }
                 placeholder="Enter hero title"
                 className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 capitalize"
                 required
@@ -174,8 +240,10 @@ export default function Page() {
               <label className="text-sm font-bold">Hero Subtitle*</label>
               <input
                 name="subtitle"
-                value={newHero.subtitle}
-                onChange={handleChange}
+                value={base.hero_subtitle}
+                onChange={(e) =>
+                  setBase({ ...base, hero_subtitle: e.target.value })
+                }
                 placeholder="Short subtitle"
                 className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 capitalize"
                 required
@@ -186,12 +254,11 @@ export default function Page() {
             <div className="flex flex-col gap-2">
               <label className="text-sm font-bold">Page Type*</label>
               <select
-                name="page_type"
-                value={newHero.page_type[0] || ""}
+                value={base.hero_page_type[0] || ""}
                 onChange={(e) =>
-                  setNewHero((prev) => ({
+                  setBase((prev) => ({
                     ...prev,
-                    page_type: [e.target.value],
+                    hero_page_type: [e.target.value],
                   }))
                 }
                 className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3"
@@ -214,7 +281,7 @@ export default function Page() {
                 type="file"
                 multiple
                 accept="image/*"
-                onChange={(e) => setImages(e.target.files)}
+                onChange={(e) => setMainImages(e.target.files)}
                 className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5"
                 required
               />
@@ -227,12 +294,203 @@ export default function Page() {
 
             {/* SUBMIT */}
             <div className="flex justify-end">
-              <button
-                type="submit"
-                disabled={loading || uploading}
-                className="select-none btn-orange-base btn-dynamic flex items-center gap-2"
-              >
-                {loading || uploading ? "Uploading..." : "Save Hero"}
+              <button className="select-none btn-orange-base btn-dynamic flex items-center gap-2">
+                Save Hero Section <TbSend2 size={20} />
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div className="bg-white border md:border-2 border-gray-100 rounded-3xl shadow-md overflow-hidden flex flex-col">
+          {/* Header */}
+          <div className="flex flex-col gap-1 border-b-2 border-gray-100 p-8 pb-6">
+            <h2 className="text-lg font-bold">
+              Enter Second Section for Homepage to{" "}
+              <span className="text-teal-600">TravQuest</span>
+            </h2>
+            <p className="text-sm text-gray-400">
+              Add your homepage listing to{" "}
+              <Link href="/" className="underline">
+                TravQuest Marketplace
+              </Link>
+            </p>
+          </div>
+
+          {/* FORM */}
+          <form
+            onSubmit={handleSection2Submit}
+            className="grid grid-cols-1 gap-8 w-full p-8 md:p-10"
+          >
+            {/* TITLE */}
+            <div className="flex flex-col gap-2">
+              <label className="text-sm font-bold">Title*</label>
+              <input
+                name="section2_title"
+                value={section2.section2_title}
+                onChange={(e) =>
+                  setSection2({ ...section2, section2_title: e.target.value })
+                }
+                placeholder="Enter Title"
+                className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 capitalize"
+                required
+              />
+            </div>
+
+            {/* SUBTITLE */}
+            <div className="flex flex-col gap-2">
+              <label className="text-sm font-bold">Subtitle*</label>
+              <input
+                name="section2_subtitle"
+                value={section2.section2_subtitle}
+                onChange={(e) =>
+                  setSection2({
+                    ...section2,
+                    section2_subtitle: e.target.value,
+                  })
+                }
+                placeholder="Enter subtitle"
+                className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 capitalize"
+                required
+              />
+            </div>
+
+            {/* DESCRIPTION */}
+            <div className="flex flex-col gap-2">
+              <label className="text-sm font-bold">Body Paragraph*</label>
+              <textarea
+                name="section2_body"
+                value={section2.section2_body}
+                onChange={(e) =>
+                  setSection2({ ...section2, section2_body: e.target.value })
+                }
+                placeholder="Write a few body paragraphs"
+                className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 h-28 capitalize"
+                required
+              />
+            </div>
+
+            {/* UPLOAD IMAGES */}
+            <div className="flex flex-col gap-2 w-full">
+              <label className="text-sm font-bold">
+                Upload Image Collages*
+              </label>
+              <input
+                type="file"
+                multiple
+                accept="image/*"
+                onChange={(e) => setCollageImages(e.target.files)}
+                className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5"
+                required
+              />
+            </div>
+
+            {/* MESSAGE */}
+            {message && (
+              <p className="text-center text-sm text-teal-600">{message}</p>
+            )}
+
+            {/* SUBMIT */}
+            <div className="flex justify-end">
+              <button className="select-none btn-orange-base btn-dynamic flex items-center gap-2">
+                Save Section 2
+                <TbSend2 size={20} />
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div className="bg-white border md:border-2 border-gray-100 rounded-3xl shadow-md overflow-hidden flex flex-col">
+          {/* Header */}
+          <div className="flex flex-col gap-1 border-b-2 border-gray-100 p-8 pb-6">
+            <h2 className="text-lg font-bold">
+              Enter Third Section for Homepage to{" "}
+              <span className="text-teal-600">TravQuest</span>
+            </h2>
+            <p className="text-sm text-gray-400">
+              Add your homepage listing to{" "}
+              <Link href="/" className="underline">
+                TravQuest Marketplace
+              </Link>
+            </p>
+          </div>
+
+          {/* FORM */}
+          <form
+            onSubmit={handleSection3Submit}
+            className="grid grid-cols-1 gap-8 w-full p-8 md:p-10"
+          >
+            {/* TITLE */}
+            <div className="flex flex-col gap-2">
+              <label className="text-sm font-bold">Title*</label>
+              <input
+                name="title"
+                value={section3.section3_title}
+                onChange={(e) =>
+                  setSection3({ ...section3, section3_title: e.target.value })
+                }
+                placeholder="Enter Title"
+                className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 capitalize"
+                required
+              />
+            </div>
+
+            {/* SUBTITLE */}
+            <div className="flex flex-col gap-2">
+              <label className="text-sm font-bold">Subtitle*</label>
+              <input
+                name="subtitle"
+                value={section3.section3_subtitle}
+                onChange={(e) =>
+                  setSection3({
+                    ...section3,
+                    section3_subtitle: e.target.value,
+                  })
+                }
+                placeholder="Enter subtitle"
+                className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 capitalize"
+                required
+              />
+            </div>
+
+            {/* DESCRIPTION */}
+            <div className="flex flex-col gap-2">
+              <label className="text-sm font-bold">Body Paragraph*</label>
+              <textarea
+                name="body"
+                value={section3.section3_body}
+                onChange={(e) =>
+                  setSection3({ ...section3, section3_body: e.target.value })
+                }
+                placeholder="Write a few body paragraphs"
+                className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 h-28 capitalize"
+                required
+              />
+            </div>
+
+            {/* UPLOAD IMAGES */}
+            <div className="flex flex-col gap-2 w-full">
+              <label className="text-sm font-bold">
+                Upload Image Background*
+              </label>
+              <input
+                type="file"
+                multiple
+                accept="image/*"
+                onChange={(e) => setBackgroundImages(e.target.files)}
+                className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5"
+                required
+              />
+            </div>
+
+            {/* MESSAGE */}
+            {message && (
+              <p className="text-center text-sm text-teal-600">{message}</p>
+            )}
+
+            {/* SUBMIT */}
+            <div className="flex justify-end">
+              <button className="select-none btn-orange-base btn-dynamic flex items-center gap-2">
+                Save Section 3
                 <TbSend2 size={20} />
               </button>
             </div>

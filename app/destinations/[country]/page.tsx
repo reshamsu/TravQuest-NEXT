@@ -13,9 +13,18 @@ const deslugify = (slug: string) =>
     .join(" ");
 
 export default function Page() {
-  const params = useParams();
-  
-  const city = deslugify(params.country as string);
+  const { country } = useParams<{ country?: string }>();
+
+  // 🚨 REQUIRED GUARD
+  if (!country) {
+    return (
+      <div className="h-[70vh] flex items-center justify-center text-gray-500">
+        Loading destination…
+      </div>
+    );
+  }
+
+  const city = deslugify(country);
 
   console.log("📍 Destination city:", city);
 

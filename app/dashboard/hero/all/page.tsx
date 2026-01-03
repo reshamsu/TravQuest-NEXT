@@ -7,10 +7,10 @@ import { supabase } from "@/lib/supabaseClient";
 
 interface Hero {
   id: number;
-  title: string;
-  subtitle: string;
-  image_urls: string[];
-  page_type: string[];
+  hero_title: string;
+  hero_subtitle: string;
+  hero_image_urls: string[];
+  hero_page_type: string[];
   created_at?: string;
 }
 
@@ -56,10 +56,10 @@ const HeroAdmin = () => {
       const formatted: Hero[] = data.map((row: any) => {
         let images: string[] = [];
 
-        if (Array.isArray(row.image_urls)) images = row.image_urls;
-        else if (typeof row.image_urls === "string") {
+        if (Array.isArray(row.hero_image_urls)) images = row.hero_image_urls;
+        else if (typeof row.hero_image_urls === "string") {
           try {
-            images = JSON.parse(row.image_urls);
+            images = JSON.parse(row.hero_image_urls);
           } catch {
             images = [];
           }
@@ -67,10 +67,10 @@ const HeroAdmin = () => {
 
         return {
           id: row.id,
-          title: row.title,
-          subtitle: row.subtitle,
-          image_urls: images,
-          page_type: Array.isArray(row.page_type) ? row.page_type : [],
+          hero_title: row.hero_title,
+          hero_subtitle: row.hero_subtitle,
+          hero_image_urls: images,
+          hero_page_type: Array.isArray(row.hero_page_type) ? row.hero_page_type : [],
           created_at: row.created_at,
         };
       });
@@ -116,27 +116,27 @@ const HeroAdmin = () => {
                 <div className="relative h-64 rounded-3xl overflow-hidden bg-gray-100">
                   <Image
                     src={
-                      hero.image_urls?.[0] || "/assets/banner/property1.webp"
+                      hero.hero_image_urls?.[0] || "/assets/banner/property1.webp"
                     }
-                    alt={hero.title}
+                    alt={hero.hero_title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
 
                 <div className="py-4 px-1 flex flex-col gap-1">
-                  {hero.page_type.length > 0 && (
+                  {hero.hero_page_type.length > 0 && (
                     <span className="text-xs text-[#f2836f] font-bold">
-                      {hero.page_type.join(" · ")}
+                      {hero.hero_page_type.join(" · ")}
                     </span>
                   )}
 
                   <h4 className="text-base font-bold text-gray-700">
-                    {hero.title}
+                    {hero.hero_title}
                   </h4>
 
                   <p className="text-xs text-gray-500 line-clamp-2">
-                    {hero.subtitle}
+                    {hero.hero_subtitle}
                   </p>
                 </div>
               </motion.div>
