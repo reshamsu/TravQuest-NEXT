@@ -6,10 +6,10 @@ import ShortcutUAE from "@/components/destinations/Shortcut";
 export default function Destinations() {
   return (
     <div className="relative z-30">
-      <Hero />
+      {/* <Hero />
       <Welcome />
       <DiscoverUAE />
-      <ShortcutUAE />
+      <ShortcutUAE /> */}
     </div>
   );
 }
