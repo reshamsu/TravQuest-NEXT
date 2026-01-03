@@ -6,31 +6,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { supabase } from "@/lib/supabaseClient";
 
-/* ================= TYPES ================= */
-
-interface Hotel {
+interface Hotels {
   id: number;
   name: string;
+  tagline: string;
   introduction: string;
+  highlights: string;
   description: string;
   city: string[];
-  image_urls: string[];
+  attractions: string[] | null;
+  facilities: string[] | null;
+  room_rates: string[] | null;
+  image_urls: string[] | null;
 }
 
 interface HotelProps {
   city: string;
 }
 
-/* ================= HELPERS ================= */
+const normalizeCity = (value: string) => value.replace(/-/g, " ").trim();
 
-const slugify = (text: string) =>
-  text
-    .toLowerCase()
-    .replace(/&/g, "and")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-
-/* ================= ANIMATION ================= */
+const slugify = (text: string) => text.toLowerCase().replace(/\s+/g, "-");
 
 const easeOut: Transition["ease"] = [0.25, 0.1, 0.25, 1];
 
@@ -45,26 +41,29 @@ const rowVariants: Variants = {
 
 const INITIAL_VISIBLE = 4;
 
-/* ================= COMPONENT ================= */
-
-export default function HotelsDiscover({ city }: HotelProps) {
-  const [items, setItems] = useState<Hotel[]>([]);
+export default function Discover({ city }: HotelProps) {
+  const [items, setItems] = useState<Hotels[]>([]);
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!supabase || !city) {
+    if (!city) {
       setLoading(false);
       return;
     }
 
-    const fetchHotels = async () => {
+    const fetchDiscoveries = async () => {
       setLoading(true);
+
+      const normalizedCity = normalizeCity(city);
 
       const { data, error } = await supabase
         .from("hotels")
-        .select("id, name, introduction, description, city, image_urls")
-        .contains("city", [city]); // ✅ CORRECT FILTER
+        .select(
+          "id, name, tagline, introduction, highlights, description, city, attractions, facilities, room_rates, image_urls"
+        )
+        .contains("city", [normalizedCity])
+        .order("name", { ascending: true });
 
       if (error) {
         console.error("Hotel fetch failed:", error);
@@ -76,7 +75,7 @@ export default function HotelsDiscover({ city }: HotelProps) {
       setLoading(false);
     };
 
-    fetchHotels();
+    fetchDiscoveries();
   }, [city]);
 
   if (loading) {
@@ -86,7 +85,7 @@ export default function HotelsDiscover({ city }: HotelProps) {
   if (!items.length) {
     return (
       <div className="py-20 text-center text-gray-400">
-        No hotels found for <strong>{city}</strong>
+        No hotels found for <strong>{normalizeCity(city)}</strong>
       </div>
     );
   }
@@ -95,17 +94,19 @@ export default function HotelsDiscover({ city }: HotelProps) {
   const hasMore = items.length > visibleCount;
 
   return (
-    <div className="bg-linear-to-b from-[#f2836f]/10 via-white to-white">
+    <div className="bg-linear-to-b from-[#f2836f]/10 via-[#ffffff] to-[#ffffff]">
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center gap-10 py-20 px-8 md:px-10 2xl:px-0">
         {/* HEADER */}
         <div className="flex flex-col gap-3">
           <h2 className="playfair text-3xl 2xl:text-4xl font-bold text-teal-600">
-            Hotels in{" "}
-            <span className="text-[#f2836f]">{city}</span>
+            Discover the Essence of{" "}
+            <span className="text-[#f2836f]">
+              Luxury and Tradition in {normalizeCity(city)}
+            </span>
           </h2>
-          <p className="text-sm md:text-base font-bold text-gray-600">
-            Hand-picked stays curated for you
-          </p>
+          <label className="text-sm md:text-base 2xl:text-lg font-bold text-gray-600">
+            Explore the real attraction of {normalizeCity(city)}
+          </label>
         </div>
 
         {/* GRID */}
@@ -123,29 +124,32 @@ export default function HotelsDiscover({ city }: HotelProps) {
                 src={item.image_urls?.[0] ?? "/assets/placeholder.webp"}
                 alt={item.name}
                 fill
-                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
 
-              <div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition-all duration-700" />
+              <div className="absolute inset-0 bg-black/64 lg:bg-[#f2836f]/15 group-hover:bg-black/64 transition-all duration-1000" />
 
-              <div className="relative z-10 h-full flex flex-col justify-between p-8 text-white text-left">
+              <div className="relative z-10 h-full flex flex-col text-start justify-between gap-4 p-8 text-white">
                 <div>
-                  <span className="text-xs font-bold text-[#f2836f] uppercase">
-                    {item.introduction}
-                  </span>
-                  <h3 className="playfair text-xl font-bold mt-1">
-                    {item.name}
-                  </h3>
+                  <label className="text-sm font-extrabold uppercase text-[#f2836f]">
+                    {item.tagline}
+                  </label>
+                  <h3 className="playfair text-xl font-bold">{item.name}</h3>
                 </div>
 
-                <Link
-                  href={`/destinations/${slugify(city)}/hotels/${slugify(
-                    item.name
-                  )}`}
-                  className="select-none btn-ogdual-sm btn-dynamic w-fit"
-                >
-                  View Hotel
-                </Link>
+                <div>
+                  <p className="text-xs text-gray-300 line-clamp-3 mb-4">
+                    {item.description}
+                  </p>
+                  <Link
+                    href={`/destinations/${slugify(
+                      item.city[0]
+                    )}/hotels/${slugify(item.name)}`}
+                    className="select-none btn-ogdual-sm btn-dynamic"
+                  >
+                    Discover Now
+                  </Link>
+                </div>
               </div>
             </motion.div>
           ))}

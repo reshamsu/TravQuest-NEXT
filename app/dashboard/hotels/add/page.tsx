@@ -49,6 +49,7 @@ export default function Page() {
   });
 
   const [mainImages, setMainImages] = useState<FileList | null>(null);
+  const [mainPdf, setMainPdf] = useState<FileList | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -324,16 +325,31 @@ export default function Page() {
             </div>
 
             {/* UPLOAD IMAGES */}
-            <div className="flex flex-col gap-2 w-full">
-              <label className="text-sm font-bold">Upload Images*</label>
-              <input
-                type="file"
-                multiple
-                accept="image/*"
-                onChange={(e) => setMainImages(e.target.files)}
-                className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5"
-                required
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex flex-col gap-2 w-full">
+                <label className="text-sm font-bold">Upload Images*</label>
+                <input
+                  type="file"
+                  multiple
+                  accept="image/*"
+                  onChange={(e) => setMainImages(e.target.files)}
+                  className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5"
+                  required
+                />
+              </div>
+
+              {/* <div className="flex flex-col gap-2 w-full">
+                <label className="text-sm font-bold">
+                  Upload Pdf Document*
+                </label>
+                <input
+                  type="file"
+                  accept="pdf/*"
+                  onChange={(e) => setPdf(e.target.files)}
+                  className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5"
+                  required
+                />
+              </div> */}
             </div>
 
             {/* MESSAGE */}

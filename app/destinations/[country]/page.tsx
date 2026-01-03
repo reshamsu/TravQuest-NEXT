@@ -13,20 +13,11 @@ const deslugify = (slug: string) =>
     .join(" ");
 
 export default function Page() {
-  const { country } = useParams<{ country?: string }>();
+  const params = useParams();
 
-  // 🚨 REQUIRED GUARD
-  if (!country) {
-    return (
-      <div className="h-[70vh] flex items-center justify-center text-gray-500">
-        Loading destination…
-      </div>
-    );
-  }
+  const city = deslugify(params.country as string);
 
-  const city = deslugify(country);
-
-  console.log("📍 Destination city:", city);
+  console.log("📍 Hotel city:", city);
 
   return (
     <div className="relative z-30">

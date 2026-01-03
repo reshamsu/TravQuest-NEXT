@@ -5,27 +5,41 @@ import { useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { supabase } from "@/lib/supabaseClient";
-import { TbMapPin, TbChecks, TbStar, TbBed } from "react-icons/tb";
+import { TbMapPin, TbChecks, TbStar } from "react-icons/tb";
+
+/* ---------------- TYPES ---------------- */
 
 interface Hotel {
   id: number;
   created_at: string;
-
   name: string;
   introduction: string;
   highlights: string;
   description: string;
   city: string;
-
   attractions: string[];
   facilities: string[];
   room_rates: string;
-
   image_urls: string[];
 }
 
+/* ---------------- HELPERS ---------------- */
+
+// VERY IMPORTANT: do NOT try to reconstruct punctuation
+const deslugifyLoose = (slug: string) =>
+  slug.replace(/-+/g, " ").replace(/\s+/g, " ").trim();
+
+const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+/* ---------------- COMPONENT ---------------- */
+
 export default function Page() {
-  const { id } = useParams();
+  const { name } = useParams<{ name?: string }>();
+
   const [hotel, setHotel] = useState<Hotel | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -33,33 +47,29 @@ export default function Page() {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
+  /* ---------------- FETCH ---------------- */
+
   useEffect(() => {
-    if (!id) return;
+    if (!name) return;
 
     const fetchHotel = async () => {
       setLoading(true);
 
-      const hotelId = Number(id);
-      if (Number.isNaN(hotelId)) {
-        console.error("Invalid hotel id:", id);
-        setLoading(false);
-        return;
-      }
+      const searchName = deslugifyLoose(name);
 
       const { data, error } = await supabase
         .from("hotels")
         .select("*")
-        .eq("id", hotelId)
+        .ilike("name", `%${searchName}%`)
         .single();
 
-      if (error) {
-        console.error("Supabase error:", error);
+      if (error || !data) {
+        console.error("Hotel fetch failed:", error);
         setHotel(null);
         setLoading(false);
         return;
       }
 
-      // 🔒 Normalize text[] fields safely
       const normalizeArray = (value: any): string[] =>
         Array.isArray(value)
           ? value
@@ -84,22 +94,28 @@ export default function Page() {
     };
 
     fetchHotel();
-  }, [id]);
+  }, [name]);
 
- if (loading) {
+  /* ---------------- GUARDS ---------------- */
+
+  if (loading || !hotel) {
     return (
       <div className="h-[70vh] flex items-center justify-center text-gray-500">
-        Loading hotels…
+        Loading Hotel…
       </div>
     );
   }
 
-  if (!hotel) {
-    return <p className="text-center py-20 text-gray-500">Hotel not found.</p>;
-  }
+  /* ---------------- SAFE DERIVED VALUES ---------------- */
 
   const images =
-    hotel.image_urls.length > 0 ? hotel.image_urls : ["/assets/hero/.jpg"];
+    hotel.image_urls.length > 0
+      ? hotel.image_urls
+      : ["/assets/hero/placeholder.jpg"];
+
+  const citySlug = typeof hotel.city === "string" ? slugify(hotel.city) : "";
+
+  /* ---------------- TOUCH ---------------- */
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -117,8 +133,19 @@ export default function Page() {
     }
   };
 
+  const hotelSlug = slugify(hotel.name);
+
+  const shareUrl = `https://thetravquest.com/destinations/${citySlug}/hotels/${hotelSlug}`;
+
+  const whatsappLink = `https://wa.me/?text=${encodeURIComponent(
+    `Check out this hotel: ${shareUrl}`
+  )}`;
+
+  /* ---------------- RENDER ---------------- */
+
   return (
     <>
+      {/* HERO */}
       <div
         className="relative h-[74vh] w-full overflow-hidden select-none"
         onTouchStart={handleTouchStart}
@@ -130,13 +157,14 @@ export default function Page() {
           alt={hotel.name}
           fill
           priority
+          sizes="100vw"
           className="object-cover transition-all duration-700"
         />
 
         <div className="absolute inset-0 bg-black/45" />
 
         <div className="max-w-6xl mx-auto absolute inset-0 flex items-end justify-between py-12 px-6 text-white z-10">
-          <div className="space-y-1">
+          <div>
             <h1 className="text-xl md:text-2xl 2xl:text-3xl font-bold">
               {hotel.name}
             </h1>
@@ -144,6 +172,7 @@ export default function Page() {
               {hotel.introduction}
             </p>
           </div>
+
           <p className="flex items-center gap-2 text-sm font-bold">
             <TbMapPin size={22} className="text-[#f2836f]" />
             {hotel.city}
@@ -172,19 +201,19 @@ export default function Page() {
             Added on {new Date(hotel.created_at).toLocaleDateString("en-GB")}
           </div>
 
-          <div className="border-b border-gray-200 pb-6">
+          <section>
             <h2 className="text-xl font-extrabold mb-2">Highlights</h2>
             <p className="text-gray-600">{hotel.highlights}</p>
-          </div>
+          </section>
 
-          <div className="border-b border-gray-200 pb-6">
+          <section>
             <h2 className="text-xl font-extrabold mb-2">Description</h2>
             <p className="text-sm text-gray-600 leading-relaxed">
               {hotel.description}
             </p>
-          </div>
+          </section>
 
-          <div>
+          <section>
             <h2 className="text-xl font-extrabold mb-4">Facilities</h2>
             <ul className="flex flex-col gap-3 text-sm">
               {hotel.facilities.map((f, i) => (
@@ -194,28 +223,26 @@ export default function Page() {
                 </li>
               ))}
             </ul>
-          </div>
+          </section>
 
-          <div>
+          <section>
             <h2 className="text-xl font-extrabold mb-4">Nearby Attractions</h2>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
               {hotel.attractions.map((a, i) => (
                 <li key={i} className="flex items-center gap-2">
-                  <TbStar className="text-teal-600" />
+                  <TbStar size={26} className="text-teal-600" />
                   {a}
                 </li>
               ))}
             </ul>
-          </div>
+          </section>
         </div>
 
-        {/* RIGHT CARD */}
+        {/* RIGHT */}
         <div className="bg-white shadow-lg border-2 border-gray-200/40 rounded-3xl p-8 md:p-10 h-fit flex flex-col gap-6">
           <div>
             <h3 className="text-xl font-extrabold mb-2">Room Rates</h3>
-            <p className="text-sm text-gray-700 leading-relaxed">
-              {hotel.room_rates}
-            </p>
+            <p className="text-sm text-gray-700">{hotel.room_rates}</p>
           </div>
 
           <div className="pt-6 border-t border-gray-200 text-sm text-gray-600">
@@ -223,19 +250,25 @@ export default function Page() {
               City:{" "}
               <span className="font-semibold text-gray-800">{hotel.city}</span>
             </p>
-            <p>
-              Category:{" "}
-              <span className="font-semibold text-gray-800">Luxury Hotel</span>
-            </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-4 mt-4">
-            <Link
-              href="tel:+97100000000"
-              className="btn-green-sm btn-dynamic text-center"
-            >
-              Inquire Now
-            </Link>
+          <div className="flex flex-col gap-4 mt-4">
+            <div className="grid grid-cols-2 gap-4">
+              <Link
+                href="tel:+97100000000"
+                className="btn-orange-sm btn-dynamic text-center"
+              >
+                Inquire Now
+              </Link>
+              <Link
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-dark-base btn-dynamic text-center"
+              >
+                Share Hotel
+              </Link>
+            </div>
             <Link
               href="/destinations/abu-dhabi/hotels-apartments"
               className="btn-light-glass btn-dynamic text-center"

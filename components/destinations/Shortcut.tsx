@@ -16,10 +16,6 @@ interface Destination {
   created_at?: string;
 }
 
-interface DestinationsProps {
-  currentCountry?: string;
-}
-
 const easeOut: Transition["ease"] = [0.25, 0.1, 0.25, 1];
 
 const rowVariants: Variants = {
@@ -31,15 +27,31 @@ const rowVariants: Variants = {
   }),
 };
 
+const SECTION_ORDER = [
+  "UAE",
+  "Middle East",
+  "Asia",
+  "Europe",
+  "Africa",
+  "Americas",
+  "Oceania",
+  "Other",
+];
+
 const INITIAL_VISIBLE = 4;
 
-const Destinations: React.FC<DestinationsProps> = ({
-  currentCountry = "France",
-}) => {
+const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9\-]/g, "");
+
+const Destinations: React.FC = () => {
+  // HARD GUARD
   if (!supabase) {
     return (
       <div className="p-10 text-center text-teal-600">
-        Database not configured.
+        Supabase not configured. Check environment variables.
       </div>
     );
   }
@@ -87,27 +99,7 @@ const Destinations: React.FC<DestinationsProps> = ({
         };
       });
 
-      // 1. Find the selected country row
-      const selected = formatted.find(
-        (d) => d.country.toLowerCase() === currentCountry.toLowerCase()
-      );
-
-      if (!selected) {
-        setDestinations([]);
-        setLoading(false);
-        return;
-      }
-
-      // 2. Get its continents
-      const selectedContinents = selected.continents;
-
-      // 3. Filter all destinations sharing at least one continent
-      const filtered = formatted.filter((item) =>
-        item.continents.some((c) => selectedContinents.includes(c))
-      );
-
-      setDestinations(filtered);
-
+      setDestinations(formatted);
       setLoading(false);
     };
 
@@ -125,11 +117,25 @@ const Destinations: React.FC<DestinationsProps> = ({
   const visibleDestinations = destinations.slice(0, visibleCount);
   const hasMore = destinations.length > visibleCount;
 
-  const slugify = (text: string) =>
-    text
-      .toLowerCase()
-      .replace(/\s+/g, "-")
-      .replace(/[^a-z0-9\-]/g, "");
+  const grouped = destinations.reduce<Record<string, Destination[]>>(
+    (acc, dest) => {
+      const groups = dest.continents.length ? dest.continents : ["Other"];
+
+      groups.forEach((group) => {
+        if (!acc[group]) acc[group] = [];
+        acc[group].push(dest);
+      });
+
+      return acc;
+    },
+    {}
+  );
+
+  const orderedSections = Object.keys(grouped).sort(
+    (a, b) =>
+      (SECTION_ORDER.indexOf(a) === -1 ? 999 : SECTION_ORDER.indexOf(a)) -
+      (SECTION_ORDER.indexOf(b) === -1 ? 999 : SECTION_ORDER.indexOf(b))
+  );
 
   return (
     <div className="bg-linear-to-b from-gray-100 via-white to-teal-700/20">
@@ -145,7 +151,7 @@ const Destinations: React.FC<DestinationsProps> = ({
           </label>
         </div>
 
-        <p className="text-xs lg:text-sm font-normal text-justify text-gray-700">
+        <p className="text-xs lg:text-sm font-normal text-justify text-gray-600">
           From bustling metropolises to serene landscapes, our global adventure
           awaits. Explore diverse cultures, savor exotic flavors, and create
           memories that span continents.
@@ -190,7 +196,7 @@ const Destinations: React.FC<DestinationsProps> = ({
                     href={`/destinations/${slugify(dest.country)}`}
                     className="btn-godual-sm btn-dynamic"
                   >
-                    Explore More
+                    Discover More
                   </Link>
                 </div>
               </motion.div>
@@ -201,7 +207,7 @@ const Destinations: React.FC<DestinationsProps> = ({
         {hasMore && (
           <button
             onClick={() => setVisibleCount(destinations.length)}
-            className="self-center select-none btn-light-glass btn-dynamic"
+            className="select-none btn-light-glass btn-dynamic"
           >
             Show more Destinations
           </button>

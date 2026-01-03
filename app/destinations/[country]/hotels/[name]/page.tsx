@@ -1,10 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import Hero from "@/components/discovery/Hero";
-import Welcome from "@/components/discovery/Welcome";
-import Hotels from "@/components/discovery/Hotels";
-import Shortcut from "@/components/discovery/Shortcut";
+import Hero from "@/components/hotels/Hero";
 
 const deslugify = (slug: string) =>
   slug
@@ -22,9 +19,6 @@ export default function Page() {
   return (
     <div className="relative z-30">
       <Hero />
-      <Welcome />
-      <Hotels city={city} />
-      <Shortcut />
     </div>
   );
 }

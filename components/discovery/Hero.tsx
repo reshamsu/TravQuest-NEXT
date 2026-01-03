@@ -8,7 +8,7 @@ import { TbChevronLeft, TbChevronRight } from "react-icons/tb";
 
 interface Discover {
   header: string;
-  tagline: string;
+  description: string;
   image_urls: string[];
 }
 
@@ -29,7 +29,7 @@ export default function Hero() {
 
       const { data, error } = await supabase
         .from("discovery")
-        .select("header, tagline, image_urls")
+        .select("header, description, image_urls")
         .ilike("header", formattedName);
 
       if (error || !data) {
@@ -88,11 +88,11 @@ export default function Hero() {
       )}
 
       <div className="absolute inset-0 flex flex-col justify-center items-center gap-6 text-white pt-24 z-10 px-8 md:px-10 2xl:px-0">
-        <h1 className="playfair text-4xl lg:text-6xl font-bold">
+        <h1 className="playfair text-4xl lg:text-5xl font-bold">
           {data.header}
         </h1>
         <p className="text-xs md:text-sm text-gray-200 max-w-3xl">
-          {data.tagline}
+          {data.description}
         </p>
       </div>
     </div>

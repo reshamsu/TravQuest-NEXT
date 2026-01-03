@@ -41,7 +41,7 @@ export default function Hero() {
     };
 
     fetchDestination();
-  }, [country]);
+  }, [name]);
 
   if (!data) {
     return (
@@ -85,7 +85,9 @@ export default function Hero() {
 
       {/* Text */}
       <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col justify-center items-center text-center gap-4 text-white z-10 pt-22 px-8">
-        <h1 className="playfair text-5xl lg:text-6xl font-bold">{data.country}</h1>
+        <h1 className="playfair text-5xl lg:text-6xl font-bold">
+          {data.country}
+        </h1>
         <p className="text-xs md:text-sm text-gray-200 max-w-3xl">
           {data.tagline}
         </p>

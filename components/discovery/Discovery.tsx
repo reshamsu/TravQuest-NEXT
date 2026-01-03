@@ -8,10 +8,14 @@ import { supabase } from "@/lib/supabaseClient";
 
 interface Discover {
   id: number;
-  header: string;
-  tagline: string;
+  name: string;
+  introduction: string;
+  highlight: string;
   description: string;
   city: string[];
+  attractions: string[];
+  facilities: string[];
+  room_rates: string[];
   image_urls: string[];
 }
 
@@ -54,8 +58,8 @@ export default function Discover({ city }: DiscoveryProps) {
       setLoading(true);
 
       const { data, error } = await supabase
-        .from("discovery")
-        .select("id, header, tagline, description, city, image_urls")
+        .from("hotels")
+        .select("id, name, introduction, highlight, description, city, attractions, facilities, room_rates, image_urls")
         .contains("city", [city]);
 
       if (error) {
@@ -118,7 +122,7 @@ export default function Discover({ city }: DiscoveryProps) {
             >
               <Image
                 src={item.image_urls?.[0] ?? "/assets/placeholder.webp"}
-                alt={item.header}
+                alt={item.name}
                 fill
                 className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110"
               />
@@ -128,9 +132,9 @@ export default function Discover({ city }: DiscoveryProps) {
               <div className="relative z-10 h-full flex flex-col items-start text-start justify-between gap-4 p-8 text-white">
                 <div className="flex flex-col gap-1">
                   <label className="text-sm font-extrabold uppercase text-[#f2836f]">
-                    {item.tagline}
+                    {item.introduction}
                   </label>
-                  <h3 className="playfair text-xl font-bold">{item.header}</h3>
+                  <h3 className="playfair text-xl font-bold">{item.name}</h3>
                 </div>
 
                 <div>
@@ -139,7 +143,7 @@ export default function Discover({ city }: DiscoveryProps) {
                   </p>
                   <Link
                     href={`/destinations/${slugify(city)}/discover/${slugify(
-                      item.header
+                      item.city[0]
                     )}`}
                     className="select-none btn-ogdual-sm btn-dynamic"
                   >

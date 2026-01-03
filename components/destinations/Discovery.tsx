@@ -126,10 +126,10 @@ export default function Discovery({ city }: DiscoveryProps) {
 
               <div className="relative z-10 h-full flex flex-col justify-between p-8 text-white text-left">
                 <div>
-                  <span className="text-xs font-bold text-[#f2836f]">
+                  <span className="text-sm font-bold text-[#f2836f]">
                     {item.tagline}
                   </span>
-                  <h3 className="playfair text-xl font-bold mt-1">
+                  <h3 className="playfair text-2xl font-bold mt-1">
                     {item.header}
                   </h3>
                 </div>

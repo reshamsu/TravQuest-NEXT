@@ -6,12 +6,11 @@ import { supabase } from "@/lib/supabaseClient";
 import { TbSend2 } from "react-icons/tb";
 
 const FALLBACK_IMAGES = ["/assets/hero/.jpg"];
-
 interface HeroRow {
-  title: string;
-  subtitle: string;
-  page_type: string[];
-  image_urls: string[];
+  hero_title: string;
+  hero_subtitle: string;
+  hero_page_type: string[];
+  hero_image_urls: string[];
 }
 interface ContactForm {
   full_name: string;
@@ -23,15 +22,6 @@ interface ContactForm {
 }
 
 const Hero = () => {
-  // HARD GUARD
-  if (!supabase) {
-    return (
-      <div className="p-10 text-center text-teal-600">
-        Supabase not configured.
-      </div>
-    );
-  }
-
   const [current, setCurrent] = useState(0);
   const [images, setImages] = useState<string[]>(FALLBACK_IMAGES);
   const [title, setTitle] = useState("Get in Touch");
@@ -59,22 +49,25 @@ const Hero = () => {
       const { data, error } = await supabase
         .from("hero")
         .select("*")
-        .contains("page_type", ["Contact"])
+        .contains("hero_page_type", ["Contact"])
         .order("created_at", { ascending: true })
         .limit(1)
         .single();
 
-      if (error || !data) return;
+      if (error || !data) {
+        console.warn("Using fallback hero content");
+        return;
+      }
 
       const hero = data as HeroRow;
 
-      if (hero.image_urls?.length) {
-        setImages(hero.image_urls);
+      if (hero.hero_image_urls?.length) {
+        setImages(hero.hero_image_urls);
       }
 
-      if (hero.title) setTitle(hero.title);
-      if (hero.subtitle) setSubtitle(hero.subtitle);
-      if (hero.page_type) setPageType(hero.page_type[0]);
+      if (hero.hero_title) setTitle(hero.hero_title);
+      if (hero.hero_subtitle) setSubtitle(hero.hero_subtitle);
+      if (hero.hero_page_type) setPageType(hero.hero_page_type[0]);
     };
 
     fetchHero();

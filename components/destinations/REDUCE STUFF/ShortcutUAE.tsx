@@ -94,7 +94,7 @@ const Destinations: React.FC = () => {
     fetchDestinations();
   }, []);
 
-   if (loading) {
+  if (loading) {
     return (
       <div className="h-[40vh] flex items-center justify-center text-gray-500">
         .
