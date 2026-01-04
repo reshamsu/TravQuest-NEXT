@@ -55,7 +55,7 @@ const Welcome = () => {
   const images = data.image_collages || [];
 
   return (
-    <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-16 px-8 md:px-10 2xl:px-0">
+    <div className="max-w-6xl mx-auto py-16 md:py-22 grid grid-cols-1 md:grid-cols-2 gap-16 px-8 md:px-10 2xl:px-0 rounded-4xl">
       {/* CONTENT */}
       <div className="flex flex-col justify-center gap-4 md:gap-6">
         <div className="flex flex-col gap-1">
