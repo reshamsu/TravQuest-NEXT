@@ -142,10 +142,10 @@ const Destinations: React.FC = () => {
 
                 <div className="relative z-10 h-full flex flex-col justify-between gap-3.5 p-8 text-white">
                   <div>
-                    <label className="text-sm font-semibold uppercase text-[#f2836f]">
+                    <label className="text-sm font-bold uppercase text-[#f2836f]">
                       {hotel.city}
                     </label>
-                    <h2 className="playfair text-2xl font-bold">
+                    <h2 className="playfair text-xl font-bold">
                       {hotel.name}
                     </h2>
                   </div>

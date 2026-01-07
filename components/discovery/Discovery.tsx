@@ -59,11 +59,11 @@ export default function Discover({ city }: DiscoveryProps) {
 
       const { data, error } = await supabase
         .from("hotels")
-        .select("id, name, introduction, highlight, description, city, attractions, facilities, room_rates, image_urls")
+        .select("*")
         .contains("city", [city]);
 
       if (error) {
-        console.error("Discovery fetch failed:", error);
+        console.error("Error fetching discoveries:", error);
         setItems([]);
       } else {
         setItems(data ?? []);

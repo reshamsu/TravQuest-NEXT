@@ -79,7 +79,7 @@ export default function Discover({ city }: HotelProps) {
   }, [city]);
 
   if (loading) {
-    return <div className="py-20 text-center">Loading hotels…</div>;
+    return <div className="h-[70vh] flex items-center justify-center text-gray-500">Loading hotels…</div>;
   }
 
   if (!items.length) {

@@ -8,10 +8,10 @@ import { supabase } from "@/lib/supabaseClient";
 
 interface Package {
   id: number;
-  name: string;
+  title: string;
   tagline: string;
   description: string;
-  package_location: string[];
+  city: string[];
   image_urls: string[];
   created_at?: string;
 }
@@ -71,11 +71,11 @@ const Packages: React.FC = () => {
 
         return {
           id: row.id,
-          name: row.name,
+          title: row.title,
           tagline: row.tagline,
           description: row.description,
-          package_location: Array.isArray(row.package_location)
-            ? row.package_location
+          city: Array.isArray(row.city)
+            ? row.city
             : [],
           image_urls: images,
           created_at: row.created_at,
@@ -130,21 +130,21 @@ const Packages: React.FC = () => {
                     src={
                       pack.image_urls?.[0] || "/assets/banner/property1.webp"
                     }
-                    alt={pack.name}
+                    alt={pack.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
 
                 <div className="py-4 px-1 flex flex-col gap-1">
-                  {pack.package_location.length > 0 && (
+                  {pack.city.length > 0 && (
                     <span className="text-xs text-[#f2836f] font-bold">
-                      {pack.package_location.join(" · ")}
+                      {pack.city.join(" · ")}
                     </span>
                   )}
 
                   <h4 className="text-sm font-bold text-gray-700">
-                    {pack.name}
+                    {pack.title}
                   </h4>
 
                   <p className="text-xs text-gray-500 line-clamp-2">

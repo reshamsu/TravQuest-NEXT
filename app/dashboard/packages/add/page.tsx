@@ -7,10 +7,10 @@ import { supabase } from "@/lib/supabaseClient";
 import { TbSend2 } from "react-icons/tb";
 
 interface Package {
-  name: string;
+  title: string;
   tagline: string;
   description: string;
-  package_location: string[];
+  city: string[];
   image_urls: string[];
 }
 
@@ -32,10 +32,10 @@ export default function Page() {
   const [message, setMessage] = useState("");
 
   const [newPackage, setNewPackage] = useState<Package>({
-    name: "",
+    title: "",
     tagline: "",
     description: "",
-    package_location: [],
+    city: [],
     image_urls: [],
   });
 
@@ -112,10 +112,10 @@ export default function Page() {
     const uploadedUrls = images ? await handleImageUpload() : [];
 
     const payload = {
-      name: newPackage.name,
+      title: newPackage.title,
       tagline: newPackage.tagline,
       description: newPackage.description,
-      package_location: newPackage.package_location,
+      city: newPackage.city,
       image_urls: uploadedUrls.length ? uploadedUrls : newPackage.image_urls,
     };
 
@@ -130,10 +130,10 @@ export default function Page() {
       alert("Failed to add package.");
     } else {
       setNewPackage({
-        name: "",
+        title: "",
         tagline: "",
         description: "",
-        package_location: [],
+        city: [],
         image_urls: [],
       });
       setImages(null);
@@ -171,7 +171,7 @@ export default function Page() {
               <label className="text-sm font-bold">Package Name*</label>
               <input
                 name="name"
-                value={newPackage.name}
+                value={newPackage.title}
                 onChange={handleChange}
                 placeholder="Enter package name"
                 className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 capitalize"
@@ -209,12 +209,12 @@ export default function Page() {
             <div className="flex flex-col gap-2">
               <label className="text-sm font-bold">Package City*</label>
               <select
-                name="package_location"
-                value={newPackage.package_location[0] || ""}
+                name="city"
+                value={newPackage.city[0] || ""}
                 onChange={(e) =>
                   setNewPackage((prev) => ({
                     ...prev,
-                    package_location: [e.target.value],
+                    city: [e.target.value],
                   }))
                 }
                 className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3"

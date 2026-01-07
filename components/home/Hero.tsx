@@ -92,14 +92,14 @@ const Hero = () => {
         {/* CONTROLS */}
         <button
           onClick={prevSlide}
-          className="hidden xl:flex absolute top-1/2 left-6 -translate-y-1/2 text-white z-20"
+          className="hidden xl:flex absolute top-1/2 left-4 -translate-y-1/2 text-white z-20"
         >
           <TbChevronLeft size={44} />
         </button>
 
         <button
           onClick={nextSlide}
-          className="hidden xl:flex absolute top-1/2 right-6 -translate-y-1/2 text-white z-20"
+          className="hidden xl:flex absolute top-1/2 right-4 -translate-y-1/2 text-white z-20"
         >
           <TbChevronRight size={44} />
         </button>

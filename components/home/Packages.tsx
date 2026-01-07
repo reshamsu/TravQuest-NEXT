@@ -8,13 +8,22 @@ import { supabase } from "@/lib/supabaseClient";
 
 interface Package {
   id: number;
-  name: string;
+  title: string;
   tagline: string;
   description: string;
-  package_location: string[];
+  city: string[];
   image_urls: string[];
   created_at?: string;
 }
+
+const slugify = (text: string) => {
+  if (!text) return "";
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "");
+};
 
 const easeOut: Transition["ease"] = [0.25, 0.1, 0.25, 1];
 
@@ -27,10 +36,8 @@ const rowVariants: Variants = {
   }),
 };
 
-const Packages: React.FC = () => {
-  // ✅ ACTIVE SWITCH STATE
+export default function Packages({ title }: Package) {
   const [activeCity, setActiveCity] = useState<"Dubai" | "Abu Dhabi">("Dubai");
-
   const [allPackages, setAllPackages] = useState<Package[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -64,10 +71,10 @@ const Packages: React.FC = () => {
 
         return {
           id: row.id,
-          name: row.name,
+          title: row.title,
           tagline: row.tagline,
           description: row.description,
-          package_location: row.package_location ?? [],
+          city: row.city ?? [],
           image_urls: images,
           created_at: row.created_at,
         };
@@ -80,7 +87,7 @@ const Packages: React.FC = () => {
     fetchPackages();
   }, []);
 
-   if (loading) {
+  if (loading) {
     return (
       <div className="h-[40vh] flex items-center justify-center text-gray-500">
         .
@@ -88,9 +95,8 @@ const Packages: React.FC = () => {
     );
   }
 
-  // ✅ FILTERED VIEW (reactive)
   const visiblePackages = allPackages.filter((pkg) =>
-    pkg.package_location.includes(activeCity)
+    pkg.city.includes(activeCity)
   );
 
   return (
@@ -148,7 +154,7 @@ const Packages: React.FC = () => {
                     src={
                       pack.image_urls?.[0] || "/assets/banner/property1.webp"
                     }
-                    alt={pack.name}
+                    alt={pack.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
@@ -160,19 +166,23 @@ const Packages: React.FC = () => {
                   </span>
 
                   <h4 className="text-sm font-bold text-gray-700">
-                    {pack.name}
+                    {pack.title}
                   </h4>
 
                   <p className="text-xs text-gray-500 line-clamp-2">
                     {pack.description}
                   </p>
 
-                  <Link
-                    href="/"
-                    className="mt-3 select-none btn-orange-outline btn-dynamic"
-                  >
-                    Explore
-                  </Link>
+                  {pack.title && (
+                    <Link
+                      href={`/destinations/${slugify(
+                        pack.city[0]
+                      )}/packages/${slugify(pack.title)}`}
+                      className="mt-3 select-none btn-orange-outline btn-dynamic"
+                    >
+                      Explore
+                    </Link>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -180,6 +190,4 @@ const Packages: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default Packages;
+}
