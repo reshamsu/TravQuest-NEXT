@@ -13,7 +13,6 @@ interface Package {
   description: string;
   city: string[];
   image_urls: string[];
-  created_at?: string;
 }
 
 const slugify = (text: string) => {
@@ -36,7 +35,7 @@ const rowVariants: Variants = {
   }),
 };
 
-export default function Packages({ title }: Package) {
+export default function Packages() {
   const [activeCity, setActiveCity] = useState<"Dubai" | "Abu Dhabi">("Dubai");
   const [allPackages, setAllPackages] = useState<Package[]>([]);
   const [loading, setLoading] = useState(true);
